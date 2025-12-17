@@ -258,3 +258,50 @@ body{
   .brand-title{font-size:44px}
   .profile{width:120px;height:120px}
 }
+/* ===== NAV: Center brand + menu under it ===== */
+.nav.nav-center{
+  position: relative;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 7%;
+}
+
+.nav-top{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.nav-title{
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: .8px;
+  color: #fff;
+  text-shadow: 0 10px 30px rgba(0,0,0,.55);
+}
+
+.nav-bottom{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.nav-bottom a{
+  color: #fff;
+  text-decoration: none;
+  opacity: .9;
+  font-size: 15px;
+}
+.nav-bottom a:hover{opacity:1}
+
+/* Right-side logo tinted red (same logo.png) */
+.logo-red{
+  filter: sepia(1) saturate(12) hue-rotate(330deg) brightness(1.1);
+}
