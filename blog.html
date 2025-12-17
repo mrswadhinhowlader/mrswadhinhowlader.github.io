@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog | Swadhin Digital Hub</title>
   <meta name="description" content="Vlogs + guides on n8n automation, Messenger & WhatsApp automation, Telegram bots, Webhooks, API integrations, and growth systems.">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 
   <style>
+    /* ✅ CLICK FIX (overlay আর ক্লিক ব্লক করবে না) */
+    .hero{ position:relative; }
+    .hero .overlay{
+      pointer-events:none !important;
+      z-index:0;
+    }
+    .nav, .hero-content, main, footer{
+      position:relative;
+      z-index:2;
+    }
+
     /* Page-only premium styling (won’t break your main site) */
     .blog-wrap{ padding:80px 7%; }
     .blog-shell{ max-width:1200px; margin:0 auto; }
@@ -121,7 +132,6 @@
       overflow:hidden;
       display:flex;
       flex-direction:column;
-      gap:0;
     }
 
     .post-card img{
@@ -132,6 +142,7 @@
       border:1px solid rgba(255,255,255,.14);
       box-shadow:0 14px 40px rgba(0,0,0,.28);
       margin-bottom:14px;
+      display:block;
     }
 
     .post-card h3{
@@ -168,6 +179,7 @@
       color:#fff;
       text-decoration:none;
       transition: transform .2s ease, border-color .2s ease;
+      cursor:pointer;
     }
     .mini-btn:hover{
       transform: translateY(-1px);
@@ -197,17 +209,21 @@
   <!-- Keep your same nav style -->
   <nav class="nav nav-center">
     <div class="nav-top">
-      <a href="index.html" aria-label="Home"><img src="logo.png" class="logo" alt="Swadhin Digital Hub Logo"></a>
+      <a href="./index.html" aria-label="Home">
+        <img src="./logo.png" class="logo" alt="Swadhin Digital Hub Logo">
+      </a>
       <div class="nav-title">Swadhin Digital Hub</div>
-      <a href="index.html" aria-label="Home"><img src="logo.png" class="logo logo-red" alt="Swadhin Digital Hub Logo Red"></a>
+      <a href="./index.html" aria-label="Home">
+        <img src="./logo.png" class="logo logo-red" alt="Swadhin Digital Hub Logo Red">
+      </a>
     </div>
 
     <div class="nav-bottom">
-      <a href="index.html#about">About</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#projects">Projects</a>
-      <a class="active" href="blog.html">Blog</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="./index.html#about">About</a>
+      <a href="./index.html#services">Services</a>
+      <a href="./index.html#projects">Projects</a>
+      <a class="active" href="./blog.html">Blog</a>
+      <a href="./index.html#contact">Contact</a>
     </div>
   </nav>
 
@@ -231,7 +247,7 @@
 
       <div class="hero-actions">
         <a class="cta" href="#latest">Latest Posts</a>
-        <a class="cta ghost" href="index.html#contact">Work With Me</a>
+        <a class="cta ghost" href="./index.html#contact">Work With Me</a>
       </div>
     </div>
   </div>
@@ -252,9 +268,9 @@
         <div class="divider" style="height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.20),transparent); margin:16px 0;"></div>
 
         <div class="buttons">
-          <a class="btn" href="index.html#projects">See Projects</a>
-          <a class="btn" href="index.html#services">View Services</a>
-          <a class="btn" href="index.html#contact">Contact</a>
+          <a class="btn" href="./index.html#projects">See Projects</a>
+          <a class="btn" href="./index.html#services">View Services</a>
+          <a class="btn" href="./index.html#contact">Contact</a>
         </div>
       </div>
 
@@ -264,8 +280,8 @@
           Would you like a tutorial on your exact workflow? Send your problem + screenshots, we’ll publish a clean solution post.
         </p>
         <div class="post-cta" style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="cta" href="index.html#contact">Request a Post</a>
-          <a class="cta ghost" href="index.html#contact">Book Setup</a>
+          <a class="cta" href="./index.html#contact">Request a Post</a>
+          <a class="cta ghost" href="./index.html#contact">Book Setup</a>
         </div>
       </div>
     </section>
@@ -273,10 +289,10 @@
     <!-- Controls (UI only; no JS needed) -->
     <section class="controls" aria-label="Search and filter">
       <div class="search" title="UI only (optional JS later)">
-        🔍 <input type="text" placeholder=" Search posts (example: messenger, webhook, whatsapp, telegram)..." />
+        🔍 <input type="text" placeholder="Search posts (example: messenger, webhook, whatsapp, telegram)..." />
       </div>
 
-      <select class="select" title=" UI only (optional JS later)">
+      <select class="select" title="UI only (optional JS later)">
         <option>Filter: All Categories</option>
         <option>Messenger Automation</option>
         <option>WhatsApp Business</option>
@@ -289,7 +305,7 @@
 
     <!-- Featured -->
     <section class="featured" id="latest" aria-label="Featured post">
-      <img class="featured-cover" src="posts/images/first-vlog-cover.jpg" alt="Featured vlog cover">
+      <img class="featured-cover" src="./posts/images/first-vlog-cover.jpg" alt="Featured vlog cover">
 
       <div class="card" style="margin-bottom:0;">
         <h2 class="blog-title">How We Build Messenger Automation in n8n</h2>
@@ -307,7 +323,8 @@
 
         <div class="read-more" style="margin-top:14px;">
           <span class="small">5–7 min read • includes vlog</span>
-          <a class="mini-btn" href="posts/first-vlog.html">Read / Watch →</a>
+          <!-- ✅ FIXED LINK (safe path) -->
+          <a class="mini-btn" href="./posts/first-vlog.html">Read / Watch →</a>
         </div>
       </div>
     </section>
@@ -315,8 +332,8 @@
     <!-- Blog grid -->
     <section class="blog-grid" aria-label="All posts">
       <!-- Post 1 -->
-      <article class=" card post-card">
-        <img src="posts/images/first-vlog-cover.jpg" alt="Messenger Automation vlog cover">
+      <article class="card post-card">
+        <img src="./posts/images/first-vlog-cover.jpg" alt="Messenger Automation vlog cover">
         <div class="post-meta">
           <span class="meta-chip">📅 Dec 18, 2025</span>
           <span class="meta-chip">Messenger Automation</span>
@@ -328,13 +345,14 @@
         </p>
         <div class="read-more">
           <span class="small">Vlog + breakdown</span>
-          <a class="mini-btn" href="posts/first-vlog.html">Open →</a>
+          <!-- ✅ FIXED LINK (safe path) -->
+          <a class="mini-btn" href="./posts/first-vlog.html">Open →</a>
         </div>
       </article>
 
       <!-- Placeholder Post 2 -->
-      <article class=" card post-card">
-        <img src="og-image.png" alt="WhatsApp Automation cover">
+      <article class="card post-card">
+        <img src="./og-image.png" alt="WhatsApp Automation cover">
         <div class="post-meta">
           <span class="meta-chip">Coming soon</span>
           <span class="meta-chip">WhatsApp Business</span>
@@ -346,13 +364,13 @@
         </p>
         <div class="read-more">
           <span class="small">Template post</span>
-          <a class="mini-btn" href="index.html#contact">Request →</a>
+          <a class="mini-btn" href="./index.html#contact">Request →</a>
         </div>
       </article>
 
       <!-- Placeholder Post 3 -->
-      <article class=" card post-card">
-        <img src="og-image.png" alt="Webhook and API integrations cover">
+      <article class="card post-card">
+        <img src="./og-image.png" alt="Webhook and API integrations cover">
         <div class="post-meta">
           <span class="meta-chip">Coming soon</span>
           <span class="meta-chip">Webhooks & APIs</span>
@@ -363,7 +381,7 @@
         </p>
         <div class="read-more">
           <span class="small">Technical guide</span>
-          <a class="mini-btn" href="index.html#contact">Request →</a>
+          <a class="mini-btn" href="./index.html#contact">Request →</a>
         </div>
       </article>
     </section>
@@ -374,8 +392,8 @@
       <div class="read-more">
         <span class="small">Want your automation published as a case study?</span>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="mini-btn" href="index.html#contact">Work With Me</a>
-          <a class="mini-btn" href="index.html">Home →</a>
+          <a class="mini-btn" href="./index.html#contact">Work With Me</a>
+          <a class="mini-btn" href="./index.html">Home →</a>
         </div>
       </div>
     </section>
@@ -389,4 +407,3 @@
 
 </body>
 </html>
-
