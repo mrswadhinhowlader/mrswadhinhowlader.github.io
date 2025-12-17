@@ -1,80 +1,94 @@
 /* ===== Base ===== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-html{scroll-behavior: smooth}
-body{color:#fff;background:#000;line-height:1.6}
+html{scroll-behavior:smooth}
+body{
+  color:#fff;
+  line-height:1.6;
+  /* body কালো না রেখে একই vibe রাখছি যাতে hero শেষ হলেও black banner না আসে */
+  background: radial-gradient(circle at 20% 10%, rgba(255,152,0,.08), transparent 45%),
+              radial-gradient(circle at 80% 15%, rgba(0,170,255,.07), transparent 45%),
+              #05060a;
+}
 
 /* ===== Hero Background ===== */
 .hero{
   min-height:100vh;
-  background:url("background.jpg") center/cover no-repeat fixed;
-  position: relative;
+  background:url("background.jpg") center/cover no-repeat;
+  position:relative;
 }
 
-/* Better overlay for premium contrast */
+/* Premium overlay */
 .overlay{
-  position: absolute;inset:0;
+  position:absolute;inset:0;
   background:
-    radial-gradient(circle at 20% 20%, rgba(255,152,0,.18), transparent 45%),
-    radial-gradient(circle at 80% 30%, rgba(0,170,255,.12), transparent 45%),
-    linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.80));
+    radial-gradient(circle at 20% 20%, rgba(255,152,0,.20), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(0,170,255,.14), transparent 45%),
+    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.82));
 }
 
-/* ===== Navbar ===== */
+/* ===== Navbar (logo left, brand+menu right) ===== */
 .nav{
-  position: relative;
+  position:relative;
   z-index:5;
-  display: flex;
+  display:flex;
   justify-content:space-between;
-  align-items: center;
+  align-items:center;
   padding:18px 7%;
 }
 
-.brand{
-  display: flex;
-  gap:10px;
-  align-items: center;
-  font-weight:800;
-  letter-spacing:.3px;
-}
-
+.brand{display:flex;align-items:center}
 .logo{
-  width:38px;height:38px;
-  border-radius:10px;
+  width:44px;height:44px;
+  border-radius:12px;
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.06);
 }
 
+.nav-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:8px;
+}
+
+.brand-name{
+  font-weight:900;
+  font-size:20px;
+  letter-spacing:.6px;
+  opacity:.95;
+  text-shadow:0 10px 30px rgba(0,0,0,.45);
+}
+
 .menu a{
   color:#fff;
-  text-decoration: none;
+  text-decoration:none;
   margin-left:18px;
   opacity:.88;
   font-size:15px;
-  transition: opacity .2s ease;
+  transition:opacity .2s ease;
 }
-.menu a: hover{opacity:1}
+.menu a:hover{opacity:1}
 
 /* ===== Hero Content ===== */
 .hero-content{
-  position: relative;
+  position:relative;
   z-index:3;
-  text-align: left;
-  padding:90px 7% 60px;
-  max-width:980px;
+  text-align:left;
+  padding:70px 7% 70px; /* উপরে কমানো যাতে big gap না থাকে */
+  max-width:1000px;
 }
 
 .profile{
   width:150px;height:150px;
   border-radius:50%;
   border:3px solid #ff9800;
-  object-fit: cover;
+  object-fit:cover;
   margin-bottom:16px;
   box-shadow:0 18px 40px rgba(0,0,0,.45);
 }
 
-/* Brand headline */
 .brand-title{
-  font-size:56px;
+  font-size:66px;
   font-weight:900;
   letter-spacing:1px;
   margin-top:10px;
@@ -95,102 +109,40 @@ body{color:#fff;background:#000;line-height:1.6}
   max-width:780px;
 }
 
-/* CTA button premium */
+/* ===== CTA Buttons row ===== */
+.hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
 .cta{
   display:inline-block;
-  margin-top:22px;
   background:#ff9800;
   color:#000;
   padding:12px 18px;
   border-radius:12px;
-  text-decoration: none;
-  font-weight:800;
+  text-decoration:none;
+  font-weight:900;
   border:1px solid rgba(255,255,255,.18);
   box-shadow:0 14px 30px rgba(255,152,0,.18);
   transition:transform .2s ease, box-shadow .2s ease;
 }
-.cta: hover{
+.cta:hover{
   transform:translateY(-2px);
   box-shadow:0 18px 36px rgba(255,152,0,.26);
 }
 
-/* ===== Main Wrap (Fix black banner issue) ===== */
-.wrap{
-  padding:80px 7%;
-  background:linear-gradient(
-    to the bottom,
-    rgba(0,0,0,0.15),
-    rgba(0,0,0,0.90)
-  );
-}
-
-/* ===== Cards (Glassmorphism premium) ===== */
-.card{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:18px;
-  padding:32px;
-  margin-bottom:22px;
-  backdrop-filter:blur(18px);
-  box-shadow:0 18px 45px rgba(0,0,0,.35);
-}
-
-.card h2{
-  font-size:30px;
-  margin-bottom:12px;
-  letter-spacing:.2px;
-}
-
-.grid{
-  display: grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:16px;
-  margin-bottom:22px;
-}
-
-.card h3{font-size:20px;margin-bottom:10px}
-.card p{line-height:1.75;opacity:.94}
-
-/* ===== Buttons ===== */
-.buttons{
-  display: grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:12px;
-  margin-top:14px;
-}
-
-.btn{
-  background:rgba(0,0,0,.45);
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:14px;
-  padding:12px 14px;
+.cta.ghost{
+  background:rgba(0,0,0,.35);
   color:#fff;
-  text-decoration: none;
-  text-align: center;
-  transition:border-color .2s ease, transform .2s ease;
+  box-shadow:none;
+  border:1px solid rgba(255,255,255,.18);
 }
+.cta.ghost:hover{border-color:#ff9800}
 
-.btn:hover{
-  border-color:#ff9800;
-  transform:translateY(-1px);
-}
-
-/* ===== Footer ===== */
-.footer{
-  text-align: center;
-  padding:26px;
-  background:#000;
-  opacity:.9;
-  border-top:1px solid rgba(255,255,255,.08);
-}
-
-/* ===== Mobile ===== */
-@media (max-width: 768px){
-  .menu{display:none;}
-  .hero-content{padding:90px 6% 60px;text-align:left}
-  .brand-title{font-size:40px}
-  .profile{width:120px;height:120px}
-}
+/* ===== Badges ===== */
 .badges{
   display:flex;
   flex-wrap:wrap;
@@ -205,4 +157,104 @@ body{color:#fff;background:#000;line-height:1.6}
   border-radius:999px;
   font-size:13px;
   opacity:.95;
+}
+
+/* ===== Main Wrap (BLACK BANNER FIX) ===== */
+.wrap{
+  padding:80px 7%;
+  /* এখানে gradient ঠিক করা হলো */
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.00),
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.92)
+  );
+}
+
+/* ===== Cards ===== */
+.card{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:18px;
+  padding:32px;
+  margin-bottom:22px;
+  backdrop-filter:blur(18px);
+  box-shadow:0 18px 45px rgba(0,0,0,.35);
+}
+
+.card h2{font-size:30px;margin-bottom:12px;letter-spacing:.2px}
+.card h3{font-size:20px;margin-bottom:10px}
+.card p{line-height:1.75;opacity:.94}
+
+/* ===== Grid ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+  margin-bottom:22px;
+}
+
+/* ===== Buttons ===== */
+.buttons{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+
+.btn{
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:14px;
+  padding:12px 14px;
+  color:#fff;
+  text-decoration:none;
+  text-align:center;
+  transition:border-color .2s ease, transform .2s ease;
+}
+.btn:hover{border-color:#ff9800;transform:translateY(-1px)}
+
+/* ===== Premium Sections + Projects ===== */
+.section-head{margin:40px 0 14px}
+.section-title{font-size:30px;margin-bottom:8px}
+.section-sub{opacity:.85;max-width:820px}
+
+.list{margin-top:10px;padding-left:18px}
+.list li{margin:8px 0;opacity:.95}
+
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+  margin-bottom:22px;
+}
+.project img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  margin-bottom:14px;
+}
+
+.accent-link{color:#ff9800;text-decoration:none}
+.accent-link:hover{text-decoration:underline}
+
+/* ===== Footer ===== */
+.footer{
+  text-align:center;
+  padding:26px;
+  background:rgba(0,0,0,.92);
+  opacity:.95;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px){
+  .menu{display:none;}
+  .nav-right{align-items:flex-start}
+  .brand-name{font-size:18px}
+  .hero-content{padding:70px 6% 55px}
+  .brand-title{font-size:44px}
+  .profile{width:120px;height:120px}
 }
