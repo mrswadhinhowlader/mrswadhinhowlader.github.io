@@ -9,9 +9,15 @@
 
   <!-- Premium-only for this post page (won’t affect other pages) -->
   <style>
+    /* ✅ CLICK FIX (overlay আর ক্লিক ব্লক করবে না) */
+    .hero{ position:relative; }
+    .hero .overlay{ pointer-events:none !important; z-index:0; }
+    .nav, .hero-content, main, footer{ position:relative; z-index:2; }
+
     .post { max-width: 980px; margin: 0 auto; }
     .post-head { display:flex; flex-direction:column; gap:10px; }
-    .post-meta {
+
+    .post-meta{
       display:flex; flex-wrap:wrap; gap:10px;
       align-items:center; opacity:.95; font-size:14px;
     }
@@ -22,6 +28,7 @@
       border:1px solid rgba(255,255,255,.16);
       backdrop-filter: blur(14px);
     }
+
     .post-cover{
       width:100%;
       border-radius:18px;
@@ -29,18 +36,23 @@
       box-shadow:0 20px 60px rgba(0,0,0,.35);
       margin:18px 0 8px;
       object-fit:cover;
+      display:block;
     }
+
     .post p{ opacity:.94; line-height:1.85; font-size:16px; }
+
     .post h2{
       margin-top:22px;
       font-size:26px;
       letter-spacing:.2px;
     }
+
     .divider{
       height:1px; width:100%;
       background:linear-gradient(90deg, transparent, rgba(255,255,255,.20), transparent);
       margin:18px 0;
     }
+
     .video-wrap{
       position:relative;
       width:100%;
@@ -56,10 +68,12 @@
       width:100%; height:100%;
       border:0;
     }
+
     .post-cta{
       display:flex; flex-wrap:wrap; gap:12px;
       margin-top:18px;
     }
+
     .note{
       margin-top:14px;
       padding:14px 16px;
@@ -68,6 +82,7 @@
       border:1px solid rgba(255,152,0,.20);
       opacity:.98;
     }
+
     .mini-links{
       display:flex; flex-wrap:wrap; gap:10px;
       margin-top:10px;
@@ -78,8 +93,14 @@
       background:rgba(0,0,0,.35);
       border:1px solid rgba(255,255,255,.14);
       color:#fff; text-decoration:none;
+      transition: transform .2s ease, border-color .2s ease;
+      cursor:pointer;
     }
-    .mini-link:hover{ border-color: rgba(255,152,0,.45); transform: translateY(-1px); }
+    .mini-link:hover{
+      border-color: rgba(255,152,0,.45);
+      transform: translateY(-1px);
+    }
+
     @media (max-width:768px){
       .brand-title{ font-size:36px !important; }
       .post h2{ font-size:22px; }
@@ -94,9 +115,13 @@
 
   <nav class="nav nav-center">
     <div class="nav-top">
-      <a href="../index.html" aria-label="Home"><img src="../logo.png" class="logo" alt="Logo"></a>
+      <a href="../index.html" aria-label="Home">
+        <img src="../logo.png" class="logo" alt="Swadhin Digital Hub Logo">
+      </a>
       <div class="nav-title">Swadhin Digital Hub</div>
-      <a href="../index.html" aria-label="Home"><img src="../logo.png" class="logo logo-red" alt="Logo Red"></a>
+      <a href="../index.html" aria-label="Home">
+        <img src="../logo.png" class="logo logo-red" alt="Swadhin Digital Hub Logo Red">
+      </a>
     </div>
 
     <div class="nav-bottom">
@@ -134,7 +159,8 @@
 <main class="wrap">
   <article class="card post">
 
-    <img class="post-cover" src="images/first-vlog-cover.jpg" alt="Messenger automation workflow cover image">
+    <!-- ✅ PATH OK: posts/first-vlog.html এর ভেতর images/first-vlog-cover.jpg -->
+    <img class="post-cover" src="./images/first-vlog-cover.jpg" alt="Messenger automation workflow cover image">
 
     <p class="note">
       This post shows a real automation mindset: fast response, clean data, and admin control—without messy manual work.
@@ -191,3 +217,4 @@
 
 </body>
 </html>
+
