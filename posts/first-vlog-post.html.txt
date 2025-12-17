@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How We Build Messenger Automation in n8n | Swadhin Digital Hub</title>
+  <meta name="description" content="A practical vlog-style breakdown of building Messenger Automation in n8n: lead capture, auto replies, admin alerts, and handover.">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="overlay"></div>
+
+  <nav class="nav nav-center">
+    <div class="nav-top">
+      <a href="../index.html" aria-label="Home"><img src="../logo.png" class="logo" alt="Logo"></a>
+      <div class="nav-title">Swadhin Digital Hub</div>
+      <a href="../index.html" aria-label="Home"><img src="../logo.png" class="logo logo-red" alt="Logo Red"></a>
+    </div>
+
+    <div class="nav-bottom">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#services">Services</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <h1 class="brand-title" style="font-size:44px;">How We Build Messenger Automation in n8n</h1>
+      <p class="subtitle">Dec 18, 2025 • Messenger Automation • n8n Workflow</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="card post">
+    <img class="post-cover" src="images/first-vlog-cover.jpg" alt="Messenger automation workflow cover image">
+
+    <p>
+      In this post, we break down a real Messenger Automation system built in <strong>n8n</strong>.
+      The goal: capture leads, reply instantly, and notify the admin with full context—without manual work.
+    </p>
+
+    <h2>Watch the Vlog</h2>
+
+    <!-- YouTube embed: শুধু VIDEO_ID বসাবে -->
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <h2>Workflow Structure (High Level)</h2>
+    <ul class="list">
+      <li>Webhook ইনপুট → নাম/ফোন auto-detect</li>
+      <li>Intent detect → FAQ / pricing / order / human handover</li>
+      <li>Google Sheets / CRM sync → clean data rows</li>
+      <li>Admin alert (Telegram) → instant notification</li>
+      <li>Error handling + retries + logging</li>
+    </ul>
+
+    <h2>Why it Works</h2>
+    <p>
+      This system reduces response time, prevents missed leads, and keeps every conversation organized.
+      The business looks professional on the front end while automation runs silently in the background.
+    </p>
+
+    <div class="post-cta">
+      <a class="cta" href="../index.html#contact">Work With Me</a>
+      <a class="cta ghost" href="../blog.html">Back to Blog</a>
+    </div>
+  </article>
+</main>
+
+<footer class="footer">
+  © 2025 Swadhin Digital Hub
+</footer>
+
+</body>
+</html>
