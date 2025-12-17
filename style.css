@@ -328,8 +328,8 @@ body::after{
   border-radius:14px;
   padding:12px 14px;
   color:#fff;
-  text-decoration:none;
-  text-align:center;
+  text-decoration: none;
+  text-align: center;
   transition:border-color .2s ease, transform .2s ease;
 }
 .btn:hover{
@@ -340,14 +340,14 @@ body::after{
 /* Accent link */
 .accent-link{
   color:#ff9800;
-  text-decoration:none;
+  text-decoration: none;
   font-weight:800;
 }
 .accent-link:hover{text-decoration:underline}
 
 /* Footer */
 .footer{
-  text-align:center;
+  text-align:c enter;
   padding:26px;
   background:rgba(0,0,0,.55);
   border-top:1px solid rgba(255,255,255,.08);
@@ -365,3 +365,45 @@ body::after{
   .profile{width:120px;height:120px}
   .nav-title{font-size:18px}
 }
+/* ===== Blog ===== */
+.blog-grid{
+  display: grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+  margin-bottom:22px;
+}
+.blog-card{padding:0; overflow:hidden}
+.blog-cover img{
+  width:100%;
+  height:180px;
+  object-fit: cover;
+  display: block;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.blog-meta{padding:18px 18px 20px}
+.blog-date{font-size:12px;opacity:.82;margin-bottom:8px}
+.blog-title a{color:#fff;text-decoration:none}
+.blog-excerpt{opacity:.9;margin:10px 0 14px;line-height:1.65}
+
+/* ===== Post ===== */
+.post h2{margin:18px 0 10px}
+.post-cover{
+  width:100%;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  margin-bottom:14px;
+}
+.video-wrap{
+  position: relative;
+  width:100%;
+  padding-top:56.25%;
+  border-radius:14px;
+  overflow: hidden;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(0,0,0,.35);
+}
+.video-wrap iframe{
+  position: absolute; inset:0;
+  width:100%; height:100%;
+}
+.post-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
