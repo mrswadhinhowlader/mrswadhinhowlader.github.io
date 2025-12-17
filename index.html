@@ -4,52 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Swadhin Digital Hub | n8n Automation & Business Systems</title>
-  <meta name="description" content=" Swadhin Digital Hub — Founded by Swadhin Howlader. n8n Automation Expert: Messenger Automation, WhatsApp Business Automation, Telegram Bots, Google Sheets/CRM sync, Webhooks, and dashboards.">
+  <meta name="description" content="Swadhin Digital Hub — Founded by Swadhin Howlader. n8n Automation Expert: Messenger Automation, WhatsApp Business Automation, Telegram Bots, Google Sheets/CRM sync, Webhooks, API Integrations, and dashboards.">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <!-- HERO -->
-<header class="hero">
+<header class="hero" id="top">
   <div class="overlay"></div>
 
   <nav class="nav">
+    <!-- Left: Logo only -->
     <div class="brand">
       <img src="logo.png" class="logo" alt="Swadhin Digital Hub Logo">
-      <span>Swadhin Digital Hub</span>
     </div>
-    <div class="menu">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#links">Links</a>
-      <a href="#contact">Contact</a>
+
+    <!-- Right: Brand name + Menu -->
+    <div class="nav-right">
+      <div class="brand-name">Swadhin Digital Hub</div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#links">Links</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </nav>
 
   <div class="hero-content">
-    <img src="profile.new.jpg" class="profile" alt="Swadhin Howlader">
+    <div class="hero-left">
+      <img src="profile.new.jpg" class="profile" alt="Swadhin Howlader">
 
-    <h1 class="brand-title">Swadhin Digital Hub</h1>
-    <h2 class="founder-line">Founded by Swadhin Howlader</h2>
+      <h1 class="brand-title">Swadhin Digital Hub</h1>
+      <h2 class="founder-line">Founded by Swadhin Howlader</h2>
 
-    <p class="subtitle">
-      n8n Automation • Messenger & WhatsApp Automation • Telegram Bots • Realtime LinkedIn Systems
-    </p>
+      <p class="subtitle">
+        n8n Automation • Messenger & WhatsApp Automation • Telegram Bots • Realtime LinkedIn Systems
+      </p>
 
-    <a class="cta" href="#contact">Work With Us</a>
+      <div class="hero-actions">
+        <a class="cta" href="#contact">Work With Me</a>
+        <a class="cta ghost" href="#projects">View Projects</a>
+      </div>
 
-    <!-- Trust badges -->
-    <div class="badges" aria-label="Tools and platforms">
-      <span class="badge">n8n</span>
-      <span class="badge">Facebook Messenger</span>
-      <span class="badge">WhatsApp Business</span>
-      <span class="badge">Telegram Bot</span>
-      <span class="badge">Google Sheets</span>
-      <span class="badge">Webhooks</span>
-      <span class="badge">CRM Sync</span>
-      <span class="badge">API Integrations</span>
-      <span class="badge">Dashboards</span>
+      <div class="badges" aria-label="Tools and platforms">
+        <span class="badge">n8n</span>
+        <span class="badge">Facebook Messenger</span>
+        <span class="badge">WhatsApp Business</span>
+        <span class="badge">Telegram Bot</span>
+        <span class="badge">Google Sheets</span>
+        <span class="badge">Webhooks</span>
+        <span class="badge">CRM Sync</span>
+        <span class="badge">API Integrations</span>
+        <span class="badge">Dashboards</span>
+      </div>
     </div>
   </div>
 </header>
@@ -70,7 +79,7 @@
     <p>
       Most businesses lose valuable time on repetitive tasks—replying to messages, capturing leads,
       updating spreadsheets, sending follow-ups, notifying admins, and maintaining basic operations.
-      Individually these tasks feel small, but together they slow growth and create operational chaos.
+      Individually, these tasks feel small, but together they slow growth and create operational chaos.
     </p>
 
     <p>
@@ -86,15 +95,9 @@
     </p>
 
     <p>
-      These systems can auto-reply based on customer intent, collect user information step-by-step,
-      trigger follow-ups, update Google Sheets or CRM dashboards, and alert team members instantly—without
-      losing control of the conversation.
-    </p>
-
-    <p>
       Another key area is building <strong>LinkedIn realtime viral post generator systems</strong>.
       These workflows generate high-quality post ideas, scroll-stopping hooks, and structured formats in real time—
-      so you can stay consistent and visible without spending hours writing.
+      So you can stay consistent and visible without spending hours writing.
     </p>
 
     <p>
@@ -102,70 +105,93 @@
       customer support routing, order handling, reporting dashboards, internal workflow automation, and multi-channel
       integrations across Messenger, WhatsApp, Email, Google Sheets, Telegram, and APIs.
     </p>
-
-    <p>
-      Every automation we build is practical, documented, and scalable. The goal is simple:
-      make your business look professional on the front end, while powerful automation runs silently in the background—
-      saving time, reducing errors, and supporting long-term growth.
-    </p>
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="grid">
-    <div class="card">
+  <section id="services" class="section-head">
+    <h2 class="section-title">Services</h2>
+    <p class="section-sub">Premium, reliable automation systems designed for speed, stability, and scale.</p>
+  </section>
+
+  <section class="grid">
+    <div class=" card service-card">
       <h3>Messenger Automation</h3>
-      <p>Auto replies, lead qualification, user data capture, human handover, admin alerts, and structured flows.</p>
+      <ul class="list">
+        <li>Auto replies + FAQs + intent-based routing</li>
+        <li>Lead capture + qualification + admin alerts</li>
+        <li>Human handover with full conversation context</li>
+      </ul>
     </div>
 
-    <div class="card">
+    <div class=" card service-card">
       <h3>WhatsApp Business Automation</h3>
-      <p>Instant replies, order handling, follow-up sequences, broadcast/tagging logic, and customer support routing.</p>
+      <ul class="list">
+        <li>Instant replies + structured customer flows</li>
+        <li>Order handling + follow-ups + tagging</li>
+        <li>Support routing + escalation to team/admin</li>
+      </ul>
     </div>
 
-    <div class="card">
+    <div class=" card service-card">
       <h3>Telegram Bot Automation</h3>
-      <p>Custom Telegram bots for instant alerts, order notifications, workflow monitoring, and team updates.</p>
+      <ul class="list">
+        <li>Order / lead / payment notifications</li>
+        <li>Workflow monitoring + instant alerts</li>
+        <li>Team updates and admin dashboard signals</li>
+      </ul>
     </div>
 
-    <div class="card">
+    <div class=" card service-card">
       <h3>Google Sheets / CRM Sync</h3>
-      <p>Auto data capture, lead tracking, pipeline updates, customer records, and reporting—kept clean and organized.</p>
+      <ul class="list">
+        <li>Auto data capture + clean structured rows</li>
+        <li>Pipeline tracking + customer records</li>
+        <li>Reporting-ready dashboards & exports</li>
+      </ul>
     </div>
 
-    <div class="card">
+    <div class=" card service-card">
       <h3>Webhook & API Integrations</h3>
-      <p>Connect your apps via webhooks/APIs to automate actions across platforms with reliable, scalable logic.</p>
+      <ul class="list">
+        <li>Connect your tools through webhooks</li>
+        <li>API-based automation for stable scaling</li>
+        <li>Error handling + logging + retries</li>
+      </ul>
     </div>
 
-    <div class="card">
+    <div class=" card service-card">
       <h3>LinkedIn Realtime Content Systems</h3>
-      <p> Real-time post ideas, hooks, and formats that help founders and brands publish consistently and grow faster.</p>
+      <ul class="list">
+        <li>Realtime viral hooks + post structures</li>
+        <li>Consistent posting systems for founders</li>
+        <li>Content pipeline automation with templates</li>
+      </ul>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="card">
-    <h2>Automation Projects</h2>
-    <p>Some real systems built using n8n:</p>
+  <section id="projects" class="section-head">
+    <h2 class="section-title">Automation Projects</h2>
+    <p class="section-sub">Real systems built using n8n. Clean logic, stable execution, and scalable structure.</p>
+  </section>
 
-    <div class="project-grid">
-      <div class="project">
-        <img src="images/messenger-automation.png" alt="Messenger Automation">
-        <h3>Messenger Automation</h3>
-        <p>Automated Messenger workflows for lead capture, auto replies, and admin notifications.</p>
-      </div>
+  <section class="project-grid">
+    <div class=" project card">
+      <img src="images/messenger-automation.png" alt="Messenger Automation">
+      <h3>Messenger Automation</h3>
+      <p>Lead capture, auto replies, admin notifications, handover routing—fully automated.</p>
+    </div>
 
-      <div class="project">
-        <img src="images/whatsapp-automation.png" alt="WhatsApp Automation">
-        <h3>WhatsApp Business Automation</h3>
-        <p>Business messaging automation with order handling, follow-ups, and support routing.</p>
-      </div>
+    <div class=" project card">
+      <img src="images/whatsapp-automation.png" alt="WhatsApp Automation">
+      <h3>WhatsApp Business Automation</h3>
+      <p>Order handling, follow-ups, customer support flows, tagging and escalation logic.</p>
+    </div>
 
-      <div class="project">
-        <img src="images/linkedin-automation.png" alt="LinkedIn Automation">
-        <h3>LinkedIn Realtime Post Generator</h3>
-        <p>Realtime viral post ideas + structure generator for consistent LinkedIn growth.</p>
-      </div>
+    <div class=" project card">
+      <img src="images/linkedin-automation.png" alt="LinkedIn Automation">
+      <h3>LinkedIn Realtime Post Generator</h3>
+      <p> Real-time post ideas, hooks, and structures for consistent visibility and growth.</p>
     </div>
   </section>
 
@@ -186,10 +212,9 @@
   <!-- CONTACT -->
   <section id="contact" class="card">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:swadhinj17@gmail.com" style="color:#ff9800;text-decoration:none;">swadhinj17@gmail.com</a></p>
+    <p>Email: <a href="mailto:swadhinj17@gmail.com" class="accent-link">swadhinj17@gmail.com</a></p>
 
     <div class="buttons" style="margin-top:14px;">
-      <!-- এগুলোর লিংক আপনি পরে বসাবেন -->
       <a class="btn" href="#" target="_blank">WhatsApp Chat</a>
       <a class="btn" href="#" target="_blank">Telegram</a>
     </div>
@@ -203,3 +228,4 @@
 
 </body>
 </html>
+
