@@ -139,6 +139,31 @@
       </div>
     </section>
 <section class="blog-grid" id="postsGrid"></section>
+<script>
+(async () => {
+  const grid = document.getElementById("postsGrid");
+  if (!grid) return;
+
+  const res = await fetch("posts/posts.json", { cache: "no-store" });
+  const posts = await res.json();
+
+  grid.innerHTML = posts.map(p => `
+    <article class="card post-card">
+      <img src="${p.cover}" alt="${p.title}">
+      <div class="post-meta">
+        <span class="meta-chip">📅 ${p.date}</span>
+        <span class="meta-chip">${p.category || "Post"}</span>
+      </div>
+      <h3>${p.title}</h3>
+      <p>${p.excerpt || ""}</p>
+      <div class="read-more">
+        <span class="small">${(p.tags||[]).slice(0,2).join(" • ")}</span>
+        <a class="mini-btn" href="${p.url}">Open →</a>
+      </div>
+    </article>
+  `).join("");
+})();
+</script>
 
     <section class="controls" aria-label="Search and filter">
       <div class="search" title="UI only (optional JS later)">
