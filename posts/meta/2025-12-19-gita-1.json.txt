@@ -1,0 +1,10 @@
+{
+  "slug": "2025-12-19-gita-1",
+  "title": "Daily Gita — Day 1",
+  "date": "2025-12-19",
+  "category": "Bhagavad Gita",
+  "tags": ["Gita","Chapter 9","Bhakti","Daily"],
+  "cover": "posts/images/gita-1-cover.png",
+  "excerpt": "Chapter 9 intro — royal knowledge, devotion, clarity, and daily practice.",
+  "url": "posts/2025-12-19-gita-1.html"
+}
