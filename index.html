@@ -376,6 +376,118 @@
   © 2025 Swadhin Digital Hub • Founded by Swadhin Howlader
 </footer>
 
+<!-- ✅ Swadhin Bot Widget (GitHub Pages -> n8n Webhook) -->
+<style>
+  #sw-chat-btn{position:fixed;right:18px;bottom:18px;z-index:9999;border:none;padding:12px 14px;border-radius:999px;cursor:pointer}
+  #sw-chat-box{position:fixed;right:18px;bottom:70px;width:320px;max-width:90vw;height:420px;z-index:9999;display:none;border-radius:16px;overflow:hidden;border:1px solid #ddd;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+  #sw-chat-head{padding:12px 14px;font-weight:700;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+  #sw-chat-log{height:300px;overflow:auto;padding:12px 14px}
+  .sw-msg{margin:8px 0;line-height:1.35}
+  .sw-me{text-align:right}
+  .sw-bot{text-align:left}
+  .sw-bubble{display:inline-block;padding:10px 12px;border-radius:14px;max-width:85%}
+  .sw-me .sw-bubble{background:#111;color:#fff}
+  .sw-bot .sw-bubble{background:#f3f3f3;color:#111}
+  #sw-chat-form{display:flex;gap:8px;padding:10px;border-top:1px solid #eee}
+  #sw-chat-input{flex:1;padding:10px;border:1px solid #ddd;border-radius:10px;outline:none}
+  #sw-chat-send{padding:10px 12px;border:none;border-radius:10px;cursor:pointer}
+  #sw-chat-small{font-size:12px;opacity:.7}
+</style>
+
+<button id="sw-chat-btn" aria-label="Open chat">💬 Chat</button>
+
+<div id="sw-chat-box" aria-label="Chatbox">
+  <div id="sw-chat-head">
+    <div>
+      Swadhin Bot
+      <div id="sw-chat-small">Ask about n8n Automation</div>
+    </div>
+    <button id="sw-chat-close" aria-label="Close chat" style="border:none;background:transparent;cursor:pointer;font-size:18px">✕</button>
+  </div>
+
+  <div id="sw-chat-log"></div>
+
+  <form id="sw-chat-form">
+    <input id="sw-chat-input" placeholder="Ask about Messenger/WhatsApp automation..." autocomplete="off" />
+    <button id="sw-chat-send" type="submit">Send</button>
+  </form>
+</div>
+
+<script>
+  // ✅ আপনার n8n production webhook URL
+  const N8N_WEBHOOK_URL = "https://vmi2977874.contaboserver.net/webhook/3f9f3f16-b52c-4d13-834a-96b9df752b79";
+
+  const btn = document.getElementById("sw-chat-btn");
+  const box = document.getElementById("sw-chat-box");
+  const closeBtn = document.getElementById("sw-chat-close");
+  const log = document.getElementById("sw-chat-log");
+  const form = document.getElementById("sw-chat-form");
+  const input = document.getElementById("sw-chat-input");
+
+  const sessionKey = "sw_chat_session_id";
+  let sessionId = localStorage.getItem(sessionKey) || (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()));
+  localStorage.setItem(sessionKey, sessionId);
+
+  function addMsg(text, who="bot"){
+    const wrap = document.createElement("div");
+    wrap.className = "sw-msg " + (who==="me" ? "sw-me" : "sw-bot");
+    const bub = document.createElement("div");
+    bub.className = "sw-bubble";
+    bub.textContent = text;
+    wrap.appendChild(bub);
+    log.appendChild(wrap);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  btn.onclick = () => {
+    box.style.display = (box.style.display === "none" || !box.style.display) ? "block" : "none";
+    if(log.childElementCount === 0){
+      addMsg("Hi! Ask me anything about n8n Automation, Messenger/WhatsApp, Sheets/CRM Sync 🙂","bot");
+    }
+    input.focus();
+  };
+
+  closeBtn.onclick = () => box.style.display = "none";
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const message = input.value.trim();
+    if(!message) return;
+
+    addMsg(message,"me");
+    input.value = "";
+
+    addMsg("Typing...","bot");
+    const typingNode = log.lastChild;
+
+    try{
+      // ✅ NOTE: Form-encoded body (কম ঝামেলা, preflight কম হয়)
+      const body = new URLSearchParams({
+        message,
+        sessionId,
+        source: "website",
+        page: location.pathname
+      });
+
+      const res = await fetch(N8N_WEBHOOK_URL, {
+        method: "POST",
+        body
+      });
+
+      if(!res.ok) throw new Error("HTTP " + res.status);
+
+      const data = await res.json();
+      typingNode.remove();
+      addMsg(data.reply || "No reply received from n8n.","bot");
+
+    }catch(err){
+      typingNode.remove();
+      addMsg("Connection/CORS issue. Please try again or WhatsApp me.","bot");
+      console.error(err);
+    }
+  });
+</script>
+<!-- ✅ End Swadhin Bot Widget -->
+
 </body>
 </html>
-
