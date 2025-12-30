@@ -21,12 +21,10 @@
        GAP FIX (Top/Bottom)
        ========================= */
     body.blog-page .hero{
-      /* তোমার style.css এ সাধারণত hero 100vh হয় — এটা কমিয়ে দিলাম */
       min-height: 62vh !important;
       padding-bottom: 22px !important;
     }
     body.blog-page .hero-content{
-      /* hero content একটু ওপরে উঠবে + gap কমবে */
       padding-top: 110px !important;
       padding-bottom: 28px !important;
       align-items: flex-start !important;
@@ -36,19 +34,17 @@
     /* main content top padding কমানো */
     .blog-wrap{ padding:46px 7% 70px; }
     .blog-shell{ max-width:1200px; margin:0 auto; }
-
-    /* hero এর পরে content একটু ওপরে উঠাতে চাইলে */
     .blog-shell{ margin-top:-18px; }
 
     /* =========================
-       Your existing styles
+       Page styles
        ========================= */
     .blog-hero{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
       gap:18px;
       align-items:stretch;
-      margin-bottom:18px; /* আগের 22px থেকে কম */
+      margin-bottom:18px;
     }
     .blog-hero .card{ margin-bottom:0; }
     .blog-title{ font-size:40px; letter-spacing:.3px; margin-bottom:8px; }
@@ -95,7 +91,7 @@
       grid-template-columns: 1.1fr .9fr;
       gap:18px;
       align-items:stretch;
-      margin: 16px 0 18px; /* gap কম */
+      margin: 16px 0 18px;
     }
     .featured-cover{
       width:100%;
@@ -134,11 +130,9 @@
       overflow:hidden;
       display:flex;
       flex-direction:column;
-      transition: transform .18s ease, border-color .18s ease;
+      transition: transform .18s ease;
     }
-    .post-card:hover{
-      transform: translateY(-2px);
-    }
+    .post-card:hover{ transform: translateY(-2px); }
     .post-card img{
       width:100%;
       height:180px;
@@ -185,7 +179,6 @@
       border-radius:18px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
-      padding:16px;
       min-height:260px;
       overflow:hidden;
       position:relative;
@@ -218,13 +211,9 @@
 
   <nav class="nav nav-center">
     <div class="nav-top">
-      <a href="index.html" aria-label="Home">
-        <img src="logo.png" class="logo" alt="Swadhin Digital Hub Logo">
-      </a>
+      <a href="index.html" aria-label="Home"><img src="logo.png" class="logo" alt="Swadhin Digital Hub Logo"></a>
       <div class="nav-title">Swadhin Digital Hub</div>
-      <a href="index.html" aria-label="Home">
-        <img src="logo.png" class="logo logo-red" alt="Swadhin Digital Hub Logo Red">
-      </a>
+      <a href="index.html" aria-label="Home"><img src="logo.png" class="logo logo-red" alt="Swadhin Digital Hub Logo Red"></a>
     </div>
 
     <div class="nav-bottom">
@@ -309,8 +298,12 @@
         `).join("");
 
         try{
-          const res = await fetch("posts/posts.json", { cache: "no-store" });
+          const url = new URL("posts/posts.json", window.location.href).toString();
+          const res = await fetch(url, { cache: "no-store" });
+          if(!res.ok) throw new Error("HTTP " + res.status);
+
           const posts = await res.json();
+          if(!Array.isArray(posts)) throw new Error("posts.json must be an array");
 
           grid.innerHTML = posts.map(p => `
             <article class="card post-card">
@@ -329,13 +322,9 @@
           `).join("");
 
         }catch(e){
-          grid.innerHTML = `
-            <section class="card">
-              <h3 style="margin-bottom:8px;">Posts not loading</h3>
-              <p class="blog-sub">Check if <b>posts/posts.json</b> path is correct and JSON is valid.</p>
-            </section>
-          `;
-          console.error(e);
+          // ইউজারের সামনে error দেখাবে না
+          console.error("Posts load failed:", e);
+          grid.innerHTML = "";
         }
       })();
     </script>
@@ -358,7 +347,7 @@
 
     <!-- Featured -->
     <section class="featured" id="latest" aria-label="Featured post">
-      <img class="featured-cover" src="posts/images/first-vlog-cover.jpg" alt="Featured vlog cover">
+      <img class="featured-cover" src="posts/images/first-vlog-cover.png" alt="Featured vlog cover">
 
       <div class="card" style="margin-bottom:0;">
         <h2 class="blog-title">How We Build Messenger Automation in n8n</h2>
@@ -381,10 +370,10 @@
       </div>
     </section>
 
-    <!-- Static cards (you can keep / remove later) -->
+    <!-- Static cards (keep/remove later) -->
     <section class="blog-grid" aria-label="All posts">
       <article class="card post-card">
-        <img src="posts/images/first-vlog-cover.jpg" alt="Messenger Automation vlog cover">
+        <img src="posts/images/first-vlog-cover.png" alt="Messenger Automation vlog cover">
         <div class="post-meta">
           <span class="meta-chip">📅 Dec 18, 2025</span>
           <span class="meta-chip">Messenger Automation</span>
