@@ -8,12 +8,39 @@
   <link rel="stylesheet" href="../style.css" />
 
   <style>
-    .doc-wrap{ padding:80px 7%; }
-    .doc-shell{ max-width:980px; margin:0 auto; }
+    /* =========================
+       DOC PAGE: PRO LAYOUT + TOC
+       (Only affects this page)
+    ========================== */
+
+    /* Keep your doc padding, but allow wider layout */
+    .doc-wrap{
+      padding:80px 7%;
+      max-width:1240px;
+      margin:0 auto;
+    }
+
+    /* Split layout */
+    .doc-layout{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) 320px;
+      gap:18px;
+      align-items:start;
+    }
+    .doc-main{ min-width:0; }
+    .doc-aside{
+      position:sticky;
+      top:92px; /* below sticky nav */
+      align-self:start;
+    }
+
+    /* Title area */
     .doc-title{ font-size:40px; margin-bottom:10px; letter-spacing:.3px; }
     .doc-sub{ opacity:.9; line-height:1.8; margin-bottom:18px; }
     .doc-card{ margin-top:14px; }
     .doc-actions{ display:flex; gap:12px; flex-wrap:wrap; margin:14px 0 8px; }
+
+    /* YouTube embed */
     .yt-embed{
       width:100%;
       aspect-ratio: 16 / 9;
@@ -24,9 +51,14 @@
       background: rgba(0,0,0,.25);
     }
     .yt-embed iframe{ width:100%; height:100%; border:0; }
+
+    /* Typography */
     .doc h2{ font-size:22px; margin:18px 0 10px; }
+    .doc h3{ font-size:18px; margin:16px 0 8px; }
     .doc p, .doc li{ line-height:1.85; opacity:.92; }
     .doc ul{ padding-left:18px; }
+
+    /* Code blocks */
     .codebox{
       margin-top:10px;
       padding:14px;
@@ -39,26 +71,114 @@
       line-height: 1.65;
       color:#fff;
     }
+
+    /* Active nav link in top nav */
     .nav-bottom a.active{
       opacity:1;
       text-decoration:underline;
-      text-decoration-color: rgba(255,152,0,.9);
+      text-decoration-color: rgba(255,152,0,.55);
       text-underline-offset: 6px;
     }
-    @media(max-width: 980px){
-      .doc-title{ font-size:34px; }
-    }
 
-    /* ✅ FIX ADDED: Reduce the hero empty space ONLY on this documentation page */
+    /* ✅ Reduce hero empty space ONLY on doc page */
     header.hero{
-      min-height: 58vh !important;   /* আগে 100vh থাকলে এটা কমাবে */
+      min-height: 58vh !important;
       padding-bottom: 30px !important;
     }
     .hero-content{
-      padding-top: 70px !important;  /* উপরের gap কমাবে */
+      padding-top: 70px !important;
     }
     .doc-wrap{
-      padding-top: 40px !important;  /* content দ্রুত উপরে আসবে */
+      padding-top: 40px !important;
+    }
+
+    /* =========================
+       RIGHT SIDE TOC (soft, not yellow)
+    ========================== */
+    .toc-card{
+      padding:18px;
+    }
+    .toc-title{
+      font-size:14px;
+      letter-spacing:.2px;
+      opacity:.9;
+      margin-bottom:10px;
+    }
+    .doc-toc{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      max-height: calc(100vh - 170px);
+      overflow:auto;
+      padding-right:6px;
+    }
+    .doc-toc::-webkit-scrollbar{ width:8px; }
+    .doc-toc::-webkit-scrollbar-thumb{
+      background: rgba(255,255,255,.10);
+      border-radius:999px;
+    }
+    .doc-toc::-webkit-scrollbar-track{ background: transparent; }
+
+    .toc-link{
+      display:block;
+      text-decoration:none;
+      color:rgba(255,255,255,.84);
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.18);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      font-size:13px;
+      line-height:1.25;
+    }
+    .toc-link:hover{
+      transform: translateY(-1px);
+      border-color: rgba(0,170,255,.28);
+      background: rgba(255,255,255,.04);
+    }
+    .toc-link[data-level="3"]{
+      margin-left:12px;
+      opacity:.92;
+    }
+    .toc-link.is-active{
+      border-color: rgba(0,170,255,.45);
+      background: rgba(0,170,255,.10);
+      color: rgba(255,255,255,.94);
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+
+    /* Headings anchor offset (avoid hidden behind sticky nav) */
+    #docMain h2, #docMain h3{
+      scroll-margin-top: 110px;
+    }
+
+    /* Small help box */
+    .doc-help{
+      margin-top:12px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .doc-help p{
+      font-size:12px;
+      line-height:1.55;
+      opacity:.9;
+    }
+    .doc-help a{
+      color:#ff9800;
+      text-decoration:none;
+      font-weight:800;
+    }
+    .doc-help a:hover{ text-decoration:underline; }
+
+    /* Mobile: sidebar goes below */
+    @media(max-width: 1020px){
+      .doc-layout{ grid-template-columns:1fr; }
+      .doc-aside{ position:relative; top:auto; }
+    }
+    @media(max-width: 980px){
+      .doc-title{ font-size:34px; }
     }
   </style>
 </head>
@@ -98,135 +218,155 @@
 </header>
 
 <main class="wrap doc-wrap">
-  <div class="doc-shell">
+  <div class="doc-layout">
 
-    <section class="card doc-card">
-      <h1 class="doc-title">GitHub Website + n8n AI Chatbot Integration</h1>
-      <p class="doc-sub">
-        This page documents the exact setup used in the tutorial video—nodes, settings, flow,
-        and the final working pipeline from website chat widget to AI reply.
-      </p>
+    <!-- LEFT: CONTENT -->
+    <article class="doc-main" id="docMain">
 
-      <div class="doc-actions">
-        <a class="mini-btn" href="https://youtu.be/jdJSAn4CehU" target="_blank" rel="noopener">Open YouTube →</a>
-        <a class="mini-btn" href="../blog.html">Back to Blog →</a>
-      </div>
+      <section class="card doc-card">
+        <h1 class="doc-title">GitHub Website + n8n AI Chatbot Integration</h1>
+        <p class="doc-sub">
+          This page documents the exact setup used in the tutorial video—nodes, settings, flow,
+          and the final working pipeline from website chat widget to AI reply.
+        </p>
 
-      <div class="yt-embed" aria-label="YouTube video embed">
-        <iframe
-          src="https://www.youtube.com/embed/jdJSAn4CehU"
-          title="GitHub + n8n AI Chatbot Integration"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
+        <div class="doc-actions">
+          <a class="mini-btn" href="https://youtu.be/jdJSAn4CehU" target="_blank" rel="noopener">Open YouTube →</a>
+          <a class="mini-btn" href="../blog.html">Back to Blog →</a>
+        </div>
 
-    <section class="card doc-card doc">
-      <h2>1) Overview</h2>
-      <p>
-        We show a “Chat with AI” widget on a GitHub Pages website. When the user sends a message,
-        it hits an n8n Webhook. An AI Agent + Chat Model generates a reply, and n8n returns it back to the website.
-      </p>
-      <div class="codebox">
+        <div class="yt-embed" aria-label="YouTube video embed">
+          <iframe
+            src="https://www.youtube.com/embed/jdJSAn4CehU"
+            title="GitHub + n8n AI Chatbot Integration"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </section>
+
+      <section class="card doc-card doc">
+        <h2>1) Overview</h2>
+        <p>
+          We show a “Chat with AI” widget on a GitHub Pages website. When the user sends a message,
+          it hits an n8n Webhook. An AI Agent + Chat Model generates a reply, and n8n returns it back to the website.
+        </p>
+        <div class="codebox">
 Flow:
 Website Chat UI → n8n Webhook → AI Agent → Chat Model → Edit Fields → Response to Webhook → Website Chat UI
-      </div>
+        </div>
 
-      <h2>2) What you built</h2>
-      <ul>
-        <li>Embedded the chat widget into GitHub Pages (by inserting the n8n Webhook Production URL).</li>
-        <li>Created an n8n Webhook workflow with CORS headers.</li>
-        <li>Generated AI replies from the incoming message and returned them via Response to Webhook.</li>
-      </ul>
+        <h2>2) What you built</h2>
+        <ul>
+          <li>Embedded the chat widget into GitHub Pages (by inserting the n8n Webhook Production URL).</li>
+          <li>Created an n8n Webhook workflow with CORS headers.</li>
+          <li>Generated AI replies from the incoming message and returned them via Response to Webhook.</li>
+        </ul>
 
-      <h2>3) Prerequisites</h2>
-      <ul>
-        <li>GitHub Pages website (domain not required)</li>
-        <li>n8n instance (cloud or self-hosted)</li>
-        <li>Chat widget HTML/JS that supports a webhook URL</li>
-      </ul>
+        <h2>3) Prerequisites</h2>
+        <ul>
+          <li>GitHub Pages website (domain not required)</li>
+          <li>n8n instance (cloud or self-hosted)</li>
+          <li>Chat widget HTML/JS that supports a webhook URL</li>
+        </ul>
 
-      <h2>4) Website-side setup</h2>
-      <ul>
-        <li>Add a <b>Webhook</b> node in n8n and copy the <b>Production URL</b>.</li>
-        <li>Paste that Production URL into your website chat HTML/JS code.</li>
-        <li>Commit changes on GitHub and open your site to verify the chat button appears.</li>
-      </ul>
+        <h2>4) Website-side setup</h2>
+        <ul>
+          <li>Add a <b>Webhook</b> node in n8n and copy the <b>Production URL</b>.</li>
+          <li>Paste that Production URL into your website chat HTML/JS code.</li>
+          <li>Commit changes on GitHub and open your site to verify the chat button appears.</li>
+        </ul>
 
-      <h2>5) n8n workflow nodes (exact structure)</h2>
-      <p><b>Node 1 — Webhook:</b> Receives the message from the website (usually POST).</p>
-      <div class="codebox">
+        <h2>5) n8n workflow nodes (exact structure)</h2>
+        <p><b>Node 1 — Webhook:</b> Receives the message from the website (usually POST).</p>
+        <div class="codebox">
 Expected payload example:
 {
   "message": "Hello",
   "senderId": "website-user-123"
 }
-      </div>
+        </div>
 
-      <p><b>Node 2 — Response to Webhook (CORS headers):</b> Respond with Text, add Response Code and Response Headers:</p>
-      <div class="codebox">
+        <p><b>Node 2 — Response to Webhook (CORS headers):</b> Respond with Text, add Response Code and Response Headers:</p>
+        <div class="codebox">
 Access-Control-Allow-Origin: https://yourname.github.io
 Access-Control-Allow-Methods: POST, OPTIONS
 Access-Control-Allow-Headers: Content-Type
-      </div>
+        </div>
 
-      <p><b>Node 3 — AI Agent:</b> Map user message into Prompt and set a short System Prompt.</p>
-      <div class="codebox">
+        <p><b>Node 3 — AI Agent:</b> Map user message into Prompt and set a short System Prompt.</p>
+        <div class="codebox">
 User Prompt: {{$json.message}}
 System Prompt: (your rules / style / tone)
-      </div>
+        </div>
 
-      <p><b>Node 4 — Chat Model:</b> Connect a chat model and Execute Step to verify output.</p>
+        <p><b>Node 4 — Chat Model:</b> Connect a chat model and Execute Step to verify output.</p>
 
-      <p><b>Node 5 — Edit Fields:</b> Format response fields (value + senderId).</p>
-      <div class="codebox">
+        <p><b>Node 5 — Edit Fields:</b> Format response fields (value + senderId).</p>
+        <div class="codebox">
 Example output:
 {
   "value": "Hello! How can I help you today?",
   "senderId": "website-user-123"
 }
-      </div>
+        </div>
 
-      <p><b>Node 6 — Response to Webhook (final):</b> Put the formatted output into Response Body and return it to the website.</p>
+        <p><b>Node 6 — Response to Webhook (final):</b> Put the formatted output into Response Body and return it to the website.</p>
 
-      <h2>6) Testing</h2>
-      <ul>
-        <li>Open your website → open chat → type “Hello”</li>
-        <li>See “typing…” → receive the reply ✅</li>
-      </ul>
+        <h2>6) Testing</h2>
+        <ul>
+          <li>Open your website → open chat → type “Hello”</li>
+          <li>See “typing…” → receive the reply ✅</li>
+        </ul>
 
-      <h2>7) Troubleshooting</h2>
-      <ul>
-        <li><b>CORS error:</b> Ensure exact origin + allow POST/OPTIONS + allow Content-Type.</li>
-        <li><b>No response returned:</b> Response to Webhook must exist and be last.</li>
-        <li><b>Empty reply:</b> Confirm message reaches AI Agent and correct output is selected in Edit Fields.</li>
-      </ul>
+        <h2>7) Troubleshooting</h2>
+        <ul>
+          <li><b>CORS error:</b> Ensure exact origin + allow POST/OPTIONS + allow Content-Type.</li>
+          <li><b>No response returned:</b> Response to Webhook must exist and be last.</li>
+          <li><b>Empty reply:</b> Confirm message reaches AI Agent and correct output is selected in Edit Fields.</li>
+        </ul>
 
-      <h2>8) Security best practices</h2>
-      <ul>
-        <li>Webhook URL is public—use auth/header token if possible.</li>
-        <li>Add simple validation + truncate very long inputs.</li>
-        <li>Keep System Prompt strict: short replies, no sensitive data.</li>
-      </ul>
+        <h2>8) Security best practices</h2>
+        <ul>
+          <li>Webhook URL is public—use auth/header token if possible.</li>
+          <li>Add simple validation + truncate very long inputs.</li>
+          <li>Keep System Prompt strict: short replies, no sensitive data.</li>
+        </ul>
 
-      <h2>9) Next customizations</h2>
-      <ul>
-        <li>Add FAQ / service list / lead capture inside AI Agent.</li>
-        <li>Style chat UI with branding (icon, welcome message, colors).</li>
-        <li>Extend n8n: Google Sheets/CRM save, Telegram alerts, appointment booking.</li>
-      </ul>
-    </section>
+        <h2>9) Next customizations</h2>
+        <ul>
+          <li>Add FAQ / service list / lead capture inside AI Agent.</li>
+          <li>Style chat UI with branding (icon, welcome message, colors).</li>
+          <li>Extend n8n: Google Sheets/CRM save, Telegram alerts, appointment booking.</li>
+        </ul>
+      </section>
 
-    <section class="card doc-card">
-      <div class="read-more">
-        <span class="small">Need this setup customized for your business workflow?</span>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="mini-btn" href="../index.html#contact">Contact →</a>
-          <a class="mini-btn" href="../blog.html">Back to Blog →</a>
+      <section class="card doc-card">
+        <div class="read-more">
+          <span class="small">Need this setup customized for your business workflow?</span>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="mini-btn" href="../index.html#contact">Contact →</a>
+            <a class="mini-btn" href="../blog.html">Back to Blog →</a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- RIGHT: STICKY TOC -->
+    <aside class="doc-aside">
+      <div class="card toc-card">
+        <div class="toc-title">On this page</div>
+        <nav class="doc-toc" id="docToc"></nav>
+
+        <div class="doc-help">
+          <p>
+            Need help setting this up for your business?
+            <a href="../index.html#contact">Contact</a> us and we’ll build a complete automation system.
+          </p>
         </div>
       </div>
-    </section>
+    </aside>
 
   </div>
 </main>
@@ -234,6 +374,81 @@ Example output:
 <footer class="footer">
   © 2025 Swadhin Digital Hub • Documentation
 </footer>
+
+<!-- ✅ Auto TOC + Active Highlight -->
+<script>
+(function(){
+  const main = document.getElementById("docMain");
+  const toc = document.getElementById("docToc");
+  if(!main || !toc) return;
+
+  const headings = Array.from(main.querySelectorAll("h2, h3"));
+  if(headings.length === 0) return;
+
+  const used = new Map();
+  const slugify = (t) => {
+    const base = (t || "")
+      .toLowerCase()
+      .trim()
+      .replace(/['"]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "section";
+    const count = (used.get(base) || 0) + 1;
+    used.set(base, count);
+    return count === 1 ? base : (base + "-" + count);
+  };
+
+  headings.forEach(h => {
+    if(!h.id) h.id = slugify(h.textContent);
+  });
+
+  const frag = document.createDocumentFragment();
+  headings.forEach(h => {
+    const level = h.tagName === "H3" ? 3 : 2;
+    const a = document.createElement("a");
+    a.className = "toc-link";
+    a.href = "#" + h.id;
+    a.textContent = h.textContent.trim();
+    a.dataset.level = String(level);
+    frag.appendChild(a);
+  });
+  toc.appendChild(frag);
+
+  const links = Array.from(toc.querySelectorAll(".toc-link"));
+  const mapIdToLink = new Map(links.map(a => [a.getAttribute("href").slice(1), a]));
+
+  toc.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if(!a) return;
+    const id = a.getAttribute("href").slice(1);
+    const el = document.getElementById(id);
+    if(!el) return;
+    e.preventDefault();
+    history.pushState(null, "", "#" + id);
+    el.scrollIntoView({behavior:"smooth", block:"start"});
+  });
+
+  const setActive = (id) => {
+    links.forEach(x => x.classList.remove("is-active"));
+    const el = mapIdToLink.get(id);
+    if(el) el.classList.add("is-active");
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter(en => en.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if(visible && visible.target && visible.target.id){
+      setActive(visible.target.id);
+    }
+  }, { root:null, rootMargin:"-20% 0px -70% 0px", threshold:[0,.2,.4,.6,.8,1] });
+
+  headings.forEach(h => io.observe(h));
+
+  const initial = location.hash ? location.hash.slice(1) : headings[0].id;
+  setActive(initial);
+})();
+</script>
 
 </body>
 </html>
