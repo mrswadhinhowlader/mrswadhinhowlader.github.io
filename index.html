@@ -16,133 +16,6 @@
   <meta name="description" content="Swadhin Digital Hub — Founded by Swadhin Howlader. n8n Automation Expert: Messenger Automation, WhatsApp Business Automation, Telegram Bots, Google Sheets/CRM sync, Webhooks, API Integrations, and dashboards.">
   <link rel="stylesheet" href="style.css" />
 
-  <!-- ✅ ADD: YouTube Feature CSS (Professional thumbnail section) -->
-  <style>
-    .sdh-video-feature{
-      display:grid;
-      grid-template-columns: 1fr 1.05fr;
-      gap:18px;
-      align-items:stretch;
-      margin-top:16px;
-    }
-    .sdh-video-thumb{
-      width:100%;
-      height:100%;
-      min-height:260px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.14);
-      object-fit:cover;
-      box-shadow:0 18px 50px rgba(0,0,0,.35);
-      background: rgba(0,0,0,.25);
-    }
-    .sdh-video-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
-    @media(max-width: 980px){
-      .sdh-video-feature{ grid-template-columns: 1fr; }
-      .sdh-video-thumb{ min-height:210px; }
-    }
-
-    /* ===============================
-       ✅ HERO: Fill empty space + Pro feel
-    =============================== */
-    .hero{ min-height: 78vh; }
-    .hero-content{ padding-top: 22px; padding-bottom: 42px; }
-
-    .hero-left .brand-title{ margin-top: 12px; }
-    .hero-hook{
-      margin-top: 12px;
-      max-width: 760px;
-      padding: 14px 14px;
-      border-radius: 16px;
-      background: rgba(0,0,0,.28);
-      border: 1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(14px);
-    }
-    .hook-line{
-      font-size: 18px;
-      font-weight: 900;
-      line-height: 1.45;
-      color: rgba(255,255,255,.96);
-    }
-    .hook-sub{
-      margin-top: 10px;
-      font-size: 14.8px;
-      line-height: 1.75;
-      color: rgba(255,255,255,.86);
-    }
-    .hook-pills{
-      margin-top: 12px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .hp{
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.14);
-      font-size: 13px;
-      color: rgba(255,255,255,.92);
-    }
-    .trust-line{
-      margin-top: 10px;
-      font-size: 13.5px;
-      opacity: .9;
-      line-height: 1.6;
-    }
-
-    /* ===============================
-       ✅ Right Side: Book Now card
-    =============================== */
-    .hero-side{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-    .book-card{
-      border-radius: 18px;
-      padding: 16px;
-      background: rgba(0,0,0,.30);
-      border: 1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 18px 55px rgba(0,0,0,.35);
-    }
-    .book-card h3{ margin:0 0 6px; }
-    .book-card p{
-      margin:0;
-      opacity:.92;
-      line-height:1.7;
-      font-size:14px;
-    }
-    .book-points{
-      margin:12px 0 0;
-      padding-left: 18px;
-      opacity:.92;
-      line-height:1.8;
-      font-size:14px;
-    }
-    .book-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top: 14px;
-    }
-    .book-actions .btn, .book-actions .cta{
-      text-decoration:none;
-      cursor:pointer;
-    }
-
-    @media(max-width: 980px){
-      .hero{ min-height: 70vh; }
-      .hook-line{ font-size: 16.5px; }
-      .hook-sub{ font-size: 14px; }
-    }
-  </style>
-
   <!-- ===== SEO Meta ===== -->
   <link rel="canonical" href="https://mrswadhinhowlader.github.io/" />
   <meta name="robots" content="index,follow" />
@@ -197,10 +70,130 @@
       "Webhooks",
       "API integrations",
       "Dashboards",
-      "LinkedIn content systems"
+      "LinkedIn content systems",
+      "TikTok Shop",
+      "eBay listing",
+      "Walmart listing",
+      "Amazon listing",
+      "Shopify"
     ]
   }
   </script>
+
+  <!-- ✅ HERO UPGRADE (fills empty space + pro hook + book now) -->
+  <style>
+    /* overlay won’t block clicks */
+    .hero{ position:relative; }
+    .hero .overlay{ pointer-events:none !important; z-index:0; }
+    .nav, .hero-content, main, footer{ position:relative; z-index:2; }
+
+    /* reduce “empty feeling” on large screens */
+    .hero-content{ padding: 44px 7% 54px; }
+    .hero-left{ max-width: 980px; }
+
+    /* hook block */
+    .hero-hook{
+      margin-top: 18px;
+      padding: 16px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    }
+    .hero-hook strong{
+      display:block;
+      font-size: 16px;
+      margin-bottom: 8px;
+      letter-spacing: .2px;
+    }
+    .hero-hook p{
+      margin:0;
+      opacity:.92;
+      line-height:1.75;
+      font-size: 15px;
+    }
+
+    .hero-points{
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:10px;
+    }
+    .hero-point{
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(0,0,0,.28);
+      border: 1px solid rgba(255,255,255,.10);
+      opacity:.95;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .hero-stats{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 12px;
+    }
+    .stat-chip{
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      font-size: 13px;
+      opacity:.95;
+      white-space: nowrap;
+    }
+
+    /* Book Now button style (matches your theme) */
+    .cta.book{
+      background: rgba(0,170,255,.16);
+      color:#fff;
+      border: 1px solid rgba(0,170,255,.35);
+      box-shadow: none;
+    }
+    .cta.book:hover{
+      border-color: rgba(0,170,255,.65);
+      box-shadow: 0 18px 40px rgba(0,170,255,.12);
+    }
+
+    @media (max-width: 980px){
+      .hero-content{ padding: 40px 18px 48px; }
+      .hero-points{ grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- ✅ ADD: YouTube Feature CSS (Professional thumbnail section) -->
+  <style>
+    .sdh-video-feature{
+      display:grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:16px;
+    }
+    .sdh-video-thumb{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      object-fit:cover;
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+      background: rgba(0,0,0,.25);
+    }
+    .sdh-video-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    @media(max-width: 980px){
+      .sdh-video-feature{ grid-template-columns: 1fr; }
+      .sdh-video-thumb{ min-height:210px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -242,30 +235,37 @@
           n8n Automation • Messenger & WhatsApp Automation • Telegram Bots • Realtime LinkedIn Systems
         </p>
 
-        <!-- ✅ NEW: Hook block (fills empty space) -->
-        <div class="hero-hook" aria-label="Automation hook">
-          <div class="hook-line">
-            We build end-to-end automation systems — faster replies, clean lead capture, and admin control.
+        <!-- ✅ Hook block to fill hero and convert visitors -->
+        <div class="hero-hook" aria-label="Hero hook">
+          <strong>Stop losing leads in the inbox — turn every message into a system.</strong>
+          <p>
+            We build production-grade automations using <b>n8n</b> that reply instantly, capture clean lead data,
+            notify admins in real time, and keep your operations organized—without manual chaos.
+          </p>
+
+          <div class="hero-points" aria-label="Key outcomes">
+            <div class="hero-point">✅ Instant customer replies (FAQ + intent routing)</div>
+            <div class="hero-point">✅ Auto lead capture (name/phone/service + tags)</div>
+            <div class="hero-point">✅ Google Sheets/CRM sync with clean structure</div>
+            <div class="hero-point">✅ Telegram admin alerts + smooth human handover</div>
           </div>
-          <div class="hook-sub">
-            From Messenger/WhatsApp to Google Sheets/CRM and Telegram alerts: every message becomes a structured workflow
-            that saves time and increases conversions.
-          </div>
-          <div class="hook-pills" aria-label="Benefits">
-            <span class="hp">Instant Reply</span>
-            <span class="hp">Lead Capture</span>
-            <span class="hp">Sheets/CRM Sync</span>
-            <span class="hp">Telegram Alerts</span>
-            <span class="hp">Human Handover</span>
-            <span class="hp">Logs + Reliability</span>
-          </div>
-          <div class="trust-line">
-            Production-ready workflows • Clear documentation • Scalable systems • Reliable execution
+
+          <div class="hero-stats" aria-label="Trust chips">
+            <span class="stat-chip">Built for Messenger + WhatsApp Business</span>
+            <span class="stat-chip">Webhooks + API Integrations</span>
+            <span class="stat-chip">Logging + retries for stability</span>
           </div>
         </div>
 
-        <div class="hero-actions" style="margin-top:14px;">
+        <div class="hero-actions">
           <a class="cta" href="#contact">Work With Me</a>
+
+          <!-- ✅ BOOK NOW (Google Form)
+               Replace the link below with your real Google Form link -->
+          <a class="cta book"
+             href="https://forms.gle/PASTE_YOUR_GOOGLE_FORM_LINK_HERE"
+             target="_blank" rel="noopener">Book Now</a>
+
           <a class="cta ghost" href="#projects">View Projects</a>
         </div>
 
@@ -282,30 +282,9 @@
         </div>
       </div>
 
-      <!-- RIGHT SIDE -->
-      <aside class="hero-side" aria-label="Right side panels">
-
-        <!-- ✅ NEW: Book Now panel -->
-        <div class="book-card" aria-label="Book now">
-          <h3>Book a Free Automation Demo</h3>
-          <p>
-            Tell us your workflow goal and we’ll show a clean n8n system design: message → routing → data save → admin alerts.
-          </p>
-          <ul class="book-points">
-            <li>Messenger/WhatsApp automation + lead capture</li>
-            <li>Google Sheets/CRM sync + tagging</li>
-            <li>Telegram admin alerts + handover rules</li>
-            <li>Logging, retries, and production stability</li>
-          </ul>
-
-          <div class="book-actions">
-            <a class="cta" href="#contact">Book Now</a>
-            <a class="cta ghost" href="#projects">See Systems</a>
-          </div>
-        </div>
-
-        <!-- Team panel (your original) -->
-        <div class="team-card" aria-label="Team">
+      <!-- RIGHT (Team panel) -->
+      <aside class="hero-team" aria-label="Team">
+        <div class="team-card">
           <div class="team-head">
             <h3>Core Team</h3>
             <p>People behind Swadhin Digital Hub</p>
@@ -316,7 +295,7 @@
               <img src="team/avi.jpg" alt="Avi Mistry" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Avi Mistry</div>
-                <div class="team-role">Web Developer • High-IQ problem solver, product + UI execution</div>
+                <div class="team-role">Web Developer • Product + UI execution</div>
               </div>
             </div>
 
@@ -324,7 +303,7 @@
               <img src="team/sourav.png" alt="Sourav" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Sourav</div>
-                <div class="team-role">E-commerce & Marketing Expert • TikTok Shop, eBay, Walmart, Amazon, Shopify</div>
+                <div class="team-role">E-commerce & Marketing • TikTok Shop, eBay, Walmart, Amazon, Shopify</div>
               </div>
             </div>
 
@@ -332,7 +311,7 @@
               <img src="team/pranto.jpg" alt="Pranto" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Pranto</div>
-                <div class="team-role">E-commerce Marketplace Expert • Listing + store growth strategy</div>
+                <div class="team-role">E-commerce Marketplace • Listing + store growth strategy</div>
               </div>
             </div>
 
@@ -340,7 +319,7 @@
               <img src="team/sujosh.jpg" alt="Sujosh" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Sujosh</div>
-                <div class="team-role">SEO Expert • On-page + technical SEO, 3-month growth roadmap</div>
+                <div class="team-role">SEO • On-page + technical SEO, growth roadmap</div>
               </div>
             </div>
 
@@ -348,7 +327,7 @@
               <img src="team/suvo.jpg" alt="Suvo Mistry" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Suvo Mistry</div>
-                <div class="team-role">E-commerce Expert • Product research, listing optimization, marketplace support</div>
+                <div class="team-role">E-commerce • Product research, listing optimization, support</div>
               </div>
             </div>
 
@@ -356,7 +335,7 @@
               <img src="team/naiem.jpg" alt="Nayem" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Nayem</div>
-                <div class="team-role">Ads Expert • Performance marketing (Meta/Shop ads), scaling & retargeting</div>
+                <div class="team-role">Ads • Performance marketing (Meta/Shop), scaling & retargeting</div>
               </div>
             </div>
           </div>
@@ -365,7 +344,6 @@
             <a class="mini-btn" href="#contact">Contact Team</a>
           </div>
         </div>
-
       </aside>
 
     </div>
@@ -381,25 +359,34 @@
 
     <p>
       We design and build end-to-end automation systems using <strong>n8n</strong>—so your business runs faster,
-      replies instantly, and stays organized without manual effort.
+      replies instantly, and stays organized without extra manual work.
     </p>
 
     <p>
-      Most teams lose time in repeated tasks: replying to messages, capturing leads, updating spreadsheets,
-      sending follow-ups, and notifying admins. We replace those tasks with stable workflows that run quietly
-      in the background—while your brand stays fast and professional on the front end.
+      Most teams lose time in small, repeated tasks: replying to messages, capturing leads, updating spreadsheets,
+      sending follow-ups, and notifying admins. Together, these create operational chaos and slow growth.
+    </p>
+
+    <p>
+      We replace those tasks with stable workflows that run quietly in the background—while your brand looks active,
+      responsive, and professional on the front end.
     </p>
 
     <p>
       Our core focus is <strong>Messenger Automation</strong> and <strong>WhatsApp Business Automation</strong>.
-      We build structured conversation flows, capture leads automatically, route high-value conversations to admins,
-      and keep clean records with logging and reliability layers.
+      We build structured conversation flows, capture leads automatically, answer common questions, and route
+      high-value conversations to admins in real time—with full context.
     </p>
 
     <p>
-      Beyond messaging, we connect your tools across <strong>Telegram</strong>, <strong>Email</strong>,
-      <strong>Google Sheets/CRM</strong>, <strong>Webhooks</strong>, and <strong>APIs</strong>—with retries, logs,
-      and scalable structure.
+      We also build <strong>LinkedIn realtime content systems</strong> that generate strong hooks, post formats,
+      and idea pipelines—so founders can stay consistent without spending hours writing.
+    </p>
+
+    <p>
+      Beyond messaging and content, we connect your tools across <strong>Telegram</strong>, <strong>Email</strong>,
+      <strong>Google Sheets/CRM</strong>, <strong>Webhooks</strong>, and <strong>APIs</strong>—with logging, retries,
+      and clean data so your automation stays reliable at scale.
     </p>
   </section>
 
@@ -525,13 +512,13 @@
   <section id="links" class="card">
     <h2>Official Links</h2>
     <div class="buttons">
-      <a class="btn" href="https://facebook.com/mrswadhinhowlader" target="_blank">Facebook Profile</a>
-      <a class="btn" href="https://facebook.com/swadhindigitalhub" target="_blank">Facebook Page</a>
-      <a class="btn" href="https://instagram.com/mrswadhinhowlader" target="_blank">Instagram</a>
-      <a class="btn" href="https://x.com/mrswadhinrj" target="_blank">X (Twitter)</a>
-      <a class="btn" href="https://www.linkedin.com/in/mrswadhinhowlader" target="_blank">LinkedIn</a>
-      <a class="btn" href="https://www.youtube.com/@mrswadhinhowlader" target="_blank">YouTube</a>
-      <a class="btn" href="https://github.com/mrswadhinhowlader" target="_blank">GitHub</a>
+      <a class="btn" href="https://facebook.com/mrswadhinhowlader" target="_blank" rel="noopener">Facebook Profile</a>
+      <a class="btn" href="https://facebook.com/swadhindigitalhub" target="_blank" rel="noopener">Facebook Page</a>
+      <a class="btn" href="https://instagram.com/mrswadhinhowlader" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn" href="https://x.com/mrswadhinrj" target="_blank" rel="noopener">X (Twitter)</a>
+      <a class="btn" href="https://www.linkedin.com/in/mrswadhinhowlader" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://www.youtube.com/@mrswadhinhowlader" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn" href="https://github.com/mrswadhinhowlader" target="_blank" rel="noopener">GitHub</a>
     </div>
   </section>
 
@@ -542,7 +529,12 @@
 
     <div class="buttons" style="margin-top:14px;">
       <a class="btn" href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support." target="_blank" rel="noopener">WhatsApp Chat</a>
-      <a class="btn" href="#" target="_blank">Telegram</a>
+
+      <!-- Replace this with your Telegram username/link -->
+      <a class="btn" href="https://t.me/yourusername" target="_blank" rel="noopener">Telegram</a>
+
+      <!-- Optional: same Book Now link again -->
+      <a class="btn" href="https://forms.gle/PASTE_YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">Book Now</a>
     </div>
   </section>
 
@@ -611,6 +603,7 @@
 
 <script>
 (function(){
+  /* ✅ Replace your webhook here if needed */
   const N8N_WEBHOOK_URL = "https://vmi2977874.contaboserver.net/webhook/3f9f3f16-b52c-4d13-834a-96b9df752b79";
 
   const btn = document.getElementById("sw-chat-btn");
@@ -643,7 +636,7 @@
     const isOpen = box.style.display === "block";
     box.style.display = isOpen ? "none" : "block";
     if(log.childElementCount === 0){
-      addMsg("Hi! Ask me anything about n8n Automation, Messenger/WhatsApp, Sheets/CRM Sync 🙂","bot");
+      addMsg("Hi! Ask me anything about n8n Automation, Messenger/WhatsApp, Sheets/CRM Sync.","bot");
     }
     setTimeout(()=>{ try{ input.focus(); }catch(e){} }, 50);
   }
@@ -681,7 +674,7 @@
 
     }catch(err){
       typingNode.remove();
-      addMsg("Could not connect (CORS/Response). Please fix n8n Response + CORS headers.","bot");
+      addMsg("Connection issue (CORS/Response). Please verify n8n CORS headers + Response node.","bot");
       console.error(err);
     }
   });
@@ -690,6 +683,7 @@
 
 <script>
 (function(){
+  /* Scroll Reveal */
   const targets = document.querySelectorAll(
     ".hero-left, .team-card, .card, .section-head, .service-card, .project.card, .team-member, .blog-card"
   );
@@ -706,7 +700,8 @@
 
   targets.forEach(el => io.observe(el));
 
-  const glowCards = document.querySelectorAll(".card, .team-card, .project.card, .blog-card");
+  /* Spotlight follow mouse */
+  const glowCards = document.querySelectorAll(".card, .team-card, .project.card, .blog-card, .service-card");
   glowCards.forEach(card=>{
     card.addEventListener("mousemove", (ev)=>{
       const r = card.getBoundingClientRect();
