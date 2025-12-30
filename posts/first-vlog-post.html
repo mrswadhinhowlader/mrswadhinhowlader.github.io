@@ -1,31 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QKKMJTX6YB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QKKMJTX6YB');
-</script>
-
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKKMJTX6YB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QKKMJTX6YB');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How We Build Messenger Automation in n8n | Swadhin Digital Hub</title>
   <meta name="description" content="A practical vlog-style breakdown of building Messenger Automation in n8n: lead capture, auto replies, admin alerts, and handover.">
   <link rel="stylesheet" href="../style.css" />
 
-  <!-- Premium-only for this post page (won’t affect other pages) -->
+  <!-- ✅ Only for this post page -->
   <style>
     /* ✅ CLICK FIX (overlay won’t block clicks) */
     .hero{ position:relative; }
     .hero .overlay{ pointer-events:none !important; z-index:0; }
     .nav, .hero-content, main, footer{ position:relative; z-index:2; }
 
-    .post { max-width: 980px; margin: 0 auto; }
-    .post-head { display:flex; flex-direction:column; gap:10px; }
+    /* ✅ Reduce hero height a bit for blog post pages */
+    header.hero{ min-height: 58vh !important; }
+    .hero-content{ padding: 64px 4% 34px !important; }
+    .wrap{ padding: 34px 4% 80px !important; } /* full-width feel */
 
+    /* ✅ 2-column layout (Left text scroll, Right video sticky) */
+    .post-layout{
+      display:grid;
+      grid-template-columns: 1.25fr .95fr;
+      gap: 18px;
+      align-items:start;
+      grid-template-areas: "left right";
+    }
+    .post-left{ grid-area:left; }
+    .post-right{ grid-area:right; }
+
+    /* Right sticky panel */
+    .post-right{
+      position: sticky;
+      top: 92px; /* nav sticky থাকলেও safe */
+      align-self: start;
+    }
+
+    /* Make cards full width within columns */
+    .post{ max-width: none !important; margin: 0 !important; }
+    .sticky-card{ padding: 18px; }
+
+    .sticky-title{
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      opacity: .96;
+    }
+    .sticky-sub{
+      font-size: 13px;
+      opacity: .86;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    /* Meta + chips */
+    .post-head { display:flex; flex-direction:column; gap:10px; }
     .post-meta{
       display:flex; flex-wrap:wrap; gap:10px;
       align-items:center; opacity:.95; font-size:14px;
@@ -38,6 +77,7 @@
       backdrop-filter: blur(14px);
     }
 
+    /* Cover */
     .post-cover{
       width:100%;
       border-radius:18px;
@@ -58,6 +98,7 @@
       margin:18px 0;
     }
 
+    /* Video embed */
     .video-wrap{
       position:relative;
       width:100%;
@@ -83,8 +124,8 @@
       margin-top:14px;
       padding:14px 16px;
       border-radius:16px;
-      background:rgba(255,152,0,.10);
-      border:1px solid rgba(255,152,0,.20);
+      background:rgba(255,152,0,.08);
+      border:1px solid rgba(255,152,0,.18);
       opacity:.98;
     }
 
@@ -106,7 +147,7 @@
       transform: translateY(-1px);
     }
 
-    /* Premium blog sections */
+    /* TOC */
     .toc{
       margin-top:14px;
       padding:14px 16px;
@@ -114,9 +155,7 @@
       background:rgba(0,0,0,.32);
       border:1px solid rgba(255,255,255,.12);
     }
-    .toc a{
-      color:#fff; text-decoration:none; opacity:.92;
-    }
+    .toc a{ color:#fff; text-decoration:none; opacity:.92; }
     .toc a:hover{ opacity:1; text-decoration:underline; text-underline-offset:4px; }
     .toc ul{ margin:10px 0 0; padding-left:18px; }
     .toc li{ margin:8px 0; }
@@ -128,6 +167,7 @@
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.12);
     }
+
     .kpi-grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -150,11 +190,7 @@
       background:rgba(0,0,0,.30);
       border:1px solid rgba(255,255,255,.12);
     }
-    .faq summary{
-      cursor:pointer;
-      font-weight:600;
-      opacity:.98;
-    }
+    .faq summary{ cursor:pointer; font-weight:600; opacity:.98; }
     .faq p{ margin-top:10px; }
 
     .callout{
@@ -180,9 +216,30 @@
       opacity:.95;
     }
 
+    /* ✅ soften strong highlight (eye-friendly) */
+    .post strong{
+      color: #ffd39a;
+      background: rgba(255,152,0,.10);
+      border: 1px solid rgba(255,152,0,.16);
+      padding: 1px 6px;
+      border-radius: 999px;
+    }
+
+    /* ✅ Mobile: video goes top, then text */
+    @media (max-width:1100px){
+      .post-layout{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "right"
+          "left";
+      }
+      .post-right{ position: relative; top: 0; }
+    }
+
     @media (max-width:768px){
       .brand-title{ font-size:36px !important; }
       .post h2{ font-size:22px; }
+      .wrap{ padding: 26px 18px 60px !important; }
     }
   </style>
 </head>
@@ -237,214 +294,240 @@
 </header>
 
 <main class="wrap">
-  <article class="card post">
+  <div class="post-layout">
 
-    <img class="post-cover" src="images/first-vlog-cover.png" alt="Messenger automation workflow cover image">
+    <!-- ✅ LEFT: TEXT SCROLL -->
+    <div class="post-left">
+      <article class="card post">
 
-    <p class="note">
-      This post shows a real automation mindset: faster replies, clean data capture, and full admin control—without messy manual work.
-    </p>
+        <img class="post-cover" src="images/first-vlog-cover.png" alt="Messenger automation workflow cover image">
 
-    <div class="toc" aria-label="Table of contents">
-      <strong style="display:block; font-size:16px; margin-bottom:6px;">Quick Navigation</strong>
-      <ul>
-        <li><a href="#watch">Watch the Vlog</a></li>
-        <li><a href="#full-post">Full Blog Breakdown</a></li>
-        <li><a href="#structure">Workflow Structure</a></li>
-        <li><a href="#logic">Intent + Routing Logic</a></li>
-        <li><a href="#data">Google Sheets / CRM Sync</a></li>
-        <li><a href="#admin">Admin Alerts + Handover</a></li>
-        <li><a href="#reliability">Reliability: Errors, Retries, Logs</a></li>
-        <li><a href="#kpis">KPIs to Measure Success</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </div>
-
-    <div class="divider"></div>
-
-    <p>
-      Messenger Automation is not “just auto-reply.” A real system must behave like a structured support + sales operation:
-      it must understand intent, capture lead data, keep records clean, notify the admin correctly, and hand over conversations
-      without losing context. This is exactly what we build inside <strong>n8n</strong>—stable, scalable, and easy to expand.
-    </p>
-
-    <h2 id="watch">Watch the Vlog</h2>
-
-    <div class="video-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/yBzUxJfCZWg"
-        title="How We Build Messenger Automation in n8n"
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <h2 id="full-post">Full Blog Breakdown</h2>
-
-    <p>
-      Below is the full “execution-style” breakdown of how we design and deploy Messenger Automation for businesses.
-      You can follow this structure for almost any niche: digital services, e-commerce, local shops, agencies, or support teams.
-    </p>
-
-    <h3>1) The Real Goal of Messenger Automation</h3>
-    <p>
-      The goal is simple: <strong>respond instantly, capture data automatically, and route correctly</strong>.
-      That means the user experience feels human and fast, while the business backend becomes organized and measurable.
-      Instead of losing leads in inbox chaos, every message becomes a structured workflow event.
-    </p>
-
-    <h3 id="structure">2) Workflow Structure (High Level)</h3>
-    <ul class="list">
-      <li><strong>Webhook Input</strong> → receives Messenger message payload instantly</li>
-      <li><strong>Identity Detection</strong> → auto-detect name + phone (or request missing fields only)</li>
-      <li><strong>Intent Classification</strong> → FAQ / pricing / service / order / human handover</li>
-      <li><strong>Smart Response</strong> → replies based on intent with clear next steps</li>
-      <li><strong>Google Sheets / CRM Sync</strong> → clean rows + tags + timestamps</li>
-      <li><strong>Admin Alert (Telegram)</strong> → summary + lead details + “what to do next”</li>
-      <li><strong>Error Handling</strong> → retries, fallback routes, log capture</li>
-    </ul>
-
-    <div class="steps">
-      <strong style="display:block; margin-bottom:8px;">Typical Flow in 20 Seconds</strong>
-      <p style="margin:0;">
-        A lead messages your page → automation replies instantly → captures name/phone → tags intent →
-        saves to Sheets/CRM → alerts admin on Telegram → if needed, hands over the chat with full context.
-      </p>
-    </div>
-
-    <h3 id="logic">3) Intent + Routing Logic (Why Most Automations Fail)</h3>
-    <p>
-      Most “automation” fails because it replies blindly. We build a routing system that works like a support desk:
-      different intents go to different paths. Example intents we handle:
-      <strong>Pricing</strong>, <strong>Setup</strong>, <strong>Problem/Screenshot</strong>, <strong>Service List</strong>,
-      <strong>Order/Payment</strong>, <strong>Human Support</strong>.
-    </p>
-    <p class="callout">
-      A premium workflow never asks the same question twice. If the system already has phone/name from payload,
-      it never asks again. If something is missing, it asks only that missing field—clean and professional.
-    </p>
-
-    <h3 id="data">4) Google Sheets / CRM Sync (Clean Data = Real Growth)</h3>
-    <p>
-      Every conversation becomes a row (or updates an existing row). We store:
-      name, phone, platform, message summary, intent tag, status (active/inactive), assigned admin,
-      created date, last updated, next follow-up date, and notes. This makes reporting and follow-up automation easy.
-    </p>
-    <ul class="list">
-      <li><strong>Lead Table</strong> → one row per lead with status + tags</li>
-      <li><strong>Conversation Log</strong> → optional: message timeline for auditing</li>
-      <li><strong>Follow-up Queue</strong> → leads that need replies or reminders</li>
-    </ul>
-
-    <h3 id="admin">5) Admin Alerts + Human Handover</h3>
-    <p>
-      Admin alerts are not spam. A good alert is a compact, readable summary:
-      who messaged, what they want, what the automation already answered, and what the admin should do next.
-      We typically send Telegram alerts with:
-      <strong>Lead summary</strong> + <strong>intent</strong> + <strong>contact</strong> + <strong>quick action note</strong>.
-    </p>
-
-    <h3 id="reliability">6) Reliability: Error Handling, Retries, Logs</h3>
-    <p>
-      Production systems must survive bad inputs, API downtime, and random user behavior.
-      We add safety layers: retry logic, timeout controls, fallback responses, and a logging route
-      so the team can debug in minutes.
-    </p>
-    <ul class="list">
-      <li>Retry on temporary API failures</li>
-      <li>Log payload + error message to a Sheets/DB “Errors” table</li>
-      <li>Fallback reply when something unexpected happens</li>
-      <li>Admin alert for critical failures only</li>
-    </ul>
-
-    <h3 id="kpis">7) KPIs That Prove the Automation Works</h3>
-    <p>
-      If you can’t measure it, you can’t improve it. These are the metrics we track:
-    </p>
-
-    <div class="kpi-grid" aria-label="KPIs">
-      <div class="kpi">
-        <strong>Response Time</strong>
-        <span>Instant replies reduce drop-off and increase lead conversion.</span>
-      </div>
-      <div class="kpi">
-        <strong>Lead Capture Rate</strong>
-        <span>% of conversations that successfully save name + phone + intent.</span>
-      </div>
-      <div class="kpi">
-        <strong>Handover Quality</strong>
-        <span>Admin gets context, not confusion. Faster closing and fewer follow-up questions.</span>
-      </div>
-      <div class="kpi">
-        <strong>Follow-up Completion</strong>
-        <span>Automated reminders and status tracking prevent missed leads.</span>
-      </div>
-    </div>
-
-    <h3>8) What This Automation Can Expand Into</h3>
-    <p>
-      Once this base workflow is stable, scaling becomes easy. We can add:
-      WhatsApp Business flows, order capture, invoice generation, payment confirmation,
-      calendar bookings, CRM pipelines, email sequences, and multi-agent routing.
-    </p>
-
-    <div class="tags" aria-label="Keywords">
-      <span class="tag">n8n Automation</span>
-      <span class="tag">Messenger Automation</span>
-      <span class="tag">Lead Capture</span>
-      <span class="tag">Webhook Routing</span>
-      <span class="tag">Google Sheets CRM</span>
-      <span class="tag">Telegram Alerts</span>
-      <span class="tag">Human Handover</span>
-      <span class="tag">API Integrations</span>
-      <span class="tag">Dashboards</span>
-    </div>
-
-    <h2 id="faq">FAQ</h2>
-    <section class="faq" aria-label="FAQ section">
-      <details>
-        <summary>Can this automation work for any business niche?</summary>
-        <p>
-          Yes. The structure is universal: detect intent, respond instantly, save clean data, notify admin, and hand over.
-          We customize the intents, messages, and data fields for your business.
+        <p class="note">
+          This post shows a real automation mindset: faster replies, clean data capture, and full admin control—without messy manual work.
         </p>
-      </details>
 
-      <details>
-        <summary>Will the automation keep conversations human-friendly?</summary>
+        <div class="toc" aria-label="Table of contents">
+          <strong style="display:block; font-size:16px; margin-bottom:6px;">Quick Navigation</strong>
+          <ul>
+            <li><a href="#watch">Watch the Vlog</a></li>
+            <li><a href="#full-post">Full Blog Breakdown</a></li>
+            <li><a href="#structure">Workflow Structure</a></li>
+            <li><a href="#logic">Intent + Routing Logic</a></li>
+            <li><a href="#data">Google Sheets / CRM Sync</a></li>
+            <li><a href="#admin">Admin Alerts + Handover</a></li>
+            <li><a href="#reliability">Reliability: Errors, Retries, Logs</a></li>
+            <li><a href="#kpis">KPIs to Measure Success</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
         <p>
-          Yes. We design short, clear replies, and we route human support when needed. The goal is to reduce friction,
-          not to “robot spam” the customer.
+          Messenger Automation is not “just auto-reply.” A real system must behave like a structured support + sales operation:
+          it must understand intent, capture lead data, keep records clean, notify the admin correctly, and hand over conversations
+          without losing context. This is exactly what we build inside <strong>n8n</strong>—stable, scalable, and easy to expand.
         </p>
-      </details>
 
-      <details>
-        <summary>What’s needed to set this up?</summary>
+        <!-- ✅ Keep anchor for TOC -->
+        <h2 id="watch">Watch the Vlog</h2>
+        <p class="callout">
+          Video is pinned on the right side (sticky). You can read on the left and follow the video without scrolling it.
+        </p>
+
+        <h2 id="full-post">Full Blog Breakdown</h2>
+
         <p>
-          Access to your Messenger/Page integration, an n8n instance, and a simple Google Sheets/CRM structure.
-          We can also set up Telegram alerts and logging routes.
+          Below is the full “execution-style” breakdown of how we design and deploy Messenger Automation for businesses.
+          You can follow this structure for almost any niche: digital services, e-commerce, local shops, agencies, or support teams.
         </p>
-      </details>
 
-      <details>
-        <summary>How do you prevent missed leads?</summary>
+        <h3>1) The Real Goal of Messenger Automation</h3>
         <p>
-          Instant reply + lead capture + status tracking + follow-up queue. If a lead doesn’t reply, the system can
-          schedule reminders and keep your pipeline clean.
+          The goal is simple: <strong>respond instantly, capture data automatically, and route correctly</strong>.
+          That means the user experience feels human and fast, while the business backend becomes organized and measurable.
+          Instead of losing leads in inbox chaos, every message becomes a structured workflow event.
         </p>
-      </details>
-    </section>
 
-    <div class="divider"></div>
+        <h3 id="structure">2) Workflow Structure (High Level)</h3>
+        <ul class="list">
+          <li><strong>Webhook Input</strong> → receives Messenger message payload instantly</li>
+          <li><strong>Identity Detection</strong> → auto-detect name + phone (or request missing fields only)</li>
+          <li><strong>Intent Classification</strong> → FAQ / pricing / service / order / human handover</li>
+          <li><strong>Smart Response</strong> → replies based on intent with clear next steps</li>
+          <li><strong>Google Sheets / CRM Sync</strong> → clean rows + tags + timestamps</li>
+          <li><strong>Admin Alert (Telegram)</strong> → summary + lead details + “what to do next”</li>
+          <li><strong>Error Handling</strong> → retries, fallback routes, log capture</li>
+        </ul>
 
-    <div class="post-cta">
-      <a class="cta" href="../index.html#contact">Work With Me</a>
-      <a class="cta ghost" href="../blog.html">Back to Blog</a>
+        <div class="steps">
+          <strong style="display:block; margin-bottom:8px;">Typical Flow in 20 Seconds</strong>
+          <p style="margin:0;">
+            A lead messages your page → automation replies instantly → captures name/phone → tags intent →
+            saves to Sheets/CRM → alerts admin on Telegram → if needed, hands over the chat with full context.
+          </p>
+        </div>
+
+        <h3 id="logic">3) Intent + Routing Logic (Why Most Automations Fail)</h3>
+        <p>
+          Most “automation” fails because it replies blindly. We build a routing system that works like a support desk:
+          different intents go to different paths. Example intents we handle:
+          <strong>Pricing</strong>, <strong>Setup</strong>, <strong>Problem/Screenshot</strong>, <strong>Service List</strong>,
+          <strong>Order/Payment</strong>, <strong>Human Support</strong>.
+        </p>
+        <p class="callout">
+          A premium workflow never asks the same question twice. If the system already has phone/name from payload,
+          it never asks again. If something is missing, it asks only that missing field—clean and professional.
+        </p>
+
+        <h3 id="data">4) Google Sheets / CRM Sync (Clean Data = Real Growth)</h3>
+        <p>
+          Every conversation becomes a row (or updates an existing row). We store:
+          name, phone, platform, message summary, intent tag, status (active/inactive), assigned admin,
+          created date, last updated, next follow-up date, and notes. This makes reporting and follow-up automation easy.
+        </p>
+        <ul class="list">
+          <li><strong>Lead Table</strong> → one row per lead with status + tags</li>
+          <li><strong>Conversation Log</strong> → optional: message timeline for auditing</li>
+          <li><strong>Follow-up Queue</strong> → leads that need replies or reminders</li>
+        </ul>
+
+        <h3 id="admin">5) Admin Alerts + Human Handover</h3>
+        <p>
+          Admin alerts are not spam. A good alert is a compact, readable summary:
+          who messaged, what they want, what the automation already answered, and what the admin should do next.
+          We typically send Telegram alerts with:
+          <strong>Lead summary</strong> + <strong>intent</strong> + <strong>contact</strong> + <strong>quick action note</strong>.
+        </p>
+
+        <h3 id="reliability">6) Reliability: Error Handling, Retries, Logs</h3>
+        <p>
+          Production systems must survive bad inputs, API downtime, and random user behavior.
+          We add safety layers: retry logic, timeout controls, fallback responses, and a logging route
+          so the team can debug in minutes.
+        </p>
+        <ul class="list">
+          <li>Retry on temporary API failures</li>
+          <li>Log payload + error message to a Sheets/DB “Errors” table</li>
+          <li>Fallback reply when something unexpected happens</li>
+          <li>Admin alert for critical failures only</li>
+        </ul>
+
+        <h3 id="kpis">7) KPIs That Prove the Automation Works</h3>
+        <p>
+          If you can’t measure it, you can’t improve it. These are the metrics we track:
+        </p>
+
+        <div class="kpi-grid" aria-label="KPIs">
+          <div class="kpi">
+            <strong>Response Time</strong>
+            <span>Instant replies reduce drop-off and increase lead conversion.</span>
+          </div>
+          <div class="kpi">
+            <strong>Lead Capture Rate</strong>
+            <span>% of conversations that successfully save name + phone + intent.</span>
+          </div>
+          <div class="kpi">
+            <strong>Handover Quality</strong>
+            <span>Admin gets context, not confusion. Faster closing and fewer follow-up questions.</span>
+          </div>
+          <div class="kpi">
+            <strong>Follow-up Completion</strong>
+            <span>Automated reminders and status tracking prevent missed leads.</span>
+          </div>
+        </div>
+
+        <h3>8) What This Automation Can Expand Into</h3>
+        <p>
+          Once this base workflow is stable, scaling becomes easy. We can add:
+          WhatsApp Business flows, order capture, invoice generation, payment confirmation,
+          calendar bookings, CRM pipelines, email sequences, and multi-agent routing.
+        </p>
+
+        <div class="tags" aria-label="Keywords">
+          <span class="tag">n8n Automation</span>
+          <span class="tag">Messenger Automation</span>
+          <span class="tag">Lead Capture</span>
+          <span class="tag">Webhook Routing</span>
+          <span class="tag">Google Sheets CRM</span>
+          <span class="tag">Telegram Alerts</span>
+          <span class="tag">Human Handover</span>
+          <span class="tag">API Integrations</span>
+          <span class="tag">Dashboards</span>
+        </div>
+
+        <h2 id="faq">FAQ</h2>
+        <section class="faq" aria-label="FAQ section">
+          <details>
+            <summary>Can this automation work for any business niche?</summary>
+            <p>
+              Yes. The structure is universal: detect intent, respond instantly, save clean data, notify admin, and hand over.
+              We customize the intents, messages, and data fields for your business.
+            </p>
+          </details>
+
+          <details>
+            <summary>Will the automation keep conversations human-friendly?</summary>
+            <p>
+              Yes. We design short, clear replies, and we route human support when needed. The goal is to reduce friction,
+              not to “robot spam” the customer.
+            </p>
+          </details>
+
+          <details>
+            <summary>What’s needed to set this up?</summary>
+            <p>
+              Access to your Messenger/Page integration, an n8n instance, and a simple Google Sheets/CRM structure.
+              We can also set up Telegram alerts and logging routes.
+            </p>
+          </details>
+
+          <details>
+            <summary>How do you prevent missed leads?</summary>
+            <p>
+              Instant reply + lead capture + status tracking + follow-up queue. If a lead doesn’t reply, the system can
+              schedule reminders and keep your pipeline clean.
+            </p>
+          </details>
+        </section>
+
+        <div class="divider"></div>
+
+        <div class="post-cta">
+          <a class="cta" href="../index.html#contact">Work With Me</a>
+          <a class="cta ghost" href="../blog.html">Back to Blog</a>
+        </div>
+
+      </article>
     </div>
 
-  </article>
+    <!-- ✅ RIGHT: STICKY VIDEO (NO SCROLL) -->
+    <aside class="post-right">
+      <section class="card sticky-card" aria-label="Sticky video panel">
+        <div class="sticky-title">Tutorial Video (Sticky)</div>
+        <div class="sticky-sub">
+          Read on the left and follow the vlog here—video stays pinned for a premium documentation feel.
+        </div>
+
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/yBzUxJfCZWg"
+            title="How We Build Messenger Automation in n8n"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="post-cta" style="margin-top:14px;">
+          <a class="mini-link" href="https://youtu.be/yBzUxJfCZWg" target="_blank" rel="noopener">Open on YouTube →</a>
+          <a class="mini-link" href="../index.html#contact">Need Setup Help? →</a>
+        </div>
+      </section>
+    </aside>
+
+  </div>
 </main>
 
 <footer class="footer">
@@ -453,4 +536,3 @@
 
 </body>
 </html>
-
