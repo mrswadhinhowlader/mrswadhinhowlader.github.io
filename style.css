@@ -1365,3 +1365,128 @@ body::after{
   backdrop-filter: blur(14px);
   box-shadow: 0 14px 45px rgba(0,0,0,.35);
 }
+/* =========================================================
+   SDH DOC LAYOUT (Split: Content + Sticky TOC)
+   Paste at the bottom of style.css
+========================================================= */
+
+.doc-wrap{
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.doc-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Left main doc */
+.doc-main{
+  min-width: 0;
+}
+
+/* Right sticky aside */
+.doc-aside{
+  position: sticky;
+  top: 92px; /* sticky nav height safe */
+  align-self: start;
+}
+
+.doc-panel{
+  padding: 18px;
+}
+
+.doc-panel h3{
+  font-size: 14px;
+  letter-spacing: .2px;
+  opacity: .92;
+  margin-bottom: 10px;
+}
+
+/* TOC */
+.doc-toc{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: calc(100vh - 160px);
+  overflow: auto;
+  padding-right: 6px;
+}
+
+/* nicer scroll */
+.doc-toc::-webkit-scrollbar{ width: 8px; }
+.doc-toc::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.10);
+  border-radius: 999px;
+}
+.doc-toc::-webkit-scrollbar-track{ background: transparent; }
+
+.toc-link{
+  display: block;
+  text-decoration: none;
+  color: rgba(255,255,255,.84);
+  padding: 9px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.18);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.toc-link:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,152,0,.30);
+  background: rgba(255,255,255,.05);
+}
+
+.toc-link.is-active{
+  border-color: rgba(255,152,0,.55);
+  background: rgba(255,152,0,.10);
+  color: rgba(255,255,255,.94);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
+/* indent for h3 */
+.toc-link[data-level="3"]{
+  margin-left: 12px;
+  opacity: .92;
+}
+
+/* Headings offset (so anchor doesn’t hide under sticky nav) */
+.doc-main h2, .doc-main h3{
+  scroll-margin-top: 110px;
+}
+
+/* Small helper box under TOC */
+.doc-help{
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+}
+.doc-help p{
+  font-size: 12px;
+  line-height: 1.55;
+  opacity: .9;
+}
+.doc-help a{
+  color: #ff9800;
+  text-decoration: none;
+  font-weight: 800;
+}
+.doc-help a:hover{ text-decoration: underline; }
+
+/* Mobile: sidebar goes under */
+@media (max-width: 1020px){
+  .doc-layout{
+    grid-template-columns: 1fr;
+  }
+  .doc-aside{
+    position: relative;
+    top: auto;
+  }
+}
