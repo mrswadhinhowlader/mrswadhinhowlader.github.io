@@ -16,6 +16,37 @@
   <meta name="description" content="Swadhin Digital Hub — Founded by Swadhin Howlader. n8n Automation Expert: Messenger Automation, WhatsApp Business Automation, Telegram Bots, Google Sheets/CRM sync, Webhooks, API Integrations, and dashboards.">
   <link rel="stylesheet" href="style.css" />
 
+  <!-- ✅ ADD: YouTube Feature CSS (Professional thumbnail section) -->
+  <style>
+    .sdh-video-feature{
+      display:grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:16px;
+    }
+    .sdh-video-thumb{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      object-fit:cover;
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+      background: rgba(0,0,0,.25);
+    }
+    .sdh-video-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    @media(max-width: 980px){
+      .sdh-video-feature{ grid-template-columns: 1fr; }
+      .sdh-video-thumb{ min-height:210px; }
+    }
+  </style>
+
   <!-- ===== SEO Meta ===== -->
   <link rel="canonical" href="https://mrswadhinhowlader.github.io/" />
   <meta name="robots" content="index,follow" />
@@ -335,6 +366,36 @@
       <img src="images/linkedin-automation.png" alt="LinkedIn Automation">
       <h3>LinkedIn Realtime Post Generator</h3>
       <p>Real-time post ideas, hooks, and structures for consistent visibility and growth.</p>
+    </div>
+  </section>
+
+  <!-- ✅ ADD: YouTube Tutorial + Documentation (Professional) -->
+  <section class="card" aria-label="YouTube tutorial and documentation" style="margin-top:18px;">
+    <h2>Latest Tutorial: GitHub Website + n8n AI Chatbot</h2>
+    <p style="opacity:.92; line-height:1.75;">
+      A clean, step-by-step walkthrough showing how we integrate a website chatbot into GitHub Pages using n8n Webhook,
+      CORS headers, AI Agent + Chat Model, and a final Response node—end to end.
+    </p>
+
+    <div class="sdh-video-feature">
+      <picture>
+        <source srcset="https://i.ytimg.com/vi/jdJSAn4CehU/maxresdefault.jpg" media="(min-width: 600px)">
+        <img class="sdh-video-thumb" src="https://i.ytimg.com/vi/jdJSAn4CehU/hqdefault.jpg" alt="GitHub + n8n AI Chatbot tutorial thumbnail">
+      </picture>
+
+      <div class="card" style="margin-bottom:0;">
+        <h3 style="margin-bottom:10px;">Documentation + Video Link</h3>
+        <p style="opacity:.92; line-height:1.75;">
+          Use the documentation page to copy the full workflow structure, node settings, and troubleshooting notes.
+          Watch the video if you want to follow the build exactly as executed.
+        </p>
+
+        <div class="sdh-video-actions">
+          <a class="btn" href="posts/github-n8n-chatbot-doc.html">Open Documentation →</a>
+          <a class="btn" href="https://youtu.be/jdJSAn4CehU" target="_blank" rel="noopener">Watch on YouTube →</a>
+          <a class="btn" href="blog.html">More Tutorials →</a>
+        </div>
+      </div>
     </div>
   </section>
 
