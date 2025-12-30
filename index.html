@@ -111,6 +111,38 @@
   }
   </script>
 </head>
+<script>
+(function(){
+  // 1) Scroll Reveal
+  const targets = document.querySelectorAll(
+    ".hero-left, .team-card, .card, .section-head, .service-card, .project.card, .team-member, .blog-card"
+  );
+  targets.forEach(el => el.classList.add("sdh-reveal"));
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add("sdh-reveal--show");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  targets.forEach(el => io.observe(el));
+
+  // 2) Spotlight follow mouse for premium feel
+  const glowCards = document.querySelectorAll(".card, .team-card, .project.card, .blog-card, .service-card");
+  glowCards.forEach(card=>{
+    card.addEventListener("mousemove", (ev)=>{
+      const r = card.getBoundingClientRect();
+      const x = ((ev.clientX - r.left) / r.width) * 100;
+      const y = ((ev.clientY - r.top) / r.height) * 100;
+      card.style.setProperty("--mx", x + "%");
+      card.style.setProperty("--my", y + "%");
+    }, {passive:true});
+  });
+})();
+</script>
 
 <body>
 
