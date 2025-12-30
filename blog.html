@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QKKMJTX6YB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QKKMJTX6YB');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKKMJTX6YB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QKKMJTX6YB');
+  </script>
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog | Swadhin Digital Hub</title>
-  <meta name="description" content=" Vlogs + guides on n8n automation, Messenger & WhatsApp automation, Telegram bots, Webhooks, API integrations, and growth systems.">
+  <meta name="description" content="Vlogs + guides on n8n automation, Messenger & WhatsApp automation, Telegram bots, Webhooks, API integrations, and growth systems.">
   <link rel="stylesheet" href="style.css" />
 
   <style>
@@ -58,29 +58,30 @@
       .featured{ grid-template-columns: 1fr; }
       .blog-title{ font-size:34px; }
     }
-    .video-feature{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:18px;
-  align-items:stretch;
-  margin: 18px 0 22px;
-}
-.video-thumb{
-  width:100%;
-  height:100%;
-  min-height:240px;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.14);
-  object-fit:cover;
-  box-shadow:0 18px 50px rgba(0,0,0,.35);
-}
-.video-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
 
-@media(max-width: 980px){
-  .video-feature{ grid-template-columns: 1fr; }
-  .video-thumb{ min-height:210px; }
-}
-<!-
+    /* ✅ FIX: BLOG HERO GAP কমানো */
+    header.hero{
+      min-height: unset !important;
+      height: auto !important;
+      padding: 140px 0 34px !important;
+    }
+    header.hero .hero-content{
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    header.hero .hero-left{
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    header.hero .brand-title{
+      margin: 0 0 8px !important;
+    }
+    header.hero .subtitle{
+      margin: 0 0 12px !important;
+    }
+    .blog-wrap{
+      padding-top: 28px !important;
+    }
   </style>
 </head>
 
@@ -161,32 +162,45 @@
         </div>
       </div>
     </section>
-<section class="blog-grid" id="postsGrid"></section>
-<script>
-(async () => {
-  const grid = document.getElementById("postsGrid");
-  if (!grid) return;
 
-  const res = await fetch("posts/posts.json", { cache: "no-store" });
-  const posts = await res.json();
+    <!-- ✅ Auto-loaded posts (posts/posts.json) -->
+    <section class="blog-grid" id="postsGrid" aria-label="Posts grid"></section>
+    <script>
+      (async () => {
+        const grid = document.getElementById("postsGrid");
+        if (!grid) return;
 
-  grid.innerHTML = posts.map(p => `
-    <article class="card post-card">
-      <img src="${p.cover}" alt="${p.title}">
-      <div class="post-meta">
-        <span class="meta-chip">📅 ${p.date}</span>
-        <span class="meta-chip">${p.category || "Post"}</span>
-      </div>
-      <h3>${p.title}</h3>
-      <p>${p.excerpt || ""}</p>
-      <div class="read-more">
-        <span class="small">${(p.tags||[]).slice(0,2).join(" • ")}</span>
-        <a class="mini-btn" href="${p.url}">Open →</a>
-      </div>
-    </article>
-  `).join("");
-})();
-</script>
+        try{
+          const res = await fetch("posts/posts.json", { cache: "no-store" });
+          const posts = await res.json();
+
+          grid.innerHTML = posts.map(p => `
+            <article class="card post-card">
+              <img src="${p.cover}" alt="${p.title}">
+              <div class="post-meta">
+                <span class="meta-chip">📅 ${p.date}</span>
+                <span class="meta-chip">${p.category || "Post"}</span>
+              </div>
+              <h3>${p.title}</h3>
+              <p>${p.excerpt || ""}</p>
+              <div class="read-more">
+                <span class="small">${(p.tags||[]).slice(0,2).join(" • ")}</span>
+                <a class="mini-btn" href="${p.url}">Open →</a>
+              </div>
+            </article>
+          `).join("");
+
+        }catch(e){
+          grid.innerHTML = `
+            <div class="card" style="padding:18px;">
+              <b>Posts loading failed.</b>
+              <div style="opacity:.9; margin-top:6px;">Check: <code>posts/posts.json</code> path and valid JSON.</div>
+            </div>
+          `;
+          console.error(e);
+        }
+      })();
+    </script>
 
     <section class="controls" aria-label="Search and filter">
       <div class="search" title="UI only (optional JS later)">
@@ -204,7 +218,6 @@
       </select>
     </section>
 
-    <!-- ✅ এখানে লিংক ঠিক করা হয়েছে: first-vlog-post.html -->
     <section class="featured" id="latest" aria-label="Featured post">
       <img class="featured-cover" src="posts/images/first-vlog-cover.jpg" alt="Featured vlog cover">
 
@@ -227,57 +240,6 @@
           <a class="mini-btn" href="posts/first-vlog-post.html">Read / Watch →</a>
         </div>
       </div>
-    </section>
-
-    <section class="blog-grid" aria-label="All posts">
-      <article class="card post-card">
-        <img src="posts/images/first-vlog-cover.jpg" alt="Messenger Automation vlog cover">
-        <div class="post-meta">
-          <span class="meta-chip">📅 Dec 18, 2025</span>
-          <span class="meta-chip">Messenger Automation</span>
-        </div>
-        <h3>How We Build Messenger Automation in n8n</h3>
-        <p>
-          Lead capture → instant replies → admin alert (Telegram) → Sheets/CRM sync → clean handover.
-          Real workflow structure explained.
-        </p>
-        <div class="read-more">
-          <span class="small">Vlog + breakdown</span>
-          <a class="mini-btn" href="posts/first-vlog-post.html">Open →</a>
-        </div>
-      </article>
-
-      <article class="card post-card">
-        <img src="og-image.png" alt="WhatsApp Automation cover">
-        <div class="post-meta">
-          <span class="meta-chip">Coming soon</span>
-          <span class="meta-chip">WhatsApp Business</span>
-        </div>
-        <h3>WhatsApp Business Automation: Orders + Follow-ups</h3>
-        <p>
-          Structure for order flow, quick replies, tagging, follow-up sequences, and escalation.
-        </p>
-        <div class="read-more">
-          <span class="small">Template post</span>
-          <a class="mini-btn" href="index.html#contact">Request →</a>
-        </div>
-      </article>
-
-      <article class="card post-card">
-        <img src="og-image.png" alt="Webhook and API integrations cover">
-        <div class="post-meta">
-          <span class="meta-chip">Coming soon</span>
-          <span class="meta-chip">Webhooks & APIs</span>
-        </div>
-        <h3>Webhooks + API Integrations in n8n (Best Practices)</h3>
-        <p>
-          Reliable patterns: retries, logging, error routes, rate limits, clean payload design—premium setup.
-        </p>
-        <div class="read-more">
-          <span class="small">Technical guide</span>
-          <a class="mini-btn" href="index.html#contact">Request →</a>
-        </div>
-      </article>
     </section>
 
     <div style="height:22px;"></div>
