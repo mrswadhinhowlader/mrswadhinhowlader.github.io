@@ -538,3 +538,116 @@ body::after{
 ::selection{
   background: rgba(255,152,0,.28);
 }
+/* ==============================
+   TEXT EFFECTS (PRO LOOK)
+   Paste at the bottom of style.css
+============================== */
+
+/* A) Brand title: gradient + shimmer + glow */
+.brand-title{
+  background: linear-gradient(90deg, #ffffff, #ff9800, #00aaff, #ffffff);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sdhShimmer 6s linear infinite;
+  text-shadow: 0 12px 40px rgba(0,0,0,.45);
+}
+@keyframes sdhShimmer{
+  0%{background-position:0% 50%}
+  100%{background-position:220% 50%}
+}
+
+/* B) Founder line: soft pulse */
+.founder-line{
+  position: relative;
+  display: inline-block;
+  color: rgba(255,255,255,.92);
+  animation: sdhPulse 3.2s ease-in-out infinite;
+}
+@keyframes sdhPulse{
+  0%,100%{opacity:.88}
+  50%{opacity:1}
+}
+
+/* C) Subtitle: subtle “focus glow” */
+.subtitle{
+  text-shadow: 0 0 0 rgba(255,152,0,0);
+  transition: text-shadow .25s ease;
+}
+.subtitle:hover{
+  text-shadow: 0 0 18px rgba(255,152,0,.25);
+}
+
+/* D) Section titles: underline reveal */
+.card h2, .section-title{
+  position: relative;
+  display: inline-block;
+  letter-spacing: -0.01em;
+}
+.card h2::after, .section-title::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  height:3px;
+  width:0%;
+  border-radius:999px;
+  background: linear-gradient(90deg, rgba(255,152,0,.9), rgba(0,170,255,.75));
+  transition: width .35s ease;
+}
+.card:hover h2::after,
+.section-head:hover .section-title::after{
+  width: 100%;
+}
+
+/* E) Card headings (h3): premium lift on hover */
+.card h3{
+  transition: transform .18s ease, text-shadow .18s ease, letter-spacing .18s ease;
+}
+.card:hover h3{
+  transform: translateY(-2px);
+  letter-spacing: .2px;
+  text-shadow: 0 10px 30px rgba(0,0,0,.55);
+}
+
+/* F) Paragraphs: smoother readability + slight hover */
+.card p{
+  color: rgba(255,255,255,.88);
+  transition: color .2s ease;
+}
+.card:hover p{
+  color: rgba(255,255,255,.93);
+}
+
+/* G) Nav links: animated underline + glow */
+.nav-bottom a{
+  position: relative;
+}
+.nav-bottom a::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:-6px;
+  height:2px;
+  opacity:0;
+  transform: scaleX(0);
+  transform-origin:center;
+  border-radius:999px;
+  background: rgba(255,152,0,.9);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.nav-bottom a:hover{
+  text-shadow: 0 0 14px rgba(255,152,0,.20);
+}
+.nav-bottom a:hover::after{
+  opacity:1;
+  transform: scaleX(1);
+}
+
+/* H) Highlight strong text inside About section */
+.card strong{
+  color: #ffb24a;
+  text-shadow: 0 0 14px rgba(255,152,0,.18);
+}
