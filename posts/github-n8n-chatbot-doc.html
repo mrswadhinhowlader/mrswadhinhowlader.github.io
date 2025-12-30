@@ -9,88 +9,44 @@
 
   <style>
     /* =========================
-       DOC PAGE (FULL-WIDTH)
-       This page overrides max-width so content fills the screen
+       DOC PAGE: LEFT SCROLL + RIGHT STICKY VIDEO
     ========================= */
 
-    /* reduce hero height only for this doc page */
-    header.hero{
-      min-height: 52vh !important;
-      padding-bottom: 18px !important;
-    }
-    .hero-content{
-      padding-top: 64px !important;
-      padding-left: 4% !important;
-      padding-right: 4% !important;
-    }
+    /* Reduce hero height for this page */
+    header.hero{ min-height: 46vh !important; padding-bottom: 14px !important; }
+    .hero-content{ padding-top: 62px !important; padding-left: 4% !important; padding-right: 4% !important; }
+    .hero-left{ max-width:none !important; width:100% !important; }
 
-    /* IMPORTANT: remove the global max-width from hero-left for this page */
-    .hero-left{
-      max-width: none !important;
-      width: 100% !important;
-    }
-
-    /* main wrapper full width */
+    /* Full width main */
     .wrap.doc-wrap{
-      padding: 44px 4% 70px !important;
+      padding: 34px 4% 70px !important;
       max-width: none !important;
       width: 100% !important;
       margin: 0 !important;
     }
+    .doc-shell{ max-width:none !important; width:100% !important; margin:0 !important; }
 
-    /* REMOVE center narrow container */
-    .doc-shell{
-      max-width: none !important;
-      width: 100% !important;
-      margin: 0 !important;
+    /* Two column layout */
+    .doc-layout{
+      display: grid;
+      grid-template-columns: 1.25fr .95fr; /* left text bigger, right video smaller */
+      gap: 18px;
+      align-items: start;
     }
 
-    /* Typography */
-    .doc-title{
-      font-size: 44px;
+    /* Left column: content */
+    .doc-left .doc-title{
+      font-size: 42px;
+      line-height: 1.12;
       margin-bottom: 10px;
       letter-spacing: .2px;
-      line-height: 1.12;
     }
-    .doc-sub{
-      opacity: .92;
-      line-height: 1.85;
-      margin-bottom: 16px;
-      max-width: none;
-    }
-    .doc h2{
-      font-size: 24px;
-      margin: 18px 0 10px;
-    }
-    .doc p, .doc li{
-      line-height: 1.9;
-      opacity: .92;
-      font-size: 16.5px;
-    }
-    .doc ul{ padding-left: 18px; }
+    .doc-left .doc-sub{ opacity:.92; line-height:1.85; margin-bottom: 12px; max-width:none; }
 
-    /* Buttons area */
-    .doc-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin: 14px 0 10px;
-    }
+    .doc h2{ font-size:24px; margin:18px 0 10px; }
+    .doc p, .doc li{ line-height:1.9; opacity:.92; font-size:16.5px; }
+    .doc ul{ padding-left:18px; }
 
-    /* Video embed */
-    .yt-embed{
-      width:100%;
-      aspect-ratio: 16 / 9;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.14);
-      overflow:hidden;
-      box-shadow:0 18px 50px rgba(0,0,0,.35);
-      background: rgba(0,0,0,.25);
-      margin-top: 12px;
-    }
-    .yt-embed iframe{ width:100%; height:100%; border:0; }
-
-    /* Code blocks */
     .codebox{
       margin-top:10px;
       padding:14px;
@@ -104,7 +60,48 @@
       color:#fff;
     }
 
-    /* Active nav underline for this page */
+    /* Right column: sticky video panel */
+    .doc-right{
+      position: sticky;
+      top: 92px;               /* nav sticky থাকলে এটা perfect */
+      align-self: start;
+    }
+
+    .sticky-card{
+      padding: 18px;
+    }
+    .sticky-title{
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      opacity: .95;
+    }
+    .sticky-sub{
+      font-size: 13px;
+      opacity: .86;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .yt-embed{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      overflow:hidden;
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+      background: rgba(0,0,0,.25);
+    }
+    .yt-embed iframe{ width:100%; height:100%; border:0; }
+
+    .doc-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+    }
+
+    /* Active nav underline */
     .nav-bottom a.active{
       opacity:1;
       text-decoration:underline;
@@ -112,20 +109,20 @@
       text-underline-offset: 6px;
     }
 
-    /* OPTIONAL: if your premium hover yellow feels too strong, soften ONLY on doc page */
+    /* Optional: soften your yellow hover spotlight ONLY on this page */
     .card::after, .team-card::after, .project.card::after, .blog-card::after, .service-card::after{
-      background: radial-gradient(
-        260px 260px at var(--mx, 50%) var(--my, 30%),
-        rgba(255,152,0,.09),
-        transparent 62%
-      ) !important;
+      background: radial-gradient(260px 260px at var(--mx, 50%) var(--my, 30%), rgba(255,152,0,.08), transparent 62%) !important;
     }
 
-    /* Mobile */
+    /* Responsive: stack on mobile */
+    @media(max-width: 1100px){
+      .doc-layout{ grid-template-columns: 1fr; }
+      .doc-right{ position: relative; top: 0; }
+    }
     @media(max-width: 980px){
-      .doc-title{ font-size: 34px; }
-      .hero-content{ padding-top: 56px !important; }
-      .wrap.doc-wrap{ padding: 34px 18px 60px !important; }
+      header.hero{ min-height: 42vh !important; }
+      .wrap.doc-wrap{ padding: 26px 18px 60px !important; }
+      .doc-left .doc-title{ font-size: 34px; }
     }
   </style>
 </head>
@@ -140,9 +137,7 @@
       <a href="../index.html" aria-label="Home">
         <img src="../logo.png" class="logo" alt="Swadhin Digital Hub Logo">
       </a>
-
       <div class="nav-title">Swadhin Digital Hub</div>
-
       <a href="../index.html" aria-label="Home">
         <img src="../logo.png" class="logo logo-red" alt="Swadhin Digital Hub Logo Red">
       </a>
@@ -174,133 +169,152 @@
 <main class="wrap doc-wrap">
   <div class="doc-shell">
 
-    <section class="card doc-card">
-      <h1 class="doc-title">GitHub Website + n8n AI Chatbot Integration</h1>
-      <p class="doc-sub">
-        This page documents the exact setup used in the tutorial video—nodes, settings, flow,
-        and the final working pipeline from website chat widget to AI reply.
-      </p>
+    <div class="doc-layout">
 
-      <div class="doc-actions">
-        <a class="mini-btn" href="https://youtu.be/jdJSAn4CehU" target="_blank" rel="noopener">Open YouTube →</a>
-        <a class="mini-btn" href="../blog.html">Back to Blog →</a>
-      </div>
+      <!-- LEFT: TEXT SCROLL -->
+      <div class="doc-left">
 
-      <div class="yt-embed" aria-label="YouTube video embed">
-        <iframe
-          src="https://www.youtube.com/embed/jdJSAn4CehU"
-          title="GitHub + n8n AI Chatbot Integration"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
+        <section class="card doc-card">
+          <h1 class="doc-title">GitHub Website + n8n AI Chatbot Integration</h1>
+          <p class="doc-sub">
+            This page documents the exact setup used in the tutorial video—nodes, settings, flow,
+            and the final working pipeline from website chat widget to AI reply.
+          </p>
+        </section>
 
-    <section class="card doc-card doc">
-      <h2>1) Overview</h2>
-      <p>
-        We show a “Chat with AI” widget on a GitHub Pages website. When the user sends a message,
-        it hits an n8n Webhook. An AI Agent + Chat Model generates a reply, and n8n returns it back to the website.
-      </p>
-      <div class="codebox">
+        <section class="card doc-card doc">
+          <h2>1) Overview</h2>
+          <p>
+            We show a “Chat with AI” widget on a GitHub Pages website. When the user sends a message,
+            it hits an n8n Webhook. An AI Agent + Chat Model generates a reply, and n8n returns it back to the website.
+          </p>
+          <div class="codebox">
 Flow:
 Website Chat UI → n8n Webhook → AI Agent → Chat Model → Edit Fields → Response to Webhook → Website Chat UI
-      </div>
+          </div>
 
-      <h2>2) What you built</h2>
-      <ul>
-        <li>Embedded the chat widget into GitHub Pages (by inserting the n8n Webhook Production URL).</li>
-        <li>Created an n8n Webhook workflow with CORS headers.</li>
-        <li>Generated AI replies from the incoming message and returned them via Response to Webhook.</li>
-      </ul>
+          <h2>2) What you built</h2>
+          <ul>
+            <li>Embedded the chat widget into GitHub Pages (by inserting the n8n Webhook Production URL).</li>
+            <li>Created an n8n Webhook workflow with CORS headers.</li>
+            <li>Generated AI replies from the incoming message and returned them via Response to Webhook.</li>
+          </ul>
 
-      <h2>3) Prerequisites</h2>
-      <ul>
-        <li>GitHub Pages website (domain not required)</li>
-        <li>n8n instance (cloud or self-hosted)</li>
-        <li>Chat widget HTML/JS that supports a webhook URL</li>
-      </ul>
+          <h2>3) Prerequisites</h2>
+          <ul>
+            <li>GitHub Pages website (domain not required)</li>
+            <li>n8n instance (cloud or self-hosted)</li>
+            <li>Chat widget HTML/JS that supports a webhook URL</li>
+          </ul>
 
-      <h2>4) Website-side setup</h2>
-      <ul>
-        <li>Add a <b>Webhook</b> node in n8n and copy the <b>Production URL</b>.</li>
-        <li>Paste that Production URL into your website chat HTML/JS code.</li>
-        <li>Commit changes on GitHub and open your site to verify the chat button appears.</li>
-      </ul>
+          <h2>4) Website-side setup</h2>
+          <ul>
+            <li>Add a <b>Webhook</b> node in n8n and copy the <b>Production URL</b>.</li>
+            <li>Paste that Production URL into your website chat HTML/JS code.</li>
+            <li>Commit changes on GitHub and open your site to verify the chat button appears.</li>
+          </ul>
 
-      <h2>5) n8n workflow nodes (exact structure)</h2>
-      <p><b>Node 1 — Webhook:</b> Receives the message from the website (usually POST).</p>
-      <div class="codebox">
+          <h2>5) n8n workflow nodes (exact structure)</h2>
+          <p><b>Node 1 — Webhook:</b> Receives the message from the website (usually POST).</p>
+          <div class="codebox">
 Expected payload example:
 {
   "message": "Hello",
   "senderId": "website-user-123"
 }
-      </div>
+          </div>
 
-      <p><b>Node 2 — Response to Webhook (CORS headers):</b> Respond with Text, add Response Code and Response Headers:</p>
-      <div class="codebox">
+          <p><b>Node 2 — Response to Webhook (CORS headers):</b> Respond with Text, add Response Code and Response Headers:</p>
+          <div class="codebox">
 Access-Control-Allow-Origin: https://yourname.github.io
 Access-Control-Allow-Methods: POST, OPTIONS
 Access-Control-Allow-Headers: Content-Type
-      </div>
+          </div>
 
-      <p><b>Node 3 — AI Agent:</b> Map user message into Prompt and set a short System Prompt.</p>
-      <div class="codebox">
+          <p><b>Node 3 — AI Agent:</b> Map user message into Prompt and set a short System Prompt.</p>
+          <div class="codebox">
 User Prompt: {{$json.message}}
 System Prompt: (your rules / style / tone)
-      </div>
+          </div>
 
-      <p><b>Node 4 — Chat Model:</b> Connect a chat model and Execute Step to verify output.</p>
+          <p><b>Node 4 — Chat Model:</b> Connect a chat model and Execute Step to verify output.</p>
 
-      <p><b>Node 5 — Edit Fields:</b> Format response fields (value + senderId).</p>
-      <div class="codebox">
+          <p><b>Node 5 — Edit Fields:</b> Format response fields (value + senderId).</p>
+          <div class="codebox">
 Example output:
 {
   "value": "Hello! How can I help you today?",
   "senderId": "website-user-123"
 }
+          </div>
+
+          <p><b>Node 6 — Response to Webhook (final):</b> Put the formatted output into Response Body and return it to the website.</p>
+
+          <h2>6) Testing</h2>
+          <ul>
+            <li>Open your website → open chat → type “Hello”</li>
+            <li>See “typing…” → receive the reply ✅</li>
+          </ul>
+
+          <h2>7) Troubleshooting</h2>
+          <ul>
+            <li><b>CORS error:</b> Ensure exact origin + allow POST/OPTIONS + allow Content-Type.</li>
+            <li><b>No response returned:</b> Response to Webhook must exist and be last.</li>
+            <li><b>Empty reply:</b> Confirm message reaches AI Agent and correct output is selected in Edit Fields.</li>
+          </ul>
+
+          <h2>8) Security best practices</h2>
+          <ul>
+            <li>Webhook URL is public—use auth/header token if possible.</li>
+            <li>Add simple validation + truncate very long inputs.</li>
+            <li>Keep System Prompt strict: short replies, no sensitive data.</li>
+          </ul>
+
+          <h2>9) Next customizations</h2>
+          <ul>
+            <li>Add FAQ / service list / lead capture inside AI Agent.</li>
+            <li>Style chat UI with branding (icon, welcome message, colors).</li>
+            <li>Extend n8n: Google Sheets/CRM save, Telegram alerts, appointment booking.</li>
+          </ul>
+        </section>
+
+        <section class="card doc-card">
+          <div class="read-more">
+            <span class="small">Need this setup customized for your business workflow?</span>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px;">
+              <a class="mini-btn" href="../index.html#contact">Contact →</a>
+              <a class="mini-btn" href="../blog.html">Back to Blog →</a>
+            </div>
+          </div>
+        </section>
+
       </div>
 
-      <p><b>Node 6 — Response to Webhook (final):</b> Put the formatted output into Response Body and return it to the website.</p>
+      <!-- RIGHT: STICKY VIDEO (NOT SCROLL) -->
+      <aside class="doc-right">
+        <section class="card sticky-card">
+          <div class="sticky-title">Tutorial Video (Sticky)</div>
+          <div class="sticky-sub">
+            Scroll the documentation on the left. The video stays fixed here for easy following.
+          </div>
 
-      <h2>6) Testing</h2>
-      <ul>
-        <li>Open your website → open chat → type “Hello”</li>
-        <li>See “typing…” → receive the reply ✅</li>
-      </ul>
+          <div class="yt-embed" aria-label="YouTube video embed">
+            <iframe
+              src="https://www.youtube.com/embed/jdJSAn4CehU"
+              title="GitHub + n8n AI Chatbot Integration"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
 
-      <h2>7) Troubleshooting</h2>
-      <ul>
-        <li><b>CORS error:</b> Ensure exact origin + allow POST/OPTIONS + allow Content-Type.</li>
-        <li><b>No response returned:</b> Response to Webhook must exist and be last.</li>
-        <li><b>Empty reply:</b> Confirm message reaches AI Agent and correct output is selected in Edit Fields.</li>
-      </ul>
+          <div class="doc-actions">
+            <a class="mini-btn" href="https://youtu.be/jdJSAn4CehU" target="_blank" rel="noopener">Open YouTube →</a>
+            <a class="mini-btn" href="../blog.html">More Tutorials →</a>
+          </div>
+        </section>
+      </aside>
 
-      <h2>8) Security best practices</h2>
-      <ul>
-        <li>Webhook URL is public—use auth/header token if possible.</li>
-        <li>Add simple validation + truncate very long inputs.</li>
-        <li>Keep System Prompt strict: short replies, no sensitive data.</li>
-      </ul>
-
-      <h2>9) Next customizations</h2>
-      <ul>
-        <li>Add FAQ / service list / lead capture inside AI Agent.</li>
-        <li>Style chat UI with branding (icon, welcome message, colors).</li>
-        <li>Extend n8n: Google Sheets/CRM save, Telegram alerts, appointment booking.</li>
-      </ul>
-    </section>
-
-    <section class="card doc-card">
-      <div class="read-more">
-        <span class="small">Need this setup customized for your business workflow?</span>
-        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px;">
-          <a class="mini-btn" href="../index.html#contact">Contact →</a>
-          <a class="mini-btn" href="../blog.html">Back to Blog →</a>
-        </div>
-      </div>
-    </section>
+    </div>
 
   </div>
 </main>
