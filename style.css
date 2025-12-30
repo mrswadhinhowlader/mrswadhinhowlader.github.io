@@ -1287,3 +1287,65 @@ body::after{
   .hero-content{ padding: 44px 18px 52px; }
   .wrap{ padding: 60px 18px; }
 }
+/* ==============================
+   FIX: Spotlight too yellow
+   Paste at the very bottom
+============================== */
+
+/* A) Reduce hover glow intensity + softer blend */
+.card::after,
+.team-card::after,
+.project.card::after,
+.blog-card::after,
+.service-card::after{
+  /* bigger & softer */
+  background: radial-gradient(
+    420px 420px at var(--mx, 50%) var(--my, 30%),
+    rgba(255,152,0,.06),
+    rgba(0,170,255,.05),
+    transparent 62%
+  );
+  opacity: 0;
+  mix-blend-mode: screen; /* keeps text readable */
+}
+
+/* B) Lower glow on hover */
+.card:hover::after,
+.team-card:hover::after,
+.project.card:hover::after,
+.blog-card:hover::after,
+.service-card:hover::after{
+  opacity: .55; /* was 1 */
+}
+
+/* C) Reduce border glow a bit */
+.card::before,
+.team-card::before,
+.project.card::before,
+.blog-card::before,
+.service-card::before{
+  opacity: 0;
+  filter: blur(14px);
+}
+.card:hover::before,
+.team-card:hover::before,
+.project.card:hover::before,
+.blog-card:hover::before,
+.service-card:hover::before{
+  opacity: .35; /* was .7 */
+}
+
+/* D) Keep paragraph contrast strong while hovering */
+.card p,
+#about.card p{
+  color: rgba(255,255,255,.90);
+}
+.card:hover p,
+#about.card:hover p{
+  color: rgba(255,255,255,.94);
+}
+
+/* E) Optional: Slightly reduce subtitle glow too */
+.subtitle:hover{
+  text-shadow: 0 0 14px rgba(255,152,0,.12), 0 0 18px rgba(0,170,255,.10);
+}
