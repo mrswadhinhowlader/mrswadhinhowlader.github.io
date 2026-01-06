@@ -1,318 +1,982 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Swadhin Digital Hub | Automation Systems & Performance Growth</title>
-  <meta name="description" content="Swadhin Digital Hub builds premium automation systems, lead capture flows, dashboards, and performance growth systems for modern teams." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swadhin Digital Hub | Automation Systems • Performance Marketing</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <!-- IMPORTANT: absolute path (fixes GitHub Pages path issues) -->
-  <link rel="stylesheet" href="/style.css?v=1" />
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+  color: #e0e0e0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
 
-  <meta name="theme-color" content="#0b0f19" />
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: #667eea; }
+
+.nav-btns { display: flex; gap: 1rem; }
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.15); }
+
+section {
+  padding: 120px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero { text-align: center; }
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #fff 0%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: #b0b0b0;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.team-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #fff 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #b0b0b0;
+  font-size: 1.1rem;
+  margin-bottom: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 auto 1.5rem;
+}
+
+.specialty-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tag {
+  background: rgba(102, 126, 234, 0.2);
+  color: #667eea;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+.chat-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+  z-index: 999;
+  transition: all 0.3s;
+}
+
+.chat-button:hover { transform: scale(1.1); }
+
+.chat-box {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 350px;
+  height: 500px;
+  background: rgba(20, 20, 30, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.chat-box.active { display: flex; }
+
+.chat-header {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 700;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.chat-input-container {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.75rem;
+  color: #fff;
+  outline: none;
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  max-width: 80%;
+}
+
+.message.user {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin-left: auto;
+}
+
+.message.bot { background: rgba(255, 255, 255, 0.1); }
+
+.pricing-card { text-align: center; }
+
+.price {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.feature-list li {
+  padding: 0.75rem 0;
+  color: #b0b0b0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-list li:before {
+  content: "✓ ";
+  color: #667eea;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.faq-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.faq-question {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.faq-answer {
+  color: #b0b0b0;
+  line-height: 1.6;
+  display: none;
+}
+
+.faq-item.active .faq-answer { display: block; }
+
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+}
+
+.form-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+
+footer {
+  background: rgba(10, 10, 15, 0.8);
+  padding: 3rem 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  margin-bottom: 1rem;
+  color: #667eea;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #b0b0b0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover { color: #667eea; }
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #b0b0b0;
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .grid { grid-template-columns: 1fr; }
+  .chat-box {
+    width: calc(100vw - 40px);
+    right: 20px;
+  }
+  nav .nav-btns {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+</style>
 </head>
-
 <body>
-  <!-- Background layers -->
-  <div class="bg"></div>
-  <div class="bg-glow"></div>
 
-  <!-- Top Nav -->
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="#top">
-        <span class="brand-dot"></span>
-        <span class="brand-name">Swadhin Digital Hub</span>
-      </a>
-
-      <nav class="nav">
-        <a href="#services">Services</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <a class="nav-cta" href="#contact">Book a Call</a>
-      </nav>
+<nav>
+  <div class="container">
+    <div class="logo">Swadhin Digital Hub</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-btns">
+      <a href="#contact" class="btn btn-secondary">Book Now</a>
+      <a href="#contact" class="btn btn-primary">Book Demo</a>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <!-- Hero -->
-  <main id="top" class="container">
-    <section class="hero reveal">
-      <div class="hero-left">
-        <div class="pill">
-          <span class="pill-dot"></span>
-          Automation Systems • Performance Growth • Reporting
-        </div>
-
-        <h1 class="hero-title">
-          Automate Your Business.
-          <span class="hero-title-accent">Accelerate Your Growth.</span>
-        </h1>
-
-        <p class="hero-sub">
-          We build reliable automation systems that reply faster, capture leads cleanly,
-          and keep operations organized—so your team scales without chaos.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn primary" href="#contact">Start Automation</a>
-          <a class="btn ghost" href="#solutions">See How It Works</a>
-        </div>
-
-        <div class="trust-row">
-          <div class="trust-card">
-            <div class="trust-num">24/7</div>
-            <div class="trust-text">Always-on lead capture</div>
-          </div>
-          <div class="trust-card">
-            <div class="trust-num">Clean</div>
-            <div class="trust-text">Structured lead data</div>
-          </div>
-          <div class="trust-card">
-            <div class="trust-num">Stable</div>
-            <div class="trust-text">Logging & fail-safes</div>
-          </div>
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Transform Your Business with Intelligent Automation</h1>
+    <p>Fast replies, clean data capture, powerful dashboards—no chaos. We build automation systems that scale your operations without adding complexity.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+      <a href="#contact" class="btn btn-primary">Start Your Project</a>
+      <a href="#services" class="btn btn-secondary">Explore Services</a>
+    </div>
+    <div style="margin-top: 4rem; color: #b0b0b0; font-size: 0.9rem;">
+      <p style="margin-bottom: 1rem;">Trusted by modern teams</p>
+      <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; opacity: 0.6;">
+        <span>TechCorp</span>
+        <span>GrowthLabs</span>
+        <span>DataFlow</span>
+        <span>AutoScale</span>
       </div>
+    </div>
+  </div>
+</section>
 
-      <aside class="hero-right reveal">
-        <div class="glass panel">
-          <div class="panel-head">
-            <h3>Your System, Visualized</h3>
-            <p>Simple flow that keeps everything clean.</p>
-          </div>
-
-          <div class="flow">
-            <div class="flow-item">Inbox</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-item">AI Reply / Routing</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-item">Sheet / CRM</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-item">Admin Alerts</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-item">Reports</div>
-          </div>
-
-          <div class="panel-foot">
-            <div class="mini">Fast handover</div>
-            <div class="mini">Daily summary</div>
-            <div class="mini">Error retries</div>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="section reveal">
-      <div class="section-head">
-        <h2>Services built for modern teams</h2>
-        <p>Premium automation systems that feel smooth to customers and clean for admins.</p>
-      </div>
-
-      <div class="grid">
-        <div class="card reveal">
-          <h3>Automation Setup</h3>
-          <p>End-to-end workflows that reduce manual work and prevent missed leads.</p>
-          <ul>
-            <li>Lead qualification logic</li>
-            <li>Structured data capture</li>
-            <li>Handover rules</li>
-          </ul>
-        </div>
-
-        <div class="card reveal">
-          <h3>Dashboards & Reporting</h3>
-          <p>Visibility that helps you make decisions fast.</p>
-          <ul>
-            <li>Daily / weekly performance</li>
-            <li>Cost & usage tracking</li>
-            <li>Team activity overview</li>
-          </ul>
-        </div>
-
-        <div class="card reveal">
-          <h3>Integrations</h3>
-          <p>Connect your tools using webhooks and APIs—stable, monitored, and scalable.</p>
-          <ul>
-            <li>Webhook pipelines</li>
-            <li>API integrations</li>
-            <li>Retries & logging</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Solutions -->
-    <section id="solutions" class="section reveal">
-      <div class="section-head">
-        <h2>Problems we solve</h2>
-        <p>When growth increases, the inbox becomes the bottleneck. Systems fix that.</p>
-      </div>
-
-      <div class="split">
-        <div class="glass block reveal">
-          <h3>Common issues</h3>
-          <ul class="check">
-            <li>Too many messages, same questions</li>
-            <li>Missed leads and slow replies</li>
-            <li>Messy spreadsheets and lost info</li>
-            <li>No clear reporting</li>
-          </ul>
-        </div>
-
-        <div class="glass block reveal">
-          <h3>What you get</h3>
-          <ul class="check">
-            <li>Instant replies that feel human</li>
-            <li>Clean lead capture with structured fields</li>
-            <li>Admin alerts with full context</li>
-            <li>Reports that show what’s working</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="section reveal">
-      <div class="section-head">
-        <h2>Pricing</h2>
-        <p>Pick a plan. We’ll tailor the final scope based on your workflow complexity.</p>
-      </div>
-
-      <div class="pricing">
-        <div class="price-card reveal">
-          <div class="price-top">
-            <h3>Starter</h3>
-            <div class="price">$199</div>
-            <div class="price-sub">One core workflow</div>
-          </div>
-          <ul class="check">
-            <li>Basic automation flow</li>
-            <li>Lead capture to Sheet</li>
-            <li>Simple handover</li>
-          </ul>
-          <a class="btn primary w100" href="#contact">Book Starter</a>
-        </div>
-
-        <div class="price-card featured reveal">
-          <div class="badge">Most Popular</div>
-          <div class="price-top">
-            <h3>Growth</h3>
-            <div class="price">$499</div>
-            <div class="price-sub">Multi-step system</div>
-          </div>
-          <ul class="check">
-            <li>Routing + qualification</li>
-            <li>Admin alerts + logging</li>
-            <li>Basic dashboard</li>
-          </ul>
-          <a class="btn primary w100" href="#contact">Book Growth</a>
-        </div>
-
-        <div class="price-card reveal">
-          <div class="price-top">
-            <h3>Scale</h3>
-            <div class="price">Custom</div>
-            <div class="price-sub">Advanced workflows</div>
-          </div>
-          <ul class="check">
-            <li>API integrations</li>
-            <li>Advanced reporting</li>
-            <li>Monitoring + fail-safes</li>
-          </ul>
-          <a class="btn ghost w100" href="#contact">Request Quote</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="section reveal">
-      <div class="section-head">
-        <h2>FAQ</h2>
-        <p>Quick answers before you book.</p>
-      </div>
-
-      <div class="faq">
-        <details class="glass reveal">
-          <summary>How fast can you deliver?</summary>
-          <p>Most starter setups take 2–5 days. Larger systems depend on scope.</p>
-        </details>
-
-        <details class="glass reveal">
-          <summary>Will it break if traffic increases?</summary>
-          <p>We build with logging, retries, and safe fallbacks to stay stable under load.</p>
-        </details>
-
-        <details class="glass reveal">
-          <summary>Can you add a website chatbot?</summary>
-          <p>Yes. This template already includes a chat widget. You only set your webhook URL.</p>
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">End-to-end automation and marketing solutions designed for growth</p>
+    
+    <div class="grid">
+      <div class="glass-card">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Workflow Automation</h3>
+        <p style="color: #b0b0b0; margin-bottom: 1rem;">Custom n8n workflows that connect your tools, capture leads instantly, and route data where it needs to go—zero manual work.</p>
+        <details style="margin-top: 1rem;">
+          <summary style="cursor: pointer; color: #667eea; font-weight: 600;">How does this work?</summary>
+          <p style="margin-top: 0.5rem; color: #b0b0b0; font-size: 0.9rem;">We build custom automation flows using n8n that trigger on events like form submissions, emails, or chat messages. Data is validated, routed, and stored automatically.</p>
         </details>
       </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section reveal">
-      <div class="glass contact">
-        <div>
-          <h2>Book a Call</h2>
-          <p>Tell us what you want to automate. We’ll propose the cleanest system.</p>
-
-          <div class="contact-row">
-            <a class="btn primary" href="mailto:swadhinj17@gmail.com">Email Now</a>
-            <a class="btn ghost" href="#top">Back to Top</a>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <h3>Quick Info</h3>
-          <div class="info">
-            <div class="k">Email</div>
-            <div class="v">swadhinj17@gmail.com</div>
-            <div class="k">Response</div>
-            <div class="v">Within 24 hours</div>
-            <div class="k">Delivery</div>
-            <div class="v">Scope-based</div>
-          </div>
-        </div>
+      <div class="glass-card">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Performance Marketing</h3>
+        <p style="color: #b0b0b0; margin-bottom: 1rem;">Data-driven ad campaigns with proper tracking, attribution, and reporting. We optimize for ROAS, not vanity metrics.</p>
+        <details style="margin-top: 1rem;">
+          <summary style="cursor: pointer; color: #667eea; font-weight: 600;">What platforms do you support?</summary>
+          <p style="margin-top: 0.5rem; color: #b0b0b0; font-size: 0.9rem;">Meta (Facebook/Instagram), Google Ads, LinkedIn, and TikTok. Full pixel/conversion API setup with proper attribution.</p>
+        </details>
       </div>
-    </section>
 
-    <footer class="footer">
-      © <span id="year"></span> Swadhin Digital Hub • Automation Systems & Performance Growth
-    </footer>
-  </main>
+      <div class="glass-card">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">CRM Integration</h3>
+        <p style="color: #b0b0b0; margin-bottom: 1rem;">Seamless sync between your forms, chat, email, and CRM. Clean data structure, automated follow-ups, zero data loss.</p>
+        <details style="margin-top: 1rem;">
+          <summary style="cursor: pointer; color: #667eea; font-weight: 600;">Which CRMs do you integrate with?</summary>
+          <p style="margin-top: 0.5rem; color: #b0b0b0; font-size: 0.9rem;">HubSpot, Salesforce, Pipedrive, Airtable, and more. We can connect any system with an API.</p>
+        </details>
+      </div>
 
-  <!-- Chatbot widget -->
-  <script src="/chatbot.js?v=1"></script>
+      <div class="glass-card">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Custom Dashboards</h3>
+        <p style="color: #b0b0b0; margin-bottom: 1rem;">Real-time business dashboards that show what matters. Track leads, revenue, campaign performance, and operational metrics in one place.</p>
+        <details style="margin-top: 1rem;">
+          <summary style="cursor: pointer; color: #667eea; font-weight: 600;">Can I customize the metrics?</summary>
+          <p style="margin-top: 0.5rem; color: #b0b0b0; font-size: 0.9rem;">Absolutely. We build dashboards tailored to your KPIs and business model.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Small site script (year + reveal + spotlight) -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+<!-- SOLUTIONS -->
+<section id="solutions" style="background: rgba(255, 255, 255, 0.02);">
+  <div class="container">
+    <h2 class="section-title">Solutions</h2>
+    <p class="section-subtitle">Proven use-cases that solve real business problems</p>
+    
+    <div class="grid">
+      <div class="glass-card">
+        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #667eea;">Lead Capture & Routing</h3>
+        <p style="color: #b0b0b0; line-height: 1.7;">Instantly capture leads from forms, chatbots, and landing pages. Auto-route to the right sales rep based on territory, deal size, or product interest.</p>
+      </div>
 
-    // Reveal on scroll
-    const els = Array.from(document.querySelectorAll(".reveal"));
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add("show");
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    els.forEach(el => io.observe(el));
+      <div class="glass-card">
+        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #667eea;">Automated Reporting</h3>
+        <p style="color: #b0b0b0; line-height: 1.7;">Daily, weekly, or monthly reports sent automatically. Track campaign performance, revenue, customer acquisition costs—all without manual spreadsheet work.</p>
+      </div>
 
-    // Spotlight tracking
-    const cards = document.querySelectorAll(".card, .glass, .price-card");
-    cards.forEach(card => {
-      card.addEventListener("mousemove", (ev) => {
-        const r = card.getBoundingClientRect();
-        const x = ((ev.clientX - r.left) / r.width) * 100;
-        const y = ((ev.clientY - r.top) / r.height) * 100;
-        card.style.setProperty("--mx", x + "%");
-        card.style.setProperty("--my", y + "%");
-      }, { passive: true });
+      <div class="glass-card">
+        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #667eea;">CRM Data Sync</h3>
+        <p style="color: #b0b0b0; line-height: 1.7;">Keep your CRM clean and updated automatically. Two-way sync between tools, duplicate prevention, data enrichment, and smart field mapping.</p>
+      </div>
+
+      <div class="glass-card">
+        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #667eea;">Admin Alerts & Notifications</h3>
+        <p style="color: #b0b0b0; line-height: 1.7;">Get notified when it matters. High-value lead submitted, payment failed, inventory low, or campaign budget hit—sent to Slack, email, or SMS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Case Studies</h2>
+    <p class="section-subtitle">Real results from real clients</p>
+    
+    <div class="grid">
+      <div class="glass-card">
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.5rem 1rem; border-radius: 8px; display: inline-block; margin-bottom: 1rem; font-weight: 600; font-size: 0.85rem;">E-commerce</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">From 200 to 2,000 Orders/Month</h3>
+        <p style="color: #b0b0b0; margin-bottom: 0.75rem;"><strong>Problem:</strong> Manual order processing, slow customer replies, missed follow-ups.</p>
+        <p style="color: #b0b0b0; margin-bottom: 0.75rem;"><strong>Solution:</strong> Automated order routing, chatbot for FAQs, CRM sync for abandoned cart recovery.</p>
+        <p style="color: #667eea; font-weight: 600;"><strong>Result:</strong> 10x order volume, 40% reduction in support time, 22% increase in repeat purchases.</p>
+      </div>
+
+      <div class="glass-card">
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.5rem 1rem; border-radius: 8px; display: inline-block; margin-bottom: 1rem; font-weight: 600; font-size: 0.85rem;">SaaS</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Lead Response Time Cut from 2 Hours to 2 Minutes</h3>
+        <p style="color: #b0b0b0; margin-bottom: 0.75rem;"><strong>Problem:</strong> Sales team overwhelmed, slow response hurting conversions.</p>
+        <p style="color: #b0b0b0; margin-bottom: 0.75rem;"><strong>Solution:</strong> Real-time lead routing, automated enrichment, instant Slack alerts with lead score.</p>
+        <p style="color: #667eea; font-weight: 600;"><strong>Result:</strong> 35% increase in demo bookings, sales team focused on high-value leads only.</p>
+      </div>
+
+      <div class="glass-card">
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.5rem 1rem; border-radius: 8px; display: inline-block; margin-bottom: 1rem; font-weight: 600; font-size: 0.85rem;">Agency</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Client Reporting Time Reduced by 90%</h3>
+        <p style="color: #b0b0b0; margin-bottom: 0.75rem;"><strong>Problem:</strong> Team spending 15+ hours/week on manual client reports.</p>
+        <p style="color: #b0b0b0; margin-bottom: 0.75rem;"><strong>Solution:</strong> Automated data pulls from Google Ads, Meta, GA4—compiled into branded PDF reports sent automatically.</p>
+        <p style="color: #667eea; font-weight: 600;"><strong>Result:</strong> Reports now take 1 hour/week. Team redirected to growth work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" style="background: rgba(255, 255, 255, 0.02);">
+  <div class="container">
+    <h2 class="section-title">Meet the Team</h2>
+    <p class="section-subtitle">Experts in automation, marketing, and growth systems</p>
+    
+    <div class="grid team-grid">
+      <div class="glass-card">
+        <div class="avatar">S</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;">Swadhin</h3>
+        <p style="color: #667eea; text-align: center; margin-bottom: 1rem; font-weight: 600;">Founder & Automation Architect</p>
+        <p style="color: #b0b0b0; font-size: 0.95rem; margin-bottom: 1rem;">Designs end-to-end automation systems that turn messages into structured operations—fast replies, clean data capture, reporting, and stability at scale.</p>
+        <div class="specialty-tags">
+          <span class="tag">n8n Systems</span>
+          <span class="tag">Workflow Strategy</span>
+          <span class="tag">Dashboards</span>
+        </div>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center; margin-top: 1rem;">Book a Demo</a>
+      </div>
+
+      <div class="glass-card">
+        <div class="avatar">A</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;">Avi</h3>
+        <p style="color: #667eea; text-align: center; margin-bottom: 1rem; font-weight: 600;">Web Developer & UI Implementation</p>
+        <p style="color: #b0b0b0; font-size: 0.95rem; margin-bottom: 1rem;">Builds clean, fast websites and client portals—polished UI, responsive layouts, and smooth integration of forms, tracking, and chatbot widgets.</p>
+        <div class="specialty-tags">
+          <span class="tag">Front-end UI</span>
+          <span class="tag">Website Build</span>
+          <span class="tag">Performance</span>
+        </div>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center; margin-top: 1rem;">Book a Demo</a>
+      </div>
+
+      <div class="glass-card">
+        <div class="avatar">S</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;">Sourav</h3>
+        <p style="color: #667eea; text-align: center; margin-bottom: 1rem; font-weight: 600;">Operations & Growth Specialist</p>
+        <p style="color: #b0b0b0; font-size: 0.95rem; margin-bottom: 1rem;">Converts business goals into clear execution—workflow planning, lead handling, follow-up systems, and reporting that supports growth.</p>
+        <div class="specialty-tags">
+          <span class="tag">Operations</span>
+          <span class="tag">Lead Systems</span>
+          <span class="tag">Reporting</span>
+        </div>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center; margin-top: 1rem;">Book a Demo</a>
+      </div>
+
+      <div class="glass-card">
+        <div class="avatar">P</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;">Pranto</h3>
+        <p style="color: #667eea; text-align: center; margin-bottom: 1rem; font-weight: 600;">Marketplace & Listing Specialist</p>
+        <p style="color: #b0b0b0; font-size: 0.95rem; margin-bottom: 1rem;">Optimizes product listings and store systems across marketplaces—structured catalogs, compliance-friendly content, and conversion-driven presentation.</p>
+        <div class="specialty-tags">
+          <span class="tag">Listing SEO</span>
+          <span class="tag">Marketplace Ops</span>
+          <span class="tag">Catalog Setup</span>
+        </div>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center; margin-top: 1rem;">Book a Demo</a>
+      </div>
+
+      <div class="glass-card">
+        <div class="avatar">S</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;">Suva</h3>
+        <p style="color: #667eea; text-align: center; margin-bottom: 1rem; font-weight: 600;">E-commerce Specialist</p>
+        <p style="color: #b0b0b0; font-size: 0.95rem; margin-bottom: 1rem;">Supports product research, listing optimization, customer workflow alignment, and store growth systems that reduce manual workload.</p>
+        <div class="specialty-tags">
+          <span class="tag">Product Research</span>
+          <span class="tag">Store Ops</span>
+          <span class="tag">Support Systems</span>
+        </div>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center; margin-top: 1rem;">Book a Demo</a>
+      </div>
+
+      <div class="glass-card">
+        <div class="avatar">S</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;">Sujash</h3>
+        <p style="color: #667eea; text-align: center; margin-bottom: 1rem; font-weight: 600;">SEO & Visibility Strategist</p>
+        <p style="color: #b0b0b0; font-size: 0.95rem; margin-bottom: 1rem;">Improves search presence with technical SEO and content structure—so the website ranks, converts, and stays consistent long-term.</p>
+        <div class="specialty-tags">
+          <span class="tag">Technical SEO</span>
+          <span class="tag">Content Structure</span>
+          <span class="tag">Local SEO</span>
+        </div>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center; margin-top: 1rem;">Book a Demo</a>
+      </div>
+
+      <div class="glass-card">
+        <div class="avatar">N</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center;">Naiyen</h3>
+        <p style="color: #667eea; text-align: center; margin-bottom: 1rem; font-weight: 600;">Ads & Performance Marketing</p>
+        <p style="color: #b0b0b0; font-size: 0.95rem; margin-bottom: 1rem;">Runs tracking-first campaigns with clean attribution—builds funnels, improves ROAS, and scales budgets safely with data-based decisions.</p>
+        <div class="specialty-tags">
+          <span class="tag">Meta Ads</span>
+          <span class="tag">Funnel Strategy</span>
+          <span class="tag">Conversion Tracking</span>
+        </div>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%; display: block; text-align: center; margin-top: 1rem;">Book a Demo</a>
+      </div>
+    </div>
+
+    <p style="text-align: center; color: #b0b0b0; margin: 3rem 0 2rem; font-style: italic;">Reliable systems, clear reporting, and fast iteration—without operational chaos.</p>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Meet the team on a quick demo call</h3>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#contact" class="btn btn-primary">Book Demo</a>
+        <a href="#contact" class="btn btn-secondary">Book Now</a>
+      </div>
+      <p style="color: #b0b0b0; margin-top: 1.5rem; font-size: 0.95rem;">You'll always get direct communication and transparent reporting.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <h2 class="section-title">Pricing</h2>
+    <p class="section-subtitle">Choose the plan that fits your needs</p>
+    
+    <div class="grid">
+      <div class="glass-card pricing-card">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Starter</h3>
+        <div class="price">$1,500<span style="font-size: 1rem; color: #b0b0b0;">/month</span></div>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">Perfect for small teams getting started</p>
+        <ul class="feature-list">
+          <li>Up to 3 automation workflows</li>
+          <li>Basic CRM integration</li>
+          <li>Monthly reporting</li>
+          <li>Email support</li>
+          <li>Setup included</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%;">Get Started</a>
+      </div>
+
+      <div class="glass-card pricing-card" style="border: 2px solid #667eea;">
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 0.5rem 1rem; border-radius: 8px; display: inline-block; margin-bottom: 1rem; font-weight: 600; font-size: 0.85rem;">Most Popular</div>
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Growth</h3>
+        <div class="price">$3,500<span style="font-size: 1rem; color: #b0b0b0;">/month</span></div>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">For scaling businesses</p>
+        <ul class="feature-list">
+          <li>Up to 10 automation workflows</li>
+          <li>Advanced CRM + marketing tool integrations</li>
+          <li>Weekly reporting + dashboard</li>
+          <li>Priority support (Slack)</li>
+          <li>Custom chatbot included</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="width: 100%;">Get Started</a>
+      </div>
+
+      <div class="glass-card pricing-card">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Enterprise</h3>
+        <div class="price">Custom</div>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">Tailored for complex operations</p>
+        <ul class="feature-list">
+          <li>Unlimited workflows</li>
+          <li>Full-stack integrations</li>
+          <li>Real-time dashboards</li>
+          <li>Dedicated account manager</li>
+          <li>24/7 monitoring & support</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%;">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background: rgba(255, 255, 255, 0.02);">
+  <div class="container" style="max-width: 900px;">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">Everything you need to know</p>
+    
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">How long does setup take?</div>
+      <div class="faq-answer">Most projects go live within 2-4 weeks. Simple workflows can be ready in 5-7 days. We'll give you a clear timeline during the discovery call.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">What if I need changes after launch?</div>
+      <div class="faq-answer">We include ongoing support and iteration. Request changes anytime, and we'll implement them as part of your monthly plan. Major additions may require a scope adjustment.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">Which tools do you integrate with?</div>
+      <div class="faq-answer">We work with HubSpot, Salesforce, Pipedrive, Airtable, Google Sheets, Slack, Meta, Google Ads, Shopify, WooCommerce, and many more. If it has an API, we can connect it.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">Is my data secure?</div>
+      <div class="faq-answer">Absolutely. We follow industry-standard encryption practices, use secure API connections, and never store sensitive data unnecessarily. All workflows are audited for compliance.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">Do I own the automation workflows?</div>
+      <div class="faq-answer">Yes. You get full access and ownership. If you ever want to manage them in-house, we'll provide documentation and training.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">What kind of reporting do I get?</div>
+      <div class="faq-answer">Depends on your plan. Starter gets monthly reports. Growth gets weekly reports + live dashboards. Enterprise gets real-time dashboards with custom KPIs.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">Can you help with ad campaigns too?</div>
+      <div class="faq-answer">Yes. We offer full performance marketing services—strategy, creative, setup, tracking, and ongoing optimization. Check our Services section for details.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">What happens if something breaks?</div>
+      <div class="faq-answer">We monitor all workflows 24/7. If something fails, we're alerted instantly and fix it ASAP. Most issues are resolved within hours. Enterprise plans get priority response.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">Do you offer training?</div>
+      <div class="faq-answer">Yes. We provide onboarding for your team so they understand how everything works. We also offer ongoing training if you want to manage parts of it yourself.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('active')">
+      <div class="faq-question">Can I cancel anytime?</div>
+      <div class="faq-answer">Yes. We operate on monthly contracts. If you decide to cancel, just give us 30 days' notice. No long-term lock-ins.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container" style="max-width: 600px;">
+    <h2 class="section-title">Let's Talk</h2>
+    <p class="section-subtitle">Ready to automate your business? Book a demo call or send us a message.</p>
+    
+    <form class="glass-card" style="margin-top: 3rem;" onsubmit="return handleFormSubmit(event)">
+      <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+      <input type="email" name="email" placeholder="Email Address" class="form-input" required>
+      <input type="tel" name="phone" placeholder="Phone Number (optional)" class="form-input">
+      <select name="service" class="form-input" required>
+        <option value="">Select a service</option>
+        <option value="automation">Workflow Automation</option>
+        <option value="marketing">Performance Marketing</option>
+        <option value="crm">CRM Integration</option>
+        <option value="dashboard">Custom Dashboards</option>
+        <option value="other">Other / Not Sure</option>
+      </select>
+      <textarea name="message" placeholder="Tell us about your project..." rows="5" class="form-input" required></textarea>
+      <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+    </form>
+
+    <div style="text-align: center; margin-top: 3rem; color: #b0b0b0;">
+      <p style="margin-bottom: 1rem;">Or email us directly at:</p>
+      <a href="mailto:hello@swadhindigitalhub.com" style="color: #667eea; text-decoration: none; font-size: 1.1rem; font-weight: 600;">hello@swadhindigitalhub.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#projects">Case Studies</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:hello@swadhindigitalhub.com">hello@swadhindigitalhub.com</a></li>
+          <li>Automation Systems</li>
+          <li>Performance Marketing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 Swadhin Digital Hub. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- CHATBOT -->
+<button class="chat-button" onclick="toggleChat()">💬</button>
+
+<div class="chat-box" id="chatBox">
+  <div class="chat-header">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <span>Chat with us</span>
+      <button onclick="toggleChat()" style="background: none; border: none; color: #fff; cursor: pointer; font-size: 1.5rem; padding: 0; line-height: 1;">×</button>
+    </div>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="message bot">Hi! How can we help you today?</div>
+  </div>
+  <div class="chat-input-container">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Type a message...">
+    <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+// N8N Webhook Configuration
+const N8N_WEBHOOK_URL = "https://vmi2977874.contaboserver.net/webhook/3f9f3f16-b52c-4d13-834a-96b9df752b79";
+
+// Chat Session Management
+let sessionId = localStorage.getItem("chatSessionId") || Date.now().toString();
+localStorage.setItem("chatSessionId", sessionId);
+
+function toggleChat() {
+  document.getElementById("chatBox").classList.toggle("active");
+}
+
+function addMessage(text, isUser) {
+  const msg = document.createElement("div");
+  msg.className = `message ${isUser ? "user" : "bot"}`;
+  msg.textContent = text;
+  document.getElementById("chatMessages").appendChild(msg);
+  document.getElementById("chatMessages").scrollTop = document.getElementById("chatMessages").scrollHeight;
+}
+
+async function sendMessage() {
+  const input = document.getElementById("chatInput");
+  const message = input.value.trim();
+  
+  if (!message) return;
+  
+  addMessage(message, true);
+  input.value = "";
+  
+  addMessage("Typing...", false);
+  const typingMsg = document.getElementById("chatMessages").lastChild;
+  
+  try {
+    const params = new URLSearchParams({
+      message: message,
+      sessionId: sessionId,
+      source: "website",
+      page: window.location.pathname
     });
-  </script>
+    
+    const response = await fetch(N8N_WEBHOOK_URL, {
+      method: "POST",
+      body: params
+    });
+    
+    const data = await response.json();
+    typingMsg.remove();
+    addMessage(data.reply || "Thanks for your message! We'll get back to you soon.", false);
+  } catch (error) {
+    typingMsg.remove();
+    addMessage("Sorry, something went wrong. Please try emailing us at hello@swadhindigitalhub.com", false);
+    console.error("Chat error:", error);
+  }
+}
+
+// Enter key support for chat
+document.getElementById("chatInput").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") sendMessage();
+});
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
+// Form submission handler
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData);
+  
+  console.log("Form submitted:", data);
+  alert("Thank you! We'll get back to you within 24 hours.");
+  e.target.reset();
+  
+  // You can add your own form submission logic here
+  // For example, send to your backend or email service
+  
+  return false;
+}
+
+// Scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -100px 0px"
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.glass-card, .faq-item').forEach(el => {
+  el.style.opacity = "0";
+  el.style.transform = "translateY(20px)";
+  el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+  observer.observe(el);
+});
+</script>
+
 </body>
 </html>
