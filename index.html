@@ -1,730 +1,887 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKKMJTX6YB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-QKKMJTX6YB');
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swadhin Digital Hub | n8n Automation & Business Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Swadhin Digital Hub | n8n Automation & Business Systems</title>
-  <meta name="description" content="Swadhin Digital Hub — Founded by Swadhin Howlader. n8n Automation Expert: Messenger Automation, WhatsApp Business Automation, Telegram Bots, Google Sheets/CRM sync, Webhooks, API Integrations, and dashboards.">
-  <link rel="stylesheet" href="style.css" />
-<!-- Favicon / Logo -->
-<meta name="theme-color" content="#0f0f0f">
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0ea5e9;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-gray: #f1f5f9;
+            --white: #ffffff;
+        }
 
-<link rel="icon" type="image/png" sizes="40x40" href="site-icon.png">
-<link rel="shortcut icon" href="site-icon.png">
-<link rel="apple-touch-icon" sizes="40x40" href="site-icon.png">
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
 
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
 
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
 
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  <!-- ===== SEO Meta ===== -->
-  <link rel="canonical" href="https://mrswadhinhowlader.github.io/" />
-  <meta name="robots" content="index,follow" />
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
 
-  <!-- Open Graph (Facebook/LinkedIn) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Swadhin Digital Hub | n8n Automation & Business Systems" />
-  <meta property="og:description" content="n8n Automation Expert: Messenger Automation, WhatsApp Business Automation, Telegram Bots, Google Sheets/CRM Sync, Webhooks, API Integrations & Dashboards." />
-  <meta property="og:url" content="https://mrswadhinhowlader.github.io/" />
-  <meta property="og:image" content="https://mrswadhinhowlader.github.io/og-image.png" />
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Swadhin Digital Hub | n8n Automation & Business Systems" />
-  <meta name="twitter:description" content="Automation systems for Messenger, WhatsApp Business, Telegram, Sheets/CRM, Webhooks & APIs." />
-  <meta name="twitter:image" content="https://mrswadhinhowlader.github.io/og-image.png" />
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Swadhin Digital Hub",
-    "url":"https://mrswadhinhowlader.github.io/",
-    "logo":"https://mrswadhinhowlader.github.io/logo.png",
-    "founder":{"@type":"Person","name":"Swadhin Howlader"},
-    "sameAs":[
-      "https://facebook.com/mrswadhinhowlader",
-      "https://facebook.com/swadhindigitalhub",
-      "https://instagram.com/mrswadhinhowlader",
-      "https://x.com/mrswadhinrj",
-      "https://www.linkedin.com/in/mrswadhinhowlader",
-      "https://www.youtube.com/@mrswadhinhowlader",
-      "https://github.com/mrswadhinhowlader"
-    ],
-    "email":"swadhinj17@gmail.com",
-    "member":[
-      {"@type":"Person","name":"Avi Mistry","jobTitle":"Web Developer"},
-      {"@type":"Person","name":"Sourav Howlader","jobTitle":"E-commerce Marketing Specialist"},
-      {"@type":"Person","name":"Pranto","jobTitle":"E-commerce Specialist"},
-      {"@type":"Person","name":"Sujosh","jobTitle":"SEO Expert"},
-      {"@type":"Person","name":"Suvo Mistry","jobTitle":"E-commerce Specialist"},
-      {"@type":"Person","name":"Nayem","jobTitle":"Ads Expert"}
-    ],
-    "knowsAbout":[
-      "n8n automation",
-      "Messenger automation",
-      "WhatsApp Business automation",
-      "Telegram bot",
-      "Google Sheets automation",
-      "CRM sync",
-      "Webhooks",
-      "API integrations",
-      "Dashboards",
-      "LinkedIn content systems",
-      "TikTok Shop",
-      "eBay listing",
-      "Walmart listing",
-      "Amazon listing",
-      "Shopify"
-    ]
-  }
-  </script>
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-  <!-- ✅ HERO UPGRADE (fills empty space + pro hook + book now) -->
-  <style>
-    /* overlay won’t block clicks */
-    .hero{ position:relative; }
-    .hero .overlay{ pointer-events:none !important; z-index:0; }
-    .nav, .hero-content, main, footer{ position:relative; z-index:2; }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 0.3rem;
+            cursor: pointer;
+        }
 
-    /* reduce “empty feeling” on large screens */
-    .hero-content{ padding: 44px 7% 54px; }
-    .hero-left{ max-width: 980px; }
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            transition: 0.3s;
+        }
 
-    /* hook block */
-    .hero-hook{
-      margin-top: 18px;
-      padding: 16px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 18px 45px rgba(0,0,0,.25);
-    }
-    .hero-hook strong{
-      display:block;
-      font-size: 16px;
-      margin-bottom: 8px;
-      letter-spacing: .2px;
-    }
-    .hero-hook p{
-      margin:0;
-      opacity:.92;
-      line-height:1.75;
-      font-size: 15px;
-    }
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+        }
 
-    .hero-points{
-      margin-top: 10px;
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap:10px;
-    }
-    .hero-point{
-      padding:10px 12px;
-      border-radius:14px;
-      background: rgba(0,0,0,.28);
-      border: 1px solid rgba(255,255,255,.10);
-      opacity:.95;
-      font-size: 13.5px;
-      line-height: 1.55;
-    }
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
 
-    .hero-stats{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 12px;
-    }
-    .stat-chip{
-      padding:8px 12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.14);
-      font-size: 13px;
-      opacity:.95;
-      white-space: nowrap;
-    }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
 
-    /* Book Now button style (matches your theme) */
-    .cta.book{
-      background: rgba(0,170,255,.16);
-      color:#fff;
-      border: 1px solid rgba(0,170,255,.35);
-      box-shadow: none;
-    }
-    .cta.book:hover{
-      border-color: rgba(0,170,255,.65);
-      box-shadow: 0 18px 40px rgba(0,170,255,.12);
-    }
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
 
-    @media (max-width: 980px){
-      .hero-content{ padding: 40px 18px 48px; }
-      .hero-points{ grid-template-columns: 1fr; }
-    }
-  </style>
+        .hero-content .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
 
-  <!-- ✅ ADD: YouTube Feature CSS (Professional thumbnail section) -->
-  <style>
-    .sdh-video-feature{
-      display:grid;
-      grid-template-columns: 1fr 1.05fr;
-      gap:18px;
-      align-items:stretch;
-      margin-top:16px;
-    }
-    .sdh-video-thumb{
-      width:100%;
-      height:100%;
-      min-height:260px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.14);
-      object-fit:cover;
-      box-shadow:0 18px 50px rgba(0,0,0,.35);
-      background: rgba(0,0,0,.25);
-    }
-    .sdh-video-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
-    @media(max-width: 980px){
-      .sdh-video-feature{ grid-template-columns: 1fr; }
-      .sdh-video-thumb{ min-height:210px; }
-    }
-  </style>
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 2rem 0;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Team Section */
+        #team {
+            background: var(--light-gray);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .team-info p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Tutorial Section */
+        #tutorial {
+            background: var(--light-gray);
+        }
+
+        .tutorial-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .tutorial-video {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .tutorial-video img {
+            width: 100%;
+            height: auto;
+        }
+
+        .tutorial-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .tutorial-info p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .tutorial-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-method {
+            margin-bottom: 2rem;
+        }
+
+        .contact-method h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .contact-method a:hover {
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-container,
+            .about-content,
+            .contact-container,
+            .tutorial-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
 </head>
-
 <body>
-
-<!-- HERO -->
-<header class="hero" id="top">
-  <div class="overlay"></div>
-
-  <!-- TOP NAV (CENTERED) -->
-  <nav class="nav nav-center">
-    <div class="nav-top">
-      <img src="logo.png" class="logo" alt="Swadhin Digital Hub Logo">
-      <div class="nav-title">Swadhin Digital Hub</div>
-      <img src="logo.png" class="logo logo-red" alt="Swadhin Digital Hub Logo Red">
-    </div>
-
-    <div class="nav-bottom">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="blog.html">Blog</a>
-      <a href="#links">Links</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-  <!-- HERO CONTENT -->
-  <div class="hero-content">
-    <div class="hero-grid">
-
-      <!-- LEFT -->
-      <div class="hero-left">
-        <img src="profile.new.jpg" class="profile" alt="Swadhin Howlader">
-
-        <h1 class="brand-title">Swadhin Digital Hub</h1>
-        <h2 class="founder-line">Founded by Swadhin Howlader</h2>
-
-        <p class="subtitle">
-          n8n Automation • Messenger & WhatsApp Automation • Telegram Bots • Realtime LinkedIn Systems
-        </p>
-
-        <!-- ✅ Hook block to fill hero and convert visitors -->
-        <div class="hero-hook" aria-label="Hero hook">
-          <strong>Stop losing leads in the inbox — turn every message into a system.</strong>
-          <p>
-            We build production-grade automations using <b>n8n</b> that reply instantly, capture clean lead data,
-            notify admins in real time, and keep your operations organized—without manual chaos.
-          </p>
-
-          <div class="hero-points" aria-label="Key outcomes">
-            <div class="hero-point">✅ Instant customer replies (FAQ + intent routing)</div>
-            <div class="hero-point">✅ Auto lead capture (name/phone/service + tags)</div>
-            <div class="hero-point">✅ Google Sheets/CRM sync with clean structure</div>
-            <div class="hero-point">✅ Telegram admin alerts + smooth human handover</div>
-          </div>
-
-          <div class="hero-stats" aria-label="Trust chips">
-            <span class="stat-chip">Built for Messenger + WhatsApp Business</span>
-            <span class="stat-chip">Webhooks + API Integrations</span>
-            <span class="stat-chip">Logging + retries for stability</span>
-          </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Swadhin Digital Hub</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#tutorial">Tutorial</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
+    </nav>
 
-        <div class="hero-actions">
-          <a class="cta" href="#contact">Work With Me</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h1>Swadhin Digital Hub</h1>
+                <p class="subtitle">Founded by Swadhin Howlader</p>
+                <p class="tagline">Stop losing leads in the inbox — turn every message into a system.</p>
+                <p>We build production-grade automations using n8n that reply instantly, capture clean lead data, notify admins in real time, and keep your operations organized—without manual chaos.</p>
+                
+                <div class="tech-stack">
+                    <span class="tech-badge">n8n Automation</span>
+                    <span class="tech-badge">Messenger Bot</span>
+                    <span class="tech-badge">WhatsApp Business</span>
+                    <span class="tech-badge">Telegram</span>
+                    <span class="tech-badge">LinkedIn Systems</span>
+                    <span class="tech-badge">API Integration</span>
+                </div>
 
-          <!-- ✅ BOOK NOW (Google Form)
-               Replace the link below with your real Google Form link -->
-          <a class="cta book"
-             href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&gid=580100943#gid=580100943"
-             target="_blank" rel="noopener">Book Now</a>
-
-          <a class="cta ghost" href="#projects">View Projects</a>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Work With Me</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
+            </div>
+            <div class="hero-image fade-in">
+                <img src="profile.new.jpg" alt="Swadhin Howlader" onerror="this.style.display='none'">
+            </div>
         </div>
+    </section>
 
-        <div class="badges" aria-label="Tools and platforms">
-          <span class="badge">n8n</span>
-          <span class="badge">Facebook Messenger</span>
-          <span class="badge">WhatsApp Business</span>
-          <span class="badge">Telegram Bot</span>
-          <span class="badge">Google Sheets</span>
-          <span class="badge">Webhooks</span>
-          <span class="badge">CRM Sync</span>
-          <span class="badge">API Integrations</span>
-          <span class="badge">Dashboards</span>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About My Work</h2>
+                <p>End-to-end automation systems that make your business run faster and smarter</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>We design and build end-to-end automation systems using n8n—so your business runs faster, replies instantly, and stays organized without extra manual work.</p>
+                    <p>Most teams lose time in small, repeated tasks: replying to messages, capturing leads, updating spreadsheets, sending follow-ups, and notifying admins. Together, these create operational chaos and slow growth.</p>
+                    <p>We replace those tasks with stable workflows that run quietly in the background—while your brand looks active, responsive, and professional on the front end.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>24/7</h3>
+                        <p>Automated Response</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>100%</h3>
+                        <p>Lead Capture Rate</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Real-time</h3>
+                        <p>Admin Alerts</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- RIGHT (Team panel) -->
-      <aside class="hero-team" aria-label="Team">
-        <div class="team-card">
-          <div class="team-head">
-            <h3>Core Team</h3>
-            <p>People behind Swadhin Digital Hub</p>
-          </div>
-
-          <div class="team-list">
-            <div class="team-member">
-              <img src="team/avi.jpg" alt="Avi Mistry" class="team-photo">
-              <div class="team-meta">
-                <div class="team-name">Avi Mistry</div>
-                <div class="team-role">Web Developer • Product + UI execution</div>
-              </div>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Services</h2>
+                <p>Production-grade automation systems—built for speed, stability, and scale</p>
             </div>
-
-            <div class="team-member">
-              <img src="team/sourav.png" alt="Sourav" class="team-photo">
-              <div class="team-meta">
-                <div class="team-name">Sourav</div>
-                <div class="team-role">E-commerce & Marketing • TikTok Shop, eBay, Walmart, Amazon, Shopify</div>
-              </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Messenger Automation</h3>
+                    <ul>
+                        <li>Instant replies with smart FAQ + intent routing</li>
+                        <li>Lead capture, qualification, and clean data logging</li>
+                        <li>Real-time admin alerts + smooth human handover</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>WhatsApp Business Automation</h3>
+                    <ul>
+                        <li>Structured chat flows that feel human and fast</li>
+                        <li>Order handling, follow-ups, tags, and status updates</li>
+                        <li>Escalation rules for team/admin when needed</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Telegram Bot Automation</h3>
+                    <ul>
+                        <li>Instant notifications for leads, orders, and payments</li>
+                        <li>Workflow monitoring alerts (errors, retries, failures)</li>
+                        <li>Admin dashboard signals for faster decisions</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Google Sheets / CRM Sync</h3>
+                    <ul>
+                        <li>Auto-capture data into clean, structured rows</li>
+                        <li>Customer records + pipeline tracking that stays updated</li>
+                        <li>Report-ready exports and dashboard-friendly structure</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Webhook & API Integrations</h3>
+                    <ul>
+                        <li>Connect tools through reliable webhook pipelines</li>
+                        <li>API automations with retries, logging, and fallbacks</li>
+                        <li>Stable scaling without breaking existing systems</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>LinkedIn Content Systems</h3>
+                    <ul>
+                        <li>High-quality hooks, formats, and post structures</li>
+                        <li>Consistent content pipeline for founders and teams</li>
+                        <li>Template-driven generation with smart scheduling</li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="team-member">
-              <img src="team/pranto.jpg" alt="Pranto" class="team-photo">
-              <div class="team-meta">
-                <div class="team-name">Pranto</div>
-                <div class="team-role">E-commerce Marketplace • Listing + store growth strategy</div>
-              </div>
-            </div>
-
-            <div class="team-member">
-              <img src="team/sujosh.jpg" alt="Sujosh" class="team-photo">
-              <div class="team-meta">
-                <div class="team-name">Sujosh</div>
-                <div class="team-role">SEO • On-page + technical SEO, growth roadmap</div>
-              </div>
-            </div>
-
-            <div class="team-member">
-              <img src="team/suvo.jpg" alt="Suvo Mistry" class="team-photo">
-              <div class="team-meta">
-                <div class="team-name">Suvo Mistry</div>
-                <div class="team-role">E-commerce • Product research, listing optimization, support</div>
-              </div>
-            </div>
-
-            <div class="team-member">
-              <img src="team/naiem.jpg" alt="Nayem" class="team-photo">
-              <div class="team-meta">
-                <div class="team-name">Nayem</div>
-                <div class="team-role">Ads • Performance marketing (Meta/Shop), scaling & retargeting</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="team-cta">
-            <a class="mini-btn" href="#contact">Contact Team</a>
-          </div>
         </div>
-      </aside>
+    </section>
 
-    </div>
-  </div>
-</header>
-
-<!-- MAIN CONTENT -->
-<main class="wrap">
-
-  <!-- ABOUT -->
-  <section id="about" class="card">
-    <h2>About My Work</h2>
-
-    <p>
-      We design and build end-to-end automation systems using <strong>n8n</strong>—so your business runs faster,
-      replies instantly, and stays organized without extra manual work.
-    </p>
-
-    <p>
-      Most teams lose time in small, repeated tasks: replying to messages, capturing leads, updating spreadsheets,
-      sending follow-ups, and notifying admins. Together, these create operational chaos and slow growth.
-    </p>
-
-    <p>
-      We replace those tasks with stable workflows that run quietly in the background—while your brand looks active,
-      responsive, and professional on the front end.
-    </p>
-
-    <p>
-      Our core focus is <strong>Messenger Automation</strong> and <strong>WhatsApp Business Automation</strong>.
-      We build structured conversation flows, capture leads automatically, answer common questions, and route
-      high-value conversations to admins in real time—with full context.
-    </p>
-
-    <p>
-      We also build <strong>LinkedIn realtime content systems</strong> that generate strong hooks, post formats,
-      and idea pipelines—so founders can stay consistent without spending hours writing.
-    </p>
-
-    <p>
-      Beyond messaging and content, we connect your tools across <strong>Telegram</strong>, <strong>Email</strong>,
-      <strong>Google Sheets/CRM</strong>, <strong>Webhooks</strong>, and <strong>APIs</strong>—with logging, retries,
-      and clean data so your automation stays reliable at scale.
-    </p>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="section-head">
-    <h2 class="section-title">Services</h2>
-    <p class="section-sub">Production-grade automation systems—built for speed, stability, and scale.</p>
-  </section>
-
-  <section class="grid">
-    <div class="card service-card">
-      <h3>Messenger Automation</h3>
-      <ul class="list">
-        <li>Instant replies with smart FAQ + intent routing</li>
-        <li>Lead capture, qualification, and clean data logging</li>
-        <li>Real-time admin alerts + smooth human handover</li>
-      </ul>
-    </div>
-
-    <div class="card service-card">
-      <h3>WhatsApp Business Automation</h3>
-      <ul class="list">
-        <li>Structured chat flows that feel human and fast</li>
-        <li>Order handling, follow-ups, tags, and status updates</li>
-        <li>Escalation rules for team/admin when needed</li>
-      </ul>
-    </div>
-
-    <div class="card service-card">
-      <h3>Telegram Bot Automation</h3>
-      <ul class="list">
-        <li>Instant notifications for leads, orders, and payments</li>
-        <li>Workflow monitoring alerts (errors, retries, failures)</li>
-        <li>Admin dashboard signals for faster decisions</li>
-      </ul>
-    </div>
-
-    <div class="card service-card">
-      <h3>Google Sheets / CRM Sync</h3>
-      <ul class="list">
-        <li>Auto-capture data into clean, structured rows</li>
-        <li>Customer records + pipeline tracking that stays updated</li>
-        <li>Report-ready exports and dashboard-friendly structure</li>
-      </ul>
-    </div>
-
-    <div class="card service-card">
-      <h3>Webhook & API Integrations</h3>
-      <ul class="list">
-        <li>Connect tools through reliable webhook pipelines</li>
-        <li>API automations with retries, logging, and fallbacks</li>
-        <li>Stable scaling without breaking existing systems</li>
-      </ul>
-    </div>
-
-    <div class="card service-card">
-      <h3>LinkedIn Realtime Content Systems</h3>
-      <ul class="list">
-        <li>High-quality hooks, formats, and post structures</li>
-        <li>Consistent content pipeline for founders and teams</li>
-        <li>Template-driven generation with smart scheduling flow</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="section-head">
-    <h2 class="section-title">Automation Projects</h2>
-    <p class="section-sub">Real systems built using n8n. Clean logic, stable execution, and scalable structure.</p>
-  </section>
-
-  <section class="project-grid">
-    <div class="project card">
-      <img src="images/messenger-automation.png" alt="Messenger Automation">
-      <h3>Messenger Automation</h3>
-      <p>Lead capture, auto replies, admin notifications, handover routing—fully automated.</p>
-    </div>
-
-    <div class="project card">
-      <img src="images/whatsapp-automation.png" alt="WhatsApp Automation">
-      <h3>WhatsApp Business Automation</h3>
-      <p>Order handling, follow-ups, customer support flows, tagging and escalation logic.</p>
-    </div>
-
-    <div class="project card">
-      <img src="images/linkedin-automation.png" alt="LinkedIn Automation">
-      <h3>LinkedIn Realtime Post Generator</h3>
-      <p>Real-time post ideas, hooks, and structures for consistent visibility and growth.</p>
-    </div>
-  </section>
-
-  <!-- YouTube Tutorial + Documentation -->
-  <section class="card" aria-label="YouTube tutorial and documentation" style="margin-top:18px;">
-    <h2>Latest Tutorial: GitHub Website + n8n AI Chatbot</h2>
-    <p style="opacity:.92; line-height:1.75;">
-      A clean, step-by-step walkthrough showing how we integrate a website chatbot into GitHub Pages using n8n Webhook,
-      CORS headers, AI Agent + Chat Model, and a final Response node—end to end.
-    </p>
-
-    <div class="sdh-video-feature">
-      <picture>
- <source srcset="https://i.ytimg.com/vi/2WGcCOqAYgA/maxresdefault.jpg" media="(min-width: 600px)">
-<img class="sdh-video-thumb" src="https://i.ytimg.com/vi/2WGcCOqAYgA/hqdefault.jpg" alt="YouTube tutorial thumbnail">
-
-</picture>
-
-
-      <div class="card" style="margin-bottom:0;">
-        <h3 style="margin-bottom:10px;">Documentation + Video Link</h3>
-        <p style="opacity:.92; line-height:1.75;">
-          Use the documentation page to copy the full workflow structure, node settings, and troubleshooting notes.
-          Watch the video if you want to follow the build exactly as executed.
-        </p>
-
-        <div class="sdh-video-actions">
-          <a class="btn" href="posts/github-n8n-chatbot-doc.html">Open Documentation →</a>
-          <a class="btn" href="https://youtu.be/2WGcCOqAYgA" target="_blank" rel="noopener">Watch on YouTube →</a>
-          <a class="btn" href="blog.html">More Tutorials →</a>
+    <!-- Team Section -->
+    <section id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Core Team</h2>
+                <p>People behind Swadhin Digital Hub</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="team/avi.jpg" alt="Avi Mistry" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=AM'">
+                    <div class="team-info">
+                        <h3>Avi Mistry</h3>
+                        <p>Web Developer • Product + UI execution</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="team/sourav.png" alt="Sourav" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=S'">
+                    <div class="team-info">
+                        <h3>Sourav</h3>
+                        <p>E-commerce & Marketing • TikTok Shop, eBay, Walmart, Amazon, Shopify</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="team/pranto.jpg" alt="Pranto" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=P'">
+                    <div class="team-info">
+                        <h3>Pranto</h3>
+                        <p>E-commerce Marketplace • Listing + store growth strategy</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="team/sujosh.jpg" alt="Sujosh" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=SJ'">
+                    <div class="team-info">
+                        <h3>Sujosh</h3>
+                        <p>SEO • On-page + technical SEO, growth roadmap</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="team/suvo.jpg" alt="Suvo Mistry" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=SM'">
+                    <div class="team-info">
+                        <h3>Suvo Mistry</h3>
+                        <p>E-commerce • Product research, listing optimization, support</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="team/naiem.jpg" alt="Nayem" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=N'">
+                    <div class="team-info">
+                        <h3>Nayem</h3>
+                        <p>Ads • Performance marketing (Meta/Shop), scaling & retargeting</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- LINKS -->
-  <section id="links" class="card">
-    <h2>Official Links</h2>
-    <div class="buttons">
-      <a class="btn" href="https://facebook.com/mrswadhinhowlader" target="_blank" rel="noopener">Facebook Profile</a>
-      <a class="btn" href="https://facebook.com/swadhindigitalhub" target="_blank" rel="noopener">Facebook Page</a>
-      <a class="btn" href="https://instagram.com/mrswadhinhowlader" target="_blank" rel="noopener">Instagram</a>
-      <a class="btn" href="https://x.com/mrswadhinrj" target="_blank" rel="noopener">X (Twitter)</a>
-      <a class="btn" href="https://www.linkedin.com/in/mrswadhinhowlader" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://www.youtube.com/@mrswadhinhowlader" target="_blank" rel="noopener">YouTube</a>
-      <a class="btn" href="https://github.com/mrswadhinhowlader" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </section>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Automation Projects</h2>
+                <p>Real systems built using n8n. Clean logic, stable execution, and scalable structure.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">💬</div>
+                    <div class="project-content">
+                        <h3>Messenger Automation</h3>
+                        <p>Lead capture, auto replies, admin notifications, handover routing—fully automated.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">📱</div>
+                    <div class="project-content">
+                        <h3>WhatsApp Business Automation</h3>
+                        <p>Order handling, follow-ups, customer support flows, tagging and escalation logic.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🔗</div>
+                    <div class="project-content">
+                        <h3>LinkedIn Realtime Post Generator</h3>
+                        <p>Real-time post ideas, hooks, and structures for consistent visibility and growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="card">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:swadhinj17@gmail.com" class="accent-link">swadhinj17@gmail.com</a></p>
+    <!-- Tutorial Section -->
+    <section id="tutorial">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Tutorial</h2>
+                <p>GitHub Website + n8n AI Chatbot Integration</p>
+            </div>
+            <div class="tutorial-container">
+                <div class="tutorial-video">
+                    <img src="https://i.ytimg.com/vi/2WGcCOqAYgA/maxresdefault.jpg" alt="Tutorial Thumbnail">
+                </div>
+                <div class="tutorial-info">
+                    <h3>GitHub Website + n8n AI Chatbot</h3>
+                    <p>A clean, step-by-step walkthrough showing how we integrate a website chatbot into GitHub Pages using n8n Webhook, CORS headers, AI Agent + Chat Model, and a final Response node—end to end.</p>
+                    <div class="tutorial-links">
+                        <a href="posts/github-n8n-chatbot-doc.html" class="btn btn-primary">Open Documentation →</a>
+                        <a href="https://youtu.be/2WGcCOqAYgA" class="btn btn-secondary">Watch on YouTube →</a>
+                        <a href="blog.html" class="btn btn-secondary">More Tutorials →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="buttons" style="margin-top:14px;">
-      <a class="btn" href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support." target="_blank" rel="noopener">WhatsApp Chat</a>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">Get In Touch</h2>
+                <p style="color: rgba(255,255,255,0.9);">Let's build your automation system together</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-method">
+                        <h4>Email</h4>
+                        <a href="mailto:swadhinj17@gmail.com">swadhinj17@gmail.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <h4>WhatsApp</h4>
+                        <a href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support.">+880 1306 878912</a>
+                    </div>
+                    <div class="contact-method">
+                        <h4>Quick Booking</h4>
+                        <a href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&gid=580100943#gid=580100943">Book Now →</a>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="https://facebook.com/mrswadhinhowlader">Facebook</a>
+                        <a href="https://facebook.com/swadhindigitalhub">Facebook Page</a>
+                        <a href="https://instagram.com/mrswadhinhowlader">Instagram</a>
+                        <a href="https://x.com/mrswadhinrj">X (Twitter)</a>
+                        <a href="https://www.linkedin.com/in/mrswadhinhowlader">LinkedIn</a>
+                        <a href="https://www.youtube.com/@mrswadhinhowlader">YouTube</a>
+                        <a href="https://github.com/mrswadhinhowlader">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <!-- Replace this with your Telegram username/link -->
-      <a class="btn" href="https://t.me/yourusername" target="_blank" rel="noopener">Telegram</a>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Swadhin Digital Hub • Founded by Swadhin Howlader</p>
+    </footer>
 
-      <!-- Optional: same Book Now link again -->
-      <a class="btn" href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&gid=580100943#gid=580100943" target="_blank" rel="noopener">Book Now</a>
-    </div>
-  </section>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-</main>
+        // Add scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        });
 
-<footer class="footer">
-  © 2025 Swadhin Digital Hub • Founded by Swadhin Howlader
-</footer>
-
-<!-- ================= Swadhin Bot (ONE & ONLY - Works PC+Mobile) ================= -->
-<style>
-  #sw-chat-btn{
-    position:fixed; right:18px; bottom:18px;
-    z-index:2147483647; border:none; padding:12px 14px;
-    border-radius:999px; cursor:pointer; background:#111; color:#fff;
-    box-shadow:0 10px 30px rgba(0,0,0,.18);
-    font-weight:700; -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation; pointer-events:auto;
-  }
-  #sw-chat-box{
-    position:fixed; right:18px; bottom:76px;
-    width:340px; max-width:92vw; height:460px;
-    z-index:2147483647; display:none;
-    border-radius:16px; overflow:hidden; background:#fff;
-    border:1px solid rgba(0,0,0,.12);
-    box-shadow:0 16px 50px rgba(0,0,0,.20);
-    font-family:Arial, sans-serif; pointer-events:auto;
-  }
-  #sw-chat-head{
-    padding:12px 14px; font-weight:800;
-    display:flex; justify-content:space-between; align-items:center;
-    background:#0f0f0f; color:#fff;
-  }
-  #sw-chat-small{font-size:12px;opacity:.85;font-weight:400;margin-top:2px}
-  #sw-chat-log{height:330px;overflow:auto;padding:12px 14px;background:#fff}
-  .sw-msg{margin:10px 0;line-height:1.35}
-  .sw-me{text-align:right}
-  .sw-bot{text-align:left}
-  .sw-bubble{display:inline-block;padding:10px 12px;border-radius:14px;max-width:85%;font-size:14px}
-  .sw-me .sw-bubble{background:#111;color:#fff}
-  .sw-bot .sw-bubble{background:#f3f3f3;color:#111}
-  #sw-chat-form{display:flex;gap:8px;padding:10px;border-top:1px solid #eee;background:#fafafa}
-  #sw-chat-input{flex:1;padding:10px;border:1px solid #ddd;border-radius:10px;outline:none}
-  #sw-chat-send{padding:10px 12px;border:none;border-radius:10px;cursor:pointer;background:#111;color:#fff;font-weight:700}
-  #sw-chat-close{border:none;background:transparent;cursor:pointer;font-size:18px;color:#fff}
-</style>
-
-<button id="sw-chat-btn" type="button" aria-label="Open chat">💬 Chat With AI</button>
-
-<div id="sw-chat-box" aria-label="Chatbox">
-  <div id="sw-chat-head">
-    <div>
-      Swadhin Bot
-      <div id="sw-chat-small">Ask about n8n Automation</div>
-    </div>
-    <button id="sw-chat-close" type="button" aria-label="Close chat">✕</button>
-  </div>
-
-  <div id="sw-chat-log"></div>
-
-  <form id="sw-chat-form">
-    <input id="sw-chat-input" placeholder="Ask about Messenger/WhatsApp automation..." autocomplete="off" />
-    <button id="sw-chat-send" type="submit">Send</button>
-  </form>
-</div>
-
-<script>
-(function(){
-  /* ✅ Replace your webhook here if needed */
-  const N8N_WEBHOOK_URL = "https://vmi2977874.contaboserver.net/webhook/3f9f3f16-b52c-4d13-834a-96b9df752b79";
-
-  const btn = document.getElementById("sw-chat-btn");
-  const box = document.getElementById("sw-chat-box");
-  const closeBtn = document.getElementById("sw-chat-close");
-  const log = document.getElementById("sw-chat-log");
-  const form = document.getElementById("sw-chat-form");
-  const input = document.getElementById("sw-chat-input");
-
-  const sessionKey = "sw_chat_session_id";
-  let sessionId = localStorage.getItem(sessionKey);
-  if(!sessionId){
-    const hasCryptoUUID = (window.crypto && typeof window.crypto.randomUUID === "function");
-    sessionId = hasCryptoUUID ? window.crypto.randomUUID() : ("sw_" + Date.now() + "_" + Math.floor(Math.random()*1e9));
-    localStorage.setItem(sessionKey, sessionId);
-  }
-
-  function addMsg(text, who){
-    const wrap = document.createElement("div");
-    wrap.className = "sw-msg " + (who==="me" ? "sw-me" : "sw-bot");
-    const bub = document.createElement("div");
-    bub.className = "sw-bubble";
-    bub.textContent = text;
-    wrap.appendChild(bub);
-    log.appendChild(wrap);
-    log.scrollTop = log.scrollHeight;
-  }
-
-  function toggleOpen(){
-    const isOpen = box.style.display === "block";
-    box.style.display = isOpen ? "none" : "block";
-    if(log.childElementCount === 0){
-      addMsg("Hi! Ask me anything about n8n Automation, Messenger/WhatsApp, Sheets/CRM Sync.","bot");
-    }
-    setTimeout(()=>{ try{ input.focus(); }catch(e){} }, 50);
-  }
-
-  btn.addEventListener("click", toggleOpen);
-  btn.addEventListener("touchstart", toggleOpen, {passive:true});
-  closeBtn.addEventListener("click", ()=> box.style.display="none");
-  closeBtn.addEventListener("touchstart", ()=> box.style.display="none", {passive:true});
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const message = input.value.trim();
-    if(!message) return;
-
-    addMsg(message,"me");
-    input.value = "";
-
-    addMsg("Typing...","bot");
-    const typingNode = log.lastChild;
-
-    try{
-      const body = new URLSearchParams({
-        message,
-        sessionId,
-        source: "website",
-        page: location.pathname
-      });
-
-      const res = await fetch(N8N_WEBHOOK_URL, { method:"POST", body });
-      if(!res.ok) throw new Error("HTTP " + res.status);
-
-      const data = await res.json();
-      typingNode.remove();
-      addMsg(data.reply || "No reply received from n8n.","bot");
-
-    }catch(err){
-      typingNode.remove();
-      addMsg("Connection issue (CORS/Response). Please verify n8n CORS headers + Response node.","bot");
-      console.error(err);
-    }
-  });
-})();
-</script>
-
-<script>
-(function(){
-  /* Scroll Reveal */
-  const targets = document.querySelectorAll(
-    ".hero-left, .team-card, .card, .section-head, .service-card, .project.card, .team-member, .blog-card"
-  );
-  targets.forEach(el => el.classList.add("sdh-reveal"));
-
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add("sdh-reveal--show");
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  targets.forEach(el => io.observe(el));
-
-  /* Spotlight follow mouse */
-  const glowCards = document.querySelectorAll(".card, .team-card, .project.card, .blog-card, .service-card");
-  glowCards.forEach(card=>{
-    card.addEventListener("mousemove", (ev)=>{
-      const r = card.getBoundingClientRect();
-      const x = ((ev.clientX - r.left) / r.width) * 100;
-      const y = ((ev.clientY - r.top) / r.height) * 100;
-      card.style.setProperty("--mx", x + "%");
-      card.style.setProperty("--my", y + "%");
-    }, {passive:true});
-  });
-})();
-</script>
-<!-- ================= End Swadhin Bot ================= -->
-
-</body>
-</html>
+        document.
