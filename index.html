@@ -12,166 +12,202 @@
         }
 
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --secondary: #0ea5e9;
-            --accent: #06b6d4;
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
             --dark: #0f172a;
-            --gray: #64748b;
-            --light-gray: #f1f5f9;
-            --white: #ffffff;
+            --light: #f8fafc;
+            --accent: #ec4899;
+            --text: #334155;
+            --border: #e2e8f0;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            background: var(--white);
+            color: var(--text);
+            background: var(--light);
         }
 
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-            z-index: 1000;
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
             padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
-        .nav-container {
+        .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 2rem;
         }
 
-        .logo {
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-section img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo-section h1 {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
         }
 
-        .nav-links {
+        nav ul {
             display: flex;
-            gap: 2rem;
             list-style: none;
+            gap: 2rem;
         }
 
-        .nav-links a {
+        nav a {
+            color: white;
             text-decoration: none;
-            color: var(--dark);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: opacity 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
+        nav a:hover {
+            opacity: 0.8;
         }
 
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            gap: 0.3rem;
-            cursor: pointer;
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s;
         }
 
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: var(--dark);
-            transition: 0.3s;
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 6rem 2rem 4rem;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-container {
-            max-width: 1200px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero h2 {
+            font-size: 3rem;
             margin-bottom: 1rem;
-            line-height: 1.1;
+            font-weight: 800;
         }
 
-        .hero-content .subtitle {
+        .hero h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             opacity: 0.9;
         }
 
-        .hero-content .tagline {
-            font-size: 1.1rem;
+        .hero p {
+            font-size: 1.2rem;
             margin-bottom: 2rem;
-            opacity: 0.95;
-            font-weight: 500;
+            opacity: 0.9;
         }
 
-        .tech-stack {
+        .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin: 2rem 0;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
         }
 
-        .tech-badge {
-            background: rgba(255, 255, 255, 0.2);
+        .skill-tag {
+            background: rgba(255,255,255,0.2);
             padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            border-radius: 25px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.3);
         }
 
         .cta-buttons {
             display: flex;
             gap: 1rem;
+            justify-content: center;
             margin-top: 2rem;
         }
 
         .btn {
             padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+            border-radius: 50px;
             text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
             display: inline-block;
         }
 
         .btn-primary {
             background: white;
             color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
         }
 
         .btn-secondary {
@@ -185,91 +221,34 @@
             color: var(--primary);
         }
 
-        .hero-image {
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
         /* Section Styles */
         section {
-            padding: 5rem 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
             margin-bottom: 4rem;
         }
 
-        .section-header h2 {
+        .section-title {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--dark);
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* About Section */
-        #about {
-            background: var(--light-gray);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-            font-size: 1.05rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
             text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            font-weight: 700;
         }
 
-        .stat-card h3 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+        .section-subtitle {
+            text-align: center;
+            color: var(--text);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
         }
 
-        .stat-card p {
-            color: var(--gray);
-            font-size: 0.95rem;
-        }
-
-        /* Services Section */
+        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -278,11 +257,11 @@
 
         .service-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
+            padding: 2rem;
+            border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: all 0.3s;
-            border-top: 4px solid var(--primary);
+            border: 1px solid var(--border);
         }
 
         .service-card:hover {
@@ -291,9 +270,9 @@
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            color: var(--primary);
             margin-bottom: 1rem;
-            color: var(--dark);
+            font-size: 1.5rem;
         }
 
         .service-card ul {
@@ -303,66 +282,59 @@
 
         .service-card li {
             padding: 0.5rem 0;
-            color: var(--gray);
-            position: relative;
             padding-left: 1.5rem;
+            position: relative;
         }
 
-        .service-card li:before {
-            content: "✓";
+        .service-card li::before {
+            content: '✓';
             position: absolute;
             left: 0;
-            color: var(--primary);
+            color: var(--accent);
             font-weight: bold;
         }
 
-        /* Team Section */
-        #team {
-            background: var(--light-gray);
-        }
-
+        /* Team Grid */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .team-card {
+        .team-member {
             background: white;
-            border-radius: 12px;
-            overflow: hidden;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: all 0.3s;
-            text-align: center;
         }
 
-        .team-card:hover {
-            transform: translateY(-10px);
+        .team-member:hover {
+            transform: translateY(-5px);
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
         }
 
-        .team-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 4px solid var(--primary);
         }
 
-        .team-info {
-            padding: 1.5rem;
-        }
-
-        .team-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        .team-member h4 {
             color: var(--dark);
+            margin-bottom: 0.5rem;
         }
 
-        .team-info p {
-            color: var(--gray);
-            font-size: 0.95rem;
+        .team-member p {
+            color: var(--text);
+            font-size: 0.9rem;
         }
 
-        /* Projects Section */
+        /* Projects */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -371,7 +343,7 @@
 
         .project-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: all 0.3s;
@@ -382,15 +354,10 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
         }
 
-        .project-image {
+        .project-card img {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
+            object-fit: cover;
         }
 
         .project-content {
@@ -398,114 +365,47 @@
         }
 
         .project-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .project-content p {
-            color: var(--gray);
+            color: var(--primary);
             margin-bottom: 1rem;
         }
 
-        /* Tutorial Section */
-        #tutorial {
-            background: var(--light-gray);
-        }
-
-        .tutorial-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .tutorial-video {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        }
-
-        .tutorial-video img {
-            width: 100%;
-            height: auto;
-        }
-
-        .tutorial-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .tutorial-info p {
-            color: var(--gray);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        .tutorial-links {
+        /* Social Links */
+        .social-links {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
         }
 
         /* Contact Section */
-        #contact {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-method {
-            margin-bottom: 2rem;
-        }
-
-        .contact-method h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-method a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.3s;
-        }
-
-        .contact-method a:hover {
-            opacity: 1;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            display: inline-block;
-            padding: 0.7rem 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
+        .contact-info {
             background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .contact-info a {
             color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
         /* Footer */
@@ -514,44 +414,108 @@
             color: white;
             text-align: center;
             padding: 2rem;
+            margin-top: 4rem;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero-container,
-            .about-content,
-            .contact-container,
-            .tutorial-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Chatbot Styles */
+        .chat-trigger {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+            z-index: 1000;
+            transition: all 0.3s;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
+        .chat-trigger:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(99, 102, 241, 0.7);
+        }
+
+        .chat-trigger::before {
+            content: '💬';
+            font-size: 28px;
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 380px;
+            height: 550px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .chat-window.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            font-size: 1.2rem;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .chat-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            background: #f8fafc;
+        }
+
+        .chat-message {
+            margin-bottom: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            max-width: 80%;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -559,99 +523,154 @@
             }
         }
 
-        .fade-in {
-            animation: fadeInUp 0.6s ease-out;
+        .chat-message.bot {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            margin-right: auto;
+        }
+
+        .chat-message.user {
+            background: #e2e8f0;
+            color: var(--dark);
+            margin-left: auto;
+        }
+
+        .chat-input-area {
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .chat-input:focus {
+            border-color: var(--primary);
+        }
+
+        .chat-send {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .chat-send:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero h3 {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .chat-window {
+                width: calc(100% - 20px);
+                right: 10px;
+                left: 10px;
+                bottom: 90px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">Swadhin Digital Hub</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#tutorial">Tutorial</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="logo.png" alt="Swadhin Digital Hub Logo">
+                <h1>Swadhin Digital Hub</h1>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content fade-in">
-                <h1>Swadhin Digital Hub</h1>
-                <p class="subtitle">Founded by Swadhin Howlader</p>
-                <p class="tagline">Stop losing leads in the inbox — turn every message into a system.</p>
-                <p>We build production-grade automations using n8n that reply instantly, capture clean lead data, notify admins in real time, and keep your operations organized—without manual chaos.</p>
-                
-                <div class="tech-stack">
-                    <span class="tech-badge">n8n Automation</span>
-                    <span class="tech-badge">Messenger Bot</span>
-                    <span class="tech-badge">WhatsApp Business</span>
-                    <span class="tech-badge">Telegram</span>
-                    <span class="tech-badge">LinkedIn Systems</span>
-                    <span class="tech-badge">API Integration</span>
-                </div>
-
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Work With Me</a>
-                    <a href="#projects" class="btn btn-secondary">View Projects</a>
-                </div>
+        <div class="hero-content">
+            <img src="logo.png" alt="Swadhin Digital Hub" class="profile-img">
+            <h2>Swadhin Digital Hub</h2>
+            <h3>Founded by Swadhin Howlader</h3>
+            <p>n8n Automation • Messenger & WhatsApp Automation • Telegram Bots • Realtime LinkedIn Systems</p>
+            <p><strong>Stop losing leads in the inbox — turn every message into a system.</strong></p>
+            
+            <div class="skills">
+                <span class="skill-tag">n8n</span>
+                <span class="skill-tag">Facebook Messenger</span>
+                <span class="skill-tag">WhatsApp Business</span>
+                <span class="skill-tag">Telegram Bot</span>
+                <span class="skill-tag">Google Sheets</span>
+                <span class="skill-tag">Webhooks</span>
+                <span class="skill-tag">CRM Sync</span>
+                <span class="skill-tag">API Integrations</span>
             </div>
-            <div class="hero-image fade-in">
-                <img src="profile.new.jpg" alt="Swadhin Howlader" onerror="this.style.display='none'">
+
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Work With Me</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>About My Work</h2>
-                <p>End-to-end automation systems that make your business run faster and smarter</p>
+    <div class="container">
+        <section id="about">
+            <h2 class="section-title">About My Work</h2>
+            <p class="section-subtitle">We design and build end-to-end automation systems using n8n—so your business runs faster, replies instantly, and stays organized without extra manual work.</p>
+            
+            <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+                <p>Most teams lose time in small, repeated tasks: replying to messages, capturing leads, updating spreadsheets, sending follow-ups, and notifying admins. Together, these create operational chaos and slow growth.</p>
+                <p style="margin-top: 1rem;">We replace those tasks with stable workflows that run quietly in the background—while your brand looks active, responsive, and professional on the front end.</p>
+                <p style="margin-top: 1rem;">Our core focus is Messenger Automation and WhatsApp Business Automation. We build structured conversation flows, capture leads automatically, answer common questions, and route high-value conversations to admins in real time—with full context.</p>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>We design and build end-to-end automation systems using n8n—so your business runs faster, replies instantly, and stays organized without extra manual work.</p>
-                    <p>Most teams lose time in small, repeated tasks: replying to messages, capturing leads, updating spreadsheets, sending follow-ups, and notifying admins. Together, these create operational chaos and slow growth.</p>
-                    <p>We replace those tasks with stable workflows that run quietly in the background—while your brand looks active, responsive, and professional on the front end.</p>
-                </div>
-                <div class="stats">
-                    <div class="stat-card">
-                        <h3>24/7</h3>
-                        <p>Automated Response</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>100%</h3>
-                        <p>Lead Capture Rate</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>Real-time</h3>
-                        <p>Admin Alerts</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Services</h2>
-                <p>Production-grade automation systems—built for speed, stability, and scale</p>
-            </div>
+        <!-- Services Section -->
+        <section id="services">
+            <h2 class="section-title">Services</h2>
+            <p class="section-subtitle">Production-grade automation systems—built for speed, stability, and scale.</p>
+            
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Messenger Automation</h3>
@@ -661,6 +680,7 @@
                         <li>Real-time admin alerts + smooth human handover</li>
                     </ul>
                 </div>
+                
                 <div class="service-card">
                     <h3>WhatsApp Business Automation</h3>
                     <ul>
@@ -669,6 +689,7 @@
                         <li>Escalation rules for team/admin when needed</li>
                     </ul>
                 </div>
+                
                 <div class="service-card">
                     <h3>Telegram Bot Automation</h3>
                     <ul>
@@ -677,6 +698,7 @@
                         <li>Admin dashboard signals for faster decisions</li>
                     </ul>
                 </div>
+                
                 <div class="service-card">
                     <h3>Google Sheets / CRM Sync</h3>
                     <ul>
@@ -685,6 +707,7 @@
                         <li>Report-ready exports and dashboard-friendly structure</li>
                     </ul>
                 </div>
+                
                 <div class="service-card">
                     <h3>Webhook & API Integrations</h3>
                     <ul>
@@ -693,368 +716,166 @@
                         <li>Stable scaling without breaking existing systems</li>
                     </ul>
                 </div>
+                
                 <div class="service-card">
-                    <h3>LinkedIn Content Systems</h3>
+                    <h3>LinkedIn Realtime Content Systems</h3>
                     <ul>
                         <li>High-quality hooks, formats, and post structures</li>
                         <li>Consistent content pipeline for founders and teams</li>
-                        <li>Template-driven generation with smart scheduling</li>
+                        <li>Template-driven generation with smart scheduling flow</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Team Section -->
-    <section id="team">
-        <div class="container">
-            <div class="section-header">
-                <h2>Core Team</h2>
-                <p>People behind Swadhin Digital Hub</p>
-            </div>
+        <!-- Team Section -->
+        <section id="team">
+            <h2 class="section-title">Core Team</h2>
+            <p class="section-subtitle">People behind Swadhin Digital Hub</p>
+            
             <div class="team-grid">
-                <div class="team-card">
-                    <img src="team/avi.jpg" alt="Avi Mistry" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=AM'">
-                    <div class="team-info">
-                        <h3>Avi Mistry</h3>
-                        <p>Web Developer • Product + UI execution</p>
-                    </div>
+                <div class="team-member">
+                    <img src="team/avi.jpg" alt="Avi Mistry">
+                    <h4>Avi Mistry</h4>
+                    <p>Web Developer • Product + UI execution</p>
                 </div>
-                <div class="team-card">
-                    <img src="team/sourav.png" alt="Sourav" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=S'">
-                    <div class="team-info">
-                        <h3>Sourav</h3>
-                        <p>E-commerce & Marketing • TikTok Shop, eBay, Walmart, Amazon, Shopify</p>
-                    </div>
+                
+                <div class="team-member">
+                    <img src="team/sourav.png" alt="Sourav">
+                    <h4>Sourav</h4>
+                    <p>E-commerce & Marketing • TikTok Shop, eBay, Walmart, Amazon, Shopify</p>
                 </div>
-                <div class="team-card">
-                    <img src="team/pranto.jpg" alt="Pranto" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=P'">
-                    <div class="team-info">
-                        <h3>Pranto</h3>
-                        <p>E-commerce Marketplace • Listing + store growth strategy</p>
-                    </div>
+                
+                <div class="team-member">
+                    <img src="team/pranto.jpg" alt="Pranto">
+                    <h4>Pranto</h4>
+                    <p>E-commerce Marketplace • Listing + store growth strategy</p>
                 </div>
-                <div class="team-card">
-                    <img src="team/sujosh.jpg" alt="Sujosh" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=SJ'">
-                    <div class="team-info">
-                        <h3>Sujosh</h3>
-                        <p>SEO • On-page + technical SEO, growth roadmap</p>
-                    </div>
+                
+                <div class="team-member">
+                    <img src="team/sujosh.jpg" alt="Sujosh">
+                    <h4>Sujosh</h4>
+                    <p>SEO • On-page + technical SEO, growth roadmap</p>
                 </div>
-                <div class="team-card">
-                    <img src="team/suvo.jpg" alt="Suvo Mistry" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=SM'">
-                    <div class="team-info">
-                        <h3>Suvo Mistry</h3>
-                        <p>E-commerce • Product research, listing optimization, support</p>
-                    </div>
+                
+                <div class="team-member">
+                    <img src="team/suvo.jpg" alt="Suvo Mistry">
+                    <h4>Suvo Mistry</h4>
+                    <p>E-commerce • Product research, listing optimization, support</p>
                 </div>
-                <div class="team-card">
-                    <img src="team/naiem.jpg" alt="Nayem" onerror="this.src='https://via.placeholder.com/250x250/667eea/ffffff?text=N'">
-                    <div class="team-info">
-                        <h3>Nayem</h3>
-                        <p>Ads • Performance marketing (Meta/Shop), scaling & retargeting</p>
-                    </div>
+                
+                <div class="team-member">
+                    <img src="team/naiem.jpg" alt="Nayem">
+                    <h4>Nayem</h4>
+                    <p>Ads • Performance marketing (Meta/Shop), scaling & retargeting</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Automation Projects</h2>
-                <p>Real systems built using n8n. Clean logic, stable execution, and scalable structure.</p>
-            </div>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Automation Projects</h2>
+            <p class="section-subtitle">Real systems built using n8n. Clean logic, stable execution, and scalable structure.</p>
+            
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image">💬</div>
+                    <img src="images/messenger-automation.png" alt="Messenger Automation">
                     <div class="project-content">
                         <h3>Messenger Automation</h3>
                         <p>Lead capture, auto replies, admin notifications, handover routing—fully automated.</p>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-image">📱</div>
+                    <img src="images/whatsapp-automation.png" alt="WhatsApp Automation">
                     <div class="project-content">
                         <h3>WhatsApp Business Automation</h3>
                         <p>Order handling, follow-ups, customer support flows, tagging and escalation logic.</p>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <div class="project-image">🔗</div>
+                    <img src="images/linkedin-automation.png" alt="LinkedIn Automation">
                     <div class="project-content">
                         <h3>LinkedIn Realtime Post Generator</h3>
                         <p>Real-time post ideas, hooks, and structures for consistent visibility and growth.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Tutorial Section -->
-    <section id="tutorial">
-        <div class="container">
-            <div class="section-header">
-                <h2>Latest Tutorial</h2>
-                <p>GitHub Website + n8n AI Chatbot Integration</p>
+        <!-- Links Section -->
+        <section id="links">
+            <h2 class="section-title">Connect With Us</h2>
+            <div class="social-links">
+                <a href="https://facebook.com/mrswadhinhowlader" class="social-link">Facebook Profile</a>
+                <a href="https://facebook.com/swadhindigitalhub" class="social-link">Facebook Page</a>
+                <a href="https://instagram.com/mrswadhinhowlader" class="social-link">Instagram</a>
+                <a href="https://x.com/mrswadhinrj" class="social-link">X (Twitter)</a>
+                <a href="https://www.linkedin.com/in/mrswadhinhowlader" class="social-link">LinkedIn</a>
+                <a href="https://www.youtube.com/@mrswadhinhowlader" class="social-link">YouTube</a>
+                <a href="https://github.com/mrswadhinhowlader" class="social-link">GitHub</a>
             </div>
-            <div class="tutorial-container">
-                <div class="tutorial-video">
-                    <img src="https://i.ytimg.com/vi/2WGcCOqAYgA/maxresdefault.jpg" alt="Tutorial Thumbnail">
-                </div>
-                <div class="tutorial-info">
-                    <h3>GitHub Website + n8n AI Chatbot</h3>
-                    <p>A clean, step-by-step walkthrough showing how we integrate a website chatbot into GitHub Pages using n8n Webhook, CORS headers, AI Agent + Chat Model, and a final Response node—end to end.</p>
-                    <div class="tutorial-links">
-                        <a href="posts/github-n8n-chatbot-doc.html" class="btn btn-primary">Open Documentation →</a>
-                        <a href="https://youtu.be/2WGcCOqAYgA" class="btn btn-secondary">Watch on YouTube →</a>
-                        <a href="blog.html" class="btn btn-secondary">More Tutorials →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 style="color: white;">Get In Touch</h2>
-                <p style="color: rgba(255,255,255,0.9);">Let's build your automation system together</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-method">
-                        <h4>Email</h4>
-                        <a href="mailto:swadhinj17@gmail.com">swadhinj17@gmail.com</a>
-                    </div>
-                    <div class="contact-method">
-                        <h4>WhatsApp</h4>
-                        <a href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support.">+880 1306 878912</a>
-                    </div>
-                    <div class="contact-method">
-                        <h4>Quick Booking</h4>
-                        <a href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&gid=580100943#gid=580100943">Book Now →</a>
-                    </div>
-                </div>
-                <div class="contact-info">
-                    <h3>Connect With Me</h3>
-                    <div class="social-links">
-                        <a href="https://facebook.com/mrswadhinhowlader">Facebook</a>
-                        <a href="https://facebook.com/swadhindigitalhub">Facebook Page</a>
-                        <a href="https://instagram.com/mrswadhinhowlader">Instagram</a>
-                        <a href="https://x.com/mrswadhinrj">X (Twitter)</a>
-                        <a href="https://www.linkedin.com/in/mrswadhinhowlader">LinkedIn</a>
-                        <a href="https://www.youtube.com/@mrswadhinhowlader">YouTube</a>
-                        <a href="https://github.com/mrswadhinhowlader">GitHub</a>
-                    </div>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info">
+                <p style="margin-bottom: 1rem;">Email: <a href="mailto:swadhinj17@gmail.com">swadhinj17@gmail.com</a></p>
+                <div class="cta-buttons" style="margin-top: 2rem;">
+                    <a href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support." class="btn btn-primary">WhatsApp Chat</a>
+                    <a href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&gid=580100943#gid=580100943" class="btn btn-secondary">Book Now</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer>
         <p>© 2025 Swadhin Digital Hub • Founded by Swadhin Howlader</p>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        });
-
-        document.
-<!-- ================= Swadhin Bot (ONE & ONLY - Works PC+Mobile) ================= -->
-<style>
-  #sw-chat-btn{
-    position:fixed; right:18px; bottom:18px;
-    z-index:2147483647; border:none; padding:12px 14px;
-    border-radius:999px; cursor:pointer; background:#111; color:#fff;
-    box-shadow:0 10px 30px rgba(0,0,0,.18);
-    font-weight:700; -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation; pointer-events:auto;
-  }
-  #sw-chat-box{
-    position:fixed; right:18px; bottom:76px;
-    width:340px; max-width:92vw; height:460px;
-    z-index:2147483647; display:none;
-    border-radius:16px; overflow:hidden; background:#fff;
-    border:1px solid rgba(0,0,0,.12);
-    box-shadow:0 16px 50px rgba(0,0,0,.20);
-    font-family:Arial, sans-serif; pointer-events:auto;
-  }
-  #sw-chat-head{
-    padding:12px 14px; font-weight:800;
-    display:flex; justify-content:space-between; align-items:center;
-    background:#0f0f0f; color:#fff;
-  }
-  #sw-chat-small{font-size:12px;opacity:.85;font-weight:400;margin-top:2px}
-  #sw-chat-log{height:330px;overflow:auto;padding:12px 14px;background:#fff}
-  .sw-msg{margin:10px 0;line-height:1.35}
-  .sw-me{text-align:right}
-  .sw-bot{text-align:left}
-  .sw-bubble{display:inline-block;padding:10px 12px;border-radius:14px;max-width:85%;font-size:14px}
-  .sw-me .sw-bubble{background:#111;color:#fff}
-  .sw-bot .sw-bubble{background:#f3f3f3;color:#111}
-  #sw-chat-form{display:flex;gap:8px;padding:10px;border-top:1px solid #eee;background:#fafafa}
-  #sw-chat-input{flex:1;padding:10px;border:1px solid #ddd;border-radius:10px;outline:none}
-  #sw-chat-send{padding:10px 12px;border:none;border-radius:10px;cursor:pointer;background:#111;color:#fff;font-weight:700}
-  #sw-chat-close{border:none;background:transparent;cursor:pointer;font-size:18px;color:#fff}
-</style>
-
-<button id="sw-chat-btn" type="button" aria-label="Open chat">💬 Chat With AI</button>
-
-<div id="sw-chat-box" aria-label="Chatbox">
-  <div id="sw-chat-head">
-    <div>
-      Swadhin Bot
-      <div id="sw-chat-small">Ask about n8n Automation</div>
+    <!-- Chatbot -->
+    <div class="chat-trigger" onclick="toggleChat()"></div>
+    
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h3>💬 Swadhin Bot</h3>
+            <button class="chat-close" onclick="toggleChat()">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-message bot">
+                Hello! I'm Swadhin Bot. Ask me about n8n automation, services, or anything else!
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <button class="chat-send" onclick="sendMessage()">Send</button>
+        </div>
     </div>
-    <button id="sw-chat-close" type="button" aria-label="Close chat">✕</button>
-  </div>
 
-  <div id="sw-chat-log"></div>
+    <script>
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.classList.toggle('active');
+            if (chatWindow.classList.contains('active')) {
+                document.getElementById('chatInput').focus();
+            }
+        }
 
-  <form id="sw-chat-form">
-    <input id="sw-chat-input" placeholder="Ask about Messenger/WhatsApp automation..." autocomplete="off" />
-    <button id="sw-chat-send" type="submit">Send</button>
-  </form>
-</div>
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
 
-<script>
-(function(){
-  /* ✅ Replace your webhook here if needed */
-  const N8N_WEBHOOK_URL = "https://vmi2977874.contaboserver.net/webhook/3f9f3f16-b52c-4d13-834a-96b9df752b79";
-
-  const btn = document.getElementById("sw-chat-btn");
-  const box = document.getElementById("sw-chat-box");
-  const closeBtn = document.getElementById("sw-chat-close");
-  const log = document.getElementById("sw-chat-log");
-  const form = document.getElementById("sw-chat-form");
-  const input = document.getElementById("sw-chat-input");
-
-  const sessionKey = "sw_chat_session_id";
-  let sessionId = localStorage.getItem(sessionKey);
-  if(!sessionId){
-    const hasCryptoUUID = (window.crypto && typeof window.crypto.randomUUID === "function");
-    sessionId = hasCryptoUUID ? window.crypto.randomUUID() : ("sw_" + Date.now() + "_" + Math.floor(Math.random()*1e9));
-    localStorage.setItem(sessionKey, sessionId);
-  }
-
-  function addMsg(text, who){
-    const wrap = document.createElement("div");
-    wrap.className = "sw-msg " + (who==="me" ? "sw-me" : "sw-bot");
-    const bub = document.createElement("div");
-    bub.className = "sw-bubble";
-    bub.textContent = text;
-    wrap.appendChild(bub);
-    log.appendChild(wrap);
-    log.scrollTop = log.scrollHeight;
-  }
-
-  function toggleOpen(){
-    const isOpen = box.style.display === "block";
-    box.style.display = isOpen ? "none" : "block";
-    if(log.childElementCount === 0){
-      addMsg("Hi! Ask me anything about n8n Automation, Messenger/WhatsApp, Sheets/CRM Sync.","bot");
-    }
-    setTimeout(()=>{ try{ input.focus(); }catch(e){} }, 50);
-  }
-
-  btn.addEventListener("click", toggleOpen);
-  btn.addEventListener("touchstart", toggleOpen, {passive:true});
-  closeBtn.addEventListener("click", ()=> box.style.display="none");
-  closeBtn.addEventListener("touchstart", ()=> box.style.display="none", {passive:true});
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const message = input.value.trim();
-    if(!message) return;
-
-    addMsg(message,"me");
-    input.value = "";
-
-    addMsg("Typing...","bot");
-    const typingNode = log.lastChild;
-
-    try{
-      const body = new URLSearchParams({
-        message,
-        sessionId,
-        source: "website",
-        page: location.pathname
-      });
-
-      const res = await fetch(N8N_WEBHOOK_URL, { method:"POST", body });
-      if(!res.ok) throw new Error("HTTP " + res.status);
-
-      const data = await res.json();
-      typingNode.remove();
-      addMsg(data.reply || "No reply received from n8n.","bot");
-
-    }catch(err){
-      typingNode.remove();
-      addMsg("Connection issue (CORS/Response). Please verify n8n CORS headers + Response node.","bot");
-      console.error(err);
-    }
-  });
-})();
-</script>
-
-<script>
-(function(){
-  /* Scroll Reveal */
-  const targets = document.querySelectorAll(
-    ".hero-left, .team-card, .card, .section-head, .service-card, .project.card, .team-member, .blog-card"
-  );
-  targets.forEach(el => el.classList.add("sdh-reveal"));
-
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add("sdh-reveal--show");
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  targets.forEach(el => io.observe(el));
-
-  /* Spotlight follow mouse */
-  const glowCards = document.querySelectorAll(".card, .team-card, .project.card, .blog-card, .service-card");
-  glowCards.forEach(card=>{
-    card.addEventListener("mousemove", (ev)=>{
-      const r = card.getBoundingClientRect();
-      const x = ((ev.clientX - r.left) / r.width) * 100;
-      const y = ((ev.clientY - r.top) / r.height) * 100;
-      card.style.setProperty("--mx", x + "%");
-      card.style.setProperty("--my", y + "%");
-    }, {passive:true});
-  });
-})();
-</script>
-<!-- ================= End Swadhin Bot ================= -->
-
-</body>
-</html>
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            // Add user message
