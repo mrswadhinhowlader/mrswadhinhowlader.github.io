@@ -3,529 +3,316 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Swadhin Digital Hub | Automation & Performance Marketing</title>
-  <meta name="description" content="Swadhin Digital Hub builds n8n automation systems, WhatsApp/Messenger bots, CRM sync, dashboards, and performance-driven ads to scale your business with a lean team." />
-  <meta name="theme-color" content="#0b0b10" />
+  <title>Swadhin Digital Hub | Automation Systems & Performance Growth</title>
+  <meta name="description" content="Swadhin Digital Hub builds premium automation systems, lead capture flows, dashboards, and performance growth systems for modern teams." />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Swadhin Digital Hub | Automation & Performance Marketing" />
-  <meta property="og:description" content="Automation workflows + performance-driven ads that scale your business with fewer manual tasks." />
-  <meta property="og:image" content="assets/og-image.png" />
+  <!-- IMPORTANT: absolute path (fixes GitHub Pages path issues) -->
+  <link rel="stylesheet" href="/style.css?v=1" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- (Optional) Google Analytics: paste your gtag here -->
+  <meta name="theme-color" content="#0b0f19" />
 </head>
 
 <body>
   <!-- Background layers -->
   <div class="bg"></div>
+  <div class="bg-glow"></div>
 
   <!-- Top Nav -->
-  <header class="topbar" id="top">
-    <div class="container navwrap">
-      <a class="brand" href="#top" aria-label="Home">
-        <img src="assets/logo.png" alt="Logo" class="brand__logo" />
-        <div class="brand__text">
-          <div class="brand__name">Swadhin Digital Hub</div>
-          <div class="brand__tag">Automation Systems • Performance Marketing</div>
-        </div>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">
+        <span class="brand-dot"></span>
+        <span class="brand-name">Swadhin Digital Hub</span>
       </a>
 
-      <button class="navbtn" id="navBtn" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="nav" id="nav">
+      <nav class="nav">
         <a href="#services">Services</a>
         <a href="#solutions">Solutions</a>
-        <a href="#work">Case Studies</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact" class="pill">Book a Call</a>
+        <a class="nav-cta" href="#contact">Book a Call</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__left">
-        <div class="kicker">
-          <span class="dot"></span>
-          <span>n8n Flow Diagram (Text + Logic)</span>
+  <main id="top" class="container">
+    <section class="hero reveal">
+      <div class="hero-left">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          Automation Systems • Performance Growth • Reporting
         </div>
 
-        <h1 class="h1">Automate Your Business. Accelerate Your Growth.</h1>
+        <h1 class="hero-title">
+          Automate Your Business.
+          <span class="hero-title-accent">Accelerate Your Growth.</span>
+        </h1>
 
-        <p class="lead">
-          We build reliable automation workflows and performance-driven ads—so your business replies faster,
-          captures leads automatically, and scales without operational chaos.
+        <p class="hero-sub">
+          We build reliable automation systems that reply faster, capture leads cleanly,
+          and keep operations organized—so your team scales without chaos.
         </p>
 
-        <div class="hero__actions">
+        <div class="hero-actions">
           <a class="btn primary" href="#contact">Start Automation</a>
-          <a class="btn ghost" href="#contact">Run Profitable Ads</a>
+          <a class="btn ghost" href="#solutions">See How It Works</a>
         </div>
 
-        <div class="trusted">
-          <div class="trusted__label">Trusted by modern teams</div>
-          <div class="trusted__row" aria-label="Logos">
-            <div class="logoChip">Brand</div>
-            <div class="logoChip">Brand</div>
-            <div class="logoChip">Brand</div>
-            <div class="logoChip">Brand</div>
-            <div class="logoChip">Brand</div>
+        <div class="trust-row">
+          <div class="trust-card">
+            <div class="trust-num">24/7</div>
+            <div class="trust-text">Always-on lead capture</div>
           </div>
-        </div>
-
-        <div class="miniStats">
-          <div class="stat">
-            <div class="stat__top">Faster replies</div>
-            <div class="stat__big">24/7</div>
+          <div class="trust-card">
+            <div class="trust-num">Clean</div>
+            <div class="trust-text">Structured lead data</div>
           </div>
-          <div class="stat">
-            <div class="stat__top">Cleaner lead data</div>
-            <div class="stat__big">Auto</div>
-          </div>
-          <div class="stat">
-            <div class="stat__top">Stable workflows</div>
-            <div class="stat__big">Logs</div>
+          <div class="trust-card">
+            <div class="trust-num">Stable</div>
+            <div class="trust-text">Logging & fail-safes</div>
           </div>
         </div>
       </div>
 
-      <div class="hero__right">
-        <div class="glass heroCard">
-          <div class="heroCard__head">
-            <div>
-              <div class="heroCard__title">Your System Dashboard</div>
-              <div class="heroCard__sub">Inbox → Lead → Sheet/CRM → Admin</div>
-            </div>
-            <span class="badge">Live</span>
+      <aside class="hero-right reveal">
+        <div class="glass panel">
+          <div class="panel-head">
+            <h3>Your System, Visualized</h3>
+            <p>Simple flow that keeps everything clean.</p>
           </div>
 
-          <div class="heroCard__body">
-            <div class="flow">
-              <div class="node">Messenger / WhatsApp</div>
-              <div class="arrow">→</div>
-              <div class="node">AI Reply + FAQ</div>
-              <div class="arrow">→</div>
-              <div class="node">Lead Capture</div>
-              <div class="arrow">→</div>
-              <div class="node">Sheets / CRM</div>
-              <div class="arrow">→</div>
-              <div class="node">Telegram Alert</div>
-            </div>
+          <div class="flow">
+            <div class="flow-item">Inbox</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">AI Reply / Routing</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">Sheet / CRM</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">Admin Alerts</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">Reports</div>
+          </div>
 
-            <div class="heroCard__chips">
-              <span class="chip">Retries</span>
-              <span class="chip">Error logging</span>
-              <span class="chip">Human handover</span>
-              <span class="chip">Reports</span>
-            </div>
-
-            <div class="heroCard__cta">
-              <a class="btn small" href="#solutions">See Solutions</a>
-              <a class="btn small ghost" href="#work">View Case Studies</a>
-            </div>
+          <div class="panel-foot">
+            <div class="mini">Fast handover</div>
+            <div class="mini">Daily summary</div>
+            <div class="mini">Error retries</div>
           </div>
         </div>
+      </aside>
+    </section>
 
-        <div class="glass noteCard">
-          <div class="noteCard__title">Problem we solve</div>
-          <p class="noteCard__text">
-            When growth increases, your time disappears: inbox replies, lead follow-ups, tracking, reporting,
-            and ad optimization become overwhelming—until systems take over.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pain + Promise -->
-  <section class="section">
-    <div class="container split glass">
-      <div>
-        <h2 class="h2">Scaling gets hard when time & support break.</h2>
-        <p class="p">
-          Too many inboxes. Repeating the same answers. Missed leads. Messy spreadsheets. Ads running without
-          clean tracking. You can’t grow long-term like this.
-        </p>
-        <div class="bullets">
-          <div class="bullet">Instant replies that feel human</div>
-          <div class="bullet">Automatic lead capture with clean fields</div>
-          <div class="bullet">Dashboards & daily reports for clarity</div>
-          <div class="bullet">Ads with tracking, retargeting, optimization</div>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="panel__top">
-          <div class="panel__title">What you get</div>
-          <div class="panel__pill">System-first</div>
-        </div>
-        <div class="panel__list">
-          <div class="row"><span>✓</span><span>Support automation + admin handover</span></div>
-          <div class="row"><span>✓</span><span>Lead pipeline synced to Sheets/CRM</span></div>
-          <div class="row"><span>✓</span><span>Webhook/API integrations with logs</span></div>
-          <div class="row"><span>✓</span><span>Performance marketing with measurable ROI</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="section" id="services">
-    <div class="container">
-      <div class="sectionHead">
-        <h2 class="h2">Services</h2>
-        <p class="sub">Production-grade systems built for speed, stability, and scale.</p>
+    <!-- Services -->
+    <section id="services" class="section reveal">
+      <div class="section-head">
+        <h2>Services built for modern teams</h2>
+        <p>Premium automation systems that feel smooth to customers and clean for admins.</p>
       </div>
 
-      <div class="grid3">
-        <article class="glass card">
-          <h3 class="h3">Business Automation</h3>
-          <p class="pSmall">n8n + AI + messaging + data sync</p>
-          <ul class="ul">
-            <li>WhatsApp auto-reply assistant</li>
-            <li>Messenger FAQ + intent routing</li>
-            <li>Comment → DM automation</li>
-            <li>Lead form → WhatsApp + Sheets</li>
-            <li>Order + payment notifications</li>
-            <li>Daily reports & dashboards</li>
+      <div class="grid">
+        <div class="card reveal">
+          <h3>Automation Setup</h3>
+          <p>End-to-end workflows that reduce manual work and prevent missed leads.</p>
+          <ul>
+            <li>Lead qualification logic</li>
+            <li>Structured data capture</li>
+            <li>Handover rules</li>
           </ul>
-          <a class="link" href="#contact">Request Automation →</a>
-        </article>
+        </div>
 
-        <article class="glass card">
-          <h3 class="h3">Performance-Driven Ads</h3>
-          <p class="pSmall">Strategy + creatives + funnel + optimization</p>
-          <ul class="ul">
-            <li>Facebook / Instagram ads</li>
-            <li>TikTok ads</li>
-            <li>Google / YouTube ads</li>
-            <li>Tracking setup (Pixel, events)</li>
-            <li>Retargeting & scaling</li>
-            <li>Weekly performance reporting</li>
+        <div class="card reveal">
+          <h3>Dashboards & Reporting</h3>
+          <p>Visibility that helps you make decisions fast.</p>
+          <ul>
+            <li>Daily / weekly performance</li>
+            <li>Cost & usage tracking</li>
+            <li>Team activity overview</li>
           </ul>
-          <a class="link" href="#contact">Start Ads →</a>
-        </article>
+        </div>
 
-        <article class="glass card">
-          <h3 class="h3">Dashboards & Reporting</h3>
-          <p class="pSmall">Clarity for owners and teams</p>
-          <ul class="ul">
-            <li>Live KPI dashboard</li>
-            <li>Leads, revenue, conversion tracking</li>
-            <li>Team performance snapshots</li>
-            <li>Daily/weekly automated reports</li>
-            <li>Error alerts + retry monitoring</li>
-            <li>Simple admin control panel</li>
+        <div class="card reveal">
+          <h3>Integrations</h3>
+          <p>Connect your tools using webhooks and APIs—stable, monitored, and scalable.</p>
+          <ul>
+            <li>Webhook pipelines</li>
+            <li>API integrations</li>
+            <li>Retries & logging</li>
           </ul>
-          <a class="link" href="#contact">Build Dashboard →</a>
-        </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Solutions (Cross Devices style) -->
-  <section class="section" id="solutions">
-    <div class="container">
-      <div class="sectionHead">
-        <h2 class="h2">Solutions for every size of business</h2>
-        <p class="sub">From small teams to growing brands—custom automation + result-focused marketing.</p>
+    <!-- Solutions -->
+    <section id="solutions" class="section reveal">
+      <div class="section-head">
+        <h2>Problems we solve</h2>
+        <p>When growth increases, the inbox becomes the bottleneck. Systems fix that.</p>
       </div>
 
-      <div class="grid2">
-        <article class="glass bigCard">
-          <div class="bigCard__k">Business Automation</div>
-          <h3 class="h3">Support & lead handling—fully systemized</h3>
-          <p class="p">Turn messages into structured data and actions.</p>
-          <div class="tagRow">
-            <span class="chip">WhatsApp</span>
-            <span class="chip">Messenger</span>
-            <span class="chip">Telegram</span>
-            <span class="chip">Sheets/CRM</span>
-            <span class="chip">Webhooks</span>
-          </div>
-          <ul class="ul">
-            <li>Auto reply + FAQ handling</li>
-            <li>Lead qualification & tagging</li>
-            <li>Human takeover with full context</li>
-            <li>Invoice/payment notifications</li>
+      <div class="split">
+        <div class="glass block reveal">
+          <h3>Common issues</h3>
+          <ul class="check">
+            <li>Too many messages, same questions</li>
+            <li>Missed leads and slow replies</li>
+            <li>Messy spreadsheets and lost info</li>
+            <li>No clear reporting</li>
           </ul>
-          <a class="btn small" href="#contact">Get a Setup Plan</a>
-        </article>
+        </div>
 
-        <article class="glass bigCard">
-          <div class="bigCard__k">Marketing & Growth</div>
-          <h3 class="h3">Ads that don’t just spend—ads that convert</h3>
-          <p class="p">We build the whole system: offer, funnel, tracking, creatives, optimization.</p>
-          <div class="tagRow">
-            <span class="chip">Strategy</span>
-            <span class="chip">Creatives</span>
-            <span class="chip">Tracking</span>
-            <span class="chip">Retargeting</span>
-          </div>
-          <ul class="ul">
-            <li>Campaign structure & optimization</li>
-            <li>Audience research + testing</li>
-            <li>Landing page improvements</li>
-            <li>Weekly reporting and next actions</li>
+        <div class="glass block reveal">
+          <h3>What you get</h3>
+          <ul class="check">
+            <li>Instant replies that feel human</li>
+            <li>Clean lead capture with structured fields</li>
+            <li>Admin alerts with full context</li>
+            <li>Reports that show what’s working</li>
           </ul>
-          <a class="btn small" href="#contact">Launch Campaigns</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Popular Automation -->
-  <section class="section">
-    <div class="container glass highlight">
-      <div class="highlight__left">
-        <div class="star">★</div>
-        <h2 class="h2">Most Popular Automation</h2>
-        <h3 class="h3">WhatsApp Auto-Reply Assistant — 24/7 Support, Zero Extra Staff</h3>
-        <p class="p">
-          Your customers message you all day. This system reads intent, answers instantly, and escalates to human
-          only when needed—while capturing lead data in the background.
-        </p>
-        <div class="bullets">
-          <div class="bullet">Pricing, delivery, policy, appointment replies</div>
-          <div class="bullet">Lead fields saved to Sheets/CRM</div>
-          <div class="bullet">Admin alerts for high-intent leads</div>
-          <div class="bullet">Conversation logs for audits</div>
         </div>
       </div>
-      <div class="highlight__right">
-        <div class="mock">
-          <div class="mock__head">Chat Preview</div>
-          <div class="mock__msg you">Hi, what’s the price?</div>
-          <div class="mock__msg bot">Thanks! Which product/service are you asking about?</div>
-          <div class="mock__msg you">Automation setup for WhatsApp.</div>
-          <div class="mock__msg bot">Perfect. I can share packages + timeline. What’s your business type?</div>
-          <div class="mock__pill">Lead saved → Sheets</div>
-          <div class="mock__pill">Admin notified → Telegram</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Work / Case studies -->
-  <section class="section" id="work">
-    <div class="container">
-      <div class="sectionHead">
-        <h2 class="h2">Case Studies</h2>
-        <p class="sub">Examples of systems we build (replace images/text with yours).</p>
+    <!-- Pricing -->
+    <section id="pricing" class="section reveal">
+      <div class="section-head">
+        <h2>Pricing</h2>
+        <p>Pick a plan. We’ll tailor the final scope based on your workflow complexity.</p>
       </div>
 
-      <div class="grid3">
-        <article class="glass case">
-          <div class="case__img" aria-hidden="true"></div>
-          <h3 class="h3">Messenger Lead System</h3>
-          <p class="pSmall">Auto replies → qualification → Sheets/CRM → admin alerts.</p>
-          <div class="meta">
-            <span class="chip">n8n</span><span class="chip">Messenger</span><span class="chip">Sheets</span>
+      <div class="pricing">
+        <div class="price-card reveal">
+          <div class="price-top">
+            <h3>Starter</h3>
+            <div class="price">$199</div>
+            <div class="price-sub">One core workflow</div>
           </div>
-        </article>
-
-        <article class="glass case">
-          <div class="case__img" aria-hidden="true"></div>
-          <h3 class="h3">WhatsApp Support Bot</h3>
-          <p class="pSmall">24/7 support replies with escalation + logs.</p>
-          <div class="meta">
-            <span class="chip">WhatsApp</span><span class="chip">AI Reply</span><span class="chip">Logging</span>
-          </div>
-        </article>
-
-        <article class="glass case">
-          <div class="case__img" aria-hidden="true"></div>
-          <h3 class="h3">Ads + Funnel Upgrade</h3>
-          <p class="pSmall">Tracking + creative testing + retargeting for consistent results.</p>
-          <div class="meta">
-            <span class="chip">Ads</span><span class="chip">Tracking</span><span class="chip">Retargeting</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section class="section" id="pricing">
-    <div class="container">
-      <div class="sectionHead">
-        <h2 class="h2">Packages</h2>
-        <p class="sub">Simple starting points—final scope depends on your workflow complexity.</p>
-      </div>
-
-      <div class="grid3 pricing">
-        <article class="glass price">
-          <div class="price__top">
-            <h3 class="h3">Starter</h3>
-            <div class="price__num">From $199</div>
-            <div class="price__sub">Single workflow setup</div>
-          </div>
-          <ul class="ul">
-            <li>One automation flow</li>
-            <li>Basic lead capture</li>
-            <li>Sheets integration</li>
-            <li>Basic testing</li>
+          <ul class="check">
+            <li>Basic automation flow</li>
+            <li>Lead capture to Sheet</li>
+            <li>Simple handover</li>
           </ul>
-          <a class="btn primary" href="#contact">Get Starter</a>
-        </article>
+          <a class="btn primary w100" href="#contact">Book Starter</a>
+        </div>
 
-        <article class="glass price featured">
-          <div class="price__top">
-            <h3 class="h3">Growth</h3>
-            <div class="price__num">From $499</div>
-            <div class="price__sub">Multi-step system</div>
+        <div class="price-card featured reveal">
+          <div class="badge">Most Popular</div>
+          <div class="price-top">
+            <h3>Growth</h3>
+            <div class="price">$499</div>
+            <div class="price-sub">Multi-step system</div>
           </div>
-          <ul class="ul">
-            <li>Multiple flows + routing</li>
-            <li>WhatsApp/Messenger support logic</li>
-            <li>Admin alerts (Telegram)</li>
-            <li>Logging + retries</li>
+          <ul class="check">
+            <li>Routing + qualification</li>
+            <li>Admin alerts + logging</li>
+            <li>Basic dashboard</li>
           </ul>
-          <a class="btn primary" href="#contact">Get Growth</a>
-        </article>
+          <a class="btn primary w100" href="#contact">Book Growth</a>
+        </div>
 
-        <article class="glass price">
-          <div class="price__top">
-            <h3 class="h3">Scale</h3>
-            <div class="price__num">Custom</div>
-            <div class="price__sub">Full operations system</div>
+        <div class="price-card reveal">
+          <div class="price-top">
+            <h3>Scale</h3>
+            <div class="price">Custom</div>
+            <div class="price-sub">Advanced workflows</div>
           </div>
-          <ul class="ul">
-            <li>CRM + dashboard</li>
-            <li>Advanced integrations</li>
-            <li>Audit logs & reporting</li>
-            <li>Ongoing support</li>
+          <ul class="check">
+            <li>API integrations</li>
+            <li>Advanced reporting</li>
+            <li>Monitoring + fail-safes</li>
           </ul>
-          <a class="btn primary" href="#contact">Talk to Us</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="sectionHead">
-        <h2 class="h2">FAQ</h2>
-        <p class="sub">Quick answers. If you need clarity, message us.</p>
-      </div>
-
-      <div class="glass faq">
-        <button class="faq__q" aria-expanded="false">
-          <span>How fast can you deliver an automation system?</span>
-          <span class="faq__icon">+</span>
-        </button>
-        <div class="faq__a">
-          Typical single workflows take a few days. Larger systems depend on the number of inboxes, integrations, and rules.
-        </div>
-
-        <button class="faq__q" aria-expanded="false">
-          <span>Do you support WhatsApp + Messenger together?</span>
-          <span class="faq__icon">+</span>
-        </button>
-        <div class="faq__a">
-          Yes. We can route conversations, capture leads, sync them to Sheets/CRM, and notify admins in real time.
-        </div>
-
-        <button class="faq__q" aria-expanded="false">
-          <span>Will I be able to manage it later?</span>
-          <span class="faq__icon">+</span>
-        </button>
-        <div class="faq__a">
-          Yes. We provide a clean structure, naming, and basic documentation so your team can operate it confidently.
-        </div>
-
-        <button class="faq__q" aria-expanded="false">
-          <span>Can you run ads and also build the automation?</span>
-          <span class="faq__icon">+</span>
-        </button>
-        <div class="faq__a">
-          Yes. That’s the best combo: ads bring leads, automation captures and converts them faster.
+          <a class="btn ghost w100" href="#contact">Request Quote</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section class="section" id="contact">
-    <div class="container contact glass">
-      <div>
-        <h2 class="h2">Have a project in mind?</h2>
-        <p class="p">Tell us what you want to automate, and we’ll suggest the cleanest system plan.</p>
+    <!-- FAQ -->
+    <section id="faq" class="section reveal">
+      <div class="section-head">
+        <h2>FAQ</h2>
+        <p>Quick answers before you book.</p>
+      </div>
 
-        <div class="contact__chips">
-          <span class="chip">Automation</span>
-          <span class="chip">Bots</span>
-          <span class="chip">Dashboards</span>
-          <span class="chip">Ads</span>
-          <span class="chip">Integrations</span>
+      <div class="faq">
+        <details class="glass reveal">
+          <summary>How fast can you deliver?</summary>
+          <p>Most starter setups take 2–5 days. Larger systems depend on scope.</p>
+        </details>
+
+        <details class="glass reveal">
+          <summary>Will it break if traffic increases?</summary>
+          <p>We build with logging, retries, and safe fallbacks to stay stable under load.</p>
+        </details>
+
+        <details class="glass reveal">
+          <summary>Can you add a website chatbot?</summary>
+          <p>Yes. This template already includes a chat widget. You only set your webhook URL.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section reveal">
+      <div class="glass contact">
+        <div>
+          <h2>Book a Call</h2>
+          <p>Tell us what you want to automate. We’ll propose the cleanest system.</p>
+
+          <div class="contact-row">
+            <a class="btn primary" href="mailto:swadhinj17@gmail.com">Email Now</a>
+            <a class="btn ghost" href="#top">Back to Top</a>
+          </div>
         </div>
 
-        <div class="contact__links">
-          <a class="btn primary" href="mailto:swadhinj17@gmail.com">Email Us</a>
-          <a class="btn ghost" href="https://wa.me/8801306878912" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn ghost" href="#" target="_blank" rel="noopener">Telegram</a>
+        <div class="contact-card">
+          <h3>Quick Info</h3>
+          <div class="info">
+            <div class="k">Email</div>
+            <div class="v">swadhinj17@gmail.com</div>
+            <div class="k">Response</div>
+            <div class="v">Within 24 hours</div>
+            <div class="k">Delivery</div>
+            <div class="v">Scope-based</div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <form class="form" onsubmit="return false;">
-        <label>
-          <span>Your name</span>
-          <input type="text" placeholder="Full name" />
-        </label>
-        <label>
-          <span>Business type</span>
-          <input type="text" placeholder="E-commerce / service / agency..." />
-        </label>
-        <label>
-          <span>What do you want to automate?</span>
-          <textarea rows="4" placeholder="Inbox replies, lead capture, Sheets/CRM sync, reports, ads..."></textarea>
-        </label>
+    <footer class="footer">
+      © <span id="year"></span> Swadhin Digital Hub • Automation Systems & Performance Growth
+    </footer>
+  </main>
 
-        <button class="btn primary" type="button" onclick="window.SDH.toast('Thanks! Replace this with your form submit (Formspree / Google Form / backend).')">
-          Send Request
-        </button>
+  <!-- Chatbot widget -->
+  <script src="/chatbot.js?v=1"></script>
 
-        <p class="tiny">
-          Tip: You can connect this form to n8n webhook and save leads directly to Sheets/CRM.
-        </p>
-      </form>
-    </div>
-  </section>
+  <!-- Small site script (year + reveal + spotlight) -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div>
-        <div class="footer__brand">Swadhin Digital Hub</div>
-        <div class="footer__text">Automation workflows, messaging bots, dashboards, and performance marketing.</div>
-      </div>
-      <div class="footer__links">
-        <a href="#services">Services</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="footer__copy">© <span id="yr"></span> All rights reserved.</div>
-    </div>
-  </footer>
+    // Reveal on scroll
+    const els = Array.from(document.querySelectorAll(".reveal"));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("show");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
 
-  <!-- Tiny toast -->
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <script src="script.js"></script>
+    // Spotlight tracking
+    const cards = document.querySelectorAll(".card, .glass, .price-card");
+    cards.forEach(card => {
+      card.addEventListener("mousemove", (ev) => {
+        const r = card.getBoundingClientRect();
+        const x = ((ev.clientX - r.left) / r.width) * 100;
+        const y = ((ev.clientY - r.top) / r.height) * 100;
+        card.style.setProperty("--mx", x + "%");
+        card.style.setProperty("--my", y + "%");
+      }, { passive: true });
+    });
+  </script>
 </body>
 </html>
