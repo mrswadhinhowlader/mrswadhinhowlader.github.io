@@ -1,946 +1,531 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swadhin Digital Hub | n8n Automation & Business Systems</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --accent: #ec4899;
-            --text: #334155;
-            --border: #e2e8f0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--light);
-        }
-
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-section img {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            border: 2px solid rgba(255,255,255,0.3);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .logo-section h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-            position: relative;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid rgba(255,255,255,0.3);
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .hero h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .skill-tag {
-            background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: transform 0.3s;
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-3px);
-            background: rgba(255,255,255,0.3);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        /* Section Styles */
-        section {
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-            text-align: center;
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            border: 1px solid var(--border);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        }
-
-        .service-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .service-card ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .service-card li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .service-card li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Team Grid */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-member {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        }
-
-        .team-member img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            border: 4px solid var(--primary);
-        }
-
-        .team-member h4 {
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .team-member p {
-            color: var(--text);
-            font-size: 0.9rem;
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-content h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .social-link {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
-        }
-
-        /* Contact Section */
-        .contact-info {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        /* Chatbot Styles */
-        .chat-trigger {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
-            z-index: 1000;
-            transition: all 0.3s;
-        }
-
-        .chat-trigger:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 35px rgba(99, 102, 241, 0.7);
-        }
-
-        .chat-trigger::before {
-            content: '💬';
-            font-size: 28px;
-        }
-
-        .chat-window {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 380px;
-            height: 550px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.2);
-            display: none;
-            flex-direction: column;
-            z-index: 1000;
-            overflow: hidden;
-        }
-
-        .chat-window.active {
-            display: flex;
-        }
-
-        .chat-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-header h3 {
-            font-size: 1.2rem;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-
-        .chat-close:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-            background: #f8fafc;
-        }
-
-        .chat-message {
-            margin-bottom: 1rem;
-            padding: 0.8rem 1rem;
-            border-radius: 12px;
-            max-width: 80%;
-            animation: slideIn 0.3s;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .chat-message.bot {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            margin-right: auto;
-        }
-
-        .chat-message.user {
-            background: #e2e8f0;
-            color: var(--dark);
-            margin-left: auto;
-        }
-
-        .chat-input-area {
-            padding: 1rem;
-            background: white;
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 0.8rem;
-            border: 1px solid var(--border);
-            border-radius: 25px;
-            outline: none;
-            font-size: 0.9rem;
-        }
-
-        .chat-input:focus {
-            border-color: var(--primary);
-        }
-
-        .chat-send {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .chat-send:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .hero h3 {
-                font-size: 1.2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .chat-window {
-                width: calc(100% - 20px);
-                right: 10px;
-                left: 10px;
-                bottom: 90px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swadhin Digital Hub | Automation & Performance Marketing</title>
+  <meta name="description" content="Swadhin Digital Hub builds n8n automation systems, WhatsApp/Messenger bots, CRM sync, dashboards, and performance-driven ads to scale your business with a lean team." />
+  <meta name="theme-color" content="#0b0b10" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Swadhin Digital Hub | Automation & Performance Marketing" />
+  <meta property="og:description" content="Automation workflows + performance-driven ads that scale your business with fewer manual tasks." />
+  <meta property="og:image" content="assets/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- (Optional) Google Analytics: paste your gtag here -->
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo-section">
-                <img src="logo.png" alt="Swadhin Digital Hub Logo">
-                <h1>Swadhin Digital Hub</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+  <!-- Background layers -->
+  <div class="bg"></div>
+
+  <!-- Top Nav -->
+  <header class="topbar" id="top">
+    <div class="container navwrap">
+      <a class="brand" href="#top" aria-label="Home">
+        <img src="assets/logo.png" alt="Logo" class="brand__logo" />
+        <div class="brand__text">
+          <div class="brand__name">Swadhin Digital Hub</div>
+          <div class="brand__tag">Automation Systems • Performance Marketing</div>
         </div>
-    </header>
+      </a>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <img src="logo.png" alt="Swadhin Digital Hub" class="profile-img">
-            <h2>Swadhin Digital Hub</h2>
-            <h3>Founded by Swadhin Howlader</h3>
-            <p>n8n Automation • Messenger & WhatsApp Automation • Telegram Bots • Realtime LinkedIn Systems</p>
-            <p><strong>Stop losing leads in the inbox — turn every message into a system.</strong></p>
-            
-            <div class="skills">
-                <span class="skill-tag">n8n</span>
-                <span class="skill-tag">Facebook Messenger</span>
-                <span class="skill-tag">WhatsApp Business</span>
-                <span class="skill-tag">Telegram Bot</span>
-                <span class="skill-tag">Google Sheets</span>
-                <span class="skill-tag">Webhooks</span>
-                <span class="skill-tag">CRM Sync</span>
-                <span class="skill-tag">API Integrations</span>
-            </div>
+      <button class="navbtn" id="navBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Work With Me</a>
-                <a href="#projects" class="btn btn-secondary">View Projects</a>
-            </div>
+      <nav class="nav" id="nav">
+        <a href="#services">Services</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#work">Case Studies</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="pill">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__left">
+        <div class="kicker">
+          <span class="dot"></span>
+          <span>n8n Flow Diagram (Text + Logic)</span>
         </div>
-    </section>
 
-    <!-- About Section -->
+        <h1 class="h1">Automate Your Business. Accelerate Your Growth.</h1>
+
+        <p class="lead">
+          We build reliable automation workflows and performance-driven ads—so your business replies faster,
+          captures leads automatically, and scales without operational chaos.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn primary" href="#contact">Start Automation</a>
+          <a class="btn ghost" href="#contact">Run Profitable Ads</a>
+        </div>
+
+        <div class="trusted">
+          <div class="trusted__label">Trusted by modern teams</div>
+          <div class="trusted__row" aria-label="Logos">
+            <div class="logoChip">Brand</div>
+            <div class="logoChip">Brand</div>
+            <div class="logoChip">Brand</div>
+            <div class="logoChip">Brand</div>
+            <div class="logoChip">Brand</div>
+          </div>
+        </div>
+
+        <div class="miniStats">
+          <div class="stat">
+            <div class="stat__top">Faster replies</div>
+            <div class="stat__big">24/7</div>
+          </div>
+          <div class="stat">
+            <div class="stat__top">Cleaner lead data</div>
+            <div class="stat__big">Auto</div>
+          </div>
+          <div class="stat">
+            <div class="stat__top">Stable workflows</div>
+            <div class="stat__big">Logs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__right">
+        <div class="glass heroCard">
+          <div class="heroCard__head">
+            <div>
+              <div class="heroCard__title">Your System Dashboard</div>
+              <div class="heroCard__sub">Inbox → Lead → Sheet/CRM → Admin</div>
+            </div>
+            <span class="badge">Live</span>
+          </div>
+
+          <div class="heroCard__body">
+            <div class="flow">
+              <div class="node">Messenger / WhatsApp</div>
+              <div class="arrow">→</div>
+              <div class="node">AI Reply + FAQ</div>
+              <div class="arrow">→</div>
+              <div class="node">Lead Capture</div>
+              <div class="arrow">→</div>
+              <div class="node">Sheets / CRM</div>
+              <div class="arrow">→</div>
+              <div class="node">Telegram Alert</div>
+            </div>
+
+            <div class="heroCard__chips">
+              <span class="chip">Retries</span>
+              <span class="chip">Error logging</span>
+              <span class="chip">Human handover</span>
+              <span class="chip">Reports</span>
+            </div>
+
+            <div class="heroCard__cta">
+              <a class="btn small" href="#solutions">See Solutions</a>
+              <a class="btn small ghost" href="#work">View Case Studies</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass noteCard">
+          <div class="noteCard__title">Problem we solve</div>
+          <p class="noteCard__text">
+            When growth increases, your time disappears: inbox replies, lead follow-ups, tracking, reporting,
+            and ad optimization become overwhelming—until systems take over.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain + Promise -->
+  <section class="section">
+    <div class="container split glass">
+      <div>
+        <h2 class="h2">Scaling gets hard when time & support break.</h2>
+        <p class="p">
+          Too many inboxes. Repeating the same answers. Missed leads. Messy spreadsheets. Ads running without
+          clean tracking. You can’t grow long-term like this.
+        </p>
+        <div class="bullets">
+          <div class="bullet">Instant replies that feel human</div>
+          <div class="bullet">Automatic lead capture with clean fields</div>
+          <div class="bullet">Dashboards & daily reports for clarity</div>
+          <div class="bullet">Ads with tracking, retargeting, optimization</div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel__top">
+          <div class="panel__title">What you get</div>
+          <div class="panel__pill">System-first</div>
+        </div>
+        <div class="panel__list">
+          <div class="row"><span>✓</span><span>Support automation + admin handover</span></div>
+          <div class="row"><span>✓</span><span>Lead pipeline synced to Sheets/CRM</span></div>
+          <div class="row"><span>✓</span><span>Webhook/API integrations with logs</span></div>
+          <div class="row"><span>✓</span><span>Performance marketing with measurable ROI</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
     <div class="container">
-        <section id="about">
-            <h2 class="section-title">About My Work</h2>
-            <p class="section-subtitle">We design and build end-to-end automation systems using n8n—so your business runs faster, replies instantly, and stays organized without extra manual work.</p>
-            
-            <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-                <p>Most teams lose time in small, repeated tasks: replying to messages, capturing leads, updating spreadsheets, sending follow-ups, and notifying admins. Together, these create operational chaos and slow growth.</p>
-                <p style="margin-top: 1rem;">We replace those tasks with stable workflows that run quietly in the background—while your brand looks active, responsive, and professional on the front end.</p>
-                <p style="margin-top: 1rem;">Our core focus is Messenger Automation and WhatsApp Business Automation. We build structured conversation flows, capture leads automatically, answer common questions, and route high-value conversations to admins in real time—with full context.</p>
-            </div>
-        </section>
+      <div class="sectionHead">
+        <h2 class="h2">Services</h2>
+        <p class="sub">Production-grade systems built for speed, stability, and scale.</p>
+      </div>
 
-        <!-- Services Section -->
-        <section id="services">
-            <h2 class="section-title">Services</h2>
-            <p class="section-subtitle">Production-grade automation systems—built for speed, stability, and scale.</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Messenger Automation</h3>
-                    <ul>
-                        <li>Instant replies with smart FAQ + intent routing</li>
-                        <li>Lead capture, qualification, and clean data logging</li>
-                        <li>Real-time admin alerts + smooth human handover</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>WhatsApp Business Automation</h3>
-                    <ul>
-                        <li>Structured chat flows that feel human and fast</li>
-                        <li>Order handling, follow-ups, tags, and status updates</li>
-                        <li>Escalation rules for team/admin when needed</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Telegram Bot Automation</h3>
-                    <ul>
-                        <li>Instant notifications for leads, orders, and payments</li>
-                        <li>Workflow monitoring alerts (errors, retries, failures)</li>
-                        <li>Admin dashboard signals for faster decisions</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Google Sheets / CRM Sync</h3>
-                    <ul>
-                        <li>Auto-capture data into clean, structured rows</li>
-                        <li>Customer records + pipeline tracking that stays updated</li>
-                        <li>Report-ready exports and dashboard-friendly structure</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>Webhook & API Integrations</h3>
-                    <ul>
-                        <li>Connect tools through reliable webhook pipelines</li>
-                        <li>API automations with retries, logging, and fallbacks</li>
-                        <li>Stable scaling without breaking existing systems</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <h3>LinkedIn Realtime Content Systems</h3>
-                    <ul>
-                        <li>High-quality hooks, formats, and post structures</li>
-                        <li>Consistent content pipeline for founders and teams</li>
-                        <li>Template-driven generation with smart scheduling flow</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+      <div class="grid3">
+        <article class="glass card">
+          <h3 class="h3">Business Automation</h3>
+          <p class="pSmall">n8n + AI + messaging + data sync</p>
+          <ul class="ul">
+            <li>WhatsApp auto-reply assistant</li>
+            <li>Messenger FAQ + intent routing</li>
+            <li>Comment → DM automation</li>
+            <li>Lead form → WhatsApp + Sheets</li>
+            <li>Order + payment notifications</li>
+            <li>Daily reports & dashboards</li>
+          </ul>
+          <a class="link" href="#contact">Request Automation →</a>
+        </article>
 
-        <!-- Team Section -->
-        <section id="team">
-            <h2 class="section-title">Core Team</h2>
-            <p class="section-subtitle">People behind Swadhin Digital Hub</p>
-            
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="team/avi.jpg" alt="Avi Mistry">
-                    <h4>Avi Mistry</h4>
-                    <p>Web Developer • Product + UI execution</p>
-                </div>
-                
-                <div class="team-member">
-                    <img src="team/sourav.png" alt="Sourav">
-                    <h4>Sourav</h4>
-                    <p>E-commerce & Marketing • TikTok Shop, eBay, Walmart, Amazon, Shopify</p>
-                </div>
-                
-                <div class="team-member">
-                    <img src="team/pranto.jpg" alt="Pranto">
-                    <h4>Pranto</h4>
-                    <p>E-commerce Marketplace • Listing + store growth strategy</p>
-                </div>
-                
-                <div class="team-member">
-                    <img src="team/sujosh.jpg" alt="Sujosh">
-                    <h4>Sujosh</h4>
-                    <p>SEO • On-page + technical SEO, growth roadmap</p>
-                </div>
-                
-                <div class="team-member">
-                    <img src="team/suvo.jpg" alt="Suvo Mistry">
-                    <h4>Suvo Mistry</h4>
-                    <p>E-commerce • Product research, listing optimization, support</p>
-                </div>
-                
-                <div class="team-member">
-                    <img src="team/naiem.jpg" alt="Nayem">
-                    <h4>Nayem</h4>
-                    <p>Ads • Performance marketing (Meta/Shop), scaling & retargeting</p>
-                </div>
-            </div>
-        </section>
+        <article class="glass card">
+          <h3 class="h3">Performance-Driven Ads</h3>
+          <p class="pSmall">Strategy + creatives + funnel + optimization</p>
+          <ul class="ul">
+            <li>Facebook / Instagram ads</li>
+            <li>TikTok ads</li>
+            <li>Google / YouTube ads</li>
+            <li>Tracking setup (Pixel, events)</li>
+            <li>Retargeting & scaling</li>
+            <li>Weekly performance reporting</li>
+          </ul>
+          <a class="link" href="#contact">Start Ads →</a>
+        </article>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2 class="section-title">Automation Projects</h2>
-            <p class="section-subtitle">Real systems built using n8n. Clean logic, stable execution, and scalable structure.</p>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="images/messenger-automation.png" alt="Messenger Automation">
-                    <div class="project-content">
-                        <h3>Messenger Automation</h3>
-                        <p>Lead capture, auto replies, admin notifications, handover routing—fully automated.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <img src="images/whatsapp-automation.png" alt="WhatsApp Automation">
-                    <div class="project-content">
-                        <h3>WhatsApp Business Automation</h3>
-                        <p>Order handling, follow-ups, customer support flows, tagging and escalation logic.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <img src="images/linkedin-automation.png" alt="LinkedIn Automation">
-                    <div class="project-content">
-                        <h3>LinkedIn Realtime Post Generator</h3>
-                        <p>Real-time post ideas, hooks, and structures for consistent visibility and growth.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Links Section -->
-        <section id="links">
-            <h2 class="section-title">Connect With Us</h2>
-            <div class="social-links">
-                <a href="https://facebook.com/mrswadhinhowlader" class="social-link">Facebook Profile</a>
-                <a href="https://facebook.com/swadhindigitalhub" class="social-link">Facebook Page</a>
-                <a href="https://instagram.com/mrswadhinhowlader" class="social-link">Instagram</a>
-                <a href="https://x.com/mrswadhinrj" class="social-link">X (Twitter)</a>
-                <a href="https://www.linkedin.com/in/mrswadhinhowlader" class="social-link">LinkedIn</a>
-                <a href="https://www.youtube.com/@mrswadhinhowlader" class="social-link">YouTube</a>
-                <a href="https://github.com/mrswadhinhowlader" class="social-link">GitHub</a>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-info">
-                <p style="margin-bottom: 1rem;">Email: <a href="mailto:swadhinj17@gmail.com">swadhinj17@gmail.com</a></p>
-                <div class="cta-buttons" style="margin-top: 2rem;">
-                    <a href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support." class="btn btn-primary">WhatsApp Chat</a>
-                    <a href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&gid=580100943#gid=580100943" class="btn btn-secondary">Book Now</a>
-                </div>
-            </div>
-        </section>
+        <article class="glass card">
+          <h3 class="h3">Dashboards & Reporting</h3>
+          <p class="pSmall">Clarity for owners and teams</p>
+          <ul class="ul">
+            <li>Live KPI dashboard</li>
+            <li>Leads, revenue, conversion tracking</li>
+            <li>Team performance snapshots</li>
+            <li>Daily/weekly automated reports</li>
+            <li>Error alerts + retry monitoring</li>
+            <li>Simple admin control panel</li>
+          </ul>
+          <a class="link" href="#contact">Build Dashboard →</a>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Swadhin Digital Hub • Founded by Swadhin Howlader</p>
-    </footer>
+  <!-- Solutions (Cross Devices style) -->
+  <section class="section" id="solutions">
+    <div class="container">
+      <div class="sectionHead">
+        <h2 class="h2">Solutions for every size of business</h2>
+        <p class="sub">From small teams to growing brands—custom automation + result-focused marketing.</p>
+      </div>
 
-    <!-- Chatbot -->
-    <div class="chat-trigger" onclick="toggleChat()"></div>
-    
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            <h3>💬 Swadhin Bot</h3>
-            <button class="chat-close" onclick="toggleChat()">✕</button>
-        </div>
-        <div class="chat-messages" id="chatMessages">
-            <div class="chat-message bot">
-                Hello! I'm Swadhin Bot. Ask me about n8n automation, services, or anything else!
-            </div>
-        </div>
-        <div class="chat-input-area">
-            <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-            <button class="chat-send" onclick="sendMessage()">Send</button>
-        </div>
+      <div class="grid2">
+        <article class="glass bigCard">
+          <div class="bigCard__k">Business Automation</div>
+          <h3 class="h3">Support & lead handling—fully systemized</h3>
+          <p class="p">Turn messages into structured data and actions.</p>
+          <div class="tagRow">
+            <span class="chip">WhatsApp</span>
+            <span class="chip">Messenger</span>
+            <span class="chip">Telegram</span>
+            <span class="chip">Sheets/CRM</span>
+            <span class="chip">Webhooks</span>
+          </div>
+          <ul class="ul">
+            <li>Auto reply + FAQ handling</li>
+            <li>Lead qualification & tagging</li>
+            <li>Human takeover with full context</li>
+            <li>Invoice/payment notifications</li>
+          </ul>
+          <a class="btn small" href="#contact">Get a Setup Plan</a>
+        </article>
+
+        <article class="glass bigCard">
+          <div class="bigCard__k">Marketing & Growth</div>
+          <h3 class="h3">Ads that don’t just spend—ads that convert</h3>
+          <p class="p">We build the whole system: offer, funnel, tracking, creatives, optimization.</p>
+          <div class="tagRow">
+            <span class="chip">Strategy</span>
+            <span class="chip">Creatives</span>
+            <span class="chip">Tracking</span>
+            <span class="chip">Retargeting</span>
+          </div>
+          <ul class="ul">
+            <li>Campaign structure & optimization</li>
+            <li>Audience research + testing</li>
+            <li>Landing page improvements</li>
+            <li>Weekly reporting and next actions</li>
+          </ul>
+          <a class="btn small" href="#contact">Launch Campaigns</a>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <script>
-        function toggleChat() {
-            const chatWindow = document.getElementById('chatWindow');
-            chatWindow.classList.toggle('active');
-            if (chatWindow.classList.contains('active')) {
-                document.getElementById('chatInput').focus();
-            }
-        }
+  <!-- Popular Automation -->
+  <section class="section">
+    <div class="container glass highlight">
+      <div class="highlight__left">
+        <div class="star">★</div>
+        <h2 class="h2">Most Popular Automation</h2>
+        <h3 class="h3">WhatsApp Auto-Reply Assistant — 24/7 Support, Zero Extra Staff</h3>
+        <p class="p">
+          Your customers message you all day. This system reads intent, answers instantly, and escalates to human
+          only when needed—while capturing lead data in the background.
+        </p>
+        <div class="bullets">
+          <div class="bullet">Pricing, delivery, policy, appointment replies</div>
+          <div class="bullet">Lead fields saved to Sheets/CRM</div>
+          <div class="bullet">Admin alerts for high-intent leads</div>
+          <div class="bullet">Conversation logs for audits</div>
+        </div>
+      </div>
+      <div class="highlight__right">
+        <div class="mock">
+          <div class="mock__head">Chat Preview</div>
+          <div class="mock__msg you">Hi, what’s the price?</div>
+          <div class="mock__msg bot">Thanks! Which product/service are you asking about?</div>
+          <div class="mock__msg you">Automation setup for WhatsApp.</div>
+          <div class="mock__msg bot">Perfect. I can share packages + timeline. What’s your business type?</div>
+          <div class="mock__pill">Lead saved → Sheets</div>
+          <div class="mock__pill">Admin notified → Telegram</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        }
+  <!-- Work / Case studies -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="sectionHead">
+        <h2 class="h2">Case Studies</h2>
+        <p class="sub">Examples of systems we build (replace images/text with yours).</p>
+      </div>
 
-        async function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            
-            if (!message) return;
-            
-            const messagesContainer = document.getElementById('chatMessages');
-            
-            // Add user message
-            const userDiv = document.createElement('div');
-            userDiv.className = 'chat-message user';
-            userDiv.textContent = message;
-            messagesContainer.appendChild(userDiv);
-            
-            input.value = '';
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            
-            // Add loading indicator
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'chat-message bot';
-            loadingDiv.textContent = 'Typing...';
-            loadingDiv.id = 'loading';
-            messagesContainer.appendChild(loadingDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            
-            try {
-                // Replace with your n8n webhook URL
-                const response = await fetch('https://vmi2977874.contaboserver.net/webhook/3f9f3f16-b52c-4d13-834a-96b9df752b79', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ message: message })
-                });
-                
-                const data = await response.json();
-                
-                // Remove loading
-                document.getElementById('loading').remove();
-                
-                // Add bot response
-                const botDiv = document.createElement('div');
-                botDiv.className = 'chat-message bot';
-                botDiv.textContent = data.response || data.message || 'Sorry, I couldn\'t process that.';
-                messagesContainer.appendChild(botDiv);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-                
-            } catch (error) {
-                document.getElementById('loading').remove();
-                
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'chat-message bot';
-                errorDiv.textContent = 'Thanks for your message! Our team will get back to you soon.';
-                messagesContainer.appendChild(errorDiv);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            }
-        }
+      <div class="grid3">
+        <article class="glass case">
+          <div class="case__img" aria-hidden="true"></div>
+          <h3 class="h3">Messenger Lead System</h3>
+          <p class="pSmall">Auto replies → qualification → Sheets/CRM → admin alerts.</p>
+          <div class="meta">
+            <span class="chip">n8n</span><span class="chip">Messenger</span><span class="chip">Sheets</span>
+          </div>
+        </article>
 
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+        <article class="glass case">
+          <div class="case__img" aria-hidden="true"></div>
+          <h3 class="h3">WhatsApp Support Bot</h3>
+          <p class="pSmall">24/7 support replies with escalation + logs.</p>
+          <div class="meta">
+            <span class="chip">WhatsApp</span><span class="chip">AI Reply</span><span class="chip">Logging</span>
+          </div>
+        </article>
+
+        <article class="glass case">
+          <div class="case__img" aria-hidden="true"></div>
+          <h3 class="h3">Ads + Funnel Upgrade</h3>
+          <p class="pSmall">Tracking + creative testing + retargeting for consistent results.</p>
+          <div class="meta">
+            <span class="chip">Ads</span><span class="chip">Tracking</span><span class="chip">Retargeting</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="sectionHead">
+        <h2 class="h2">Packages</h2>
+        <p class="sub">Simple starting points—final scope depends on your workflow complexity.</p>
+      </div>
+
+      <div class="grid3 pricing">
+        <article class="glass price">
+          <div class="price__top">
+            <h3 class="h3">Starter</h3>
+            <div class="price__num">From $199</div>
+            <div class="price__sub">Single workflow setup</div>
+          </div>
+          <ul class="ul">
+            <li>One automation flow</li>
+            <li>Basic lead capture</li>
+            <li>Sheets integration</li>
+            <li>Basic testing</li>
+          </ul>
+          <a class="btn primary" href="#contact">Get Starter</a>
+        </article>
+
+        <article class="glass price featured">
+          <div class="price__top">
+            <h3 class="h3">Growth</h3>
+            <div class="price__num">From $499</div>
+            <div class="price__sub">Multi-step system</div>
+          </div>
+          <ul class="ul">
+            <li>Multiple flows + routing</li>
+            <li>WhatsApp/Messenger support logic</li>
+            <li>Admin alerts (Telegram)</li>
+            <li>Logging + retries</li>
+          </ul>
+          <a class="btn primary" href="#contact">Get Growth</a>
+        </article>
+
+        <article class="glass price">
+          <div class="price__top">
+            <h3 class="h3">Scale</h3>
+            <div class="price__num">Custom</div>
+            <div class="price__sub">Full operations system</div>
+          </div>
+          <ul class="ul">
+            <li>CRM + dashboard</li>
+            <li>Advanced integrations</li>
+            <li>Audit logs & reporting</li>
+            <li>Ongoing support</li>
+          </ul>
+          <a class="btn primary" href="#contact">Talk to Us</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="sectionHead">
+        <h2 class="h2">FAQ</h2>
+        <p class="sub">Quick answers. If you need clarity, message us.</p>
+      </div>
+
+      <div class="glass faq">
+        <button class="faq__q" aria-expanded="false">
+          <span>How fast can you deliver an automation system?</span>
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">
+          Typical single workflows take a few days. Larger systems depend on the number of inboxes, integrations, and rules.
+        </div>
+
+        <button class="faq__q" aria-expanded="false">
+          <span>Do you support WhatsApp + Messenger together?</span>
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">
+          Yes. We can route conversations, capture leads, sync them to Sheets/CRM, and notify admins in real time.
+        </div>
+
+        <button class="faq__q" aria-expanded="false">
+          <span>Will I be able to manage it later?</span>
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">
+          Yes. We provide a clean structure, naming, and basic documentation so your team can operate it confidently.
+        </div>
+
+        <button class="faq__q" aria-expanded="false">
+          <span>Can you run ads and also build the automation?</span>
+          <span class="faq__icon">+</span>
+        </button>
+        <div class="faq__a">
+          Yes. That’s the best combo: ads bring leads, automation captures and converts them faster.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container contact glass">
+      <div>
+        <h2 class="h2">Have a project in mind?</h2>
+        <p class="p">Tell us what you want to automate, and we’ll suggest the cleanest system plan.</p>
+
+        <div class="contact__chips">
+          <span class="chip">Automation</span>
+          <span class="chip">Bots</span>
+          <span class="chip">Dashboards</span>
+          <span class="chip">Ads</span>
+          <span class="chip">Integrations</span>
+        </div>
+
+        <div class="contact__links">
+          <a class="btn primary" href="mailto:swadhinj17@gmail.com">Email Us</a>
+          <a class="btn ghost" href="https://wa.me/8801306878912" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" href="#" target="_blank" rel="noopener">Telegram</a>
+        </div>
+      </div>
+
+      <form class="form" onsubmit="return false;">
+        <label>
+          <span>Your name</span>
+          <input type="text" placeholder="Full name" />
+        </label>
+        <label>
+          <span>Business type</span>
+          <input type="text" placeholder="E-commerce / service / agency..." />
+        </label>
+        <label>
+          <span>What do you want to automate?</span>
+          <textarea rows="4" placeholder="Inbox replies, lead capture, Sheets/CRM sync, reports, ads..."></textarea>
+        </label>
+
+        <button class="btn primary" type="button" onclick="window.SDH.toast('Thanks! Replace this with your form submit (Formspree / Google Form / backend).')">
+          Send Request
+        </button>
+
+        <p class="tiny">
+          Tip: You can connect this form to n8n webhook and save leads directly to Sheets/CRM.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <div class="footer__brand">Swadhin Digital Hub</div>
+        <div class="footer__text">Automation workflows, messaging bots, dashboards, and performance marketing.</div>
+      </div>
+      <div class="footer__links">
+        <a href="#services">Services</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer__copy">© <span id="yr"></span> All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Tiny toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
