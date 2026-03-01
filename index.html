@@ -12,16 +12,18 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Swadhin Howlader | Swadhin Digital Hub — n8n Automation & Business Systems</title>
-<meta name="description" content="Swadhin Howlader — Founder of Swadhin Digital Hub. n8n Automation Expert: Messenger Automation, WhatsApp Business Automation, Telegram Bots, Google Sheets/CRM Sync, Webhooks, API Integrations & dashboards.">
-<meta name="author" content="Swadhin Howlader" />
-
-<meta property="og:title" content="Swadhin Howlader | Swadhin Digital Hub — n8n Automation & Business Systems" />
-<meta property="og:description" content="Swadhin Howlader builds production-grade n8n automation systems: Messenger/WhatsApp automation, Telegram bots, Sheets/CRM sync, webhooks & APIs." />
-
-<meta name="twitter:title" content="Swadhin Howlader | Swadhin Digital Hub — n8n Automation & Business Systems" />
-<meta name="twitter:description" content="n8n automation systems by Swadhin Howlader: Messenger/WhatsApp automation, Telegram bots, Sheets/CRM sync, webhooks & APIs." />
+  <title>Swadhin Digital Hub | n8n Automation & Business Systems</title>
+  <meta name="description" content="Swadhin Digital Hub — Founded by Swadhin Howlader. n8n Automation Expert: Messenger Automation, WhatsApp Business Automation, Telegram Bots, Google Sheets/CRM sync, Webhooks, API Integrations, and dashboards.">
   <link rel="stylesheet" href="style.css" />
+<!-- Favicon / Logo -->
+<meta name="theme-color" content="#0f0f0f">
+
+<link rel="icon" type="image/png" sizes="40x40" href="site-icon.png">
+<link rel="shortcut icon" href="site-icon.png">
+<link rel="apple-touch-icon" sizes="40x40" href="site-icon.png">
+
+
+
 
   <!-- ===== SEO Meta ===== -->
   <link rel="canonical" href="https://mrswadhinhowlader.github.io/" />
@@ -86,6 +88,121 @@
     ]
   }
   </script>
+
+  <!-- ✅ HERO UPGRADE (fills empty space + pro hook + book now) -->
+  <style>
+    /* overlay won’t block clicks */
+    .hero{ position:relative; }
+    .hero .overlay{ pointer-events:none !important; z-index:0; }
+    .nav, .hero-content, main, footer{ position:relative; z-index:2; }
+
+    /* reduce “empty feeling” on large screens */
+    .hero-content{ padding: 44px 7% 54px; }
+    .hero-left{ max-width: 980px; }
+
+    /* hook block */
+    .hero-hook{
+      margin-top: 18px;
+      padding: 16px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    }
+    .hero-hook strong{
+      display:block;
+      font-size: 16px;
+      margin-bottom: 8px;
+      letter-spacing: .2px;
+    }
+    .hero-hook p{
+      margin:0;
+      opacity:.92;
+      line-height:1.75;
+      font-size: 15px;
+    }
+
+    .hero-points{
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:10px;
+    }
+    .hero-point{
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(0,0,0,.28);
+      border: 1px solid rgba(255,255,255,.10);
+      opacity:.95;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .hero-stats{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 12px;
+    }
+    .stat-chip{
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      font-size: 13px;
+      opacity:.95;
+      white-space: nowrap;
+    }
+
+    /* Book Now button style (matches your theme) */
+    .cta.book{
+      background: rgba(0,170,255,.16);
+      color:#fff;
+      border: 1px solid rgba(0,170,255,.35);
+      box-shadow: none;
+    }
+    .cta.book:hover{
+      border-color: rgba(0,170,255,.65);
+      box-shadow: 0 18px 40px rgba(0,170,255,.12);
+    }
+
+    @media (max-width: 980px){
+      .hero-content{ padding: 40px 18px 48px; }
+      .hero-points{ grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <!-- ✅ ADD: YouTube Feature CSS (Professional thumbnail section) -->
+  <style>
+    .sdh-video-feature{
+      display:grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:16px;
+    }
+    .sdh-video-thumb{
+      width:100%;
+      height:100%;
+      min-height:260px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      object-fit:cover;
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
+      background: rgba(0,0,0,.25);
+    }
+    .sdh-video-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    @media(max-width: 980px){
+      .sdh-video-feature{ grid-template-columns: 1fr; }
+      .sdh-video-thumb{ min-height:210px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -127,8 +244,37 @@
           n8n Automation • Messenger & WhatsApp Automation • Telegram Bots • Realtime LinkedIn Systems
         </p>
 
+        <!-- ✅ Hook block to fill hero and convert visitors -->
+        <div class="hero-hook" aria-label="Hero hook">
+          <strong>Stop losing leads in the inbox — turn every message into a system.</strong>
+          <p>
+            We build production-grade automations using <b>n8n</b> that reply instantly, capture clean lead data,
+            notify admins in real time, and keep your operations organized—without manual chaos.
+          </p>
+
+          <div class="hero-points" aria-label="Key outcomes">
+            <div class="hero-point">✅ Instant customer replies (FAQ + intent routing)</div>
+            <div class="hero-point">✅ Auto lead capture (name/phone/service + tags)</div>
+            <div class="hero-point">✅ Google Sheets/CRM sync with clean structure</div>
+            <div class="hero-point">✅ Telegram admin alerts + smooth human handover</div>
+          </div>
+
+          <div class="hero-stats" aria-label="Trust chips">
+            <span class="stat-chip">Built for Messenger + WhatsApp Business</span>
+            <span class="stat-chip">Webhooks + API Integrations</span>
+            <span class="stat-chip">Logging + retries for stability</span>
+          </div>
+        </div>
+
         <div class="hero-actions">
           <a class="cta" href="#contact">Work With Me</a>
+
+          <!-- ✅ BOOK NOW (Google Form)
+               Replace the link below with your real Google Form link -->
+          <a class="cta book"
+             href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&gid=580100943#gid=580100943"
+             target="_blank" rel="noopener">Book Now</a>
+
           <a class="cta ghost" href="#projects">View Projects</a>
         </div>
 
@@ -158,7 +304,7 @@
               <img src="team/avi.jpg" alt="Avi Mistry" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Avi Mistry</div>
-                <div class="team-role">Web Developer • High-IQ problem solver, product + UI execution</div>
+                <div class="team-role">Web Developer • Product + UI execution</div>
               </div>
             </div>
 
@@ -166,7 +312,7 @@
               <img src="team/sourav.png" alt="Sourav" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Sourav</div>
-                <div class="team-role">E-commerce & Marketing Expert • TikTok Shop, eBay, Walmart, Amazon, Shopify, E-commerce Store</div>
+                <div class="team-role">E-commerce & Marketing • TikTok Shop, eBay, Walmart, Amazon, Shopify</div>
               </div>
             </div>
 
@@ -174,7 +320,7 @@
               <img src="team/pranto.jpg" alt="Pranto" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Pranto</div>
-                <div class="team-role">E-commerce Marketplace Expert • Listing + store growth strategy</div>
+                <div class="team-role">E-commerce Marketplace • Listing + store growth strategy</div>
               </div>
             </div>
 
@@ -182,7 +328,7 @@
               <img src="team/sujosh.jpg" alt="Sujosh" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Sujosh</div>
-                <div class="team-role">SEO Expert • On-page + technical SEO, 3-month growth roadmap to rank</div>
+                <div class="team-role">SEO • On-page + technical SEO, growth roadmap</div>
               </div>
             </div>
 
@@ -190,7 +336,7 @@
               <img src="team/suvo.jpg" alt="Suvo Mistry" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Suvo Mistry</div>
-                <div class="team-role">E-commerce Expert • Product research, listing optimization, marketplace support</div>
+                <div class="team-role">E-commerce • Product research, listing optimization, support</div>
               </div>
             </div>
 
@@ -198,7 +344,7 @@
               <img src="team/naiem.jpg" alt="Nayem" class="team-photo">
               <div class="team-meta">
                 <div class="team-name">Nayem</div>
-                <div class="team-role">Ads Expert • Performance marketing (Meta/Shop ads), scaling & retargeting</div>
+                <div class="team-role">Ads • Performance marketing (Meta/Shop), scaling & retargeting</div>
               </div>
             </div>
           </div>
@@ -216,105 +362,101 @@
 <!-- MAIN CONTENT -->
 <main class="wrap">
 
-  <!-- ABOUT / ARTICLE -->
+  <!-- ABOUT -->
   <section id="about" class="card">
     <h2>About My Work</h2>
 
     <p>
-      We build smart, end-to-end business automation systems using <strong>n8n</strong>.
-      These systems reduce manual work, respond faster to customers, and help businesses scale
-      without hiring extra people.
+      We design and build end-to-end automation systems using <strong>n8n</strong>—so your business runs faster,
+      replies instantly, and stays organized without extra manual work.
     </p>
 
     <p>
-      Most businesses lose valuable time on repetitive tasks—replying to messages, capturing leads,
-      updating spreadsheets, sending follow-ups, notifying admins, and maintaining basic operations.
-      Individually, these tasks feel small, but together they slow growth and create operational chaos.
+      Most teams lose time in small, repeated tasks: replying to messages, capturing leads, updating spreadsheets,
+      sending follow-ups, and notifying admins. Together, these create operational chaos and slow growth.
     </p>
 
     <p>
-      Our work replaces these manual processes with reliable automation systems that run silently in
-      the background while your business looks active, responsive, and professional on the front end.
+      We replace those tasks with stable workflows that run quietly in the background—while your brand looks active,
+      responsive, and professional on the front end.
     </p>
 
     <p>
-      We specialize in <strong>Messenger Automation</strong> and <strong>WhatsApp Business Automation</strong>,
-      where customer messages are handled automatically in a structured and human-friendly way.
-      Leads are captured, common questions are answered instantly, and important conversations are routed
-      to admins in real time with full context.
+      Our core focus is <strong>Messenger Automation</strong> and <strong>WhatsApp Business Automation</strong>.
+      We build structured conversation flows, capture leads automatically, answer common questions, and route
+      high-value conversations to admins in real time—with full context.
     </p>
 
     <p>
-      Another key area is building <strong>LinkedIn realtime viral post generator systems</strong>.
-      These workflows generate high-quality post ideas, scroll-stopping hooks, and structured formats in real time—
-      so you can stay consistent and visible without spending hours writing.
+      We also build <strong>LinkedIn realtime content systems</strong> that generate strong hooks, post formats,
+      and idea pipelines—so founders can stay consistent without spending hours writing.
     </p>
 
     <p>
-      Beyond messaging and content, we build <strong>business automation systems</strong> including lead qualification,
-      customer support routing, order handling, reporting dashboards, internal workflow automation, and multi-channel
-      integrations across Messenger, WhatsApp, Email, Google Sheets, Telegram, and APIs.
+      Beyond messaging and content, we connect your tools across <strong>Telegram</strong>, <strong>Email</strong>,
+      <strong>Google Sheets/CRM</strong>, <strong>Webhooks</strong>, and <strong>APIs</strong>—with logging, retries,
+      and clean data so your automation stays reliable at scale.
     </p>
   </section>
 
   <!-- SERVICES -->
   <section id="services" class="section-head">
     <h2 class="section-title">Services</h2>
-    <p class="section-sub">Premium, reliable automation systems designed for speed, stability, and scale.</p>
+    <p class="section-sub">Production-grade automation systems—built for speed, stability, and scale.</p>
   </section>
 
   <section class="grid">
     <div class="card service-card">
       <h3>Messenger Automation</h3>
       <ul class="list">
-        <li>Auto replies + FAQs + intent-based routing</li>
-        <li>Lead capture + qualification + admin alerts</li>
-        <li>Human handover with full conversation context</li>
+        <li>Instant replies with smart FAQ + intent routing</li>
+        <li>Lead capture, qualification, and clean data logging</li>
+        <li>Real-time admin alerts + smooth human handover</li>
       </ul>
     </div>
 
     <div class="card service-card">
       <h3>WhatsApp Business Automation</h3>
       <ul class="list">
-        <li>Instant replies + structured customer flows</li>
-        <li>Order handling + follow-ups + tagging</li>
-        <li>Support routing + escalation to team/admin</li>
+        <li>Structured chat flows that feel human and fast</li>
+        <li>Order handling, follow-ups, tags, and status updates</li>
+        <li>Escalation rules for team/admin when needed</li>
       </ul>
     </div>
 
     <div class="card service-card">
       <h3>Telegram Bot Automation</h3>
       <ul class="list">
-        <li>Order / lead / payment notifications</li>
-        <li>Workflow monitoring + instant alerts</li>
-        <li>Team updates and admin dashboard signals</li>
+        <li>Instant notifications for leads, orders, and payments</li>
+        <li>Workflow monitoring alerts (errors, retries, failures)</li>
+        <li>Admin dashboard signals for faster decisions</li>
       </ul>
     </div>
 
     <div class="card service-card">
       <h3>Google Sheets / CRM Sync</h3>
       <ul class="list">
-        <li>Auto data capture + clean structured rows</li>
-        <li>Pipeline tracking + customer records</li>
-        <li>Reporting-ready dashboards & exports</li>
+        <li>Auto-capture data into clean, structured rows</li>
+        <li>Customer records + pipeline tracking that stays updated</li>
+        <li>Report-ready exports and dashboard-friendly structure</li>
       </ul>
     </div>
 
     <div class="card service-card">
       <h3>Webhook & API Integrations</h3>
       <ul class="list">
-        <li>Connect your tools through webhooks</li>
-        <li>API-based automation for stable scaling</li>
-        <li>Error handling + logging + retries</li>
+        <li>Connect tools through reliable webhook pipelines</li>
+        <li>API automations with retries, logging, and fallbacks</li>
+        <li>Stable scaling without breaking existing systems</li>
       </ul>
     </div>
 
     <div class="card service-card">
       <h3>LinkedIn Realtime Content Systems</h3>
       <ul class="list">
-        <li>Realtime viral hooks + post structures</li>
-        <li>Consistent posting systems for founders</li>
-        <li>Content pipeline automation with templates</li>
+        <li>High-quality hooks, formats, and post structures</li>
+        <li>Consistent content pipeline for founders and teams</li>
+        <li>Template-driven generation with smart scheduling flow</li>
       </ul>
     </div>
   </section>
@@ -345,17 +487,49 @@
     </div>
   </section>
 
+  <!-- YouTube Tutorial + Documentation -->
+  <section class="card" aria-label="YouTube tutorial and documentation" style="margin-top:18px;">
+    <h2>Latest Tutorial: GitHub Website + n8n AI Chatbot</h2>
+    <p style="opacity:.92; line-height:1.75;">
+      A clean, step-by-step walkthrough showing how we integrate a website chatbot into GitHub Pages using n8n Webhook,
+      CORS headers, AI Agent + Chat Model, and a final Response node—end to end.
+    </p>
+
+    <div class="sdh-video-feature">
+      <picture>
+ <source srcset="https://i.ytimg.com/vi/2WGcCOqAYgA/maxresdefault.jpg" media="(min-width: 600px)">
+<img class="sdh-video-thumb" src="https://i.ytimg.com/vi/2WGcCOqAYgA/hqdefault.jpg" alt="YouTube tutorial thumbnail">
+
+</picture>
+
+
+      <div class="card" style="margin-bottom:0;">
+        <h3 style="margin-bottom:10px;">Documentation + Video Link</h3>
+        <p style="opacity:.92; line-height:1.75;">
+          Use the documentation page to copy the full workflow structure, node settings, and troubleshooting notes.
+          Watch the video if you want to follow the build exactly as executed.
+        </p>
+
+        <div class="sdh-video-actions">
+          <a class="btn" href="posts/github-n8n-chatbot-doc.html">Open Documentation →</a>
+          <a class="btn" href="https://youtu.be/2WGcCOqAYgA" target="_blank" rel="noopener">Watch on YouTube →</a>
+          <a class="btn" href="blog.html">More Tutorials →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- LINKS -->
   <section id="links" class="card">
     <h2>Official Links</h2>
     <div class="buttons">
-      <a class="btn" href="https://facebook.com/mrswadhinhowlader" target="_blank">Facebook Profile</a>
-      <a class="btn" href="https://facebook.com/swadhindigitalhub" target="_blank">Facebook Page</a>
-      <a class="btn" href="https://instagram.com/mrswadhinhowlader" target="_blank">Instagram</a>
-      <a class="btn" href="https://x.com/mrswadhinrj" target="_blank">X (Twitter)</a>
-      <a class="btn" href="https://www.linkedin.com/in/mrswadhinhowlader" target="_blank">LinkedIn</a>
-      <a class="btn" href="https://www.youtube.com/@mrswadhinhowlader" target="_blank">YouTube</a>
-      <a class="btn" href="https://github.com/mrswadhinhowlader" target="_blank">GitHub</a>
+      <a class="btn" href="https://facebook.com/mrswadhinhowlader" target="_blank" rel="noopener">Facebook Profile</a>
+      <a class="btn" href="https://facebook.com/swadhindigitalhub" target="_blank" rel="noopener">Facebook Page</a>
+      <a class="btn" href="https://instagram.com/mrswadhinhowlader" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn" href="https://x.com/mrswadhinrj" target="_blank" rel="noopener">X (Twitter)</a>
+      <a class="btn" href="https://www.linkedin.com/in/mrswadhinhowlader" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://www.youtube.com/@mrswadhinhowlader" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn" href="https://github.com/mrswadhinhowlader" target="_blank" rel="noopener">GitHub</a>
     </div>
   </section>
 
@@ -366,7 +540,12 @@
 
     <div class="buttons" style="margin-top:14px;">
       <a class="btn" href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support." target="_blank" rel="noopener">WhatsApp Chat</a>
-      <a class="btn" href="#" target="_blank">Telegram</a>
+
+      <!-- Replace this with your Telegram username/link -->
+      <a class="btn" href="https://t.me/yourusername" target="_blank" rel="noopener">Telegram</a>
+
+      <!-- Optional: same Book Now link again -->
+      <a class="btn" href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&gid=580100943#gid=580100943" target="_blank" rel="noopener">Book Now</a>
     </div>
   </section>
 
@@ -435,6 +614,7 @@
 
 <script>
 (function(){
+  /* ✅ Replace your webhook here if needed */
   const N8N_WEBHOOK_URL = "https://vmi2977874.contaboserver.net/webhook/3f9f3f16-b52c-4d13-834a-96b9df752b79";
 
   const btn = document.getElementById("sw-chat-btn");
@@ -444,7 +624,6 @@
   const form = document.getElementById("sw-chat-form");
   const input = document.getElementById("sw-chat-input");
 
-  // safe session id
   const sessionKey = "sw_chat_session_id";
   let sessionId = localStorage.getItem(sessionKey);
   if(!sessionId){
@@ -468,12 +647,11 @@
     const isOpen = box.style.display === "block";
     box.style.display = isOpen ? "none" : "block";
     if(log.childElementCount === 0){
-      addMsg("Hi! Ask me anything about n8n Automation, Messenger/WhatsApp, Sheets/CRM Sync 🙂","bot");
+      addMsg("Hi! Ask me anything about n8n Automation, Messenger/WhatsApp, Sheets/CRM Sync.","bot");
     }
     setTimeout(()=>{ try{ input.focus(); }catch(e){} }, 50);
   }
 
-  // click + mobile tap
   btn.addEventListener("click", toggleOpen);
   btn.addEventListener("touchstart", toggleOpen, {passive:true});
   closeBtn.addEventListener("click", ()=> box.style.display="none");
@@ -507,9 +685,42 @@
 
     }catch(err){
       typingNode.remove();
-      addMsg("Connected না (CORS/Response). n8n response + CORS header ঠিক করতে হবে।","bot");
+      addMsg("Connection issue (CORS/Response). Please verify n8n CORS headers + Response node.","bot");
       console.error(err);
     }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  /* Scroll Reveal */
+  const targets = document.querySelectorAll(
+    ".hero-left, .team-card, .card, .section-head, .service-card, .project.card, .team-member, .blog-card"
+  );
+  targets.forEach(el => el.classList.add("sdh-reveal"));
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add("sdh-reveal--show");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  targets.forEach(el => io.observe(el));
+
+  /* Spotlight follow mouse */
+  const glowCards = document.querySelectorAll(".card, .team-card, .project.card, .blog-card, .service-card");
+  glowCards.forEach(card=>{
+    card.addEventListener("mousemove", (ev)=>{
+      const r = card.getBoundingClientRect();
+      const x = ((ev.clientX - r.left) / r.width) * 100;
+      const y = ((ev.clientY - r.top) / r.height) * 100;
+      card.style.setProperty("--mx", x + "%");
+      card.style.setProperty("--my", y + "%");
+    }, {passive:true});
   });
 })();
 </script>
