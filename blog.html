@@ -1,280 +1,54 @@
-!DOCTYPE html
-html lang=en
-  !-- Google tag (gtag.js) --
-script async src=httpswww.googletagmanager.comgtagjsid=G-QKKMJTX6YBscript
-script
-  window.dataLayer = window.dataLayer  [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QKKMJTX6YB');
-script
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swadhin Howlader Blog | Swadhin Digital Hub</title>
+  <meta name="description" content="Tutorials by Swadhin Howlader on n8n automation, Messenger/WhatsApp automation, Telegram bots, webhooks and API integrations." />
+  <link rel="canonical" href="https://mrswadhinhowlader.github.io/blog.html" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero" id="top" style="min-height:52vh;">
+    <div class="overlay"></div>
 
-head
-  meta charset=UTF-8 
-  meta name=viewport content=width=device-width, initial-scale=1 
-  titleBlog  Swadhin Digital Hubtitle
-  meta name=description content= Vlogs + guides on n8n automation, Messenger & WhatsApp automation, Telegram bots, Webhooks, API integrations, and growth systems.
-  link rel=stylesheet href=style.css 
+    <nav class="nav nav-center">
+      <div class="nav-top">
+        <img src="logo.png" class="logo" alt="Swadhin Digital Hub logo">
+        <div class="nav-title">Swadhin Digital Hub</div>
+        <img src="logo.png" class="logo logo-red" alt="Swadhin Digital Hub logo red">
+      </div>
+      <div class="nav-bottom">
+        <a href="/">Home</a>
+        <a href="/#services">Services</a>
+        <a href="/#projects">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="/#contact">Contact</a>
+      </div>
+    </nav>
 
-  style
-    .blog-wrap{ padding80px 7%; }
-    .blog-shell{ max-width1200px; margin0 auto; }
+    <div class="hero-content">
+      <div class="hero-left">
+        <h1 class="brand-title">Blog — Swadhin Howlader</h1>
+        <p class="subtitle">Execution notes on n8n automation, Messenger/WhatsApp systems, Telegram alerts, webhooks & APIs.</p>
+        <div class="hero-actions">
+          <a class="cta" href="posts/github-n8n-chatbot-doc.html">Open Documentation →</a>
+          <a class="cta ghost" href="/#contact">Work With Me</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    .blog-hero{ displaygrid; grid-template-columns 1.2fr .8fr; gap18px; align-itemsstretch; margin-bottom22px; }
-    .blog-hero .card{ margin-bottom0; }
-    .blog-title{ font-size40px; letter-spacing.3px; margin-bottom8px; }
-    .blog-sub{ opacity.9; line-height1.75; }
+  <main class="wrap">
+    <section class="card">
+      <h2>Latest</h2>
+      <div class="buttons">
+        <a class="btn" href="posts/github-n8n-chatbot-doc.html">GitHub Website + n8n AI Chatbot (Docs)</a>
+      </div>
+    </section>
+  </main>
 
-    .tools{ displayflex; flex-wrapwrap; gap10px; margin-top14px; }
-    .tool-chip{ backgroundrgba(255,255,255,.10); border1px solid rgba(255,255,255,.16); padding8px 12px; border-radius999px; font-size13px; opacity.95; }
-
-    .controls{ displayflex; flex-wrapwrap; gap12px; margin18px 0; align-itemscenter; }
-    .search{ flex1; min-width240px; displayflex; gap10px; padding12px 14px; border-radius14px; backgroundrgba(0,0,0,.35); border1px solid rgba(255,255,255,.14); }
-    .search input{ width100%; backgroundtransparent; bordernone; outlinenone; color#fff; font-size14px; }
-    .select{ min-width220px; padding12px 14px; border-radius14px; backgroundrgba(0,0,0,.35); border1px solid rgba(255,255,255,.14); color#fff; outlinenone; }
-
-    .featured{ displaygrid; grid-template-columns 1.1fr .9fr; gap18px; align-itemsstretch; margin-bottom22px; }
-    .featured-cover{ width100%; height100%; min-height220px; border-radius18px; border1px solid rgba(255,255,255,.14); object-fitcover; box-shadow0 18px 50px rgba(0,0,0,.35); }
-
-    .post-meta{ displayflex; flex-wrapwrap; gap10px; margin10px 0 12px; font-size13px; opacity.92; }
-    .meta-chip{ displayinline-flex; align-itemscenter; gap8px; padding8px 12px; border-radius999px; backgroundrgba(255,255,255,.10); border1px solid rgba(255,255,255,.16); }
-
-    .blog-grid{ displaygrid; grid-template-columns repeat(auto-fit, minmax(270px, 1fr)); gap16px; }
-    .post-card{ overflowhidden; displayflex; flex-directioncolumn; }
-    .post-card img{ width100%; height180px; object-fitcover; border-radius16px; border1px solid rgba(255,255,255,.14); box-shadow0 14px 40px rgba(0,0,0,.28); margin-bottom14px; }
-    .post-card h3{ margin-bottom8px; font-size18px; line-height1.35; }
-    .post-card p{ opacity.92; line-height1.75; margin-bottom14px; }
-
-    .read-more{ margin-topauto; displayflex; gap10px; align-itemscenter; justify-contentspace-between; }
-    .small{ opacity.82; font-size13px; }
-
-    .mini-btn{ displayinline-block; padding10px 12px; border-radius12px; border1px solid rgba(255,255,255,.16); backgroundrgba(0,0,0,.35); color#fff; text-decorationnone; transition transform .2s ease, border-color .2s ease; }
-    .mini-btnhover{ transform translateY(-1px); border-color rgba(255,152,0,.45); }
-
-    .nav-bottom a.active{ opacity1; text-decorationunderline; text-decoration-color rgba(255,152,0,.9); text-underline-offset 6px; }
-
-    @media(max-width 980px){
-      .blog-hero{ grid-template-columns 1fr; }
-      .featured{ grid-template-columns 1fr; }
-      .blog-title{ font-size34px; }
-    }
-  style
-head
-
-body
-header class=hero id=top
-  div class=overlaydiv
-
-  nav class=nav nav-center
-    div class=nav-top
-      a href=index.html aria-label=Homeimg src=logo.png class=logo alt=Swadhin Digital Hub Logoa
-      div class=nav-titleSwadhin Digital Hubdiv
-      a href=index.html aria-label=Homeimg src=logo.png class=logo logo-red alt=Swadhin Digital Hub Logo Reda
-    div
-
-    div class=nav-bottom
-      a href=index.html#aboutAbouta
-      a href=index.html#servicesServicesa
-      a href=index.html#projectsProjectsa
-      a class=active href=blog.htmlBloga
-      a href=index.html#contactContacta
-    div
-  nav
-
-  div class=hero-content
-    div class=hero-left
-      h1 class=brand-title style=font-size48px;Blog + Vlogsh1
-      p class=subtitle style=max-width860px;
-        Practical content on strongn8n automationstrong, MessengerWhatsApp systems, Telegram alerts,
-        Webhooks, API integrations, and growth workflows—written like real execution notes.
-      p
-
-      div class=tools aria-label=Topics
-        span class=tool-chipn8nspan
-        span class=tool-chipMessenger Automationspan
-        span class=tool-chipWhatsApp Businessspan
-        span class=tool-chipTelegram Botspan
-        span class=tool-chipWebhooksspan
-        span class=tool-chipAPI Integrationsspan
-        span class=tool-chipGoogle Sheets  CRMspan
-      div
-
-      div class=hero-actions
-        a class=cta href=#latestLatest Postsa
-        a class=cta ghost href=index.html#contactWork With Mea
-      div
-    div
-  div
-header
-
-main class=wrap blog-wrap
-  div class=blog-shell
-
-    section class=blog-hero
-      div class=card
-        h2 style=font-size28px; margin-bottom10px;What you’ll find hereh2
-        p class=blog-sub
-          Real workflows, real structure. Each post is designed to help you understand the logic behind automation
-          how we capture leads, reply instantly, sync data, and keep admin control—without messy manual work.
-        p
-
-        div class=divider style=height1px; backgroundlinear-gradient(90deg,transparent,rgba(255,255,255,.20),transparent); margin16px 0;div
-
-        div class=buttons
-          a class=btn href=index.html#projectsSee Projectsa
-          a class=btn href=index.html#servicesView Servicesa
-          a class=btn href=index.html#contactContacta
-        div
-      div
-
-      div class=card
-        h2 style=font-size28px; margin-bottom10px;Post requesth2
-        p class=blog-sub
-          Would you like a tutorial on your exact workflow Send your problem + screenshots, we’ll publish a clean solution post.
-        p
-        div class=post-cta style=margin-top14px; displayflex; gap12px; flex-wrapwrap;
-          a class=cta href=index.html#contactRequest a Posta
-          a class=cta ghost href=index.html#contactBook Setupa
-        div
-      div
-    section
-section class=blog-grid id=postsGridsection
-script
-(async () = {
-  const grid = document.getElementById(postsGrid);
-  if (!grid) return;
-
-  const res = await fetch(postsposts.json, { cache no-store });
-  const posts = await res.json();
-
-  grid.innerHTML = posts.map(p = `
-    article class=card post-card
-      img src=${p.cover} alt=${p.title}
-      div class=post-meta
-        span class=meta-chip📅 ${p.date}span
-        span class=meta-chip${p.category  Post}span
-      div
-      h3${p.title}h3
-      p${p.excerpt  }p
-      div class=read-more
-        span class=small${(p.tags[]).slice(0,2).join( • )}span
-        a class=mini-btn href=${p.url}Open →a
-      div
-    article
-  `).join();
-})();
-script
-
-    section class=controls aria-label=Search and filter
-      div class=search title=UI only (optional JS later)
-        🔍 input type=text placeholder= Search posts (example messenger, webhook, whatsapp, telegram)... 
-      div
-
-      select class=select title=UI only (optional JS later)
-        optionFilter All Categoriesoption
-        optionMessenger Automationoption
-        optionWhatsApp Businessoption
-        optionTelegram Botoption
-        optionWebhooks & APIsoption
-        optionGoogle Sheets  CRMoption
-        optionLinkedIn Systemsoption
-      select
-    section
-
-    !-- ✅ এখানে লিংক ঠিক করা হয়েছে first-vlog-post.html --
-    section class=featured id=latest aria-label=Featured post
-      img class=featured-cover src=postsimagesfirst-vlog-cover.jpg alt=Featured vlog cover
-
-      div class=card style=margin-bottom0;
-        h2 class=blog-titleHow We Build Messenger Automation in n8nh2
-
-        div class=post-meta
-          span class=meta-chip📅 Dec 18, 2025span
-          span class=meta-chip💬 Messenger Automationspan
-          span class=meta-chip⚙️ n8n Workflowspan
-        div
-
-        p class=blog-sub
-          A practical vlog-style breakdown of a real Messenger Automation system
-          lead capture, instant replies, admin alerts, handover routing, and clean data sync—end to end.
-        p
-
-        div class=read-more style=margin-top14px;
-          span class=small5–7 min read • includes vlogspan
-          a class=mini-btn href=postsfirst-vlog-post.htmlRead  Watch →a
-        div
-      div
-    section
-
-    section class=blog-grid aria-label=All posts
-      article class=card post-card
-        img src=postsimagesfirst-vlog-cover.jpg alt=Messenger Automation vlog cover
-        div class=post-meta
-          span class=meta-chip📅 Dec 18, 2025span
-          span class=meta-chipMessenger Automationspan
-        div
-        h3How We Build Messenger Automation in n8nh3
-        p
-          Lead capture → instant replies → admin alert (Telegram) → SheetsCRM sync → clean handover.
-          Real workflow structure explained.
-        p
-        div class=read-more
-          span class=smallVlog + breakdownspan
-          a class=mini-btn href=postsfirst-vlog-post.htmlOpen →a
-        div
-      article
-
-      article class=card post-card
-        img src=og-image.png alt=WhatsApp Automation cover
-        div class=post-meta
-          span class=meta-chipComing soonspan
-          span class=meta-chipWhatsApp Businessspan
-        div
-        h3WhatsApp Business Automation Orders + Follow-upsh3
-        p
-          Structure for order flow, quick replies, tagging, follow-up sequences, and escalation.
-        p
-        div class=read-more
-          span class=smallTemplate postspan
-          a class=mini-btn href=index.html#contactRequest →a
-        div
-      article
-
-      article class=card post-card
-        img src=og-image.png alt=Webhook and API integrations cover
-        div class=post-meta
-          span class=meta-chipComing soonspan
-          span class=meta-chipWebhooks & APIsspan
-        div
-        h3Webhooks + API Integrations in n8n (Best Practices)h3
-        p
-          Reliable patterns retries, logging, error routes, rate limits, clean payload design—premium setup.
-        p
-        div class=read-more
-          span class=smallTechnical guidespan
-          a class=mini-btn href=index.html#contactRequest →a
-        div
-      article
-    section
-
-    div style=height22px;div
-
-    section class=card aria-label=Back and CTA
-      div class=read-more
-        span class=smallWant your automation published as a case studyspan
-        div style=displayflex; gap12px; flex-wrapwrap;
-          a class=mini-btn href=index.html#contactWork With Mea
-          a class=mini-btn href=index.htmlHome →a
-        div
-      div
-    section
-
-  div
-main
-
-footer class=footer
-  © 2025 Swadhin Digital Hub • Blog
-footer
-
-body
-html
+  <footer class="footer">© 2025 Swadhin Digital Hub • Founded by Swadhin Howlader</footer>
+</body>
+</html>
