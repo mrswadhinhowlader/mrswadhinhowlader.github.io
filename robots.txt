@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://mrswadhinhowlader.github.io/sitemap.xml
+
+Sitemap: https://mrswadhinhowlader.github.io/sitemap.txt
