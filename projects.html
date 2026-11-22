@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Swadhin Digital Hub — n8n Automation Builds</title>
+  <meta name="description" content="Automation projects by Swadhin Digital Hub: Messenger lead engine, WhatsApp order and support flow, LinkedIn realtime post generator, plus a full n8n chatbot tutorial.">
+  <meta name="theme-color" content="#070a0f">
+  <link rel="icon" type="image/png" sizes="40x40" href="site-icon.png">
+  <link rel="shortcut icon" href="site-icon.png">
+  <link rel="apple-touch-icon" sizes="40x40" href="site-icon.png">
+  <link rel="canonical" href="https://mrswadhinhowlader.github.io/projects.html" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects | Swadhin Digital Hub" />
+  <meta property="og:description" content="Real n8n automation builds for Messenger, WhatsApp and LinkedIn content systems." />
+  <meta property="og:url" content="https://mrswadhinhowlader.github.io/projects.html" />
+  <meta property="og:image" content="https://mrswadhinhowlader.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projects | Swadhin Digital Hub" />
+  <meta name="twitter:description" content="Real n8n automation builds for Messenger, WhatsApp and LinkedIn content systems." />
+  <meta name="twitter:image" content="https://mrswadhinhowlader.github.io/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="index.html" aria-label="Swadhin Digital Hub home">
+        <img src="logo.png" class="brand-mark" alt="Swadhin Digital Hub logo">
+        <span class="brand-name">Swadhin Digital Hub<small>Automation studio</small></span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html" class="is-active">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm" href="contact.html">Start a project</a>
+        <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="shell">
+        <div class="crumbs"><a href="index.html">Home</a><span>/</span>Projects</div>
+        <span class="label">Selected work</span>
+        <h1>Builds that keep<br><span class="serif">working after launch.</span></h1>
+        <p class="lead">
+          A look at the systems we build: what the workflow does, what it connects, and the decisions
+          that make it dependable in daily use.
+        </p>
+      </div>
+    </section>
+
+    <section class="section tight">
+      <div class="shell">
+
+        <article class="case" id="messenger">
+          <div class="case-media reveal">
+            <img src="images/messenger-automation.png" alt="Messenger automation workflow built in n8n" loading="lazy">
+          </div>
+          <div class="case-body reveal">
+            <span class="label">01 — Messenger</span>
+            <h2>Inbound lead engine</h2>
+            <p>
+              A Facebook Page inbox that answers immediately, qualifies the enquiry and puts a clean lead in front
+              of the team — instead of leaving it buried in a chat thread.
+            </p>
+            <ul class="case-list">
+              <li>Webhook trigger receives the message and identifies the sender</li>
+              <li>Intent routing sends FAQ answers or starts a qualification flow</li>
+              <li>Lead row written to Google Sheets with name, phone, service and tags</li>
+              <li>Telegram alert to the admin, with handover when a human is needed</li>
+            </ul>
+            <div class="case-meta">
+              <span class="chip">n8n</span>
+              <span class="chip">Messenger API</span>
+              <span class="chip">Google Sheets</span>
+              <span class="chip">Telegram</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" id="whatsapp">
+          <div class="case-media reveal">
+            <img src="images/whatsapp-automation.png" alt="WhatsApp business automation workflow built in n8n" loading="lazy">
+          </div>
+          <div class="case-body reveal">
+            <span class="label">02 — WhatsApp</span>
+            <h2>Order &amp; support flow</h2>
+            <p>
+              A WhatsApp Business flow for a busy store: orders captured in a consistent format, customers kept
+              updated, and anything sensitive escalated to the team with context attached.
+            </p>
+            <ul class="case-list">
+              <li>Structured conversation with quick replies and input validation</li>
+              <li>Order details stored, tagged by status and product</li>
+              <li>Automated follow-ups for pending and confirmed orders</li>
+              <li>Escalation rules route complaints to a human immediately</li>
+            </ul>
+            <div class="case-meta">
+              <span class="chip">n8n</span>
+              <span class="chip">WhatsApp Business</span>
+              <span class="chip">Sheets / CRM</span>
+              <span class="chip">Retries</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" id="linkedin">
+          <div class="case-media reveal">
+            <img src="images/linkedin-automation.png" alt="LinkedIn realtime post generator workflow" loading="lazy">
+          </div>
+          <div class="case-body reveal">
+            <span class="label">03 — Content</span>
+            <h2>LinkedIn realtime post generator</h2>
+            <p>
+              A content system for founders: give it a topic or a rough idea and it returns hooks, a post structure
+              and a draft in the founder's own voice — ready to review, not to auto-publish.
+            </p>
+            <ul class="case-list">
+              <li>Idea intake through a simple form or chat message</li>
+              <li>Hook and structure generation from a curated template library</li>
+              <li>Draft delivered to the founder for approval</li>
+              <li>Approved posts logged so the pipeline stays consistent</li>
+            </ul>
+            <div class="case-meta">
+              <span class="chip">n8n</span>
+              <span class="chip">AI agent</span>
+              <span class="chip">Sheets</span>
+              <span class="chip">Approval step</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section section-line">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <span class="label">Open build</span>
+            <h2>Watch one being built.</h2>
+          </div>
+          <p class="lead">
+            The full walkthrough: a website chatbot connected to n8n Webhook, CORS headers, an AI Agent with a chat
+            model, and a Response node — end to end.
+          </p>
+        </div>
+
+        <div class="video-card reveal">
+          <a class="video-thumb" href="https://youtu.be/2WGcCOqAYgA" target="_blank" rel="noopener" aria-label="Watch the tutorial on YouTube">
+            <img src="https://i.ytimg.com/vi/2WGcCOqAYgA/maxresdefault.jpg" alt="YouTube tutorial: GitHub website and n8n AI chatbot" loading="lazy">
+            <span class="play" aria-hidden="true">
+              <span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </span>
+          </a>
+          <div class="video-body">
+            <span class="label">Tutorial</span>
+            <h3>GitHub website + n8n AI chatbot</h3>
+            <p>
+              Follow the exact workflow structure, node settings and troubleshooting notes used in this build.
+              The documentation page includes the full copy-ready setup.
+            </p>
+            <div class="video-actions">
+              <a class="btn btn-primary btn-sm" href="posts/github-n8n-chatbot-doc.html">Open documentation
+                <svg class="arw" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
+              <a class="btn btn-ghost btn-sm" href="https://youtu.be/2WGcCOqAYgA" target="_blank" rel="noopener">Watch on YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tight">
+      <div class="shell">
+        <div class="cta-panel reveal">
+          <div>
+            <span class="label">Your build</span>
+            <h2>Have a process<br>like this?</h2>
+            <p>Most of these systems start as a messy inbox and a spreadsheet. Tell us what yours looks like and we will map the first version.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="contact.html">Start a project
+              <svg class="arw" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="services.html">See services</a>
+            <small>n8n · Messenger · WhatsApp · Telegram</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img src="logo.png" class="brand-mark" alt="">
+            <span class="brand-name">Swadhin Digital Hub<small>Automation studio</small></span>
+          </a>
+          <p>n8n automation systems for Messenger, WhatsApp Business, Telegram, Sheets/CRM, webhooks and APIs.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support." target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://www.linkedin.com/in/mrswadhinhowlader" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/@mrswadhinhowlader" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Elsewhere</h4>
+          <ul>
+            <li><a href="https://facebook.com/mrswadhinhowlader" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://instagram.com/mrswadhinhowlader" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://x.com/mrswadhinrj" target="_blank" rel="noopener">X (Twitter)</a></li>
+            <li><a href="https://github.com/mrswadhinhowlader" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Swadhin Digital Hub · Founded by Swadhin Howlader</span>
+        <a class="top-link" href="#top">Back to top
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="chatbot.js" defer></script>
+  <script src="assets/site.js" defer></script>
+</body>
+</html>
