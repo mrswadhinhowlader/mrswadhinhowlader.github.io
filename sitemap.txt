@@ -1,4 +1,8 @@
 https://mrswadhinhowlader.github.io/
+https://mrswadhinhowlader.github.io/about.html
+https://mrswadhinhowlader.github.io/services.html
+https://mrswadhinhowlader.github.io/projects.html
 https://mrswadhinhowlader.github.io/blog.html
+https://mrswadhinhowlader.github.io/contact.html
 https://mrswadhinhowlader.github.io/posts/github-n8n-chatbot-doc.html
 https://mrswadhinhowlader.github.io/posts/first-vlog-post.html

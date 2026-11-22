@@ -1,54 +1,165 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Swadhin Howlader Blog | Swadhin Digital Hub</title>
   <meta name="description" content="Tutorials by Swadhin Howlader on n8n automation, Messenger/WhatsApp automation, Telegram bots, webhooks and API integrations." />
+  <meta name="theme-color" content="#070a0f">
+  <link rel="icon" type="image/png" sizes="40x40" href="site-icon.png">
+  <link rel="shortcut icon" href="site-icon.png">
+  <link rel="apple-touch-icon" sizes="40x40" href="site-icon.png">
   <link rel="canonical" href="https://mrswadhinhowlader.github.io/blog.html" />
   <meta name="robots" content="index,follow" />
-  <link rel="stylesheet" href="style.css" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Swadhin Howlader Blog | Swadhin Digital Hub" />
+  <meta property="og:description" content="Execution notes on n8n automation, Messenger/WhatsApp systems, Telegram alerts, webhooks and APIs." />
+  <meta property="og:url" content="https://mrswadhinhowlader.github.io/blog.html" />
+  <meta property="og:image" content="https://mrswadhinhowlader.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Swadhin Howlader Blog | Swadhin Digital Hub" />
+  <meta name="twitter:description" content="Execution notes on n8n automation and messaging systems." />
+  <meta name="twitter:image" content="https://mrswadhinhowlader.github.io/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
 </head>
+
 <body>
-  <header class="hero" id="top" style="min-height:52vh;">
-    <div class="overlay"></div>
+  <div class="backdrop" aria-hidden="true"></div>
 
-    <nav class="nav nav-center">
-      <div class="nav-top">
-        <img src="logo.png" class="logo" alt="Swadhin Digital Hub logo">
-        <div class="nav-title">Swadhin Digital Hub</div>
-        <img src="logo.png" class="logo logo-red" alt="Swadhin Digital Hub logo red">
-      </div>
-      <div class="nav-bottom">
-        <a href="/">Home</a>
-        <a href="/#services">Services</a>
-        <a href="/#projects">Projects</a>
-        <a href="blog.html">Blog</a>
-        <a href="/#contact">Contact</a>
-      </div>
-    </nav>
-
-    <div class="hero-content">
-      <div class="hero-left">
-        <h1 class="brand-title">Blog — Swadhin Howlader</h1>
-        <p class="subtitle">Execution notes on n8n automation, Messenger/WhatsApp systems, Telegram alerts, webhooks & APIs.</p>
-        <div class="hero-actions">
-          <a class="cta" href="posts/github-n8n-chatbot-doc.html">Open Documentation →</a>
-          <a class="cta ghost" href="/#contact">Work With Me</a>
-        </div>
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="index.html" aria-label="Swadhin Digital Hub home">
+        <img src="logo.png" class="brand-mark" alt="Swadhin Digital Hub logo">
+        <span class="brand-name">Swadhin Digital Hub<small>Automation studio</small></span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="blog.html" class="is-active">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm" href="contact.html">Start a project</a>
+        <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><span></span></button>
       </div>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="card">
-      <h2>Latest</h2>
-      <div class="buttons">
-        <a class="btn" href="posts/github-n8n-chatbot-doc.html">GitHub Website + n8n AI Chatbot (Docs)</a>
+  <main>
+    <section class="page-head">
+      <div class="shell">
+        <div class="crumbs"><a href="index.html">Home</a><span>/</span>Blog</div>
+        <span class="label">Notes &amp; tutorials</span>
+        <h1>How the systems<br><span class="serif">are actually built.</span></h1>
+        <p class="lead">
+          Execution notes on n8n automation, Messenger and WhatsApp systems, Telegram alerts, webhooks and APIs.
+          Written as documentation, not marketing.
+        </p>
+      </div>
+    </section>
+
+    <section class="section tight">
+      <div class="shell">
+        <div class="post-list reveal">
+          <a class="post-item" href="posts/github-n8n-chatbot-doc.html">
+            <span class="post-date">Documentation</span>
+            <div>
+              <h3>GitHub website + n8n AI chatbot</h3>
+              <p>The complete workflow structure: webhook, CORS headers, AI Agent with a chat model, and the Response node — with troubleshooting notes.</p>
+            </div>
+            <span class="arw" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+
+          <a class="post-item" href="posts/first-vlog-post.html">
+            <span class="post-date">Build log</span>
+            <div>
+              <h3>First build log: automation, start to finish</h3>
+              <p>How a project moves from a messy manual process to a documented workflow — decisions, mistakes and the final structure.</p>
+            </div>
+            <span class="arw" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </span>
+          </a>
+        </div>
+
+        <div class="video-card reveal" style="margin-top:clamp(28px,4vw,48px)">
+          <a class="video-thumb" href="https://youtu.be/2WGcCOqAYgA" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+            <img src="https://i.ytimg.com/vi/2WGcCOqAYgA/maxresdefault.jpg" alt="YouTube tutorial thumbnail" loading="lazy">
+            <span class="play" aria-hidden="true">
+              <span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </span>
+          </a>
+          <div class="video-body">
+            <span class="label">Video</span>
+            <h3>GitHub website + n8n AI chatbot</h3>
+            <p>Prefer to watch the build? The full walkthrough is on YouTube, node by node.</p>
+            <div class="video-actions">
+              <a class="btn btn-primary btn-sm" href="https://youtu.be/2WGcCOqAYgA" target="_blank" rel="noopener">Watch on YouTube</a>
+              <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/@mrswadhinhowlader" target="_blank" rel="noopener">All videos</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">© 2025 Swadhin Digital Hub • Founded by Swadhin Howlader</footer>
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img src="logo.png" class="brand-mark" alt="">
+            <span class="brand-name">Swadhin Digital Hub<small>Automation studio</small></span>
+          </a>
+          <p>n8n automation systems for Messenger, WhatsApp Business, Telegram, Sheets/CRM, webhooks and APIs.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support." target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://www.linkedin.com/in/mrswadhinhowlader" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/@mrswadhinhowlader" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Elsewhere</h4>
+          <ul>
+            <li><a href="https://facebook.com/mrswadhinhowlader" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://instagram.com/mrswadhinhowlader" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://x.com/mrswadhinrj" target="_blank" rel="noopener">X (Twitter)</a></li>
+            <li><a href="https://github.com/mrswadhinhowlader" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Swadhin Digital Hub · Founded by Swadhin Howlader</span>
+        <a class="top-link" href="#top">Back to top
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="chatbot.js" defer></script>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
