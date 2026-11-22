@@ -4,20 +4,22 @@
    (posts/* keep the legacy style.css)
    ========================================================= */
 
+/* Palette: warm graphite + copper. No blue, violet or green — those read as
+   default tech/AI styling. One accent, 1px rules, grain instead of glow. */
 :root{
-  --bg:#070a0f;
-  --bg-soft:#0a0e15;
-  --panel:#0c1118;
-  --panel-2:#0f151d;
-  --line:rgba(255,255,255,.085);
-  --line-strong:rgba(255,255,255,.16);
-  --text:#edf1f7;
-  --muted:#8c98ac;
-  --muted-2:#67748a;
-  --accent:#4aa8ff;
-  --accent-2:#8b5cf6;
-  --accent-ink:#031018;
-  --ok:#3ddc97;
+  --bg:#0f0e0c;
+  --bg-soft:#131110;
+  --panel:#16130f;
+  --panel-2:#1c1814;
+  --line:rgba(244,235,222,.10);
+  --line-strong:rgba(244,235,222,.20);
+  --text:#f2ece2;
+  --muted:#a79d8f;
+  --muted-2:#7b7266;
+  --accent:#cf7f57;
+  --accent-2:#a8703f;
+  --accent-ink:#190f08;
+  --ok:#d3a379;
 
   --radius:14px;
   --radius-lg:20px;
@@ -52,28 +54,54 @@ body{
 img{max-width:100%;display:block}
 a{color:inherit}
 
-::selection{background:rgba(74,168,255,.28);color:#fff}
+::selection{background:rgba(207,127,87,.28);color:#fff}
 
-/* fine, static backdrop: no drifting blobs */
+/* ============ animated backdrop ============
+   A calm, connected-node field (canvas, drawn by site.js) that suggests
+   systems talking to each other. Grid + film grain sit on top so it reads
+   as printed material rather than a glowing gradient. */
 .backdrop{
   position:fixed;
   inset:0;
   z-index:0;
   pointer-events:none;
+  overflow:hidden;
   background:
-    radial-gradient(900px 520px at 12% -8%, rgba(74,168,255,.09), transparent 62%),
-    radial-gradient(760px 460px at 92% 4%, rgba(139,92,246,.07), transparent 60%);
+    radial-gradient(1100px 640px at 16% -12%, rgba(207,127,87,.10), transparent 64%),
+    radial-gradient(900px 520px at 88% 2%, rgba(168,112,63,.07), transparent 62%),
+    var(--bg);
+}
+.bg-field{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  opacity:.62;
+  /* keep the middle calm so copy stays the loudest thing on the page */
+  mask-image:radial-gradient(125% 95% at 50% 0%, #000 0%, rgba(0,0,0,.72) 58%, rgba(0,0,0,.3) 100%);
+  -webkit-mask-image:radial-gradient(125% 95% at 50% 0%, #000 0%, rgba(0,0,0,.72) 58%, rgba(0,0,0,.3) 100%);
+}
+.backdrop::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background-image:
+    linear-gradient(to right, rgba(244,235,222,.030) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244,235,222,.030) 1px, transparent 1px);
+  background-size:92px 92px;
+  mask-image:radial-gradient(circle at 50% 8%, #000 0%, transparent 74%);
+  -webkit-mask-image:radial-gradient(circle at 50% 8%, #000 0%, transparent 74%);
 }
 .backdrop::after{
   content:"";
   position:absolute;
   inset:0;
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,.028) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.028) 1px, transparent 1px);
-  background-size:88px 88px;
-  mask-image:radial-gradient(circle at 50% 12%, #000 0%, transparent 72%);
-  -webkit-mask-image:radial-gradient(circle at 50% 12%, #000 0%, transparent 72%);
+  z-index:2;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+  opacity:.05;
+  mix-blend-mode:overlay;
 }
 
 .shell{
@@ -160,7 +188,7 @@ p{margin:0}
 .btn-primary{
   --btn-bg:var(--text);
   border-color:var(--text);
-  color:#080b11;
+  color:#14100c;
   font-weight:650;
 }
 .btn-primary:hover{--btn-bg:#fff;border-color:#fff;transform:translateY(-1px)}
@@ -192,7 +220,7 @@ p{margin:0}
   transition:background .35s var(--ease), border-color .35s var(--ease), backdrop-filter .35s var(--ease);
 }
 .site-header.is-stuck{
-  background:rgba(7,10,15,.82);
+  background:rgba(15,14,12,.86);
   backdrop-filter:blur(16px) saturate(140%);
   -webkit-backdrop-filter:blur(16px) saturate(140%);
   border-bottom-color:var(--line);
@@ -219,7 +247,7 @@ p{margin:0}
   border-radius:9px;
   object-fit:cover;
   border:1px solid var(--line);
-  background:#0b1017;
+  background:#17130f;
 }
 .brand-name{
   display:flex;
@@ -331,7 +359,7 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
 .founder .dot{
   width:6px;height:6px;border-radius:50%;
   background:var(--ok);
-  box-shadow:0 0 0 3px rgba(61,220,151,.12);
+  box-shadow:0 0 0 3px rgba(207,127,87,.16);
 }
 .founder strong{color:var(--text);font-weight:600}
 
@@ -353,7 +381,7 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   inset:-1px;
   border-radius:inherit;
   padding:1px;
-  background:linear-gradient(150deg, rgba(74,168,255,.35), transparent 42%, rgba(139,92,246,.28));
+  background:linear-gradient(150deg, rgba(207,127,87,.42), transparent 46%, rgba(244,235,222,.18));
   -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;
   mask-composite:exclude;
@@ -388,8 +416,8 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   border:1px solid var(--line);
   border-radius:12px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(74,168,255,.07), transparent 60%),
-    #080c12;
+    radial-gradient(circle at 50% 0%, rgba(207,127,87,.08), transparent 62%),
+    #12100d;
   padding:18px 16px;
   overflow:hidden;
 }
@@ -412,7 +440,7 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   padding:11px 13px;
   border-radius:10px;
   border:1px solid var(--line);
-  background:rgba(13,18,25,.94);
+  background:rgba(23,19,15,.94);
   box-shadow:0 12px 30px -22px #000;
 }
 .node + .node{margin-top:0}
@@ -421,12 +449,12 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   width:30px;height:30px;
   border-radius:8px;
   display:grid;place-items:center;
-  background:rgba(74,168,255,.1);
-  border:1px solid rgba(74,168,255,.22);
+  background:rgba(207,127,87,.10);
+  border:1px solid rgba(207,127,87,.24);
   color:var(--accent);
 }
-.node-icon.violet{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.24);color:#b69bff}
-.node-icon.green{background:rgba(61,220,151,.09);border-color:rgba(61,220,151,.22);color:var(--ok)}
+.node-icon.clay{background:rgba(168,112,63,.14);border-color:rgba(168,112,63,.30);color:#c99366}
+.node-icon.stone{background:rgba(244,235,222,.05);border-color:rgba(244,235,222,.18);color:#cdbfa8}
 .node-icon svg{width:15px;height:15px}
 .node-body{min-width:0}
 .node-title{font-size:13px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
@@ -622,7 +650,7 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   aspect-ratio:16/11;
   overflow:hidden;
   border-bottom:1px solid var(--line);
-  background:#080c12;
+  background:#12100d;
 }
 .work-media img{
   width:100%;height:100%;
@@ -670,7 +698,7 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   border:1px solid var(--line);
   border-radius:var(--radius);
   overflow:hidden;
-  background:#080c12;
+  background:#12100d;
   aspect-ratio:16/11;
 }
 .case-media img{width:100%;height:100%;object-fit:cover}
@@ -727,13 +755,13 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   border-radius:11px;
   overflow:hidden;
   border:1px solid var(--line-strong);
-  background:linear-gradient(140deg,rgba(74,168,255,.2),rgba(139,92,246,.24));
+  background:linear-gradient(140deg,rgba(207,127,87,.22),rgba(120,86,60,.26));
   display:grid;
   place-items:center;
   font-family:var(--font-mono);
   font-size:13px;
   letter-spacing:.03em;
-  color:#dce9ff;
+  color:#f6e9db;
 }
 .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .person-name{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
@@ -745,7 +773,7 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   border-radius:var(--radius);
   overflow:hidden;
   aspect-ratio:4/4.6;
-  background:linear-gradient(150deg,rgba(74,168,255,.16),rgba(139,92,246,.2));
+  background:linear-gradient(150deg,rgba(207,127,87,.20),rgba(90,66,48,.34));
   display:grid;
   place-items:center;
 }
@@ -766,7 +794,7 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   padding:11px 13px;
   border:1px solid rgba(255,255,255,.14);
   border-radius:9px;
-  background:rgba(6,9,14,.72);
+  background:rgba(15,14,12,.76);
   backdrop-filter:blur(12px);
   font-size:12.5px;
   color:var(--muted);
@@ -863,8 +891,8 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   border-radius:var(--radius-lg);
   padding:clamp(28px,4.5vw,58px);
   background:
-    radial-gradient(800px 320px at 12% 0%, rgba(74,168,255,.14), transparent 62%),
-    radial-gradient(600px 300px at 92% 100%, rgba(139,92,246,.12), transparent 65%),
+    radial-gradient(800px 320px at 10% 0%, rgba(207,127,87,.13), transparent 64%),
+    radial-gradient(600px 300px at 94% 100%, rgba(244,235,222,.045), transparent 66%),
     var(--panel);
   overflow:hidden;
   display:grid;
@@ -999,7 +1027,7 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
   overflow:hidden;
   border:1px solid var(--line);
   aspect-ratio:16/9;
-  background:#080c12;
+  background:#12100d;
 }
 .video-thumb img{width:100%;height:100%;object-fit:cover}
 .video-thumb .play{
@@ -1156,7 +1184,7 @@ body.nav-open .nav-toggle span::after{transform:translateY(-5px) rotate(-45deg)}
     flex-direction:column;
     align-items:stretch;
     gap:2px;
-    background:rgba(7,10,15,.97);
+    background:rgba(15,14,12,.97);
     backdrop-filter:blur(20px);
     border-bottom:1px solid var(--line);
     transform:translateY(-102%);
