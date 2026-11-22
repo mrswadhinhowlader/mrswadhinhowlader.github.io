@@ -15,30 +15,25 @@
   <title>Swadhin Howlader | Swadhin Digital Hub | n8n Automation &amp; Business Systems</title>
   <meta name="description" content="Swadhin Digital Hub — Founded by Swadhin Howlader. n8n Automation Expert: Messenger Automation, WhatsApp Business Automation, Telegram Bots, Google Sheets/CRM sync, Webhooks, API Integrations, and dashboards.">
 
-  <!-- Favicon / Logo -->
-  <meta name="theme-color" content="#060a12">
+  <meta name="theme-color" content="#070a0f">
   <link rel="icon" type="image/png" sizes="40x40" href="site-icon.png">
   <link rel="shortcut icon" href="site-icon.png">
   <link rel="apple-touch-icon" sizes="40x40" href="site-icon.png">
 
-  <!-- ===== SEO Meta ===== -->
   <link rel="canonical" href="https://mrswadhinhowlader.github.io/" />
   <meta name="robots" content="index,follow" />
 
-  <!-- Open Graph (Facebook/LinkedIn) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Swadhin Howlader | Swadhin Digital Hub | n8n Automation & Business Systems" />
   <meta property="og:description" content="n8n Automation Expert: Messenger Automation, WhatsApp Business Automation, Telegram Bots, Google Sheets/CRM Sync, Webhooks, API Integrations & Dashboards." />
   <meta property="og:url" content="https://mrswadhinhowlader.github.io/" />
   <meta property="og:image" content="https://mrswadhinhowlader.github.io/og-image.png" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Swadhin Howlader | Swadhin Digital Hub | n8n Automation & Business Systems" />
   <meta name="twitter:description" content="Automation systems for Messenger, WhatsApp Business, Telegram, Sheets/CRM, Webhooks & APIs." />
   <meta name="twitter:image" content="https://mrswadhinhowlader.github.io/og-image.png" />
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -87,1456 +82,375 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#060a12;
-      --bg-2:#0a1120;
-      --ink:#eaf0ff;
-      --muted:#93a3c4;
-      --line:rgba(255,255,255,.10);
-      --line-soft:rgba(255,255,255,.06);
-      --accent:#00aaff;
-      --accent-2:#7c3aed;
-      --grad:linear-gradient(115deg,#5ee7ff 0%,#00aaff 45%,#8b5cf6 100%);
-      --panel:rgba(255,255,255,.045);
-      --panel-2:rgba(255,255,255,.025);
-      --radius:22px;
-      --ease:cubic-bezier(.22,.68,.24,1);
-      --head:"Sora",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-      --body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
-    body{
-      margin:0;
-      font-family:var(--body);
-      background:var(--bg);
-      color:var(--ink);
-      line-height:1.65;
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-    }
-    /* animated ambient background */
-    body::before{
-      content:"";
-      position:fixed; inset:-20%;
-      background:
-        radial-gradient(45% 40% at 18% 12%, rgba(0,170,255,.16), transparent 62%),
-        radial-gradient(42% 38% at 84% 18%, rgba(124,58,237,.16), transparent 64%),
-        radial-gradient(50% 45% at 60% 95%, rgba(0,170,255,.08), transparent 65%);
-      filter:blur(18px);
-      z-index:0;
-      animation:drift 26s ease-in-out infinite alternate;
-      pointer-events:none;
-    }
-    @keyframes drift{
-      0%{transform:translate3d(0,0,0) scale(1)}
-      100%{transform:translate3d(0,-3%,0) scale(1.06)}
-    }
-    /* fine grain for a premium print-like finish */
-    body::after{
-      content:"";
-      position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.28;
-      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='.42'/></svg>");
-      mix-blend-mode:overlay;
-    }
-
-    #scene{
-      position:fixed; inset:0; width:100%; height:100%;
-      z-index:0; pointer-events:none; opacity:.85;
-    }
-    .cursor-glow{
-      position:fixed; top:0; left:0; width:560px; height:560px;
-      border-radius:50%; pointer-events:none; z-index:1;
-      background:radial-gradient(circle, rgba(0,170,255,.13), transparent 62%);
-      transform:translate(-50%,-50%); opacity:0; transition:opacity .5s ease;
-      will-change:transform;
-    }
-    @media (hover:hover) and (pointer:fine){ .cursor-glow{opacity:1} }
-
-    .page{position:relative; z-index:2}
-
-    /* scroll progress */
-    .progress{
-      position:fixed; top:0; left:0; height:2px; width:0%;
-      background:var(--grad); z-index:120;
-      box-shadow:0 0 18px rgba(0,170,255,.8);
-    }
-
-    /* ============ NAV ============ */
-    .site-header{
-      position:sticky; top:0; z-index:100;
-      transition:background .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
-      border-bottom:1px solid transparent;
-    }
-    .site-header.scrolled{
-      background:rgba(6,10,18,.78);
-      backdrop-filter:blur(20px) saturate(140%);
-      -webkit-backdrop-filter:blur(20px) saturate(140%);
-      border-bottom-color:var(--line-soft);
-      box-shadow:0 18px 50px -30px rgba(0,0,0,.9);
-    }
-    .nav-inner{
-      width:min(1220px,94vw); margin:0 auto;
-      display:flex; align-items:center; gap:18px;
-      padding:14px 0;
-      transition:padding .35s var(--ease);
-    }
-    .site-header.scrolled .nav-inner{padding:9px 0}
-    .brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink); margin-right:auto}
-    .brand-logo{width:38px; height:38px; border-radius:12px; object-fit:cover; border:1px solid var(--line); box-shadow:0 8px 24px -8px rgba(0,170,255,.6)}
-    .brand-text{font-family:var(--head); font-weight:700; font-size:15.5px; letter-spacing:.2px; line-height:1.15}
-    .brand-text small{display:block; font-family:var(--body); font-weight:500; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:3px}
-
-    .nav-links{display:flex; align-items:center; gap:4px}
-    .nav-links a{
-      position:relative; color:var(--muted); text-decoration:none;
-      font-size:14px; font-weight:600; padding:9px 12px; border-radius:10px;
-      transition:color .25s var(--ease), background .25s var(--ease);
-    }
-    .nav-links a::after{
-      content:""; position:absolute; left:12px; right:12px; bottom:5px; height:1px;
-      background:var(--grad); transform:scaleX(0); transform-origin:left;
-      transition:transform .35s var(--ease);
-    }
-    .nav-links a:hover{color:var(--ink)}
-    .nav-links a:hover::after{transform:scaleX(1)}
-    .nav-cta{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 16px; border-radius:12px; text-decoration:none;
-      font-size:13.5px; font-weight:700; color:#03121f;
-      background:var(--grad); background-size:180% 180%;
-      box-shadow:0 14px 34px -14px rgba(0,170,255,.9);
-      transition:transform .3s var(--ease), box-shadow .3s var(--ease), background-position .6s ease;
-      white-space:nowrap;
-    }
-    .nav-cta:hover{transform:translateY(-2px); box-shadow:0 20px 44px -14px rgba(0,170,255,1); background-position:100% 0}
-
-    /* ============ HERO ============ */
-    .hero{padding:clamp(26px,5vw,64px) 0 clamp(40px,6vw,80px)}
-    .hero-inner{
-      width:min(1220px,94vw); margin:0 auto;
-      display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(22px,3vw,44px);
-      align-items:start;
-    }
-    .eyebrow{
-      display:inline-flex; align-items:center; gap:9px;
-      padding:7px 13px; border-radius:999px;
-      border:1px solid var(--line); background:rgba(255,255,255,.04);
-      font-size:12px; font-weight:600; letter-spacing:.04em; color:var(--muted);
-      backdrop-filter:blur(10px);
-    }
-    .eyebrow .dot{
-      width:7px; height:7px; border-radius:50%; background:#34d399;
-      box-shadow:0 0 0 0 rgba(52,211,153,.7);
-      animation:pulse 2.4s infinite;
-    }
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(52,211,153,.6)}
-      70%{box-shadow:0 0 0 9px rgba(52,211,153,0)}
-      100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}
-    }
-
-    .hero-toprow{display:flex; align-items:center; gap:14px; margin-top:22px}
-
-    /* portrait with graceful initials fallback (some photos are missing in the repo) */
-    .portrait-wrap{position:relative; flex:0 0 auto; display:grid; place-items:center}
-    .portrait-fallback{
-      display:none; position:absolute; inset:0; place-items:center;
-      font-family:var(--head); font-weight:700; letter-spacing:.02em;
-      color:#cfeeff; text-transform:uppercase;
-      background:linear-gradient(135deg,rgba(0,170,255,.3),rgba(124,58,237,.34));
-      border:1px solid rgba(255,255,255,.16);
-    }
-    .failed .portrait{visibility:hidden}
-    .failed .portrait-fallback{display:grid}
-
-    .avatar{
-      width:64px; height:64px; border-radius:18px; object-fit:cover;
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow:0 20px 40px -20px rgba(0,0,0,.9), 0 0 0 6px rgba(0,170,255,.07);
-    }
-    .avatar-wrap{width:64px; height:64px; border-radius:18px; overflow:hidden; box-shadow:0 0 0 6px rgba(0,170,255,.07)}
-    .avatar-wrap .portrait-fallback{font-size:14px; border-radius:18px}
-    .hero-name{font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); font-weight:600}
-    .hero-name strong{display:block; font-family:var(--head); font-size:15px; letter-spacing:.02em; text-transform:none; color:var(--ink); margin-top:2px}
-
-    h1.hero-title{
-      font-family:var(--head);
-      font-size:clamp(38px,6vw,74px);
-      line-height:1.02; letter-spacing:-.03em;
-      margin:18px 0 0; font-weight:800;
-    }
-    h1.hero-title .grad{
-      background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
-      background-size:220% 220%;
-      animation:shimmer 9s ease-in-out infinite;
-    }
-    @keyframes shimmer{
-      0%,100%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-    }
-    .founder-line{
-      margin:10px 0 0; font-size:14px; font-weight:600; letter-spacing:.02em; color:var(--muted);
-    }
-
-    .rotator{
-      margin-top:20px; display:flex; flex-wrap:wrap; align-items:baseline; gap:10px;
-      font-family:var(--head); font-size:clamp(17px,2.2vw,23px); font-weight:600; letter-spacing:-.01em;
-    }
-    .rotator .rot-label{color:var(--muted); font-weight:500; font-size:.72em; letter-spacing:.02em}
-    .rot-slot{
-      display:inline-grid; text-align:left;
-      border-bottom:1px solid rgba(0,170,255,.35); padding-bottom:2px;
-    }
-    .rot-word{
-      grid-area:1/1;
-      background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
-      opacity:0; transform:translateY(14px) rotateX(-55deg); transform-origin:bottom;
-      transition:opacity .5s var(--ease), transform .55s var(--ease);
-      white-space:nowrap;
-    }
-    .rot-word.active{opacity:1; transform:none}
-    .rot-word.leaving{opacity:0; transform:translateY(-14px) rotateX(55deg)}
-
-    .lede{
-      margin:22px 0 0; max-width:56ch; color:var(--muted); font-size:16px; line-height:1.75;
-    }
-    .lede b{color:var(--ink); font-weight:600}
-
-    .hero-points{
-      margin-top:20px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;
-    }
-    .hero-point{
-      display:flex; gap:9px; align-items:flex-start;
-      padding:11px 13px; border-radius:14px;
-      background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
-      border:1px solid var(--line-soft);
-      font-size:13.5px; line-height:1.5; color:rgba(234,240,255,.9);
-      transition:transform .35s var(--ease), border-color .35s var(--ease), background .35s var(--ease);
-    }
-    .hero-point:hover{transform:translateY(-3px); border-color:rgba(0,170,255,.35); background:rgba(0,170,255,.07)}
-    .hero-point .tick{
-      flex:0 0 auto; width:18px; height:18px; border-radius:50%;
-      display:grid; place-items:center; margin-top:1px;
-      background:rgba(0,170,255,.16); color:#7fdcff; font-size:10px; font-weight:800;
-    }
-
-    .hero-actions{display:flex; flex-wrap:wrap; gap:11px; margin-top:24px}
-    .btn{
-      position:relative; display:inline-flex; align-items:center; justify-content:center; gap:9px;
-      padding:13px 20px; border-radius:14px; text-decoration:none;
-      font-weight:700; font-size:14.5px; letter-spacing:.01em;
-      border:1px solid var(--line); color:var(--ink);
-      background:rgba(255,255,255,.05);
-      transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
-      overflow:hidden;
-    }
-    .btn:hover{transform:translateY(-2px); border-color:rgba(255,255,255,.26); background:rgba(255,255,255,.08)}
-    .btn-primary{
-      color:#03121f; border-color:transparent; background:var(--grad); background-size:180% 180%;
-      box-shadow:0 18px 40px -18px rgba(0,170,255,.95);
-    }
-    .btn-primary:hover{background-position:100% 0; box-shadow:0 24px 50px -18px rgba(0,170,255,1)}
-    .btn-glass{background:rgba(0,170,255,.12); border-color:rgba(0,170,255,.38)}
-    .btn-glass:hover{background:rgba(0,170,255,.2); border-color:rgba(0,170,255,.7)}
-    .btn .arrow{transition:transform .3s var(--ease)}
-    .btn:hover .arrow{transform:translateX(3px)}
-
-    .tool-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px}
-    .badge{
-      padding:7px 11px; border-radius:999px; font-size:12px; font-weight:600;
-      color:rgba(234,240,255,.82);
-      background:rgba(255,255,255,.035); border:1px solid var(--line-soft);
-      transition:color .25s, border-color .25s, transform .25s var(--ease);
-    }
-    .badge:hover{color:#fff; border-color:rgba(0,170,255,.45); transform:translateY(-2px)}
-
-    /* hero side panel */
-    .hero-side{position:sticky; top:92px}
-    .team-panel{
-      position:relative; border-radius:var(--radius); overflow:hidden;
-      border:1px solid var(--line);
-      background:linear-gradient(180deg,rgba(12,20,36,.9),rgba(8,13,24,.92));
-      box-shadow:0 40px 90px -50px rgba(0,0,0,1), inset 0 1px 0 rgba(255,255,255,.06);
-      backdrop-filter:blur(16px);
-      transform-style:preserve-3d;
-    }
-    .team-panel::before{
-      content:""; position:absolute; inset:0; pointer-events:none;
-      background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%), rgba(0,170,255,.16), transparent 60%);
-      opacity:0; transition:opacity .4s ease;
-    }
-    .team-panel:hover::before{opacity:1}
-    .team-head{padding:20px 20px 12px; border-bottom:1px solid var(--line-soft)}
-    .team-head h3{margin:0; font-family:var(--head); font-size:16px; letter-spacing:.01em; font-weight:700}
-    .team-head p{margin:5px 0 0; color:var(--muted); font-size:12.5px}
-    .team-list{padding:12px; display:flex; flex-direction:column; gap:8px}
-    .team-member{
-      display:flex; gap:11px; align-items:center;
-      padding:9px 10px; border-radius:13px;
-      border:1px solid transparent;
-      transition:background .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
-    }
-    .team-member:hover{background:rgba(255,255,255,.05); border-color:var(--line-soft); transform:translateX(3px)}
-    .team-photo{
-      width:42px; height:42px; border-radius:12px; object-fit:cover; flex:0 0 auto;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      transition:transform .4s var(--ease);
-    }
-    .team-member .portrait-wrap{width:42px; height:42px; border-radius:12px; overflow:hidden}
-    .team-member .portrait-fallback{font-size:12px; border-radius:12px}
-    .team-member:hover .team-photo{transform:scale(1.06)}
-    .team-name{font-weight:700; font-size:13.5px; letter-spacing:.01em}
-    .team-role{font-size:11.5px; color:var(--muted); line-height:1.45; margin-top:2px}
-    .team-cta{padding:0 12px 14px}
-    .mini-btn{
-      display:flex; align-items:center; justify-content:center; gap:8px;
-      width:100%; padding:11px; border-radius:12px;
-      text-decoration:none; font-size:13px; font-weight:700; color:var(--ink);
-      border:1px solid var(--line); background:rgba(255,255,255,.05);
-      transition:background .3s, border-color .3s, letter-spacing .3s var(--ease);
-    }
-    .mini-btn:hover{background:rgba(0,170,255,.14); border-color:rgba(0,170,255,.5); letter-spacing:.02em}
-
-    .scroll-hint{
-      width:min(1220px,94vw); margin:clamp(24px,4vw,44px) auto 0;
-      display:flex; align-items:center; gap:10px;
-      color:rgba(147,163,196,.75); font-size:11.5px; letter-spacing:.22em; text-transform:uppercase;
-    }
-    .scroll-hint span.line{
-      width:56px; height:1px; background:linear-gradient(90deg,rgba(0,170,255,.8),transparent);
-      position:relative; overflow:hidden;
-    }
-    .scroll-hint span.line::after{
-      content:""; position:absolute; inset:0; background:#7fdcff;
-      animation:sweep 2.2s var(--ease) infinite;
-    }
-    @keyframes sweep{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
-
-    /* ============ MARQUEE ============ */
-    .marquee{
-      position:relative; padding:18px 0; border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);
-      background:rgba(255,255,255,.015);
-      overflow:hidden;
-      -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-      mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-    }
-    .marquee-track{
-      display:flex; gap:14px; width:max-content;
-      animation:marquee 38s linear infinite;
-    }
-    .marquee:hover .marquee-track{animation-play-state:paused}
-    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-    .m-item{
-      display:inline-flex; align-items:center; gap:9px;
-      padding:9px 16px; border-radius:999px; white-space:nowrap;
-      font-size:12.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
-      color:rgba(234,240,255,.7); border:1px solid var(--line-soft); background:rgba(255,255,255,.025);
-    }
-    .m-item::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px var(--accent)}
-
-    /* ============ SECTIONS ============ */
-    .wrap{width:min(1220px,94vw); margin:0 auto}
-    section{scroll-margin-top:92px}
-    .section-pad{padding:clamp(52px,8vw,104px) 0}
-    .section-head{max-width:720px}
-    .eyebrow-line{
-      display:inline-flex; align-items:center; gap:10px;
-      font-size:11.5px; font-weight:700; letter-spacing:.24em; text-transform:uppercase;
-      color:rgba(127,220,255,.9); margin-bottom:14px;
-    }
-    .eyebrow-line::before{content:""; width:26px; height:1px; background:linear-gradient(90deg,var(--accent),transparent)}
-    .section-title{
-      font-family:var(--head); font-weight:700; letter-spacing:-.025em;
-      font-size:clamp(28px,4vw,46px); line-height:1.1; margin:0;
-    }
-    .section-sub{margin:14px 0 0; color:var(--muted); font-size:15.5px; max-width:62ch}
-
-    .panel{
-      position:relative; border-radius:var(--radius);
-      border:1px solid var(--line-soft);
-      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.018));
-      padding:clamp(22px,3.2vw,40px);
-      box-shadow:0 40px 90px -60px rgba(0,0,0,1);
-      overflow:hidden;
-    }
-    .panel::after{
-      content:""; position:absolute; top:0; left:0; right:0; height:1px;
-      background:linear-gradient(90deg,transparent,rgba(0,170,255,.55),rgba(124,58,237,.45),transparent);
-    }
-
-    /* about */
-    .about-grid{display:grid; grid-template-columns:1.45fr .55fr; gap:clamp(22px,3vw,40px); align-items:start}
-    .about-copy p{color:var(--muted); margin:0 0 16px; font-size:15.5px; line-height:1.85}
-    .about-copy p:last-child{margin-bottom:0}
-    .about-copy strong{color:var(--ink); font-weight:600}
-    .focus-list{display:flex; flex-direction:column; gap:10px}
-    .focus-item{
-      padding:14px 15px; border-radius:15px;
-      border:1px solid var(--line-soft);
-      background:rgba(0,170,255,.05);
-      transition:transform .35s var(--ease), background .35s var(--ease);
-    }
-    .focus-item:hover{transform:translateY(-3px); background:rgba(0,170,255,.1)}
-    .focus-item b{display:block; font-family:var(--head); font-size:13.5px; font-weight:600}
-    .focus-item span{display:block; font-size:12px; color:var(--muted); margin-top:3px; line-height:1.5}
-
-    /* cards */
-    .cards{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:36px}
-    .svc{
-      position:relative; border-radius:20px; padding:24px;
-      border:1px solid var(--line-soft);
-      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
-      transform-style:preserve-3d;
-      transition:border-color .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
-      overflow:hidden;
-    }
-    .svc::before{
-      content:""; position:absolute; inset:0; opacity:0; transition:opacity .4s ease;
-      background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%), rgba(0,170,255,.14), transparent 62%);
-    }
-    .svc:hover{border-color:rgba(0,170,255,.3); box-shadow:0 40px 70px -50px rgba(0,170,255,.75)}
-    .svc:hover::before{opacity:1}
-    .svc-num{
-      font-family:var(--head); font-size:11px; font-weight:700; letter-spacing:.2em;
-      color:rgba(0,170,255,.8);
-    }
-    .svc h3{
-      position:relative; margin:12px 0 14px;
-      font-family:var(--head); font-size:16.5px; font-weight:600; letter-spacing:-.01em; line-height:1.3;
-    }
-    .svc ul{position:relative; margin:0; padding:0; list-style:none}
-    .svc li{
-      position:relative; padding-left:18px; margin:9px 0;
-      color:var(--muted); font-size:13.5px; line-height:1.6;
-    }
-    .svc li::before{
-      content:""; position:absolute; left:0; top:9px;
-      width:5px; height:5px; border-radius:50%;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    }
-
-    /* projects */
-    .projects{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:36px}
-    .project{
-      position:relative; border-radius:20px; overflow:hidden;
-      border:1px solid var(--line-soft);
-      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
-      transition:transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease);
-    }
-    .project:hover{transform:translateY(-6px); border-color:rgba(0,170,255,.3); box-shadow:0 50px 70px -50px rgba(0,170,255,.7)}
-    .project .thumb{
-      position:relative; overflow:hidden; aspect-ratio:16/10; background:rgba(0,0,0,.3);
-    }
-    .project .thumb img{
-      width:100%; height:100%; object-fit:cover; display:block;
-      transition:transform .8s var(--ease), filter .6s var(--ease);
-      filter:saturate(.9) brightness(.88);
-    }
-    .project:hover .thumb img{transform:scale(1.07); filter:saturate(1.05) brightness(1)}
-    .project .thumb::after{
-      content:""; position:absolute; inset:0;
-      background:linear-gradient(180deg,transparent 35%,rgba(6,10,18,.85));
-    }
-    .project .tag{
-      position:absolute; top:12px; left:12px; z-index:2;
-      padding:5px 10px; border-radius:999px; font-size:10.5px; font-weight:700;
-      letter-spacing:.14em; text-transform:uppercase;
-      background:rgba(6,10,18,.7); border:1px solid rgba(255,255,255,.16); color:#a9e8ff;
-      backdrop-filter:blur(8px);
-    }
-    .project .body{padding:18px 20px 22px}
-    .project h3{margin:0 0 8px; font-family:var(--head); font-size:16px; font-weight:600; letter-spacing:-.01em}
-    .project p{margin:0; color:var(--muted); font-size:13.5px; line-height:1.65}
-
-    /* tutorial */
-    .tutorial{
-      display:grid; grid-template-columns:1.05fr 1fr; gap:clamp(20px,3vw,34px); align-items:center; margin-top:36px;
-    }
-    .video-frame{
-      position:relative; border-radius:18px; overflow:hidden;
-      border:1px solid var(--line);
-      box-shadow:0 40px 80px -50px rgba(0,0,0,1);
-      aspect-ratio:16/9; background:#000;
-    }
-    .video-frame img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .8s var(--ease)}
-    .video-frame:hover img{transform:scale(1.04)}
-    .play{
-      position:absolute; inset:0; display:grid; place-items:center;
-      background:linear-gradient(180deg,rgba(6,10,18,.15),rgba(6,10,18,.55));
-      text-decoration:none;
-    }
-    .play i{
-      width:64px; height:64px; border-radius:50%; display:grid; place-items:center;
-      background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.35);
-      backdrop-filter:blur(10px);
-      transition:transform .35s var(--ease), background .35s var(--ease);
-      box-shadow:0 20px 50px -20px rgba(0,0,0,.9);
-    }
-    .play:hover i{transform:scale(1.1); background:rgba(0,170,255,.35)}
-    .play i::after{
-      content:""; width:0; height:0; margin-left:4px;
-      border-left:16px solid #fff; border-top:10px solid transparent; border-bottom:10px solid transparent;
-    }
-    .tutorial-copy h3{margin:0 0 12px; font-family:var(--head); font-size:clamp(20px,2.4vw,26px); font-weight:600; letter-spacing:-.02em; line-height:1.25}
-    .tutorial-copy p{margin:0 0 20px; color:var(--muted); font-size:14.5px; line-height:1.8}
-
-    /* links / contact */
-    .link-grid{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
-    .link-pill{
-      display:inline-flex; align-items:center; gap:9px;
-      padding:11px 16px; border-radius:12px;
-      text-decoration:none; font-size:13.5px; font-weight:600; color:var(--ink);
-      border:1px solid var(--line-soft); background:rgba(255,255,255,.035);
-      transition:transform .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease), color .3s;
-    }
-    .link-pill:hover{transform:translateY(-3px); border-color:rgba(0,170,255,.45); background:rgba(0,170,255,.1); color:#fff}
-
-    .contact-panel{
-      position:relative; margin-top:0; text-align:center;
-      padding:clamp(34px,6vw,72px) clamp(22px,4vw,56px);
-      border-radius:28px; overflow:hidden;
-      border:1px solid rgba(0,170,255,.2);
-      background:
-        radial-gradient(600px 260px at 50% 0%, rgba(0,170,255,.16), transparent 70%),
-        radial-gradient(500px 240px at 80% 100%, rgba(124,58,237,.14), transparent 70%),
-        linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
-      box-shadow:0 50px 100px -60px rgba(0,0,0,1);
-    }
-    .contact-panel h2{margin:0 auto; max-width:20ch; font-family:var(--head); font-size:clamp(28px,4.4vw,48px); line-height:1.1; letter-spacing:-.03em; font-weight:700}
-    .contact-panel p{margin:16px auto 0; max-width:54ch; color:var(--muted); font-size:15px}
-    .contact-actions{display:flex; flex-wrap:wrap; gap:11px; justify-content:center; margin-top:28px}
-    .mail{display:inline-block; margin-top:20px; color:#9fe4ff; font-weight:600; text-decoration:none; font-size:14px}
-    .mail:hover{text-decoration:underline}
-
-    /* footer */
-    .footer{
-      border-top:1px solid var(--line-soft); margin-top:clamp(50px,7vw,90px);
-      padding:30px 0 40px;
-    }
-    .footer-inner{
-      width:min(1220px,94vw); margin:0 auto;
-      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;
-      color:rgba(147,163,196,.8); font-size:12.5px;
-    }
-    .footer-brand{display:flex; align-items:center; gap:9px; font-weight:600; color:rgba(234,240,255,.85)}
-    .footer-brand img{width:26px; height:26px; border-radius:8px}
-    .footer-links{display:flex; gap:16px; flex-wrap:wrap}
-    .footer-links a{color:rgba(147,163,196,.85); text-decoration:none; transition:color .25s}
-    .footer-links a:hover{color:#9fe4ff}
-
-    /* scroll reveal */
-    .reveal{
-      opacity:0; transform:translateY(26px);
-      transition:opacity .9s var(--ease), transform .9s var(--ease);
-      transition-delay:var(--d,0ms);
-      will-change:opacity, transform;
-    }
-    .reveal.in{opacity:1; transform:none}
-
-    /* ============ Swadhin Bot (unchanged behaviour) ============ */
-    #sw-chat-btn{
-      position:fixed; right:18px; bottom:18px;
-      z-index:2147483647; border:none; padding:13px 17px;
-      border-radius:999px; cursor:pointer; color:#03121f;
-      background:linear-gradient(115deg,#5ee7ff,#00aaff 55%,#8b5cf6);
-      box-shadow:0 14px 34px -12px rgba(0,170,255,.9);
-      font-weight:800; font-family:var(--body);
-      -webkit-tap-highlight-color:transparent;
-      touch-action:manipulation; pointer-events:auto;
-      transition:transform .3s var(--ease), box-shadow .3s var(--ease);
-    }
-    #sw-chat-btn:hover{transform:translateY(-3px); box-shadow:0 20px 44px -12px rgba(0,170,255,1)}
-    #sw-chat-box{
-      position:fixed; right:18px; bottom:80px;
-      width:350px; max-width:92vw; height:470px;
-      z-index:2147483647; display:none;
-      border-radius:18px; overflow:hidden; background:#0b1220;
-      border:1px solid rgba(255,255,255,.14);
-      box-shadow:0 30px 70px -20px rgba(0,0,0,.9);
-      font-family:var(--body); pointer-events:auto;
-    }
-    #sw-chat-head{
-      padding:13px 15px; font-weight:800;
-      display:flex; justify-content:space-between; align-items:center;
-      background:linear-gradient(115deg,rgba(0,170,255,.22),rgba(124,58,237,.22));
-      color:#fff; border-bottom:1px solid rgba(255,255,255,.1);
-    }
-    #sw-chat-small{font-size:11.5px;opacity:.8;font-weight:500;margin-top:2px}
-    #sw-chat-log{height:336px;overflow:auto;padding:14px;background:#0b1220}
-    .sw-msg{margin:10px 0;line-height:1.4}
-    .sw-me{text-align:right}
-    .sw-bot{text-align:left}
-    .sw-bubble{display:inline-block;padding:10px 13px;border-radius:14px;max-width:85%;font-size:13.5px}
-    .sw-me .sw-bubble{background:linear-gradient(115deg,#00aaff,#7c3aed);color:#fff}
-    .sw-bot .sw-bubble{background:rgba(255,255,255,.08);color:#eaf0ff;border:1px solid rgba(255,255,255,.08)}
-    #sw-chat-form{display:flex;gap:8px;padding:10px;border-top:1px solid rgba(255,255,255,.08);background:#080e19}
-    #sw-chat-input{flex:1;padding:10px;border:1px solid rgba(255,255,255,.14);border-radius:10px;outline:none;background:rgba(255,255,255,.05);color:#eaf0ff;font-family:var(--body)}
-    #sw-chat-input:focus{border-color:rgba(0,170,255,.6)}
-    #sw-chat-send{padding:10px 14px;border:none;border-radius:10px;cursor:pointer;background:linear-gradient(115deg,#00aaff,#7c3aed);color:#fff;font-weight:700;font-family:var(--body)}
-    #sw-chat-close{border:none;background:transparent;cursor:pointer;font-size:18px;color:#fff}
-
-    /* ============ RESPONSIVE ============ */
-    @media (max-width:1080px){
-      .hero-inner{grid-template-columns:1fr}
-      .hero-side{position:static; max-width:560px}
-      .about-grid{grid-template-columns:1fr}
-      .cards,.projects{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .tutorial{grid-template-columns:1fr}
-    }
-    @media (max-width:860px){
-      .nav-links{display:none}
-      .hero-points{grid-template-columns:1fr}
-      .cards,.projects{grid-template-columns:1fr}
-      .scroll-hint{display:none}
-      #scene{opacity:.6}
-    }
-    @media (max-width:520px){
-      .hero-actions .btn{flex:1 1 100%}
-      .brand-text small{display:none}
-      .footer-inner{justify-content:center; text-align:center}
-    }
-
-    @media (prefers-reduced-motion:reduce){
-      *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important}
-      html{scroll-behavior:auto}
-      .reveal{opacity:1; transform:none}
-      #scene{display:none}
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
 </head>
 
 <body>
+  <div class="backdrop" aria-hidden="true"></div>
 
-<div class="progress" id="progress"></div>
-<canvas id="scene" aria-hidden="true"></canvas>
-<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-
-<div class="page">
-
-  <!-- ================= NAV ================= -->
-  <header class="site-header" id="top">
-    <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="Swadhin Digital Hub home">
-        <img src="logo.png" class="brand-logo" alt="Swadhin Digital Hub Logo">
-        <span class="brand-text">Swadhin Digital Hub<small>n8n Automation Studio</small></span>
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="index.html" aria-label="Swadhin Digital Hub home">
+        <img src="logo.png" class="brand-mark" alt="Swadhin Digital Hub logo">
+        <span class="brand-name">Swadhin Digital Hub<small>Automation studio</small></span>
       </a>
 
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="index.html" class="is-active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
         <a href="blog.html">Blog</a>
-        <a href="#links">Links</a>
-        <a href="#contact">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <a class="nav-cta magnetic" href="#contact">Book a Call</a>
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm" href="contact.html">Start a project</a>
+        <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><span></span></button>
+      </div>
     </div>
   </header>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero" aria-label="Introduction">
-    <div class="hero-inner">
-
-      <div class="hero-copy">
-        <span class="eyebrow"><i class="dot"></i> Open for new automation builds</span>
-
-        <div class="hero-toprow">
-          <div class="portrait-wrap avatar-wrap">
-            <img src="profile.new.jpg" class="avatar portrait" alt="Swadhin Howlader">
-            <span class="portrait-fallback" aria-hidden="true">SH</span>
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <span class="label">Swadhin Digital Hub — n8n automation studio</span>
+          <h1>Automation that runs<br><span class="serif">in the background.</span></h1>
+          <p class="lead hero-lead">
+            We build production-grade n8n systems that reply in seconds, capture every lead cleanly,
+            and keep your team informed — so the business moves without anyone chasing it.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="contact.html">Start a project
+              <svg class="arw" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="projects.html">See our work</a>
           </div>
-          <div class="hero-name">Founder<strong>Swadhin Howlader</strong></div>
+          <div class="founder">
+            <span class="dot" aria-hidden="true"></span>
+            Founded by <strong>Swadhin Howlader</strong> — Messenger, WhatsApp &amp; Telegram systems
+          </div>
         </div>
 
-        <h1 class="hero-title">Swadhin <span class="grad">Digital Hub</span></h1>
-        <p class="founder-line">Automation systems that reply, capture and convert — on autopilot.</p>
+        <div class="flow" data-tilt aria-label="Example automation workflow: Messenger message to lead record to Telegram alert">
+          <div class="flow-bar">
+            <span>workflow / inbound-leads</span>
+            <span class="live"><i></i>active</span>
+          </div>
 
-        <div class="rotator">
-          <span class="rot-label">We build for</span>
-          <span class="rot-slot" id="rotSlot">
-            <span class="rot-word active">Messenger</span>
-            <span class="rot-word">WhatsApp Business</span>
-            <span class="rot-word">Telegram Bots</span>
-            <span class="rot-word">Google Sheets</span>
-            <span class="rot-word">CRM Pipelines</span>
-            <span class="rot-word">LinkedIn Content</span>
-          </span>
-        </div>
+          <div class="flow-canvas">
+            <div class="node">
+              <span class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.9-.9L3 21l1.9-5a8.4 8.4 0 0 1-.9-4.5 8.4 8.4 0 0 1 8.4-8.4 8.4 8.4 0 0 1 8.6 8.4z"/></svg>
+              </span>
+              <span class="node-body">
+                <span class="node-title">Messenger trigger</span>
+                <span class="node-sub">webhook · new message</span>
+              </span>
+              <span class="node-tag">trigger</span>
+            </div>
 
-        <p class="lede">
-          Stop losing leads in the inbox — turn every message into a system. We build production-grade
-          automations with <b>n8n</b> that reply instantly, capture clean lead data, notify your team in
-          real time, and keep operations organised without manual chaos.
-        </p>
+            <div class="connector" aria-hidden="true"><svg viewBox="0 0 12 22"><path d="M6 0v22"/></svg></div>
 
-        <div class="hero-points">
-          <div class="hero-point"><span class="tick">✓</span><span>Instant replies with FAQ + intent routing</span></div>
-          <div class="hero-point"><span class="tick">✓</span><span>Auto lead capture with names, phone &amp; tags</span></div>
-          <div class="hero-point"><span class="tick">✓</span><span>Google Sheets / CRM sync in a clean structure</span></div>
-          <div class="hero-point"><span class="tick">✓</span><span>Telegram admin alerts + smooth human handover</span></div>
-        </div>
+            <div class="node">
+              <span class="node-icon violet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v3M12 18v3M4.2 7.5l2.6 1.5M17.2 15l2.6 1.5M4.2 16.5l2.6-1.5M17.2 9l2.6-1.5"/><circle cx="12" cy="12" r="3.4"/></svg>
+              </span>
+              <span class="node-body">
+                <span class="node-title">Intent routing + reply</span>
+                <span class="node-sub">n8n · ai agent</span>
+              </span>
+              <span class="node-tag">logic</span>
+            </div>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary magnetic" href="#contact">Work With Me <span class="arrow">→</span></a>
-          <a class="btn btn-glass magnetic"
-             href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&amp;gid=580100943#gid=580100943"
-             target="_blank" rel="noopener">Book Now</a>
-          <a class="btn magnetic" href="#projects">View Projects</a>
-        </div>
+            <div class="connector" aria-hidden="true"><svg viewBox="0 0 12 22"><path d="M6 0v22"/></svg></div>
 
-        <div class="tool-row" aria-label="Tools and platforms">
-          <span class="badge">n8n</span>
-          <span class="badge">Facebook Messenger</span>
-          <span class="badge">WhatsApp Business</span>
-          <span class="badge">Telegram Bot</span>
-          <span class="badge">Google Sheets</span>
-          <span class="badge">Webhooks</span>
-          <span class="badge">CRM Sync</span>
-          <span class="badge">API Integrations</span>
-          <span class="badge">Dashboards</span>
+            <div class="node">
+              <span class="node-icon green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v16H4z"/><path d="M4 9h16M4 14h16M9 4v16M15 4v16"/></svg>
+              </span>
+              <span class="node-body">
+                <span class="node-title">Lead record + tags</span>
+                <span class="node-sub">google sheets · crm</span>
+              </span>
+              <span class="node-tag">store</span>
+            </div>
+
+            <div class="connector" aria-hidden="true"><svg viewBox="0 0 12 22"><path d="M6 0v22"/></svg></div>
+
+            <div class="node">
+              <span class="node-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m21 3-9 18-2.5-7.5L3 11z"/></svg>
+              </span>
+              <span class="node-body">
+                <span class="node-title">Admin alert + handover</span>
+                <span class="node-sub">telegram · realtime</span>
+              </span>
+              <span class="node-tag">notify</span>
+            </div>
+          </div>
+
+          <div class="flow-foot">
+            <span class="chip ok">retry enabled</span>
+            <span class="chip ok">logging on</span>
+            <span class="chip">human handover</span>
+          </div>
         </div>
       </div>
+    </section>
 
-      <aside class="hero-side" aria-label="Core team">
-        <div class="team-panel tilt">
-          <div class="team-head">
-            <h3>Core Team</h3>
-            <p>People behind Swadhin Digital Hub</p>
-          </div>
-
-          <div class="team-list">
-            <div class="team-member">
-              <div class="portrait-wrap">
-                <img src="team/avi.jpg" alt="Avi Mistry" class="team-photo portrait" loading="lazy">
-                <span class="portrait-fallback" aria-hidden="true">AM</span>
-              </div>
-              <div><div class="team-name">Avi Mistry</div><div class="team-role">Web Developer • Product + UI execution</div></div>
-            </div>
-            <div class="team-member">
-              <div class="portrait-wrap">
-                <img src="team/sourav.png" alt="Sourav" class="team-photo portrait" loading="lazy">
-                <span class="portrait-fallback" aria-hidden="true">SO</span>
-              </div>
-              <div><div class="team-name">Sourav</div><div class="team-role">E-commerce &amp; Marketing • TikTok Shop, eBay, Walmart, Amazon, Shopify</div></div>
-            </div>
-            <div class="team-member">
-              <div class="portrait-wrap">
-                <img src="team/pranto.jpg" alt="Pranto" class="team-photo portrait" loading="lazy">
-                <span class="portrait-fallback" aria-hidden="true">PR</span>
-              </div>
-              <div><div class="team-name">Pranto</div><div class="team-role">E-commerce Marketplace • Listing + store growth strategy</div></div>
-            </div>
-            <div class="team-member">
-              <div class="portrait-wrap">
-                <img src="team/sujosh.jpg" alt="Sujosh" class="team-photo portrait" loading="lazy">
-                <span class="portrait-fallback" aria-hidden="true">SU</span>
-              </div>
-              <div><div class="team-name">Sujosh</div><div class="team-role">SEO • On-page + technical SEO, growth roadmap</div></div>
-            </div>
-            <div class="team-member">
-              <div class="portrait-wrap">
-                <img src="team/suvo.jpg" alt="Suvo Mistry" class="team-photo portrait" loading="lazy">
-                <span class="portrait-fallback" aria-hidden="true">SM</span>
-              </div>
-              <div><div class="team-name">Suvo Mistry</div><div class="team-role">E-commerce • Product research, listing optimization, support</div></div>
-            </div>
-            <div class="team-member">
-              <div class="portrait-wrap">
-                <img src="team/naiem.jpg" alt="Nayem" class="team-photo portrait" loading="lazy">
-                <span class="portrait-fallback" aria-hidden="true">NA</span>
-              </div>
-              <div><div class="team-name">Nayem</div><div class="team-role">Ads • Performance marketing (Meta/Shop), scaling &amp; retargeting</div></div>
-            </div>
-          </div>
-
-          <div class="team-cta">
-            <a class="mini-btn" href="#contact">Contact Team →</a>
-          </div>
-        </div>
-      </aside>
-
+    <!-- ============ STACK STRIP ============ -->
+    <div class="strip" aria-label="Platforms we work with">
+      <div class="strip-inner">
+        <span class="strip-item">n8n</span><span class="strip-item">Facebook Messenger</span><span class="strip-item">WhatsApp Business</span><span class="strip-item">Telegram Bot</span><span class="strip-item">Google Sheets</span><span class="strip-item">Webhooks</span><span class="strip-item">CRM Sync</span><span class="strip-item">API Integrations</span><span class="strip-item">Dashboards</span>
+        <span class="strip-item" aria-hidden="true">n8n</span><span class="strip-item" aria-hidden="true">Facebook Messenger</span><span class="strip-item" aria-hidden="true">WhatsApp Business</span><span class="strip-item" aria-hidden="true">Telegram Bot</span><span class="strip-item" aria-hidden="true">Google Sheets</span><span class="strip-item" aria-hidden="true">Webhooks</span><span class="strip-item" aria-hidden="true">CRM Sync</span><span class="strip-item" aria-hidden="true">API Integrations</span><span class="strip-item" aria-hidden="true">Dashboards</span>
+      </div>
     </div>
 
-    <div class="scroll-hint" aria-hidden="true"><span class="line"></span> Scroll to explore</div>
-  </section>
-
-  <!-- ================= MARQUEE ================= -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="m-item">n8n Workflows</span>
-      <span class="m-item">Messenger Automation</span>
-      <span class="m-item">WhatsApp Business</span>
-      <span class="m-item">Telegram Bots</span>
-      <span class="m-item">Google Sheets Sync</span>
-      <span class="m-item">CRM Pipelines</span>
-      <span class="m-item">Webhooks</span>
-      <span class="m-item">API Integrations</span>
-      <span class="m-item">LinkedIn Systems</span>
-      <span class="m-item">Dashboards</span>
-      <span class="m-item">n8n Workflows</span>
-      <span class="m-item">Messenger Automation</span>
-      <span class="m-item">WhatsApp Business</span>
-      <span class="m-item">Telegram Bots</span>
-      <span class="m-item">Google Sheets Sync</span>
-      <span class="m-item">CRM Pipelines</span>
-      <span class="m-item">Webhooks</span>
-      <span class="m-item">API Integrations</span>
-      <span class="m-item">LinkedIn Systems</span>
-      <span class="m-item">Dashboards</span>
-    </div>
-  </div>
-
-  <main class="wrap">
-
-    <!-- ================= ABOUT ================= -->
-    <section id="about" class="section-pad">
-      <div class="section-head reveal">
-        <span class="eyebrow-line">About the studio</span>
-        <h2 class="section-title">Quiet systems. Visible results.</h2>
-        <p class="section-sub">
-          We design and build end-to-end automation systems using n8n — so your business runs faster,
-          replies instantly, and stays organised without extra manual work.
-        </p>
-      </div>
-
-      <div class="about-grid" style="margin-top:38px">
-        <div class="panel about-copy reveal" style="--d:80ms">
-          <p>
-            Most teams lose time in small, repeated tasks: replying to messages, capturing leads, updating
-            spreadsheets, sending follow-ups, and notifying admins. Together these create operational chaos
-            and slow growth.
-          </p>
-          <p>
-            We replace those tasks with stable workflows that run quietly in the background — while your brand
-            looks active, responsive and professional on the front end.
-          </p>
-          <p>
-            Our core focus is <strong>Messenger Automation</strong> and <strong>WhatsApp Business Automation</strong>.
-            We build structured conversation flows, capture leads automatically, answer common questions, and route
-            high-value conversations to admins in real time — with full context.
-          </p>
-          <p>
-            We also build <strong>LinkedIn realtime content systems</strong> that generate strong hooks, post formats
-            and idea pipelines, so founders can stay consistent without spending hours writing.
-          </p>
-          <p>
-            Beyond messaging and content, we connect your tools across <strong>Telegram</strong>, <strong>Email</strong>,
-            <strong>Google Sheets/CRM</strong>, <strong>Webhooks</strong> and <strong>APIs</strong> — with logging,
-            retries and clean data so your automation stays reliable at scale.
+    <!-- ============ SERVICES ============ -->
+    <section class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <span class="label">What we build</span>
+            <h2>Six systems.<br><span class="serif">One operating layer.</span></h2>
+          </div>
+          <p class="lead">
+            Each engagement is a working system — not a demo. We map the process, build the workflow,
+            test the edge cases, and document how it runs.
           </p>
         </div>
 
-        <div class="focus-list reveal" style="--d:160ms">
-          <div class="focus-item"><b>Built for scale</b><span>Logging, retries and fallbacks on every workflow.</span></div>
-          <div class="focus-item"><b>Human handover</b><span>Bots qualify and route — your team closes.</span></div>
-          <div class="focus-item"><b>Clean data</b><span>Structured rows in Sheets or your CRM, ready to report.</span></div>
-          <div class="focus-item"><b>Fast to launch</b><span>Production-grade builds, not fragile demos.</span></div>
+        <div class="rows reveal" data-stagger>
+          <a class="row" href="services.html#messenger">
+            <span class="row-num">01</span>
+            <span class="row-title">Messenger <span class="serif">automation</span></span>
+            <span class="row-desc">Instant replies, smart FAQ and intent routing, lead capture, and real-time admin alerts with clean human handover.</span>
+            <span class="row-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+          <a class="row" href="services.html#whatsapp">
+            <span class="row-num">02</span>
+            <span class="row-title">WhatsApp <span class="serif">business</span></span>
+            <span class="row-desc">Structured chat flows that feel human and fast — order handling, follow-ups, tags, status updates and escalation rules.</span>
+            <span class="row-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+          <a class="row" href="services.html#telegram">
+            <span class="row-num">03</span>
+            <span class="row-title">Telegram <span class="serif">bots &amp; alerts</span></span>
+            <span class="row-desc">Instant notifications for leads, orders and payments, plus workflow monitoring so failures never go unnoticed.</span>
+            <span class="row-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+          <a class="row" href="services.html#sheets">
+            <span class="row-num">04</span>
+            <span class="row-title">Sheets <span class="serif">&amp; CRM sync</span></span>
+            <span class="row-desc">Clean, structured records with pipeline tracking that stays updated — report-ready and dashboard-friendly.</span>
+            <span class="row-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+        </div>
+
+        <div style="margin-top:30px" class="reveal">
+          <a class="link" href="services.html">All services
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 7 7 17M15 17H7V9"/></svg>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- ================= SERVICES ================= -->
-    <section id="services" class="section-pad" style="padding-top:0">
-      <div class="section-head reveal">
-        <span class="eyebrow-line">What we build</span>
-        <h2 class="section-title">Services</h2>
-        <p class="section-sub">Production-grade automation systems — built for speed, stability and scale.</p>
-      </div>
-
-      <div class="cards">
-        <div class="svc tilt reveal">
-          <div class="svc-num">01</div>
-          <h3>Messenger Automation</h3>
-          <ul>
-            <li>Instant replies with smart FAQ + intent routing</li>
-            <li>Lead capture, qualification and clean data logging</li>
-            <li>Real-time admin alerts + smooth human handover</li>
-          </ul>
-        </div>
-
-        <div class="svc tilt reveal" style="--d:70ms">
-          <div class="svc-num">02</div>
-          <h3>WhatsApp Business Automation</h3>
-          <ul>
-            <li>Structured chat flows that feel human and fast</li>
-            <li>Order handling, follow-ups, tags and status updates</li>
-            <li>Escalation rules for team/admin when needed</li>
-          </ul>
-        </div>
-
-        <div class="svc tilt reveal" style="--d:140ms">
-          <div class="svc-num">03</div>
-          <h3>Telegram Bot Automation</h3>
-          <ul>
-            <li>Instant notifications for leads, orders and payments</li>
-            <li>Workflow monitoring alerts (errors, retries, failures)</li>
-            <li>Admin dashboard signals for faster decisions</li>
-          </ul>
-        </div>
-
-        <div class="svc tilt reveal">
-          <div class="svc-num">04</div>
-          <h3>Google Sheets / CRM Sync</h3>
-          <ul>
-            <li>Auto-capture data into clean, structured rows</li>
-            <li>Customer records + pipeline tracking that stays updated</li>
-            <li>Report-ready exports and dashboard-friendly structure</li>
-          </ul>
-        </div>
-
-        <div class="svc tilt reveal" style="--d:70ms">
-          <div class="svc-num">05</div>
-          <h3>Webhook &amp; API Integrations</h3>
-          <ul>
-            <li>Connect tools through reliable webhook pipelines</li>
-            <li>API automations with retries, logging and fallbacks</li>
-            <li>Stable scaling without breaking existing systems</li>
-          </ul>
-        </div>
-
-        <div class="svc tilt reveal" style="--d:140ms">
-          <div class="svc-num">06</div>
-          <h3>LinkedIn Realtime Content Systems</h3>
-          <ul>
-            <li>High-quality hooks, formats and post structures</li>
-            <li>Consistent content pipeline for founders and teams</li>
-            <li>Template-driven generation with smart scheduling flow</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PROJECTS ================= -->
-    <section id="projects" class="section-pad" style="padding-top:0">
-      <div class="section-head reveal">
-        <span class="eyebrow-line">Selected work</span>
-        <h2 class="section-title">Automation Projects</h2>
-        <p class="section-sub">Real systems built using n8n. Clean logic, stable execution and scalable structure.</p>
-      </div>
-
-      <div class="projects">
-        <article class="project reveal">
-          <div class="thumb">
-            <span class="tag">Messenger</span>
-            <img src="images/messenger-automation.png" alt="Messenger Automation" loading="lazy">
+    <!-- ============ SELECTED WORK ============ -->
+    <section class="section section-line">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <span class="label">Selected work</span>
+            <h2>Systems in production.</h2>
           </div>
-          <div class="body">
-            <h3>Messenger Automation</h3>
-            <p>Lead capture, auto replies, admin notifications, handover routing — fully automated.</p>
-          </div>
-        </article>
-
-        <article class="project reveal" style="--d:80ms">
-          <div class="thumb">
-            <span class="tag">WhatsApp</span>
-            <img src="images/whatsapp-automation.png" alt="WhatsApp Business Automation" loading="lazy">
-          </div>
-          <div class="body">
-            <h3>WhatsApp Business Automation</h3>
-            <p>Order handling, follow-ups, customer support flows, tagging and escalation logic.</p>
-          </div>
-        </article>
-
-        <article class="project reveal" style="--d:160ms">
-          <div class="thumb">
-            <span class="tag">LinkedIn</span>
-            <img src="images/linkedin-automation.png" alt="LinkedIn Realtime Post Generator" loading="lazy">
-          </div>
-          <div class="body">
-            <h3>LinkedIn Realtime Post Generator</h3>
-            <p>Real-time post ideas, hooks and structures for consistent visibility and growth.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ================= TUTORIAL ================= -->
-    <section class="section-pad" style="padding-top:0" aria-label="Latest tutorial">
-      <div class="panel reveal">
-        <div class="section-head" style="max-width:none">
-          <span class="eyebrow-line">Latest tutorial</span>
-          <h2 class="section-title" style="font-size:clamp(24px,3.2vw,36px)">GitHub Website + n8n AI Chatbot</h2>
-          <p class="section-sub">
-            A clean, step-by-step walkthrough showing how we integrate a website chatbot into GitHub Pages using
-            n8n Webhook, CORS headers, an AI Agent + Chat Model, and a final Response node — end to end.
+          <p class="lead">
+            Real n8n builds with clean logic, stable execution and a structure your team can actually maintain.
           </p>
         </div>
 
-        <div class="tutorial">
-          <div class="video-frame">
-            <img src="https://i.ytimg.com/vi/2WGcCOqAYgA/maxresdefault.jpg" alt="YouTube tutorial thumbnail" loading="lazy">
-            <a class="play" href="https://youtu.be/2WGcCOqAYgA" target="_blank" rel="noopener" aria-label="Watch the tutorial on YouTube"><i></i></a>
-          </div>
+        <div class="work-grid reveal" data-stagger>
+          <a class="work" href="projects.html#messenger">
+            <div class="work-media">
+              <img src="images/messenger-automation.png" alt="Messenger automation workflow diagram" loading="lazy">
+            </div>
+            <div class="work-body">
+              <span class="work-kicker">Messenger · n8n</span>
+              <h3>Inbound lead engine</h3>
+              <p>Lead capture, auto replies, admin notifications and handover routing — fully automated.</p>
+              <span class="work-more">Read the build
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </span>
+            </div>
+          </a>
 
-          <div class="tutorial-copy">
-            <h3>Documentation + video link</h3>
-            <p>
-              Use the documentation page to copy the full workflow structure, node settings and troubleshooting
-              notes. Watch the video if you want to follow the build exactly as executed.
+          <a class="work" href="projects.html#whatsapp">
+            <div class="work-media">
+              <img src="images/whatsapp-automation.png" alt="WhatsApp business automation workflow diagram" loading="lazy">
+            </div>
+            <div class="work-body">
+              <span class="work-kicker">WhatsApp · operations</span>
+              <h3>Order &amp; support flow</h3>
+              <p>Order handling, follow-ups, support flows, tagging and escalation logic for a busy inbox.</p>
+              <span class="work-more">Read the build
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a class="work" href="projects.html#linkedin">
+            <div class="work-media">
+              <img src="images/linkedin-automation.png" alt="LinkedIn realtime post generator workflow diagram" loading="lazy">
+            </div>
+            <div class="work-body">
+              <span class="work-kicker">LinkedIn · content</span>
+              <h3>Realtime post generator</h3>
+              <p>Post ideas, hooks and structures produced on demand, so founders stay visible without writing for hours.</p>
+              <span class="work-more">Read the build
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS + ABOUT TEASER ============ -->
+    <section class="section section-line">
+      <div class="shell">
+        <div class="split">
+          <div class="reveal">
+            <span class="label">How we work</span>
+            <h2 style="margin:16px 0 20px">From messy inbox<br>to <span class="serif">a system.</span></h2>
+            <p class="lead">
+              A short, structured engagement. You always know what is being built, how it is tested,
+              and what happens the day after launch.
             </p>
-            <div class="hero-actions" style="margin-top:0">
-              <a class="btn btn-primary magnetic" href="posts/github-n8n-chatbot-doc.html">Open Documentation <span class="arrow">→</span></a>
-              <a class="btn magnetic" href="https://youtu.be/2WGcCOqAYgA" target="_blank" rel="noopener">Watch on YouTube</a>
-              <a class="btn magnetic" href="blog.html">More Tutorials</a>
+            <div class="facts" style="margin-top:30px">
+              <div class="fact">
+                <div class="fact-num">06</div>
+                <div class="fact-label">In-house specialists</div>
+              </div>
+              <div class="fact">
+                <div class="fact-num">09+</div>
+                <div class="fact-label">Tools we connect</div>
+              </div>
+              <div class="fact">
+                <div class="fact-num">3</div>
+                <div class="fact-label">Core channels</div>
+              </div>
+              <div class="fact">
+                <div class="fact-num">1:1</div>
+                <div class="fact-label">Build partner</div>
+              </div>
+            </div>
+            <div style="margin-top:28px">
+              <a class="link" href="about.html">More about the studio
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 7 7 17M15 17H7V9"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="steps">
+              <div class="step">
+                <span class="step-num">STEP 01</span>
+                <h3>Map the process</h3>
+                <p>We look at how messages, leads and follow-ups actually move today — including the exceptions.</p>
+              </div>
+              <div class="step">
+                <span class="step-num">STEP 02</span>
+                <h3>Build the workflow</h3>
+                <p>n8n logic, API connections and data shape, built to survive real traffic and messy input.</p>
+              </div>
+              <div class="step">
+                <span class="step-num">STEP 03</span>
+                <h3>Test the edges</h3>
+                <p>Retries, failures, duplicate leads and handover — checked before anything goes live.</p>
+              </div>
+              <div class="step">
+                <span class="step-num">STEP 04</span>
+                <h3>Hand over</h3>
+                <p>Documentation, monitoring and a clean structure your team can follow without us.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= LINKS ================= -->
-    <section id="links" class="section-pad" style="padding-top:0">
-      <div class="section-head reveal">
-        <span class="eyebrow-line">Find me online</span>
-        <h2 class="section-title">Official Links</h2>
-        <p class="section-sub">Follow the work, the builds and the tutorials.</p>
-      </div>
-
-      <div class="link-grid reveal" style="--d:80ms">
-        <a class="link-pill" href="https://facebook.com/mrswadhinhowlader" target="_blank" rel="noopener">Facebook Profile</a>
-        <a class="link-pill" href="https://facebook.com/swadhindigitalhub" target="_blank" rel="noopener">Facebook Page</a>
-        <a class="link-pill" href="https://instagram.com/mrswadhinhowlader" target="_blank" rel="noopener">Instagram</a>
-        <a class="link-pill" href="https://x.com/mrswadhinrj" target="_blank" rel="noopener">X (Twitter)</a>
-        <a class="link-pill" href="https://www.linkedin.com/in/mrswadhinhowlader" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="link-pill" href="https://www.youtube.com/@mrswadhinhowlader" target="_blank" rel="noopener">YouTube</a>
-        <a class="link-pill" href="https://github.com/mrswadhinhowlader" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </section>
-
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" aria-label="Contact">
-      <div class="contact-panel reveal">
-        <h2>Ready to automate your inbox?</h2>
-        <p>Tell me what you sell and where your messages come from. I'll map the workflow, the data and the handover — then build it.</p>
-
-        <div class="contact-actions">
-          <a class="btn btn-primary magnetic"
-             href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support."
-             target="_blank" rel="noopener">WhatsApp Chat <span class="arrow">→</span></a>
-          <a class="btn magnetic" href="https://t.me/yourusername" target="_blank" rel="noopener">Telegram</a>
-          <a class="btn magnetic"
-             href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&amp;gid=580100943#gid=580100943"
-             target="_blank" rel="noopener">Book Now</a>
+    <!-- ============ CTA ============ -->
+    <section class="section tight">
+      <div class="shell">
+        <div class="cta-panel reveal">
+          <div>
+            <span class="label">Next step</span>
+            <h2>Tell us where the<br>manual work is.</h2>
+            <p>Share the process that slows your team down. We will reply with what can be automated, what should stay human, and a clear scope for the build.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="contact.html">Start a project
+              <svg class="arw" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="https://docs.google.com/spreadsheets/d/1bSKnVAuJJAihCA375TkN4bysKlVlQCYP-Qqa9Y8LXRI/edit?resourcekey=&gid=580100943#gid=580100943" target="_blank" rel="noopener">Book a call</a>
+            <small>Usually replies within one business day</small>
+          </div>
         </div>
-
-        <a class="mail" href="mailto:swadhinj17@gmail.com">swadhinj17@gmail.com</a>
       </div>
     </section>
-
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="logo.png" alt="">
-        © 2026 Swadhin Digital Hub • Founded by Swadhin Howlader
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <img src="logo.png" class="brand-mark" alt="">
+            <span class="brand-name">Swadhin Digital Hub<small>Automation studio</small></span>
+          </a>
+          <p>n8n automation systems for Messenger, WhatsApp Business, Telegram, Sheets/CRM, webhooks and APIs.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://wa.me/8801306878912?text=Hello%20Swadhin%20Digital%20Hub,%20I%20need%20automation%20support." target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://www.linkedin.com/in/mrswadhinhowlader" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.youtube.com/@mrswadhinhowlader" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Elsewhere</h4>
+          <ul>
+            <li><a href="https://facebook.com/mrswadhinhowlader" target="_blank" rel="noopener">Facebook</a></li>
+            <li><a href="https://instagram.com/mrswadhinhowlader" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://x.com/mrswadhinrj" target="_blank" rel="noopener">X (Twitter)</a></li>
+            <li><a href="https://github.com/mrswadhinhowlader" target="_blank" rel="noopener">GitHub</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="blog.html">Blog</a>
-        <a href="#contact">Contact</a>
+      <div class="footer-bottom">
+        <span>© 2026 Swadhin Digital Hub · Founded by Swadhin Howlader</span>
+        <a class="top-link" href="#top">Back to top
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+        </a>
       </div>
     </div>
   </footer>
 
-</div>
-
-<!-- ================= Swadhin Bot ================= -->
-<button id="sw-chat-btn" type="button" aria-label="Open chat">💬 Chat With AI</button>
-
-<div id="sw-chat-box" aria-label="Chatbox">
-  <div id="sw-chat-head">
-    <div>
-      Swadhin Bot
-      <div id="sw-chat-small">Ask about n8n Automation</div>
-    </div>
-    <button id="sw-chat-close" type="button" aria-label="Close chat">✕</button>
-  </div>
-
-  <div id="sw-chat-log"></div>
-
-  <form id="sw-chat-form">
-    <input id="sw-chat-input" placeholder="Ask about Messenger/WhatsApp automation..." autocomplete="off" />
-    <button id="sw-chat-send" type="submit">Send</button>
-  </form>
-</div>
-
-<script>
-(function(){
-  /* ✅ Replace your webhook here if needed */
-  const N8N_WEBHOOK_URL = "https://vmi2977874.contaboserver.net/webhook/3f9f3f16-b52c-4d13-834a-96b9df752b79";
-
-  const btn = document.getElementById("sw-chat-btn");
-  const box = document.getElementById("sw-chat-box");
-  const closeBtn = document.getElementById("sw-chat-close");
-  const log = document.getElementById("sw-chat-log");
-  const form = document.getElementById("sw-chat-form");
-  const input = document.getElementById("sw-chat-input");
-
-  const sessionKey = "sw_chat_session_id";
-  let sessionId = localStorage.getItem(sessionKey);
-  if(!sessionId){
-    const hasCryptoUUID = (window.crypto && typeof window.crypto.randomUUID === "function");
-    sessionId = hasCryptoUUID ? window.crypto.randomUUID() : ("sw_" + Date.now() + "_" + Math.floor(Math.random()*1e9));
-    localStorage.setItem(sessionKey, sessionId);
-  }
-
-  function addMsg(text, who){
-    const wrap = document.createElement("div");
-    wrap.className = "sw-msg " + (who==="me" ? "sw-me" : "sw-bot");
-    const bub = document.createElement("div");
-    bub.className = "sw-bubble";
-    bub.textContent = text;
-    wrap.appendChild(bub);
-    log.appendChild(wrap);
-    log.scrollTop = log.scrollHeight;
-  }
-
-  function toggleOpen(){
-    const isOpen = box.style.display === "block";
-    box.style.display = isOpen ? "none" : "block";
-    if(log.childElementCount === 0){
-      addMsg("Hi! Ask me anything about n8n Automation, Messenger/WhatsApp, Sheets/CRM Sync.","bot");
-    }
-    setTimeout(()=>{ try{ input.focus(); }catch(e){} }, 50);
-  }
-
-  btn.addEventListener("click", toggleOpen);
-  btn.addEventListener("touchstart", toggleOpen, {passive:true});
-  closeBtn.addEventListener("click", ()=> box.style.display="none");
-  closeBtn.addEventListener("touchstart", ()=> box.style.display="none", {passive:true});
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const message = input.value.trim();
-    if(!message) return;
-
-    addMsg(message,"me");
-    input.value = "";
-
-    addMsg("Typing...","bot");
-    const typingNode = log.lastChild;
-
-    try{
-      const body = new URLSearchParams({
-        message,
-        sessionId,
-        source: "website",
-        page: location.pathname
-      });
-
-      const res = await fetch(N8N_WEBHOOK_URL, { method:"POST", body });
-      if(!res.ok) throw new Error("HTTP " + res.status);
-
-      const data = await res.json();
-      typingNode.remove();
-      addMsg(data.reply || "No reply received from n8n.","bot");
-
-    }catch(err){
-      typingNode.remove();
-      addMsg("Connection issue (CORS/Response). Please verify n8n CORS headers + Response node.","bot");
-      console.error(err);
-    }
-  });
-})();
-</script>
-
-<!-- ================= UI motion ================= -->
-<script>
-(function(){
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const finePointer = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
-
-  /* ---- header state + scroll progress ---- */
-  const header = document.querySelector(".site-header");
-  const progress = document.getElementById("progress");
-
-  function onScroll(){
-    const y = window.scrollY || document.documentElement.scrollTop;
-    header.classList.toggle("scrolled", y > 20);
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
-  }
-  window.addEventListener("scroll", onScroll, { passive:true });
-  onScroll();
-
-  /* ---- reveal on scroll ---- */
-  const revealEls = document.querySelectorAll(".reveal");
-  if(reduce || !("IntersectionObserver" in window)){
-    revealEls.forEach(el => el.classList.add("in"));
-  } else {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add("in");
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-    revealEls.forEach(el => io.observe(el));
-  }
-
-  /* ---- 3D tilt + spotlight on cards ---- */
-  if(finePointer && !reduce){
-    document.querySelectorAll(".tilt").forEach(card => {
-      const MAX = 7;
-      card.style.transition = "transform .45s cubic-bezier(.22,.68,.24,1)";
-
-      card.addEventListener("mousemove", (ev) => {
-        const r = card.getBoundingClientRect();
-        const px = (ev.clientX - r.left) / r.width;
-        const py = (ev.clientY - r.top) / r.height;
-
-        card.style.setProperty("--mx", (px * 100) + "%");
-        card.style.setProperty("--my", (py * 100) + "%");
-        card.style.transform =
-          "perspective(900px) rotateX(" + ((0.5 - py) * MAX).toFixed(2) + "deg)" +
-          " rotateY(" + ((px - 0.5) * MAX).toFixed(2) + "deg)" +
-          " translateY(-4px)";
-      });
-
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "";
-      });
-    });
-  }
-
-  /* ---- magnetic buttons ---- */
-  if(finePointer && !reduce){
-    document.querySelectorAll(".magnetic").forEach(el => {
-      el.addEventListener("mousemove", (ev) => {
-        const r = el.getBoundingClientRect();
-        const x = (ev.clientX - r.left - r.width / 2) * 0.16;
-        const y = (ev.clientY - r.top - r.height / 2) * 0.28;
-        el.style.transform = "translate(" + x.toFixed(1) + "px," + (y - 2).toFixed(1) + "px)";
-      });
-      el.addEventListener("mouseleave", () => { el.style.transform = ""; });
-    });
-  }
-
-  /* ---- cursor glow ---- */
-  if(finePointer && !reduce){
-    const glow = document.getElementById("cursorGlow");
-    let tx = 0, ty = 0, cx = 0, cy = 0;
-    window.addEventListener("mousemove", (ev) => { tx = ev.clientX; ty = ev.clientY; }, { passive:true });
-    (function loop(){
-      cx += (tx - cx) * 0.09;
-      cy += (ty - cy) * 0.09;
-      glow.style.transform = "translate(" + cx + "px," + cy + "px) translate(-50%,-50%)";
-      requestAnimationFrame(loop);
-    })();
-  }
-
-  /* ---- broken portrait fallback (shows initials instead of a broken image icon) ---- */
-  document.querySelectorAll("img.portrait").forEach(function(img){
-    const wrap = img.closest(".portrait-wrap");
-    if(!wrap) return;
-    const fail = function(){ wrap.classList.add("failed"); };
-    img.addEventListener("error", fail);
-    if(img.complete && img.naturalWidth === 0) fail();
-  });
-
-  /* ---- rotating words ---- */
-  const words = document.querySelectorAll("#rotSlot .rot-word");
-  if(words.length > 1 && !reduce){
-    let i = 0;
-    setInterval(() => {
-      const current = words[i];
-      i = (i + 1) % words.length;
-      const next = words[i];
-      current.classList.add("leaving");
-      current.classList.remove("active");
-      setTimeout(() => current.classList.remove("leaving"), 560);
-      next.classList.add("active");
-    }, 2600);
-  }
-})();
-</script>
-
-<!-- ================= 3D hero scene ================= -->
-<script type="module">
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const canvas = document.getElementById("scene");
-
-  if (!prefersReduced && canvas) {
-    try {
-      const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js");
-
-      const renderer = new THREE.WebGLRenderer({
-        canvas, antialias: true, alpha: true, powerPreference: "high-performance"
-      });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      renderer.setSize(window.innerWidth, window.innerHeight, false);
-
-      const scene = new THREE.Scene();
-      scene.fog = new THREE.FogExp2(0x060a12, 0.028);
-
-      const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 120);
-      camera.position.set(0, 0, 17);
-
-      const group = new THREE.Group();
-      scene.add(group);
-
-      const small = window.innerWidth < 760;
-      const COUNT = small ? 52 : 96;
-      const RADIUS = small ? 7.5 : 10;
-
-      // evenly distributed nodes (fibonacci sphere) => the "automation graph"
-      const points = [];
-      for (let i = 0; i < COUNT; i++) {
-        const y = 1 - (i / (COUNT - 1)) * 2;
-        const r = Math.sqrt(Math.max(0, 1 - y * y));
-        const theta = i * 2.3999632297;
-        const dist = RADIUS * (0.6 + Math.random() * 0.4);
-        points.push(new THREE.Vector3(
-          Math.cos(theta) * r * dist,
-          y * dist * 0.72,
-          Math.sin(theta) * r * dist
-        ));
-      }
-
-      // glowing node sprites
-      const cv = document.createElement("canvas");
-      cv.width = cv.height = 64;
-      const ctx = cv.getContext("2d");
-      const g = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-      g.addColorStop(0, "rgba(190,245,255,1)");
-      g.addColorStop(0.35, "rgba(0,170,255,.75)");
-      g.addColorStop(1, "rgba(0,170,255,0)");
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, 64, 64);
-
-      const spriteTex = new THREE.CanvasTexture(cv);
-
-      const pGeo = new THREE.BufferGeometry().setFromPoints(points);
-      const pMat = new THREE.PointsMaterial({
-        size: small ? 1.1 : 1.5,
-        map: spriteTex,
-        transparent: true,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending,
-        opacity: 0.95,
-        sizeAttenuation: true
-      });
-      group.add(new THREE.Points(pGeo, pMat));
-
-      // connections between nearby nodes
-      const linePos = [];
-      const lineCol = [];
-      const cA = new THREE.Color(0x00aaff);
-      const cB = new THREE.Color(0x8b5cf6);
-      const maxDist = small ? 3.1 : 2.9;
-
-      for (let i = 0; i < points.length; i++) {
-        for (let j = i + 1; j < points.length; j++) {
-          const d = points[i].distanceTo(points[j]);
-          if (d < maxDist) {
-            linePos.push(points[i].x, points[i].y, points[i].z, points[j].x, points[j].y, points[j].z);
-            const t = Math.min(1, d / maxDist);
-            const col = cA.clone().lerp(cB, t);
-            const fade = 1 - t * 0.55;
-            lineCol.push(col.r * fade, col.g * fade, col.b * fade);
-            lineCol.push(col.r * fade, col.g * fade, col.b * fade);
-          }
-        }
-      }
-
-      const lGeo = new THREE.BufferGeometry();
-      lGeo.setAttribute("position", new THREE.Float32BufferAttribute(linePos, 3));
-      lGeo.setAttribute("color", new THREE.Float32BufferAttribute(lineCol, 3));
-
-      const lMat = new THREE.LineBasicMaterial({
-        vertexColors: true,
-        transparent: true,
-        opacity: 0.42,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
-      });
-      group.add(new THREE.LineSegments(lGeo, lMat));
-
-      // subtle core shapes for depth
-      const core = new THREE.Mesh(
-        new THREE.IcosahedronGeometry(small ? 1.5 : 2.1, 1),
-        new THREE.MeshBasicMaterial({ color: 0x00aaff, wireframe: true, transparent: true, opacity: 0.12 })
-      );
-      group.add(core);
-
-      const pointer = { x: 0, y: 0 };
-      const target = { x: 0, y: 0 };
-
-      window.addEventListener("mousemove", (ev) => {
-        target.x = (ev.clientX / window.innerWidth) * 2 - 1;
-        target.y = (ev.clientY / window.innerHeight) * 2 - 1;
-      }, { passive: true });
-
-      // touch parallax
-      window.addEventListener("touchmove", (ev) => {
-        if (!ev.touches.length) return;
-        target.x = (ev.touches[0].clientX / window.innerWidth) * 2 - 1;
-        target.y = (ev.touches[0].clientY / window.innerHeight) * 2 - 1;
-      }, { passive: true });
-
-      const clock = new THREE.Clock();
-      let raf = 0;
-      let running = true;
-
-      function resize() {
-        const w = window.innerWidth, h = window.innerHeight;
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-        renderer.setSize(w, h, false);
-      }
-      window.addEventListener("resize", resize);
-
-      function frame() {
-        if (!running) return;
-        const t = clock.getElapsedTime();
-
-        pointer.x += (target.x - pointer.x) * 0.045;
-        pointer.y += (target.y - pointer.y) * 0.045;
-
-        group.rotation.y = t * 0.075 + pointer.x * 0.45;
-        group.rotation.x = Math.sin(t * 0.22) * 0.09 + pointer.y * 0.22;
-        core.rotation.y = -t * 0.28;
-        core.rotation.x = t * 0.16;
-
-        const scrollShift = (window.scrollY || 0) * 0.0016;
-        group.position.y = -scrollShift * 6;
-        camera.position.z = 17 + Math.min(scrollShift * 5, 4);
-
-        renderer.render(scene, camera);
-        raf = requestAnimationFrame(frame);
-      }
-
-      document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-          running = false;
-          cancelAnimationFrame(raf);
-        } else if (!running) {
-          running = true;
-          clock.getDelta();
-          frame();
-        }
-      });
-
-      frame();
-    } catch (err) {
-      // WebGL unavailable or CDN blocked: the CSS gradient background still looks complete.
-      if (canvas) canvas.style.display = "none";
-      console.warn("3D scene skipped:", err);
-    }
-  }
-</script>
-
+  <script src="chatbot.js" defer></script>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
