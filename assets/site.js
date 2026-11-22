@@ -112,7 +112,20 @@
     var canvas = document.createElement("canvas");
     canvas.className = "bg-field";
     canvas.setAttribute("aria-hidden", "true");
+    /* present enough to be seen, faded at the edges so it never competes
+       with the copy in the middle of the page */
+    canvas.style.opacity = "0.88";
+    canvas.style.maskImage = "radial-gradient(125% 95% at 50% 0%, #000 0%, rgba(0,0,0,.78) 58%, rgba(0,0,0,.38) 100%)";
+    canvas.style.webkitMaskImage = canvas.style.maskImage;
     host.insertBefore(canvas, host.firstChild);
+
+    /* soft scrim over the field and under the text: brighter nodes never
+       sit directly behind a line of copy */
+    var scrim = document.createElement("div");
+    scrim.setAttribute("aria-hidden", "true");
+    scrim.style.cssText = "position:absolute;inset:0;z-index:1;pointer-events:none;" +
+      "background:radial-gradient(min(1000px,90vw) 64vh at 50% 40%, rgba(15,14,12,.58), rgba(15,14,12,.26) 56%, transparent 80%)";
+    host.appendChild(scrim);
 
     var ctx = canvas.getContext("2d");
     if (!ctx) { canvas.remove(); return; }
@@ -140,16 +153,16 @@
       linkMax = Math.max(190, Math.min(300, Math.round(Math.min(w, h) * 0.42)));
 
       /* density scales with the viewport, capped for older phones */
-      var count = Math.max(16, Math.min(58, Math.round((w * h) / 32000)));
+      var count = Math.max(20, Math.min(82, Math.round((w * h) / 23500)));
 
       nodes = [];
       for (var i = 0; i < count; i++) {
         nodes.push({
           x: rnd(0, w),
           y: rnd(0, h),
-          vx: rnd(-0.10, 0.10),
-          vy: rnd(-0.08, 0.08),
-          r: rnd(0.9, 1.5),
+          vx: rnd(-0.14, 0.14),
+          vy: rnd(-0.11, 0.11),
+          r: rnd(1.0, 1.7),
           hub: false,
           phase: rnd(0, Math.PI * 2)
         });
@@ -160,7 +173,7 @@
       for (var k = 0; k < hubs; k++) {
         var idx = Math.floor((k + 0.5) * (nodes.length / hubs)) % nodes.length;
         nodes[idx].hub = true;
-        nodes[idx].r = rnd(2.0, 2.7);
+        nodes[idx].r = rnd(2.4, 3.2);
       }
 
       /* link every node to its two nearest neighbours, once */
@@ -207,7 +220,7 @@
         e.next -= dt;
         if (e.next > 0) continue;
         e.next = rnd(1800, 5200);
-        if (packets.length > 14) continue;
+        if (packets.length > 20) continue;
         packets.push({ e: i, t: 0, speed: e.speed });
       }
 
@@ -232,7 +245,7 @@
         dy = a.y - b.y;
         dist = Math.sqrt(dx * dx + dy * dy);
         if (dist > linkMax * 1.5) continue;
-        alpha = Math.max(0, 1 - dist / (linkMax * 1.5)) * 0.17;
+        alpha = Math.max(0, 1 - dist / (linkMax * 1.5)) * 0.28;
         ctx.strokeStyle = "rgba(" + INK + "," + alpha.toFixed(3) + ")";
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
@@ -246,16 +259,16 @@
         if (n.hub) {
           var pulse = (Math.sin(now * 0.0012 + n.phase) + 1) / 2;
           ctx.beginPath();
-          ctx.strokeStyle = "rgba(" + ACCENT + "," + (0.30 - pulse * 0.20).toFixed(3) + ")";
-          ctx.arc(n.x, n.y, 3 + pulse * 9, 0, Math.PI * 2);
+          ctx.strokeStyle = "rgba(" + ACCENT + "," + (0.42 - pulse * 0.26).toFixed(3) + ")";
+          ctx.arc(n.x, n.y, 3.5 + pulse * 11, 0, Math.PI * 2);
           ctx.stroke();
           ctx.beginPath();
-          ctx.fillStyle = "rgba(" + ACCENT + ",0.85)";
+          ctx.fillStyle = "rgba(" + ACCENT + ",0.95)";
           ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
           ctx.fill();
         } else {
           ctx.beginPath();
-          ctx.fillStyle = "rgba(" + INK + ",0.42)";
+          ctx.fillStyle = "rgba(" + INK + ",0.58)";
           ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
           ctx.fill();
         }
@@ -272,8 +285,8 @@
         var y = p1.y + (p2.y - p1.y) * t;
         var fade = Math.sin(Math.PI * t);
         ctx.beginPath();
-        ctx.fillStyle = "rgba(" + ACCENT + "," + (0.75 * fade).toFixed(3) + ")";
-        ctx.arc(x, y, 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(" + ACCENT + "," + (0.9 * fade).toFixed(3) + ")";
+        ctx.arc(x, y, 2.4, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -286,7 +299,7 @@
           dist = Math.sqrt(dx * dx + dy * dy);
           if (dist > 170 || dist < 1) continue;
           ctx.beginPath();
-          ctx.strokeStyle = "rgba(" + ACCENT + "," + ((1 - dist / 170) * 0.20).toFixed(3) + ")";
+          ctx.strokeStyle = "rgba(" + ACCENT + "," + ((1 - dist / 170) * 0.28).toFixed(3) + ")";
           ctx.moveTo(n.x, n.y);
           ctx.lineTo(pointer.x, pointer.y);
           ctx.stroke();
