@@ -95,4 +95,263 @@
   document.querySelectorAll("img[data-initial]").forEach(function (img) {
     img.addEventListener("error", function () { img.remove(); });
   });
+
+  /* ----------------------------------------------------------------
+     Animated backdrop: a drifting field of connected nodes.
+     Each node links to its nearest neighbours and small packets travel
+     along those links — the visual language of systems talking to each
+     other (a channel, n8n, a sheet, an alert).
+     Cheap on purpose: one canvas, capped node count, no libraries,
+     paused when the tab is hidden, one static frame when the visitor
+     asks for reduced motion.
+     ---------------------------------------------------------------- */
+  (function () {
+    var host = document.querySelector(".backdrop");
+    if (!host) return;
+
+    var canvas = document.createElement("canvas");
+    canvas.className = "bg-field";
+    canvas.setAttribute("aria-hidden", "true");
+    host.insertBefore(canvas, host.firstChild);
+
+    var ctx = canvas.getContext("2d");
+    if (!ctx) { canvas.remove(); return; }
+
+    var INK = "244,235,222";      /* fine rules + small nodes */
+    var ACCENT = "207,127,87";    /* copper: hubs and moving packets */
+
+    var w = 0, h = 0, dpr = 1, linkMax = 240;
+    var nodes = [], edges = [], packets = [];
+    var pointer = { x: -9999, y: -9999, on: false };
+    var last = 0, raf = null, running = false;
+
+    function rnd(a, b) { return a + Math.random() * (b - a); }
+
+    function build() {
+      var rect = host.getBoundingClientRect();
+      w = Math.max(320, Math.round(rect.width));
+      h = Math.max(320, Math.round(rect.height));
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      linkMax = Math.max(190, Math.min(300, Math.round(Math.min(w, h) * 0.42)));
+
+      /* density scales with the viewport, capped for older phones */
+      var count = Math.max(16, Math.min(58, Math.round((w * h) / 32000)));
+
+      nodes = [];
+      for (var i = 0; i < count; i++) {
+        nodes.push({
+          x: rnd(0, w),
+          y: rnd(0, h),
+          vx: rnd(-0.10, 0.10),
+          vy: rnd(-0.08, 0.08),
+          r: rnd(0.9, 1.5),
+          hub: false,
+          phase: rnd(0, Math.PI * 2)
+        });
+      }
+
+      /* a handful of hubs act as the centre of a workflow */
+      var hubs = Math.max(2, Math.round(count / 14));
+      for (var k = 0; k < hubs; k++) {
+        var idx = Math.floor((k + 0.5) * (nodes.length / hubs)) % nodes.length;
+        nodes[idx].hub = true;
+        nodes[idx].r = rnd(2.0, 2.7);
+      }
+
+      /* link every node to its two nearest neighbours, once */
+      edges = [];
+      var seen = Object.create(null);
+      for (var a = 0; a < nodes.length; a++) {
+        var near = [];
+        for (var b = 0; b < nodes.length; b++) {
+          if (a === b) continue;
+          var dx = nodes[a].x - nodes[b].x;
+          var dy = nodes[a].y - nodes[b].y;
+          near.push({ i: b, d: dx * dx + dy * dy });
+        }
+        near.sort(function (p, q) { return p.d - q.d; });
+        for (var n = 0; n < 2 && n < near.length; n++) {
+          var j = near[n].i;
+          var key = a < j ? a + ":" + j : j + ":" + a;
+          if (seen[key]) continue;
+          seen[key] = 1;
+          edges.push({ a: a, b: j, speed: rnd(0.00016, 0.00042), next: rnd(600, 2600) });
+        }
+      }
+
+      packets = [];
+    }
+
+    function step(dt) {
+      var i, n, e, p;
+
+      /* drift, wrapping gently at the edges */
+      for (i = 0; i < nodes.length; i++) {
+        n = nodes[i];
+        n.x += n.vx * dt * 0.06;
+        n.y += n.vy * dt * 0.06;
+        if (n.x < -40) n.x = w + 40;
+        if (n.x > w + 40) n.x = -40;
+        if (n.y < -40) n.y = h + 40;
+        if (n.y > h + 40) n.y = -40;
+      }
+
+      /* let links occasionally release a packet */
+      for (i = 0; i < edges.length; i++) {
+        e = edges[i];
+        e.next -= dt;
+        if (e.next > 0) continue;
+        e.next = rnd(1800, 5200);
+        if (packets.length > 14) continue;
+        packets.push({ e: i, t: 0, speed: e.speed });
+      }
+
+      for (i = packets.length - 1; i >= 0; i--) {
+        p = packets[i];
+        p.t += p.speed * dt;
+        if (p.t >= 1) packets.splice(i, 1);
+      }
+    }
+
+    function paint(now) {
+      ctx.clearRect(0, 0, w, h);
+      var i, e, n, a, b, dx, dy, dist, alpha;
+
+      /* 1px links, brighter the shorter they are */
+      ctx.lineWidth = 1;
+      for (i = 0; i < edges.length; i++) {
+        e = edges[i];
+        a = nodes[e.a];
+        b = nodes[e.b];
+        dx = a.x - b.x;
+        dy = a.y - b.y;
+        dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > linkMax * 1.5) continue;
+        alpha = Math.max(0, 1 - dist / (linkMax * 1.5)) * 0.17;
+        ctx.strokeStyle = "rgba(" + INK + "," + alpha.toFixed(3) + ")";
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+
+      /* small nodes; hubs breathe */
+      for (i = 0; i < nodes.length; i++) {
+        n = nodes[i];
+        if (n.hub) {
+          var pulse = (Math.sin(now * 0.0012 + n.phase) + 1) / 2;
+          ctx.beginPath();
+          ctx.strokeStyle = "rgba(" + ACCENT + "," + (0.30 - pulse * 0.20).toFixed(3) + ")";
+          ctx.arc(n.x, n.y, 3 + pulse * 9, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.fillStyle = "rgba(" + ACCENT + ",0.85)";
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.beginPath();
+          ctx.fillStyle = "rgba(" + INK + ",0.42)";
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      /* packets travelling along a link */
+      for (i = 0; i < packets.length; i++) {
+        var pk = packets[i];
+        var pe = edges[pk.e];
+        if (!pe) continue;
+        var p1 = nodes[pe.a], p2 = nodes[pe.b];
+        var t = pk.t;
+        var x = p1.x + (p2.x - p1.x) * t;
+        var y = p1.y + (p2.y - p1.y) * t;
+        var fade = Math.sin(Math.PI * t);
+        ctx.beginPath();
+        ctx.fillStyle = "rgba(" + ACCENT + "," + (0.75 * fade).toFixed(3) + ")";
+        ctx.arc(x, y, 1.8, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      /* a couple of nodes lean toward the cursor */
+      if (pointer.on && !reduce) {
+        for (i = 0; i < nodes.length; i++) {
+          n = nodes[i];
+          dx = n.x - pointer.x;
+          dy = n.y - pointer.y;
+          dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist > 170 || dist < 1) continue;
+          ctx.beginPath();
+          ctx.strokeStyle = "rgba(" + ACCENT + "," + ((1 - dist / 170) * 0.20).toFixed(3) + ")";
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(pointer.x, pointer.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    function frame(now) {
+      if (!running) return;
+      raf = requestAnimationFrame(frame);
+      if (!last) last = now;
+      var dt = Math.min(now - last, 48);
+      last = now;
+      step(dt);
+      paint(now);
+    }
+
+    function start() {
+      if (running || reduce) return;
+      running = true;
+      last = 0;
+      raf = requestAnimationFrame(frame);
+    }
+
+    function stop() {
+      running = false;
+      if (raf) cancelAnimationFrame(raf);
+      raf = null;
+    }
+
+    build();
+
+    if (reduce) {
+      /* static snapshot: the texture stays, the motion does not */
+      for (var warm = 0; warm < 40; warm++) step(16);
+      paint(0);
+    } else {
+      start();
+      if (typeof IntersectionObserver === "function") {
+        new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) start(); else stop();
+        }, { threshold: 0 }).observe(canvas);
+      }
+    }
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop(); else start();
+    });
+
+    window.addEventListener("pointermove", function (e) {
+      if (reduce) return;
+      pointer.x = e.clientX;
+      pointer.y = e.clientY;
+      pointer.on = e.pointerType !== "touch";
+    }, { passive: true });
+
+    window.addEventListener("pointerleave", function () { pointer.on = false; });
+
+    var resizeTimer = null;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        build();
+        if (reduce) paint(0);
+      }, 220);
+    });
+  })();
 })();
